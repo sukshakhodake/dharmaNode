@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var objectid = require("mongodb").ObjectId;
 
 var schema = new Schema({
 
@@ -189,6 +190,22 @@ var models = {
       }
     });
   },
+  getAllCast: function(data, callback) {
+    this.findOne({
+      "_id": data._id
+    }, {
+      cast: 1
+    }).exec(function(err, found) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (found && Object.keys(found).length > 0) {
+        callback(null, found);
+      } else {
+        callback(null, {});
+      }
+    });
+  },
   getOne: function(data, callback) {
     this.findOne({
       "_id": data._id
@@ -203,6 +220,89 @@ var models = {
       }
     });
   },
+  saveCast: function(data, callback) {
+        var movie = data.movie;
+        if (!data._id) {
+            Movie.update({
+                _id: movie
+            }, {
+                $push: {
+                    cast: data
+                }
+            }, function(err, updated) {
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else {
+                    callback(null, updated);
+                }
+            });
+        } else {
+            data._id = objectid(data._id);
+            tobechanged = {};
+            var attribute = "cast.$.";
+            _.forIn(data, function(value, key) {
+                tobechanged[attribute + key] = value;
+            });
+            ExpertUser.update({
+                "cast._id": data._id
+            }, {
+                $set: tobechanged
+            }, function(err, updated) {
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else {
+                    callback(null, updated);
+                }
+            });
+        }
+    },
+  getOneCast: function(data, callback) {
+  // aggregate query
+  Movie.aggregate([{
+            $unwind: "$cast"
+        }, {
+            $match: {
+                "cast._id": objectid(data._id)
+            }
+        }, {
+            $project: {
+                cast: 1
+            }
+        }]).exec(function(err, respo) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (respo && respo.length > 0 && respo[0].cast) {
+                callback(null, respo[0].cast);
+            } else {
+                callback({
+                    message: "No data found"
+                }, null);
+            }
+        });
+  },
+  deleteCast: function(data, callback) {
+        Movie.update({
+            "cast._id": data._id
+        }, {
+            $pull: {
+                "cast": {
+                    "_id": objectid(data._id)
+                }
+            }
+        }, function(err, updated) {
+            console.log(updated);
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else {
+                callback(null, updated);
+            }
+        });
+
+    },
   findLimited: function(data, callback) {
     var newreturns = {};
     newreturns.data = [];
