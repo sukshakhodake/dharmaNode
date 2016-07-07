@@ -15,6 +15,14 @@ var schema = new Schema({
     type: String,
     default: ""
   },
+  mediumImage: {
+    type: String,
+    default: ""
+  },
+  cutImage: {
+    type: String,
+    default: ""
+  },
   releaseType: {
     type: String,
     default: ""
