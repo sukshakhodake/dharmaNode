@@ -56,28 +56,6 @@ var schema = new Schema({
       default: ""
     }
   }],
-  news: [{
-    image: {
-      type: String,
-      default: ""
-    },
-    title: {
-      type: String,
-      default: ""
-    },
-    date: {
-      type: String,
-      default: ""
-    },
-    text: {
-      type: String,
-      default: ""
-    },
-    link: {
-      type: String,
-      default: ""
-    }
-  }],
   gallery: [{
     image: {
       type: String,
