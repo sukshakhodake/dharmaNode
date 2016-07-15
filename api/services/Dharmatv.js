@@ -22,7 +22,11 @@ var schema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Movie',
     index: true
-  }
+  },
+  isbanner: {
+    type: Boolean,
+    default: ""
+  },
 
 
 });
