@@ -14,6 +14,10 @@ var schema = new Schema({
     type: String,
     default: ""
   },
+  thumbnail: {
+    type: String,
+    default: ""
+  },
   movie: {
     type: Schema.Types.ObjectId,
     ref: 'Movie',

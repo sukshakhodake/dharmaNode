@@ -168,22 +168,6 @@ var models = {
       }
     });
   },
-  getAllCast: function(data, callback) {
-    this.findOne({
-      "_id": data._id
-    }, {
-      cast: 1
-    }).exec(function(err, found) {
-      if (err) {
-        console.log(err);
-        callback(err, null);
-      } else if (found && Object.keys(found).length > 0) {
-        callback(null, found);
-      } else {
-        callback(null, {});
-      }
-    });
-  },
   getOne: function(data, callback) {
     this.findOne({
       "_id": data._id
@@ -198,89 +182,7 @@ var models = {
       }
     });
   },
-  saveCast: function(data, callback) {
-        var movie = data.movie;
-        if (!data._id) {
-            Movie.update({
-                _id: movie
-            }, {
-                $push: {
-                    cast: data
-                }
-            }, function(err, updated) {
-                if (err) {
-                    console.log(err);
-                    callback(err, null);
-                } else {
-                    callback(null, updated);
-                }
-            });
-        } else {
-            data._id = objectid(data._id);
-            tobechanged = {};
-            var attribute = "cast.$.";
-            _.forIn(data, function(value, key) {
-                tobechanged[attribute + key] = value;
-            });
-            ExpertUser.update({
-                "cast._id": data._id
-            }, {
-                $set: tobechanged
-            }, function(err, updated) {
-                if (err) {
-                    console.log(err);
-                    callback(err, null);
-                } else {
-                    callback(null, updated);
-                }
-            });
-        }
-    },
-  getOneCast: function(data, callback) {
-  // aggregate query
-  Movie.aggregate([{
-            $unwind: "$cast"
-        }, {
-            $match: {
-                "cast._id": objectid(data._id)
-            }
-        }, {
-            $project: {
-                cast: 1
-            }
-        }]).exec(function(err, respo) {
-            if (err) {
-                console.log(err);
-                callback(err, null);
-            } else if (respo && respo.length > 0 && respo[0].cast) {
-                callback(null, respo[0].cast);
-            } else {
-                callback({
-                    message: "No data found"
-                }, null);
-            }
-        });
-  },
-  deleteCast: function(data, callback) {
-        Movie.update({
-            "cast._id": data._id
-        }, {
-            $pull: {
-                "cast": {
-                    "_id": objectid(data._id)
-                }
-            }
-        }, function(err, updated) {
-            console.log(updated);
-            if (err) {
-                console.log(err);
-                callback(err, null);
-            } else {
-                callback(null, updated);
-            }
-        });
 
-    },
   findLimited: function(data, callback) {
     var newreturns = {};
     newreturns.data = [];
@@ -336,6 +238,369 @@ var models = {
           callback(null, newreturns);
         }
       });
-  }
+  },
+
+
+  //SIDEMENU CAST
+
+  saveCast: function(data, callback) {
+    console.log(data);
+    var movie = data.movie;
+    if (!data._id) {
+      Movie.update({
+        _id: movie
+      }, {
+        $push: {
+          cast: data
+        }
+      }, function(err, updated) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else {
+          callback(null, updated);
+        }
+      });
+    } else {
+      data._id = objectid(data._id);
+      tobechanged = {};
+      var attribute = "cast.$.";
+      _.forIn(data, function(value, key) {
+        tobechanged[attribute + key] = value;
+      });
+      ExpertUser.update({
+        "cast._id": data._id
+      }, {
+        $set: tobechanged
+      }, function(err, updated) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else {
+          callback(null, updated);
+        }
+      });
+    }
+  },
+
+  getAllCast: function(data, callback) {
+    var newreturns = {};
+    newreturns.data = [];
+    var check = new RegExp(data.search, "i");
+    data.pagenumber = parseInt(data.pagenumber);
+    data.pagesize = parseInt(data.pagesize);
+    var skip = parseInt(data.pagesize * (data.pagenumber - 1));
+    async.parallel([
+        function(callback) {
+          Movie.aggregate([{
+            $match: {
+              _id: objectid(data._id)
+            }
+          }, {
+            $unwind: "$cast"
+          }, {
+            $group: {
+              _id: null,
+              count: {
+                $sum: 1
+              }
+            }
+          }, {
+            $project: {
+              count: 1
+            }
+          }]).exec(function(err, result) {
+            console.log(result);
+            if (result && result[0]) {
+              newreturns.total = result[0].count;
+              newreturns.totalpages = Math.ceil(result[0].count / data.pagesize);
+              callback(null, newreturns);
+            } else if (err) {
+              console.log(err);
+              callback(err, null);
+            } else {
+              callback({
+                message: "Count of null"
+              }, null);
+            }
+          });
+        },
+        function(callback) {
+          Movie.aggregate([{
+            $match: {
+              _id: objectid(data._id)
+            }
+          }, {
+            $unwind: "$cast"
+          }, {
+            $group: {
+              _id: "_id",
+              cast: {
+                $push: "$cast"
+              }
+            }
+          }, {
+            $project: {
+              _id: 0,
+              cast: {
+                $slice: ["$cast", skip, data.pagesize]
+              }
+            }
+          }]).exec(function(err, found) {
+            console.log(found);
+            if (found && found.length > 0) {
+              newreturns.data = found[0].cast;
+              callback(null, newreturns);
+            } else if (err) {
+              console.log(err);
+              callback(err, null);
+            } else {
+              callback({
+                message: "Count of null"
+              }, null);
+            }
+          });
+        }
+      ],
+      function(err, data4) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else if (data4) {
+          callback(null, newreturns);
+        } else {
+          callback(null, newreturns);
+        }
+      });
+  },
+
+
+  deleteCast: function(data, callback) {
+    Movie.update({
+      "cast._id": data._id
+    }, {
+      $pull: {
+        "cast": {
+          "_id": objectid(data._id)
+        }
+      }
+    }, function(err, updated) {
+      console.log(updated);
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else {
+        callback(null, updated);
+      }
+    });
+
+  },
+  getOneCast: function(data, callback) {
+    // aggregate query
+    Movie.aggregate([{
+      $unwind: "$cast"
+    }, {
+      $match: {
+        "cast._id": objectid(data._id)
+      }
+    }, {
+      $project: {
+        cast: 1
+      }
+    }]).exec(function(err, respo) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (respo && respo.length > 0 && respo[0].cast) {
+        callback(null, respo[0].cast);
+      } else {
+        callback({
+          message: "No data found"
+        }, null);
+      }
+    });
+  },
+
+
+
+  //SIDEMENU CREW
+
+  saveCrew: function(data, callback) {
+    console.log(data);
+    var movie = data.movie;
+    if (!data._id) {
+      Movie.update({
+        _id: movie
+      }, {
+        $push: {
+          crew: data
+        }
+      }, function(err, updated) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else {
+          callback(null, updated);
+        }
+      });
+    } else {
+      data._id = objectid(data._id);
+      tobechanged = {};
+      var attribute = "crew.$.";
+      _.forIn(data, function(value, key) {
+        tobechanged[attribute + key] = value;
+      });
+      ExpertUser.update({
+        "crew._id": data._id
+      }, {
+        $set: tobechanged
+      }, function(err, updated) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else {
+          callback(null, updated);
+        }
+      });
+    }
+  },
+
+  getAllCrew: function(data, callback) {
+    var newreturns = {};
+    newreturns.data = [];
+    var check = new RegExp(data.search, "i");
+    data.pagenumber = parseInt(data.pagenumber);
+    data.pagesize = parseInt(data.pagesize);
+    var skip = parseInt(data.pagesize * (data.pagenumber - 1));
+    async.parallel([
+        function(callback) {
+          Movie.aggregate([{
+            $match: {
+              _id: objectid(data._id)
+            }
+          }, {
+            $unwind: "$crew"
+          }, {
+            $group: {
+              _id: null,
+              count: {
+                $sum: 1
+              }
+            }
+          }, {
+            $project: {
+              count: 1
+            }
+          }]).exec(function(err, result) {
+            console.log(result);
+            if (result && result[0]) {
+              newreturns.total = result[0].count;
+              newreturns.totalpages = Math.ceil(result[0].count / data.pagesize);
+              callback(null, newreturns);
+            } else if (err) {
+              console.log(err);
+              callback(err, null);
+            } else {
+              callback({
+                message: "Count of null"
+              }, null);
+            }
+          });
+        },
+        function(callback) {
+          Movie.aggregate([{
+            $match: {
+              _id: objectid(data._id)
+            }
+          }, {
+            $unwind: "$crew"
+          }, {
+            $group: {
+              _id: "_id",
+              crew: {
+                $push: "$crew"
+              }
+            }
+          }, {
+            $project: {
+              _id: 0,
+              crew: {
+                $slice: ["$crew", skip, data.pagesize]
+              }
+            }
+          }]).exec(function(err, found) {
+            console.log(found);
+            if (found && found.length > 0) {
+              newreturns.data = found[0].crew;
+              callback(null, newreturns);
+            } else if (err) {
+              console.log(err);
+              callback(err, null);
+            } else {
+              callback({
+                message: "Count of null"
+              }, null);
+            }
+          });
+        }
+      ],
+      function(err, data4) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else if (data4) {
+          callback(null, newreturns);
+        } else {
+          callback(null, newreturns);
+        }
+      });
+  },
+
+
+  deleteCrew: function(data, callback) {
+    Movie.update({
+      "crew._id": data._id
+    }, {
+      $pull: {
+        "crew": {
+          "_id": objectid(data._id)
+        }
+      }
+    }, function(err, updated) {
+      console.log(updated);
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else {
+        callback(null, updated);
+      }
+    });
+
+  },
+  getOneCrew: function(data, callback) {
+    // aggregate query
+    Movie.aggregate([{
+      $unwind: "$crew"
+    }, {
+      $match: {
+        "crew._id": objectid(data._id)
+      }
+    }, {
+      $project: {
+        crew: 1
+      }
+    }]).exec(function(err, respo) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (respo && respo.length > 0 && respo[0].crew) {
+        callback(null, respo[0].crew);
+      } else {
+        callback({
+          message: "No data found"
+        }, null);
+      }
+    });
+  },
 };
 module.exports = _.assign(module.exports, models);
