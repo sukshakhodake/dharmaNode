@@ -32,6 +32,10 @@ var schema = new Schema({
     type: String,
     default: ""
   },
+  note: {
+    type: String,
+    default: ""
+  },
   cast: [{
     actor: {
       type: String,
@@ -78,6 +82,10 @@ var schema = new Schema({
     thumbnail: {
       type: String,
       default: ""
+    },
+    isbanner: {
+      type: String,
+      default: ""
     }
   }],
   wallpaper: [{
@@ -100,6 +108,10 @@ var schema = new Schema({
       default: ""
     },
     title: {
+      type: String,
+      default: ""
+    },
+    note: {
       type: String,
       default: ""
     },
