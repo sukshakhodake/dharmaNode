@@ -6,10 +6,7 @@ var schema = new Schema({
     type: String,
     default: ""
   },
-  tag: {
-    type: String,
-    default: ""
-  },
+  tag: [],
   order: {
     type: String,
     default: ""
