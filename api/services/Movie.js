@@ -1140,6 +1140,32 @@ var models = {
     });
 
   },
+  // getOneWallpaper: function(data, callback) {
+  //   // aggregate query
+  //   Movie.aggregate([{
+  //     $unwind: "$wallpaper"
+  //   }, {
+  //     $match: {
+  //       "wallpaper._id": objectid(data._id)
+  //     }
+  //   }, {
+  //     $project: {
+  //       wallpaper: 1
+  //     }
+  //   }]).exec(function(err, respo) {
+  //     if (err) {
+  //       console.log(err);
+  //       callback(err, null);
+  //     } else if (respo && respo.length > 0 && respo[0].wallpaper) {
+  //       callback(null, respo[0].wallpaper);
+  //     } else {
+  //       callback({
+  //         message: "No data found"
+  //       }, null);
+  //     }
+  //   });
+  // },
+
   getOneWallpaper: function(data, callback) {
     // aggregate query
     Movie.aggregate([{
