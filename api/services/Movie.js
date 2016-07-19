@@ -24,6 +24,10 @@ var schema = new Schema({
     type: String,
     default: ""
   },
+  cutImage2: {
+    type: String,
+    default: ""
+  },
   releaseType: {
     type: String,
     default: ""
