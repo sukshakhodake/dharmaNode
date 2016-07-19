@@ -1096,10 +1096,13 @@ var models = {
             if (found && found.length > 0) {
               newreturns.data = found[0].wallpaper;
               callback(null, newreturns);
+              console.log("AAA");
             } else if (err) {
               console.log(err);
+              console.log("AAcA");
               callback(err, null);
             } else {
+              console.log("AArA");
               callback({
                 message: "Count of null"
               }, null);
