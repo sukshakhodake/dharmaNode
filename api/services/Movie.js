@@ -992,7 +992,7 @@ var models = {
         _id: movie
       }, {
         $push: {
-          videos: data
+          wallpaper: data
         }
       }, function(err, updated) {
         if (err) {
@@ -1173,7 +1173,7 @@ var models = {
         _id: movie
       }, {
         $push: {
-          videos: data
+          awards: data
         }
       }, function(err, updated) {
         if (err) {
