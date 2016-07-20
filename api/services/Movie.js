@@ -52,6 +52,10 @@ var schema = new Schema({
     image: {
       type: String,
       default: ""
+    },
+    type: {
+      type: String,
+      default: ""
     }
   }],
   crew: [{
