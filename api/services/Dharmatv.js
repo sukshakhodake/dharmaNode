@@ -24,6 +24,7 @@ var schema = new Schema({
     type: Boolean,
     default: ""
   },
+  image:String,
 
 
 });
