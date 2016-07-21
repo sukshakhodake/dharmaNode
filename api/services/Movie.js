@@ -1660,58 +1660,87 @@ var schema = new Schema({
         },
 
         getMovieDetails: function(data, callback) {
-          data.pagenumber = parseInt(data.pagenumber);
-          data.pagesize = parseInt(data.pagesize);
-          var newreturns = {};
-          newreturns.recent = [];
-          newreturns.upcoming = [];
-          newreturns.past = [];
-          async.parallel([
-            function(cb) {
-              Movie.find({
-                releaseType: "recent"
-              }).exec(function(err, respo) {
+            var check = new RegExp(data.search, "i");
+            // async.parallel([
+            //     function(cb) {
+            //         Movie.count({
+            //             $and: [{
+            //                 $or: [{
+            //                   director: {
+            //                       $regex: check
+            //                   }
+            //                 }, {
+            //                   mainCast: {
+            //                       $regex: check
+            //                   }
+            //                 }, {
+            //                   name:{
+            //                       $regex: check
+            //                   }
+            //                 }]
+            //             }, {
+            //                 $or: [{
+            //                   releaseType:"upcoming"
+            //                 }, {
+            //                   releaseType:"recent"
+            //                 }, {
+            //                   releaseType:"past"
+            //                 }]
+            //             }]
+            //         }).exec(function(err, count) {
+            //             if (err) {
+            //                 console.log(err);
+            //                 cb(err, null);
+            //             } else {
+            //               newreturns.total = count;
+            //               newreturns.totalpages = Math.ceil(count / data.pagesize);
+            //               cb(null,count);
+            //             }
+            //         });
+            //     },
+            //     function(cb) {
+            Movie.find({
+                $and: [{
+                    $or: [{
+                        director: {
+                            $regex: check
+                        }
+                    }, {
+                        mainCast: {
+                            $regex: check
+                        }
+                    }, {
+                        name: {
+                            $regex: check
+                        }
+                    }]
+                }, {
+                    $or: [{
+                        releaseType: "upcoming"
+                    }, {
+                        releaseType: "recent"
+                    }, {
+                        releaseType: "past"
+                    }]
+                }]
+            }).exec(function(err, respo) {
                 if (err) {
-                  cb(err, null);
+                    console.log(err);
+                    callback(err, null);
                 } else {
-                  newreturns.recent = respo;
-                  cb(null, respo)
+                    callback(null, respo);
                 }
-              });
-            },
-            function(cb) {
-              Movie.find({
-                releaseType: "upcoming"
-              }).exec(function(err, respo) {
-                if (err) {
-                  cb(err, null);
-                } else {
-                  newreturns.upcoming = respo;
-                  cb(null, respo)
-                }
-              });
-            },
-            function(cb) {
-              Movie.find({
-                releaseType: "past"
-              }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, respo) {
-                if (err) {
-                  cb(err, null);
-                } else {
-                  newreturns.past = respo;
-                  cb(null, respo)
-                }
-              });
-            }
-          ], function(error, result) {
-            if (error) {
-              console.log(error);
-              callback(error, null);
-            } else {
-              callback(null, newreturns);
-            }
-          })
-        }, >>>
-        >>>
-        > origin / master
+            });
+            //     }
+            // ],function(err,respo){
+            //   if (err) {
+            //       console.log(err);
+            //       callback(err, null);
+            //   } else if (respo) {
+            //       callback(null, newreturns);
+            //   } else {
+            //       callback(null, newreturns);
+            //   }
+            // });
+        },
     }; module.exports = _.assign(module.exports, models);

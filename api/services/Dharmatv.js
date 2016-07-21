@@ -25,6 +25,8 @@ var schema = new Schema({
     default: ""
   },
   image:String,
+  title:String,
+  videos:[{thumbnail: String,url:String,description:String}],
 
 
 });
@@ -150,6 +152,34 @@ var models = {
         } else {
           callback(null, newreturns);
         }
+      });
+  },
+
+  getAllDharmatv: function(data, callback) {
+      var check = new RegExp(data.search, "i");
+      Dharmatv.find({
+          $and: [{
+              $or: [{
+                  tag: {
+                      $regex: check
+                  }
+              }, {
+                  title: {
+                      $regex: check
+                  }
+              }, {
+                  "videos.description": {
+                      $regex: check
+                  }
+              }]
+          }]
+      }).exec(function(err, respo) {
+          if (err) {
+              console.log(err);
+              callback(err, null);
+          } else {
+              callback(null, respo);
+          }
       });
   }
 };
