@@ -1742,5 +1742,34 @@ var models = {
     //   }
     // });
   },
+
+  getAllUpcomingMovies: function(data, callback) {
+    this.find({
+      "releaseType": "upcoming"
+    }, {
+       upcomingSmall: 1,
+       name : 1
+    }, {}).exec(function(err, deleted) {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, deleted);
+      }
+    });
+  },
+  getAllRecentMovies: function(data, callback) {
+    this.find({
+      "releaseType": "recent"
+    }, {
+       recentSmall: 1,
+       name : 1
+    }, {}).exec(function(err, deleted) {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, deleted);
+      }
+    });
+  },
 };
 module.exports = _.assign(module.exports, models);

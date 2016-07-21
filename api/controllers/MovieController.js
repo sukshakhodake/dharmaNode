@@ -760,5 +760,50 @@ module.exports = {
         data: "Invalid call"
       });
     }
-  }
+  },
+
+    getAllUpcomingMovies: function(req, res) {
+      if (req.body) {
+        Movie.getAllUpcomingMovies(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+    getAllRecentMovies: function(req, res) {
+      if (req.body) {
+        Movie.getAllRecentMovies(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
 };
