@@ -599,4 +599,95 @@ module.exports = {
         });
       }
     },
+
+
+    // Behind the scenes
+
+    findBehindTheScenes: function(req, res) {
+      if (req.body.pagenumber && req.body.pagesize) {
+        Movie.getAllBehindTheScenes(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+    findOneBehindTheScenes: function(req, res) {
+      if (req.body) {
+        Movie.getOneBehindTheScenes(req.body, res.callback);
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid Request"
+        });
+      }
+    },
+
+    deleteBehindTheScenes: function(req, res) {
+      if (req.body) {
+        if (req.body._id && req.body._id !== "") {
+          //	console.log("not valid");
+          Movie.deleteBehindTheScenes(req.body, function(err, respo) {
+            if (err) {
+              res.json({
+                value: false,
+                data: err
+              });
+            } else {
+              res.json({
+                value: true,
+                data: respo
+              });
+            }
+          });
+        } else {
+          res.json({
+            value: false,
+            data: "Invalid Id"
+          });
+        }
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+    saveBehindTheScenes: function(req, res) {
+      console.log(req.body);
+      if (req.body) {
+        Movie.saveBehindTheScenes(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+
 };

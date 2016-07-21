@@ -12,7 +12,19 @@ var schema = new Schema({
     type: String,
     default: ""
   },
+  upcomingSmall: {
+    type: String,
+    default: ""
+  },
+  recentSmall: {
+    type: String,
+    default: ""
+  },
   smallImage: {
+    type: String,
+    default: ""
+  },
+  backgroundImage: {
     type: String,
     default: ""
   },
@@ -21,6 +33,14 @@ var schema = new Schema({
     default: ""
   },
   cutImage: {
+    type: String,
+    default: ""
+  },
+  theatricalTrailerImage: {
+    type: String,
+    default: ""
+  },
+  theatricalTrailerUrl: {
     type: String,
     default: ""
   },
@@ -78,8 +98,22 @@ var schema = new Schema({
       default: ""
     }
   }],
+  behindTheScenes: [{
+    image: {
+      type: String,
+      default: ""
+    },
+    order: {
+      type: String,
+      default: ""
+    }
+  }],
   videos: [{
     url: {
+      type: String,
+      default: ""
+    },
+    name: {
       type: String,
       default: ""
     },
@@ -1379,5 +1413,188 @@ var models = {
       }
     });
   },
+
+
+
+  //SIDEMENU BehindTheScenes
+
+  saveBehindTheScenes: function(data, callback) {
+    console.log(data);
+    var movie = data.movie;
+    if (!data._id) {
+      Movie.update({
+        _id: movie
+      }, {
+        $push: {
+          behindTheScenes: data
+        }
+      }, function(err, updated) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else {
+          callback(null, updated);
+        }
+      });
+    } else {
+      data._id = objectid(data._id);
+      tobechanged = {};
+      var attribute = "behindTheScenes.$.";
+      _.forIn(data, function(value, key) {
+        tobechanged[attribute + key] = value;
+      });
+      Movie.update({
+        "behindTheScenes._id": data._id
+      }, {
+        $set: tobechanged
+      }, function(err, updated) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else {
+          callback(null, updated);
+        }
+      });
+    }
+  },
+
+  getAllBehindTheScenes: function(data, callback) {
+    var newreturns = {};
+    newreturns.data = [];
+    var check = new RegExp(data.search, "i");
+    data.pagenumber = parseInt(data.pagenumber);
+    data.pagesize = parseInt(data.pagesize);
+    var skip = parseInt(data.pagesize * (data.pagenumber - 1));
+    async.parallel([
+        function(callback) {
+          Movie.aggregate([{
+            $match: {
+              _id: objectid(data._id)
+            }
+          }, {
+            $unwind: "$behindTheScenes"
+          }, {
+            $group: {
+              _id: null,
+              count: {
+                $sum: 1
+              }
+            }
+          }, {
+            $project: {
+              count: 1
+            }
+          }]).exec(function(err, result) {
+            console.log(result);
+            if (result && result[0]) {
+              newreturns.total = result[0].count;
+              newreturns.totalpages = Math.ceil(result[0].count / data.pagesize);
+              callback(null, newreturns);
+            } else if (err) {
+              console.log(err);
+              callback(err, null);
+            } else {
+              callback({
+                message: "Count of null"
+              }, null);
+            }
+          });
+        },
+        function(callback) {
+          Movie.aggregate([{
+            $match: {
+              _id: objectid(data._id)
+            }
+          }, {
+            $unwind: "$behindTheScenes"
+          }, {
+            $group: {
+              _id: "_id",
+              behindTheScenes: {
+                $push: "$behindTheScenes"
+              }
+            }
+          }, {
+            $project: {
+              _id: 0,
+              behindTheScenes: {
+                $slice: ["$behindTheScenes", skip, data.pagesize]
+              }
+            }
+          }]).exec(function(err, found) {
+            console.log(found);
+            if (found && found.length > 0) {
+              newreturns.data = found[0].behindTheScenes;
+              callback(null, newreturns);
+            } else if (err) {
+              console.log(err);
+              callback(err, null);
+            } else {
+              callback({
+                message: "Count of null"
+              }, null);
+            }
+          });
+        }
+      ],
+      function(err, data4) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else if (data4) {
+          callback(null, newreturns);
+        } else {
+          callback(null, newreturns);
+        }
+      });
+  },
+
+
+  deleteBehindTheScenes: function(data, callback) {
+    Movie.update({
+      "behindTheScenes._id": data._id
+    }, {
+      $pull: {
+        "behindTheScenes": {
+          "_id": objectid(data._id)
+        }
+      }
+    }, function(err, updated) {
+      console.log(updated);
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else {
+        callback(null, updated);
+      }
+    });
+
+  },
+  getOneBehindTheScenes: function(data, callback) {
+    // aggregate query
+    Movie.aggregate([{
+      $unwind: "$behindTheScenes"
+    }, {
+      $match: {
+        "behindTheScenes._id": objectid(data._id)
+      }
+    }, {
+      $project: {
+        behindTheScenes: 1
+      }
+    }]).exec(function(err, respo) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (respo && respo.length > 0 && respo[0].behindTheScenes) {
+        callback(null, respo[0].behindTheScenes);
+      } else {
+        callback({
+          message: "No data found"
+        }, null);
+      }
+    });
+  },
+
 };
 module.exports = _.assign(module.exports, models);
