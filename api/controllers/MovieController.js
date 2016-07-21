@@ -124,7 +124,7 @@ module.exports = {
     }
   },
   saveCast: function(req, res) {
-		console.log(req.body);
+    console.log(req.body);
     if (req.body) {
       Movie.saveCast(req.body, function(err, respo) {
         if (err) {
@@ -149,347 +149,136 @@ module.exports = {
 
 
 
-	// crew
+  // crew
 
-	findCrew: function(req, res) {
-		if (req.body.pagenumber && req.body.pagesize) {
-			Movie.getAllCrew(req.body, function(err, respo) {
-				if (err) {
-					res.json({
-						value: false,
-						data: err
-					});
-				} else {
-					res.json({
-						value: true,
-						data: respo
-					});
-				}
-			});
-		} else {
-			res.json({
-				value: false,
-				data: "Invalid call"
-			});
-		}
-	},
-	findOneCrew: function(req, res) {
-		if (req.body) {
-			Movie.getOneCrew(req.body, res.callback);
-		} else {
-			res.json({
-				value: false,
-				data: "Invalid Request"
-			});
-		}
-	},
+  findCrew: function(req, res) {
+    if (req.body.pagenumber && req.body.pagesize) {
+      Movie.getAllCrew(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  findOneCrew: function(req, res) {
+    if (req.body) {
+      Movie.getOneCrew(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
 
-	deleteCrew: function(req, res) {
-		if (req.body) {
-			if (req.body._id && req.body._id !== "") {
-				//	console.log("not valid");
-				Movie.deleteCrew(req.body, function(err, respo) {
-					if (err) {
-						res.json({
-							value: false,
-							data: err
-						});
-					} else {
-						res.json({
-							value: true,
-							data: respo
-						});
-					}
-				});
-			} else {
-				res.json({
-					value: false,
-					data: "Invalid Id"
-				});
-			}
-		} else {
-			res.json({
-				value: false,
-				data: "Invalid call"
-			});
-		}
-	},
-	saveCrew: function(req, res) {
-		console.log(req.body);
-		if (req.body) {
-			Movie.saveCrew(req.body, function(err, respo) {
-				if (err) {
-					res.json({
-						value: false,
-						data: err
-					});
-				} else {
-					res.json({
-						value: true,
-						data: respo
-					});
-				}
-			});
-		} else {
-			res.json({
-				value: false,
-				data: "Invalid call"
-			});
-		}
-	},
+  deleteCrew: function(req, res) {
+    if (req.body) {
+      if (req.body._id && req.body._id !== "") {
+        //	console.log("not valid");
+        Movie.deleteCrew(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid Id"
+        });
+      }
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  saveCrew: function(req, res) {
+    console.log(req.body);
+    if (req.body) {
+      Movie.saveCrew(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
 
 
   // gallery
 
-	findGallery: function(req, res) {
-		if (req.body.pagenumber && req.body.pagesize) {
-			Movie.getAllGallery(req.body, function(err, respo) {
-				if (err) {
-					res.json({
-						value: false,
-						data: err
-					});
-				} else {
-					res.json({
-						value: true,
-						data: respo
-					});
-				}
-			});
-		} else {
-			res.json({
-				value: false,
-				data: "Invalid call"
-			});
-		}
-	},
-	findOneGallery: function(req, res) {
-		if (req.body) {
-			Movie.getOneGallery(req.body, res.callback);
-		} else {
-			res.json({
-				value: false,
-				data: "Invalid Request"
-			});
-		}
-	},
-
-	deleteGallery: function(req, res) {
-		if (req.body) {
-			if (req.body._id && req.body._id !== "") {
-				//	console.log("not valid");
-				Movie.deleteGallery(req.body, function(err, respo) {
-					if (err) {
-						res.json({
-							value: false,
-							data: err
-						});
-					} else {
-						res.json({
-							value: true,
-							data: respo
-						});
-					}
-				});
-			} else {
-				res.json({
-					value: false,
-					data: "Invalid Id"
-				});
-			}
-		} else {
-			res.json({
-				value: false,
-				data: "Invalid call"
-			});
-		}
-	},
-	saveGallery: function(req, res) {
-		console.log(req.body);
-		if (req.body) {
-			Movie.saveGallery(req.body, function(err, respo) {
-				if (err) {
-					res.json({
-						value: false,
-						data: err
-					});
-				} else {
-					res.json({
-						value: true,
-						data: respo
-					});
-				}
-			});
-		} else {
-			res.json({
-				value: false,
-				data: "Invalid call"
-			});
-		}
-	},
-
-
-
-
-    // Videos
-
-  	findVideos: function(req, res) {
-  		if (req.body.pagenumber && req.body.pagesize) {
-  			Movie.getAllVideos(req.body, function(err, respo) {
-  				if (err) {
-  					res.json({
-  						value: false,
-  						data: err
-  					});
-  				} else {
-  					res.json({
-  						value: true,
-  						data: respo
-  					});
-  				}
-  			});
-  		} else {
-  			res.json({
-  				value: false,
-  				data: "Invalid call"
-  			});
-  		}
-  	},
-  	findOneVideos: function(req, res) {
-  		if (req.body) {
-  			Movie.getOneVideos(req.body, res.callback);
-  		} else {
-  			res.json({
-  				value: false,
-  				data: "Invalid Request"
-  			});
-  		}
-  	},
-
-  	deleteVideos: function(req, res) {
-  		if (req.body) {
-  			if (req.body._id && req.body._id !== "") {
-  				//	console.log("not valid");
-  				Movie.deleteVideos(req.body, function(err, respo) {
-  					if (err) {
-  						res.json({
-  							value: false,
-  							data: err
-  						});
-  					} else {
-  						res.json({
-  							value: true,
-  							data: respo
-  						});
-  					}
-  				});
-  			} else {
-  				res.json({
-  					value: false,
-  					data: "Invalid Id"
-  				});
-  			}
-  		} else {
-  			res.json({
-  				value: false,
-  				data: "Invalid call"
-  			});
-  		}
-  	},
-  	saveVideos: function(req, res) {
-  		console.log(req.body);
-  		if (req.body) {
-  			Movie.saveVideos(req.body, function(err, respo) {
-  				if (err) {
-  					res.json({
-  						value: false,
-  						data: err
-  					});
-  				} else {
-  					res.json({
-  						value: true,
-  						data: respo
-  					});
-  				}
-  			});
-  		} else {
-  			res.json({
-  				value: false,
-  				data: "Invalid call"
-  			});
-  		}
-  	},
-
-
-    // Wallpaper
-
-    findWallpaper: function(req, res) {
-      if (req.body.pagenumber && req.body.pagesize) {
-        Movie.getAllWallpaper(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    findOneWallpaper: function(req, res) {
-      if (req.body) {
-        Movie.getOneWallpaper(req.body, res.callback);
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid Request"
-        });
-      }
-    },
-
-    deleteWallpaper: function(req, res) {
-      if (req.body) {
-        if (req.body._id && req.body._id !== "") {
-          //	console.log("not valid");
-          Movie.deleteWallpaper(req.body, function(err, respo) {
-            if (err) {
-              res.json({
-                value: false,
-                data: err
-              });
-            } else {
-              res.json({
-                value: true,
-                data: respo
-              });
-            }
+  findGallery: function(req, res) {
+    if (req.body.pagenumber && req.body.pagesize) {
+      Movie.getAllGallery(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
           });
         } else {
           res.json({
-            value: false,
-            data: "Invalid Id"
+            value: true,
+            data: respo
           });
         }
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    saveWallpaper: function(req, res) {
-      console.log(req.body);
-      if (req.body) {
-        Movie.saveWallpaper(req.body, function(err, respo) {
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  findOneGallery: function(req, res) {
+    if (req.body) {
+      Movie.getOneGallery(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
+
+  deleteGallery: function(req, res) {
+    if (req.body) {
+      if (req.body._id && req.body._id !== "") {
+        //	console.log("not valid");
+        Movie.deleteGallery(req.body, function(err, respo) {
           if (err) {
             res.json({
               value: false,
@@ -505,81 +294,83 @@ module.exports = {
       } else {
         res.json({
           value: false,
-          data: "Invalid call"
+          data: "Invalid Id"
         });
       }
-    },
-
-
-    // Awards
-
-    findAwards: function(req, res) {
-      if (req.body.pagenumber && req.body.pagesize) {
-        Movie.getAllAwards(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    findOneAwards: function(req, res) {
-      if (req.body) {
-        Movie.getOneAwards(req.body, res.callback);
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid Request"
-        });
-      }
-    },
-
-    deleteAwards: function(req, res) {
-      if (req.body) {
-        if (req.body._id && req.body._id !== "") {
-          //	console.log("not valid");
-          Movie.deleteAwards(req.body, function(err, respo) {
-            if (err) {
-              res.json({
-                value: false,
-                data: err
-              });
-            } else {
-              res.json({
-                value: true,
-                data: respo
-              });
-            }
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  saveGallery: function(req, res) {
+    console.log(req.body);
+    if (req.body) {
+      Movie.saveGallery(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
           });
         } else {
           res.json({
-            value: false,
-            data: "Invalid Id"
+            value: true,
+            data: respo
           });
         }
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    saveAwards: function(req, res) {
-      console.log(req.body);
-      if (req.body) {
-        Movie.saveAwards(req.body, function(err, respo) {
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+
+
+
+
+  // Videos
+
+  findVideos: function(req, res) {
+    if (req.body.pagenumber && req.body.pagesize) {
+      Movie.getAllVideos(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  findOneVideos: function(req, res) {
+    if (req.body) {
+      Movie.getOneVideos(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
+
+  deleteVideos: function(req, res) {
+    if (req.body) {
+      if (req.body._id && req.body._id !== "") {
+        //	console.log("not valid");
+        Movie.deleteVideos(req.body, function(err, respo) {
           if (err) {
             res.json({
               value: false,
@@ -595,9 +386,190 @@ module.exports = {
       } else {
         res.json({
           value: false,
-          data: "Invalid call"
+          data: "Invalid Id"
         });
       }
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  saveVideos: function(req, res) {
+    console.log(req.body);
+    if (req.body) {
+      Movie.saveVideos(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+
+
+  // Wallpaper
+
+  findWallpaper: function(req, res) {
+    if (req.body.pagenumber && req.body.pagesize) {
+      Movie.getAllWallpaper(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  findOneWallpaper: function(req, res) {
+    if (req.body) {
+      Movie.getOneWallpaper(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
+
+  deleteWallpaper: function(req, res) {
+    if (req.body) {
+      if (req.body._id && req.body._id !== "") {
+        //	console.log("not valid");
+        Movie.deleteWallpaper(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid Id"
+        });
+      }
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  saveWallpaper: function(req, res) {
+    console.log(req.body);
+    if (req.body) {
+      Movie.saveWallpaper(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+
+
+  // Awards
+
+  findAwards: function(req, res) {
+    if (req.body.pagenumber && req.body.pagesize) {
+      Movie.getAllAwards(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  findOneAwards: function(req, res) {
+    if (req.body) {
+      Movie.getOneAwards(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
+
+  deleteAwards: function(req, res) {
+    if (req.body) {
+      if (req.body._id && req.body._id !== "") {
+        //	console.log("not valid");
+        Movie.deleteAwards(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid Id"
+        });
+      }
+<<<<<<< HEAD
     },
 
 
@@ -689,5 +661,108 @@ module.exports = {
         });
       }
     },
+=======
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  saveAwards: function(req, res) {
+    console.log(req.body);
+    if (req.body) {
+      Movie.saveAwards(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+
+
+  getAllMovies: function(req, res) {
+    if (req.body) {
+      Movie.getAllMovies(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+
+  saveDataMovie: function(req, res) {
+    if (req.body) {
+      Movie.saveDataMovie(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieDetails: function(req, res) {
+    if (req.body) {
+
+      Movie.getMovieDetails(req.body, function(err, data) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: data
+          });
+        }
+      });
+
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Call"
+      });
+    }
+  },
+>>>>>>> origin/master
 
 };
