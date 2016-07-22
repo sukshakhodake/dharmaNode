@@ -125,6 +125,10 @@ var schema = new Schema({
       type: String,
       default: ""
     },
+    name: {
+      type: String,
+      default: ""
+    },
     thumbnail: {
       type: String,
       default: ""
@@ -1827,6 +1831,44 @@ var models = {
   getMovieWallpaper: function(data, callback) {
       this.findOne({"_id": data._id}, {
          wallpaper: 1
+      }, {}).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
+  getMovieAwards: function(data, callback) {
+      this.findOne({"_id": data._id}, {
+         awards: 1
+      }, {}).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
+  getMovieSynopsisAndNote: function(data, callback) {
+      this.findOne({"_id": data._id}, {
+         synopsis: 1,
+         note:1
+      }, {}).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
+  getMovieCast: function(data, callback) {
+      this.findOne({"_id": data._id}, {
+         cast: 1,
+         crew:1
       }, {}).exec(function(err, data2) {
           if (err) {
               callback(err, null);
