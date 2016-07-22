@@ -1810,7 +1810,10 @@ var models = {
       });
   },
   getMovieVideo: function(data, callback) {
-      this.findOne({"_id": data._id}, {
+      this.findOne({
+        "_id": data._id,
+        // "type": "desktop"
+    }, {
          videos: 1
       }, {}).exec(function(err, data2) {
           if (err) {
