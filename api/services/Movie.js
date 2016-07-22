@@ -36,6 +36,10 @@ var schema = new Schema({
     type: String,
     default: ""
   },
+  year: {
+    type: String,
+    default: ""
+  },
   cutImage: {
     type: String,
     default: ""
