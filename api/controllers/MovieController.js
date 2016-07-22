@@ -983,5 +983,49 @@ module.exports = {
         });
       }
     },
+    getMovieCast: function(req, res) {
+      if (req.body) {
+        Movie.getMovieCast(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+    getMovieCrew: function(req, res) {
+      if (req.body) {
+        Movie.getMovieCrew(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
 
 };

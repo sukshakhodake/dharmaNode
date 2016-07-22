@@ -1867,8 +1867,19 @@ var models = {
   },
   getMovieCast: function(data, callback) {
       this.findOne({"_id": data._id}, {
-         cast: 1,
-         crew:1
+         cast: 1
+      }, {}).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
+  getMovieCrew: function(data, callback) {
+      this.findOne({"_id": data._id}, {
+         crew: 1
       }, {}).exec(function(err, data2) {
           if (err) {
               callback(err, null);
