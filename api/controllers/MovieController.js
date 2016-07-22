@@ -806,4 +806,116 @@ module.exports = {
         });
       }
     },
+
+    getMovieNews: function(req, res) {
+      if (req.body) {
+        Movie.getMovieNews(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+    getMovieGal: function(req, res) {
+      if (req.body) {
+        Movie.getMovieGal(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+    getMovieBehindTheScenes: function(req, res) {
+      if (req.body) {
+        Movie.getMovieBehindTheScenes(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+    getMovieVideo: function(req, res) {
+      if (req.body) {
+        Movie.getMovieVideo(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+    getMovieWallpaper: function(req, res) {
+      if (req.body) {
+        Movie.getMovieWallpaper(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
+
 };

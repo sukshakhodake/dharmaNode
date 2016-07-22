@@ -153,7 +153,8 @@ var models = {
           callback(null, newreturns);
         }
       });
-  }
+  },
+
 };
 
 module.exports = _.assign(module.exports, models);

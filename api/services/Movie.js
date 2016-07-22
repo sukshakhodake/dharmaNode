@@ -1771,5 +1771,67 @@ var models = {
       }
     });
   },
+  // getMovieNews: function()
+
+  getMovieNews: function(data, callback) {
+      News.find({
+        movie:data._id
+      }).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
+  getMovieGal: function(data, callback) {
+      this.findOne({"_id": data._id}, {
+         gallery: 1
+      }, {}).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
+  getMovieBehindTheScenes: function(data, callback) {
+      this.findOne({"_id": data._id}, {
+         behindTheScenes: 1
+      }, {}).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
+  getMovieVideo: function(data, callback) {
+      this.findOne({"_id": data._id}, {
+         videos: 1
+      }, {}).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
+  getMovieWallpaper: function(data, callback) {
+      this.findOne({"_id": data._id}, {
+         wallpaper: 1
+      }, {}).exec(function(err, data2) {
+          if (err) {
+              callback(err, null);
+          } else {
+            console.log(data2);
+              callback(null, data2);
+          }
+      });
+  },
 };
 module.exports = _.assign(module.exports, models);
