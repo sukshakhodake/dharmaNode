@@ -826,6 +826,7 @@ var models = {
     });
 
   },
+
   getOneGallery: function(data, callback) {
     // aggregate query
     Movie.aggregate([{
@@ -1908,6 +1909,19 @@ var models = {
         callback(null, data2);
       }
     });
+  },
+  getAllMovieName: function(data, callback) {
+    Movie.find({}, {
+      _id: 1,
+      name: 1
+    }, {}).sort({ year: -1 }).exec(function(err, deleted) {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, deleted);
+      }
+    });
+
   },
 };
 module.exports = _.assign(module.exports, models);

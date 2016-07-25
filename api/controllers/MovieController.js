@@ -1027,5 +1027,15 @@ module.exports = {
         });
       }
     },
+    getAllMovieName: function(req, res) {
+      if (req.body) {
+        Movie.getAllMovieName(req.body, res.callback);
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid Request"
+        });
+      }
+    },
 
 };
