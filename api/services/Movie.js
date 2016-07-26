@@ -287,7 +287,9 @@ var models = {
             }
           }, {
             password: 0
-          }).sort({ name: 1 }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+          }).sort({
+            name: 1
+          }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
             if (err) {
               console.log(err);
               callback(err, null);
@@ -1918,13 +1920,76 @@ var models = {
     Movie.find({}, {
       _id: 1,
       name: 1
-    }, {}).sort({ year: -1 }).exec(function(err, deleted) {
+    }, {}).sort({
+      year: -1
+    }).exec(function(err, deleted) {
       if (err) {
         callback(err, null);
       } else {
         callback(null, deleted);
       }
     });
+
+  },
+  findAllSearchParam: function(data, callback) {
+
+    async.parallel([
+        function(callback) {
+          Dharmatv.find({
+            tag: 1
+          }).exec(function(err, data3) {
+            if (err) {
+              console.log(err);
+              callback(err, null);
+            } else if (data3 && data3.length > 0) {
+              newreturns.data = data3;
+              callback(null, newreturns);
+            } else {
+              callback(null, newreturns);
+            }
+          });
+        },
+        function(callback) {
+          Movie.find({
+            name: 1
+          }).exec(function(err, data2) {
+            if (err) {
+              console.log(err);
+              callback(err, null);
+            } else if (data2 && data2.length > 0) {
+              newreturns.data = data2;
+              callback(null, newreturns);
+            } else {
+              callback(null, newreturns);
+            }
+          });
+        },
+        function(callback) {
+          Movie.find({
+            cast: 1
+          }).exec(function(err, data1) {
+            if (err) {
+              console.log(err);
+              callback(err, null);
+            } else if (data1 && data1.length > 0) {
+              newreturns.data = data1;
+              callback(null, newreturns);
+            } else {
+              callback(null, newreturns);
+            }
+          });
+        }
+      ],
+      function(err, data4) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else if (data4) {
+          callback(null, newreturns);
+        } else {
+          callback(null, newreturns);
+        }
+      });
 
   },
 };
