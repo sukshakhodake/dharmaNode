@@ -16,6 +16,10 @@ var schema = new Schema({
     type: String,
     default: ""
   },
+  order: {
+    type: String,
+    default: ""
+  },
   upcomingSmall: {
     type: String,
     default: ""
