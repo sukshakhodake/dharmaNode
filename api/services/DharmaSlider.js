@@ -78,6 +78,18 @@ var models = {
       }
     });
   },
+  getAllDharmaTvSlider: function(data, callback) {
+    this.find({}).sort({ order: -1 }).exec(function(err, found) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (found && found.length > 0) {
+        callback(null, found);
+      } else {
+        callback(null, []);
+      }
+    });
+  },
   getOne: function(data, callback) {
     this.findOne({
       "_id": data._id
