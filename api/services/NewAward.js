@@ -338,7 +338,7 @@ var models = {
   },
 
   getMovieAward: function(data, callback) {
-    this.findOne({
+    this.find({
       "movie": data._id
     }).exec(function(err, found) {
       if (err) {
@@ -346,6 +346,8 @@ var models = {
         callback(err, null);
       } else if (found && Object.keys(found).length > 0) {
         callback(null, found);
+        console.log(" All data ");
+        console.log(found);
       } else {
         callback(null, {});
       }
