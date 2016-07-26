@@ -155,5 +155,17 @@ module.exports = {
       });
     }
   },
+  // AWARD API
+
+  getMovieAward: function(req, res) {
+    if (req.body) {
+      NewAward.getMovieAward(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
 
 };

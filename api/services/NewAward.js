@@ -337,6 +337,22 @@ var models = {
     });
   },
 
+  getMovieAward: function(data, callback) {
+    this.findOne({
+      "movie": data._id
+    }).exec(function(err, found) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (found && Object.keys(found).length > 0) {
+        callback(null, found);
+      } else {
+        callback(null, {});
+      }
+    });
+
+  },
+
 };
 
 module.exports = _.assign(module.exports, models);
