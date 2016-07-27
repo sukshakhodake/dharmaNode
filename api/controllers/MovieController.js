@@ -762,306 +762,300 @@ module.exports = {
     }
   },
 
-    getAllUpcomingMovies: function(req, res) {
-      if (req.body) {
-        Movie.getAllUpcomingMovies(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getAllRecentMovies: function(req, res) {
-      if (req.body) {
-        Movie.getAllRecentMovies(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
+  getAllUpcomingMovies: function(req, res) {
+    if (req.body) {
+      Movie.getAllUpcomingMovies(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getAllRecentMovies: function(req, res) {
+    if (req.body) {
+      Movie.getAllRecentMovies(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
 
-    getMovieNews: function(req, res) {
-      if (req.body) {
-        Movie.getMovieNews(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieGal: function(req, res) {
-      if (req.body) {
-        Movie.getMovieGal(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieBehindTheScenes: function(req, res) {
-      if (req.body) {
-        Movie.getMovieBehindTheScenes(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieVideo: function(req, res) {
-      if (req.body) {
-        Movie.getMovieVideo(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieWallpaper: function(req, res) {
-      if (req.body) {
-        Movie.getMovieWallpaper(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieAwards: function(req, res) {
-      if (req.body) {
-        Movie.getMovieAwards(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieSynopsisAndNote: function(req, res) {
-      if (req.body) {
-        Movie.getMovieSynopsisAndNote(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieCast: function(req, res) {
-      if (req.body) {
-        Movie.getMovieCast(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieCast: function(req, res) {
-      if (req.body) {
-        Movie.getMovieCast(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getMovieCrew: function(req, res) {
-      if (req.body) {
-        Movie.getMovieCrew(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
-        });
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid call"
-        });
-      }
-    },
-    getAllMovieName: function(req, res) {
-      if (req.body) {
-        Movie.getAllMovieName(req.body, res.callback);
-      } else {
-        res.json({
-          value: false,
-          data: "Invalid Request"
-        });
-      }
-    },
+  getMovieNews: function(req, res) {
+    if (req.body) {
+      Movie.getMovieNews(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieGal: function(req, res) {
+    if (req.body) {
+      Movie.getMovieGal(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieBehindTheScenes: function(req, res) {
+    if (req.body) {
+      Movie.getMovieBehindTheScenes(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieVideo: function(req, res) {
+    if (req.body) {
+      Movie.getMovieVideo(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieWallpaper: function(req, res) {
+    if (req.body) {
+      Movie.getMovieWallpaper(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieAwards: function(req, res) {
+    if (req.body) {
+      Movie.getMovieAwards(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieSynopsisAndNote: function(req, res) {
+    if (req.body) {
+      Movie.getMovieSynopsisAndNote(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieCast: function(req, res) {
+    if (req.body) {
+      Movie.getMovieCast(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieCast: function(req, res) {
+    if (req.body) {
+      Movie.getMovieCast(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getMovieCrew: function(req, res) {
+    if (req.body) {
+      Movie.getMovieCrew(req.body, function(err, respo) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+        } else {
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+  getAllMovieName: function(req, res) {
+    if (req.body) {
+      Movie.getAllMovieName(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
 
 
 
-    // get all search param
+  // get all search param
 
-    findAllSearchParam: function(req, res) {
-      if (req.body.pagenumber && req.body.pagesize) {
-        Movie.findAllSearchParam(req.body, function(err, respo) {
-          if (err) {
-            res.json({
-              value: false,
-              data: err
-            });
-          } else {
-            res.json({
-              value: true,
-              data: respo
-            });
-          }
+  findAllSearchParam: function(req, res) {
+    Movie.findAllSearchParam(req.body, function(err, respo) {
+      if (err) {
+        res.json({
+          value: false,
+          data: err
         });
       } else {
         res.json({
-          value: false,
-          data: "Invalid call"
+          value: true,
+          data: respo
         });
       }
-    },
+    });
+
+  },
 };
