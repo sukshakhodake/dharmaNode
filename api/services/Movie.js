@@ -1761,7 +1761,8 @@ var models = {
       "releaseType": "upcoming"
     }, {
       upcomingSmall: 1,
-      name: 1
+      name: 1,
+      url:1
     }, {}).exec(function(err, deleted) {
       if (err) {
         callback(err, null);
