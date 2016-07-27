@@ -79,19 +79,13 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    this.find({}, {
-      movie: 1,
-      videos: 1
-    }).populate("movie", "name").lean().exec(function(err, found) {
+    this.find({}).populate("movie", "name").lean().exec(function(err, found) {
       if (err) {
+
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
-        _.each(found, function(n) {
-          if (n.movie && n.movie.name) {
-            n.movie = n.movie.name;
-          }
-        });
+
         callback(null, found);
       } else {
         callback(null, []);
