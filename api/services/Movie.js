@@ -1932,17 +1932,24 @@ var models = {
 
   },
   findAllSearchParam: function(data, callback) {
-
+    var newreturns = {};
+    var searchResult = [];
+    newreturns.data = [];
     async.parallel([
         function(callback) {
-          Dharmatv.find({
+          Dharmatv.find({}, {
             tag: 1
           }).exec(function(err, data3) {
             if (err) {
               console.log(err);
               callback(err, null);
             } else if (data3 && data3.length > 0) {
-              newreturns.data = data3;
+              _.each(data3, function(n) {
+                _.each(n.tag, function(m) {
+                  searchResult.push(m);
+                });
+              });
+              newreturns.data3 = data3;
               callback(null, newreturns);
             } else {
               callback(null, newreturns);
@@ -1950,14 +1957,17 @@ var models = {
           });
         },
         function(callback) {
-          Movie.find({
+          Movie.find({}, {
             name: 1
           }).exec(function(err, data2) {
             if (err) {
               console.log(err);
               callback(err, null);
             } else if (data2 && data2.length > 0) {
-              newreturns.data = data2;
+              _.each(data2, function(o) {
+                searchResult.push(o.name);
+              });
+              newreturns.data2 = data2;
               callback(null, newreturns);
             } else {
               callback(null, newreturns);
@@ -1965,14 +1975,15 @@ var models = {
           });
         },
         function(callback) {
-          Movie.find({
+          Movie.find({}, {
             cast: 1
           }).exec(function(err, data1) {
             if (err) {
               console.log(err);
               callback(err, null);
             } else if (data1 && data1.length > 0) {
-              newreturns.data = data1;
+              newreturns.data1 = data1;
+              console.log(data1);
               callback(null, newreturns);
             } else {
               callback(null, newreturns);
@@ -1987,10 +1998,11 @@ var models = {
         } else if (data4) {
           callback(null, newreturns);
         } else {
-          callback(null, newreturns);
+          callback(null, {});
         }
       });
 
   },
+
 };
 module.exports = _.assign(module.exports, models);
