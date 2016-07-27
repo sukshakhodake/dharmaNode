@@ -68,25 +68,18 @@ module.exports = {
 
   getAllDharmatv: function(req, res) {
     if (req.body) {
-
-      Dharmatv.getAllDharmatv(req.body, function(err, data) {
-        if (err) {
-          res.json({
-            value: false,
-            data: err
-          });
-        } else {
-          res.json({
-            value: true,
-            data: data
-          });
-        }
-      });
-
+      if (req.body.search && req.body.search !== "") {
+        Dharmatv.getAllDharmatv(req.body, res.callback);
+      } else {
+        res.json({
+          value: false,
+          data: "Please provide parameters"
+        });
+      }
     } else {
       res.json({
         value: false,
-        data: "Invalid Call"
+        data: "Invalid Request"
       });
     }
   },

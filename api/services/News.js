@@ -11,8 +11,8 @@ var schema = new Schema({
     default: ""
   },
   date: {
-    type: String,
-    default: ""
+    type: Date,
+    default: Date.now
   },
   text: {
     type: String,
@@ -27,8 +27,6 @@ var schema = new Schema({
     ref: 'Movie',
     index: true
   }
-
-
 });
 
 module.exports = mongoose.model('News', schema);
@@ -108,6 +106,129 @@ var models = {
     data.pagesize = parseInt(data.pagesize);
     async.parallel([
         function(callback) {
+          News.aggregate([{
+            $lookup: {
+              from: 'movies',
+              localField: 'movie',
+              foreignField: '_id',
+              as: 'movie'
+            }
+          }, {
+            $unwind: "$movie"
+          }, {
+            $match: {
+              "movie.name": {
+                $regex: check
+              }
+            }
+          }, {
+            $project: {
+              _id: 1,
+              date: 1,
+              year: {
+                $year: "$date"
+              },
+              month: {
+                $month: "$date"
+              }
+            }
+          }, {
+            $match: {
+              year: parseInt(data.year),
+              month: parseInt(data.month)
+            }
+          }, {
+            $group: {
+              _id: null,
+              count: {
+                $sum: 1
+              }
+            }
+          }]).exec(function(err, number) {
+            if (err) {
+              console.log(err);
+              callback(err, null);
+            } else if (number && number.length > 0) {
+              newreturns.total = number[0].count;
+              newreturns.totalpages = Math.ceil(number[0].count / data.pagesize);
+              callback(null, newreturns);
+            } else {
+              newreturns.total = 0;
+              newreturns.totalpages = 0;
+              callback(null, newreturns);
+            }
+          });
+        },
+        function(callback) {
+          News.aggregate([{
+            $lookup: {
+              from: 'movies',
+              localField: 'movie',
+              foreignField: '_id',
+              as: 'movie'
+            }
+          }, {
+            $unwind: "$movie"
+          }, {
+            $match: {
+              "movie.name": {
+                $regex: check
+              }
+            }
+          }, {
+            $project: {
+              _id: 1,
+              title: 1,
+              image: 1,
+              date: 1,
+              text: 1,
+              year: {
+                $year: "$date"
+              },
+              month: {
+                $month: "$date"
+              }
+            }
+          }, {
+            $match: {
+              year: parseInt(data.year),
+              month: parseInt(data.month)
+            }
+          }]).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+            if (err) {
+              console.log(err);
+              callback(err, null);
+            } else if (data2 && data2.length > 0) {
+              newreturns.data = data2;
+              callback(null, data2);
+            } else {
+              callback(null, newreturns);
+            }
+          });
+        }
+      ],
+      function(err, data4) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else if (data4) {
+          callback(null, newreturns);
+        } else {
+          callback(null, newreturns);
+        }
+      });
+  },
+
+
+
+  findLimitedForBackend: function(data, callback) {
+    var newreturns = {};
+    newreturns.data = [];
+    var check = new RegExp(data.search, "i");
+    data.pagenumber = parseInt(data.pagenumber);
+    data.pagesize = parseInt(data.pagesize);
+    async.parallel([
+        function(callback) {
           News.count({
             title: {
               '$regex': check
@@ -154,7 +275,6 @@ var models = {
         }
       });
   },
-
 };
 
 module.exports = _.assign(module.exports, models);

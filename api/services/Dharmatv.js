@@ -24,9 +24,13 @@ var schema = new Schema({
     type: Boolean,
     default: ""
   },
-  image:String,
-  title:String,
-  videos:[{thumbnail: String,url:String,description:String}],
+  image: String,
+  title: String,
+  videos: [{
+    thumbnail: String,
+    url: String,
+    description: String
+  }],
 
 
 });
@@ -75,11 +79,19 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    this.find({}).exec(function(err, found) {
+    this.find({}, {
+      movie: 1,
+      videos: 1
+    }).populate("movie", "name").lean().exec(function(err, found) {
       if (err) {
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
+        _.each(found, function(n) {
+          if (n.movie && n.movie.name) {
+            n.movie = n.movie.name;
+          }
+        });
         callback(null, found);
       } else {
         callback(null, []);
@@ -156,31 +168,68 @@ var models = {
   },
 
   getAllDharmatv: function(data, callback) {
-      var check = new RegExp(data.search, "i");
-      Dharmatv.find({
-          $and: [{
-              $or: [{
-                  tag: {
-                      $regex: check
-                  }
-              }, {
-                  title: {
-                      $regex: check
-                  }
-              }, {
-                  "videos.description": {
-                      $regex: check
-                  }
-              }]
-          }]
-      }).exec(function(err, respo) {
-          if (err) {
-              console.log(err);
-              callback(err, null);
-          } else {
-              callback(null, respo);
+    console.log(data.search);
+    var check = new RegExp(data.search, "i");
+    Dharmatv.aggregate([{
+      $lookup: {
+        from: 'movies',
+        localField: 'movie',
+        foreignField: '_id',
+        as: 'movie'
+      }
+    }, {
+      $unwind: "$movie"
+    }, {
+      $unwind: "$tag"
+    }, {
+      $unwind: "$videos"
+    }, {
+      $match: {
+        videos: {
+          $exists: true
+        },
+        $or: [{
+          title: {
+            $regex: check
           }
-      });
+        }, {
+          "movie.name": {
+            $regex: check
+          }
+        }, {
+          tag: {
+            $regex: check
+          }
+        }, {
+          "videos.description": {
+            $regex: check
+          }
+        }]
+      }
+    }, {
+      $group: {
+        _id: "$_id",
+        movie: {
+          $addToSet: "$movie.name"
+        },
+        videos: {
+          $addToSet: "$videos"
+        }
+      }
+    }, {
+      $unwind: "$movie"
+    }]).exec(function(err, data2) {
+      // console.log(data2);
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (data2 && data2.length > 0) {
+        // newreturns.data = data2;
+        callback(null, data2);
+      } else {
+        callback(null, data2);
+      }
+    });
   }
 };
 
