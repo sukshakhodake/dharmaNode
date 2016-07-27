@@ -1947,13 +1947,13 @@ var models = {
             } else if (data3 && data3.length > 0) {
               _.each(data3, function(n) {
                 _.each(n.tag, function(m) {
+                  console.log(m);
                   searchResult.push(m);
                 });
               });
-              newreturns.data3 = data3;
-              callback(null, newreturns);
+              callback(null, searchResult);
             } else {
-              callback(null, newreturns);
+              callback(null, searchResult);
             }
           });
         },
@@ -1968,10 +1968,9 @@ var models = {
               _.each(data2, function(o) {
                 searchResult.push(o.name);
               });
-              newreturns.data2 = data2;
-              callback(null, newreturns);
+              callback(null, searchResult);
             } else {
-              callback(null, newreturns);
+              callback(null, searchResult);
             }
           });
         },
@@ -1983,11 +1982,14 @@ var models = {
               console.log(err);
               callback(err, null);
             } else if (data1 && data1.length > 0) {
-              newreturns.data1 = data1;
-              console.log(data1);
-              callback(null, newreturns);
+              _.each(data1, function(n) {
+                _.each(n.cast, function(m) {
+                  searchResult.push(m.actor);
+                });
+              });
+              callback(null, searchResult);
             } else {
-              callback(null, newreturns);
+              callback(null, searchResult);
             }
           });
         }
@@ -1997,7 +1999,7 @@ var models = {
           console.log(err);
           callback(err, null);
         } else if (data4) {
-          callback(null, newreturns);
+          callback(null, searchResult);
         } else {
           callback(null, {});
         }
