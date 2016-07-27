@@ -1040,4 +1040,28 @@ module.exports = {
 
 
 
+    // get all search param
+
+    findAllSearchParam: function(req, res) {
+      if (req.body.pagenumber && req.body.pagesize) {
+        Movie.findAllSearchParam(req.body, function(err, respo) {
+          if (err) {
+            res.json({
+              value: false,
+              data: err
+            });
+          } else {
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          value: false,
+          data: "Invalid call"
+        });
+      }
+    },
 };
