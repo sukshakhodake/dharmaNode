@@ -1716,7 +1716,7 @@ var models = {
     //         });
     //     },
     //     function(cb) {
-    Movie.find().exec(function(err, respo) {
+    Movie.find().sort({'year': -1,'name':1}).exec(function(err, respo) {
       if (err) {
         console.log(err);
         callback(err, null);
