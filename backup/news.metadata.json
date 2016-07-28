@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"dharma.news"},{"v":1,"key":{"movie":1},"name":"movie_1","ns":"dharma.news","background":true}]}
