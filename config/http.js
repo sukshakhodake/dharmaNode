@@ -23,73 +23,73 @@ module.exports.http = {
 
   middleware: {
 
-  /***************************************************************************
-   *                                                                          *
-   * The order in which middleware should be run for HTTP request. (the Sails *
-   * router is invoked by the "router" middleware below.)                     *
-   *                                                                          *
-   ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * The order in which middleware should be run for HTTP request. (the Sails *
+     * router is invoked by the "router" middleware below.)                     *
+     *                                                                          *
+     ***************************************************************************/
 
-  order: [
-    'startRequestTimer',
-    'cookieParser',
-    'session',
+    order: [
+      'startRequestTimer',
+      'cookieParser',
+      'session',
 
-    'bodyParser',
-    'handleBodyParserError',
-    'myRequestLogger',
-    'compress',
-    'methodOverride',
-    'poweredBy',
-    '$custom',
-    'router',
-    'www',
-    'favicon',
-    '404',
-    '500'
-  ],
+      'bodyParser',
+      'handleBodyParserError',
+      'myRequestLogger',
+      'compress',
+      'methodOverride',
+      'poweredBy',
+      '$custom',
+      'router',
+      'www',
+      'favicon',
+      '404',
+      '500'
+    ],
 
-  /****************************************************************************
-   *                                                                           *
-   * Example custom middleware; logs each request to the console.              *
-   *                                                                           *
-   ****************************************************************************/
+    /****************************************************************************
+     *                                                                           *
+     * Example custom middleware; logs each request to the console.              *
+     *                                                                           *
+     ****************************************************************************/
 
-  myRequestLogger: function(req, res, next) {
+    myRequestLogger: function(req, res, next) {
 
 
 
-    res.callback = function(err, data) {
-               if (err) {
-                   res.json({
-                       error: err,
-                       value: false
-                   });
-               } else {
-                   res.json({
-                       data: data,
-                       value: true
-                   });
-               }
-           };
-    res.validate = function(format) {
+      res.callback = function(err, data) {
+        if (err) {
+          res.json({
+            error: err,
+            value: false
+          });
+        } else {
+          res.json({
+            data: data,
+            value: true
+          });
+        }
+      };
+      res.validate = function(format) {
 
-    };
-    next();
-  }
+      };
+      next();
+    },
 
-  /***************************************************************************
-   *                                                                          *
-   * The body parser that will handle incoming multipart HTTP requests. By    *
-   * default as of v0.10, Sails uses                                          *
-   * [skipper](http://github.com/balderdashy/skipper). See                    *
-   * http://www.senchalabs.org/connect/multipart.html for other options.      *
-   *                                                                          *
-   ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * The body parser that will handle incoming multipart HTTP requests. By    *
+     * default as of v0.10, Sails uses                                          *
+     * [skipper](http://github.com/balderdashy/skipper). See                    *
+     * http://www.senchalabs.org/connect/multipart.html for other options.      *
+     *                                                                          *
+     ***************************************************************************/
 
-  // bodyParser: require('skipper')
+    // bodyParser: require('skipper')
 
-  }
+  },
 
   /***************************************************************************
    *                                                                          *
