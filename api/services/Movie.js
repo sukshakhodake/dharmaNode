@@ -1674,7 +1674,10 @@ var models = {
   },
 
   getMovieDetails: function(data, callback) {
-    var check = new RegExp(data.search, "i");
+    var check = "";
+    if(data.search) {
+      check = new RegExp(data.search, "i");
+    }
     // async.parallel([
     //     function(cb) {
     //         Movie.count({
@@ -1713,31 +1716,7 @@ var models = {
     //         });
     //     },
     //     function(cb) {
-    Movie.find({
-      $and: [{
-        $or: [{
-          director: {
-            $regex: check
-          }
-        }, {
-          mainCast: {
-            $regex: check
-          }
-        }, {
-          name: {
-            $regex: check
-          }
-        }]
-      }, {
-        $or: [{
-          releaseType: "upcoming"
-        }, {
-          releaseType: "recent"
-        }, {
-          releaseType: "past"
-        }]
-      }]
-    }).exec(function(err, respo) {
+    Movie.find().exec(function(err, respo) {
       if (err) {
         console.log(err);
         callback(err, null);
