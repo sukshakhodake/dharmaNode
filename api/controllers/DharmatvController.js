@@ -83,4 +83,15 @@ module.exports = {
       });
     }
   },
+
+  getDharmaTvHomeSlider: function(req, res) {
+    if (req.body) {
+      Dharmatv.getDharmaTvHomeSlider(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
 };

@@ -224,7 +224,23 @@ var models = {
         callback(null, data2);
       }
     });
-  }
+  },
+  getDharmaTvHomeSlider: function(data, callback) {
+    this.find({}).sort({
+      _id: -1
+    }).limit(20).exec(function(err, found) {
+      if (err) {
+
+        console.log(err);
+        callback(err, null);
+      } else if (found && found.length > 0) {
+
+        callback(null, found);
+      } else {
+        callback(null, []);
+      }
+    });
+  },
 };
 
 module.exports = _.assign(module.exports, models);
