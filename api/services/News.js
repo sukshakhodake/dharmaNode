@@ -6,6 +6,10 @@ var schema = new Schema({
     type: String,
     default: ""
   },
+  banner: {
+    type: String,
+    default: ""
+  },
   title: {
     type: String,
     default: ""
