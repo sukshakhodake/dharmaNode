@@ -32,6 +32,9 @@ var schema = new Schema({
 module.exports = mongoose.model('News', schema);
 var models = {
   saveData: function(data, callback) {
+    if (data.movie === '') {
+      delete data.movie;
+    }
     var news = this(data);
     news.timestamp = new Date();
     if (data._id) {
