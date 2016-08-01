@@ -112,6 +112,18 @@ var models = {
       });
     }
   },
+  getAll: function(data, callback) {
+    this.find({}).exec(function(err, found) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (found && found.length > 0) {
+        callback(null, found);
+      } else {
+        callback(null, []);
+      }
+    });
+  },
 
 };
 
