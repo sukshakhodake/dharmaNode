@@ -60,6 +60,19 @@ module.exports = {
 						 value: true
 				 });
       });
-}
+},
+getAll: function(req, res) {
+    function callback(err, data) {
+      Global.response(err, data, res);
+    }
+    if (req.body) {
+      Register.getAll(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
 
 };
