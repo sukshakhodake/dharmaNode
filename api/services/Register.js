@@ -83,6 +83,7 @@ var models = {
       });
   },
   saveData: function(data, callback) {
+    console.log(data);
     if (data.password && data.password != "") {
         data.password = md5(data.password);
     }
