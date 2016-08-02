@@ -1743,7 +1743,8 @@ var models = {
         }, {
             upcomingSmall: 1,
             name: 1,
-            url: 1
+            url: 1,
+            year:1
         }).exec(function(err, deleted) {
             if (err) {
                 callback(err, null);
