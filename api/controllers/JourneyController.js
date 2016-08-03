@@ -1,7 +1,8 @@
-module.exports = {
 
+module.exports = {
   save: function(req, res) {
     if (req.body) {
+
       Journey.saveData(req.body, res.callback);
     } else {
       res.json({
