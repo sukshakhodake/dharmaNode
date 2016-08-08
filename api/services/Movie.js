@@ -8,6 +8,7 @@ var schema = new Schema({
   date: String,
   director: String,
   mainCast: String,
+  upcomingOrder: String
   name: {
     type: String,
     default: ""
@@ -1749,7 +1750,7 @@ var models = {
       url: 1,
       year: 1
     }).sort({
-      year: -1
+      upcomingOrder: -1,
     }).exec(function(err, deleted) {
       if (err) {
         callback(err, null);

@@ -79,7 +79,7 @@ var models = {
         });
     },
     getAll: function(data, callback) {
-        this.find({}).populate("movie", "name").lean().exec(function(err, found) {
+        this.find({}).populate("movie", "name", { sort: { 'order': -1 } }).lean().exec(function(err, found) {
             if (err) {
 
                 console.log(err);
@@ -243,6 +243,8 @@ var models = {
     getDharmaTvHomeSlider: function(data, callback) {
         this.find({}).sort({
             _id: -1
+        }).sort({
+          order: -1,
         }).limit(20).exec(function(err, found) {
             if (err) {
 
