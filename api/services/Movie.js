@@ -1913,7 +1913,8 @@ var models = {
       releaseType:1,
       upcomingSmall:1,
       recentSmall:1,
-      smallImage:1
+      smallImage:1,
+      year:1
     }, {}).sort({
       year: -1
     }).exec(function(err, deleted) {
