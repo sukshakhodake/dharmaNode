@@ -79,7 +79,7 @@ var models = {
         });
     },
     getAll: function(data, callback) {
-        this.find({}).populate("movie", "name", { sort: { 'order': -1 } }).lean().exec(function(err, found) {
+        this.find({}).populate("movie", "name", { sort: { 'upcomingOrder': -1 } }).lean().exec(function(err, found) {
             if (err) {
 
                 console.log(err);
