@@ -8,7 +8,10 @@ var schema = new Schema({
   date: String,
   director: String,
   mainCast: String,
-  upcomingOrder: String,
+  upcomingOrder: {
+    type: String,
+    default: ""
+  },
   name: {
     type: String,
     default: ""
