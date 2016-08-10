@@ -117,10 +117,10 @@ var models = {
         data.pagenumber = parseInt(data.pagenumber);
         data.pagesize = parseInt(data.pagesize);
 
-        if (!data.year || data.year == "") {
+        if (!data.year || data.year == "All") {
             delete matchobj.year;
         }
-        if (!data.month || data.month == "") {
+        if (!data.month || data.month == "All") {
             delete matchobj.month;
         }
         console.log("sss", matchobj);
