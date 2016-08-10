@@ -29,6 +29,18 @@ module.exports = {
       });
     }
   },
+
+  getAllTest: function(req, res){
+    if(req.body){
+      Movie.getAllTest(req.body, res.callback);
+    }
+    else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
   findOne: function(req, res) {
     if (req.body) {
       Movie.getOne(req.body, res.callback);

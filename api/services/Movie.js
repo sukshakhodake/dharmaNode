@@ -9,7 +9,7 @@ var schema = new Schema({
   director: String,
   mainCast: String,
   upcomingOrder: {
-    type: String,
+    type: Number,
     default: ""
   },
   name: {
@@ -1913,11 +1913,11 @@ var models = {
     Movie.find({}, {
       _id: 1,
       name: 1,
-      releaseType:1,
-      upcomingSmall:1,
-      recentSmall:1,
-      smallImage:1,
-      year:1
+      releaseType: 1,
+      upcomingSmall: 1,
+      recentSmall: 1,
+      smallImage: 1,
+      year: 1
     }, {}).sort({
       year: -1
     }).exec(function(err, deleted) {
@@ -1929,6 +1929,20 @@ var models = {
     });
 
   },
+
+  getAllTest: function(data, callback) {
+    Movie.find({}).sort({
+      upcomingOrder: -1
+    }).exec(function(err, found) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else {
+        callback(null, found);
+      }
+    });
+  },
+
   findAllSearchParam: function(data, callback) {
     var newreturns = {};
     var searchResult = [];
