@@ -1825,7 +1825,7 @@ var models = {
         }, {
             $unwind: "$gallery"
         }, {
-            sort: {
+            $sort: {
                 "gallery.order": -1
             }
         }, {
