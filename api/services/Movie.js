@@ -259,6 +259,34 @@ var models = {
         });
     },
 
+    getOneMovie: function(data, callback){
+      Movie.aggregate([{
+          $match: {
+              _id: objectid(data._id)
+          }
+      }, {
+          $unwind: "$gallery"
+      }, {
+          $sort: {
+              "gallery.order": -1
+          }
+      }, {
+          $group: {
+              _id: null,
+              gallery: {
+                  $addToSet: "$gallery"
+              }
+          }
+      }]).exec(function(err, data2) {
+          if (err) {
+              console.log(err);
+              callback(err, null);
+          } else {
+              callback(null, data2);
+          }
+      });
+    },
+
     findLimited: function(data, callback) {
         var newreturns = {};
         newreturns.data = [];

@@ -50,6 +50,16 @@ module.exports = {
             });
         }
     },
+    getOneMovie: function(req, res) {
+        if (req.body) {
+            Movie.getOneMovie(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
     findLimited: function(req, res) {
         if (req.body) {
             if (req.body.pagenumber && req.body.pagenumber !== "" && req.body.pagesize && req.body.pagesize !== "") {
@@ -1067,6 +1077,5 @@ module.exports = {
                 });
             }
         });
-
-    },
+    }
 };
