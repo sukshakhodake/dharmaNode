@@ -8,7 +8,7 @@ var schema = new Schema({
     },
     tag: [],
     order: {
-        type: String,
+        type: Number,
         default: ""
     },
     thumbnail: {
@@ -79,20 +79,66 @@ var models = {
         });
     },
     getAll: function(data, callback) {
-        this.find({}).populate("movie", "name upcomingOrder").sort({
-            upcomingOrder: -1
-        }).lean().exec(function(err, found) {
-            if (err) {
 
+        Dharmatv.aggregate([{
+            $lookup: {
+                from: 'movies',
+                localField: 'movie',
+                foreignField: '_id',
+                as: 'movie'
+            }
+        }, {
+            $unwind: "$movie"
+        }, {
+            $sort: {
+                "movie.upcomingOrder": -1
+            }
+        }, {
+            $project: {
+                title: 1,
+                isbanner: 1,
+                videos: 1,
+                thumbnail: 1,
+                url: 1,
+                tag: 1,
+                order: 1,
+                "movie.name": 1,
+                "movie.upcomingOrder": 1
+            }
+        }]).exec(function(err, data2) {
+            console.log(data2);
+            if (err) {
                 console.log(err);
                 callback(err, null);
-            } else if (found && found.length > 0) {
-                callback(null, found);
+            } else if (data2 && data2.length > 0) {
+                // newreturns.data = data2;
+                callback(null, data2);
             } else {
-                callback(null, []);
+                callback(null, data2);
             }
         });
     },
+    // getAll: function(data, callback) {
+    //     this.find({}).populate({
+    //         path: 'movie',
+    //         select: 'name -_id upcomingOrder',
+    //         options: {
+    //             sort: {
+    //                 'upcomingOrder': -1
+    //             }
+    //         }
+    //     }).lean().exec(function(err, found) {
+    //         if (err) {
+    //
+    //             console.log(err);
+    //             callback(err, null);
+    //         } else if (found && found.length > 0) {
+    //             callback(null, found);
+    //         } else {
+    //             callback(null, []);
+    //         }
+    //     });
+    // },
     getData: function(data, callback) {
         this.find({}, {
             url: 1
@@ -250,10 +296,10 @@ var models = {
                     $exists: true
                 }
             },
-            select: 'year',
+            select: 'order',
             options: {
                 sort: {
-                    year: -1
+                    order: -1
                 }
             }
         }).exec(function(err, found) {

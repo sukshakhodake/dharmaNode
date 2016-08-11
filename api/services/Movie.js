@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var lodash = require("lodash");
-var objectid = require("mongodb").ObjectId;
+var objectid = require("mongodb").ObjectID;
 
 var schema = new Schema({
     image: String,
@@ -1798,16 +1798,48 @@ var models = {
             }
         });
     },
+    // getMovieGal: function(data, callback) {
+    //     this.findOne({
+    //         "_id": data._id
+    //     }, {
+    //         gallery: 1
+    //     }, {
+    //         sort: {
+    //             "gallery.order": 1
+    //         }
+    //     }).exec(function(err, data2) {
+    //         if (err) {
+    //             callback(err, null);
+    //         } else {
+    //             console.log(data2);
+    //             callback(null, data2);
+    //         }
+    //     });
+    // },
+
     getMovieGal: function(data, callback) {
-        this.findOne({
-            "_id": data._id
+        Movie.aggregate([{
+            $match: {
+                _id: data._id
+            }
         }, {
-            gallery: 1
-        }, {}).exec(function(err, data2) {
+            $unwind: "$gallery"
+        }, {
+            sort: {
+                "gallery.order": -1
+            }
+        }, {
+            $group: {
+                _id: null,
+                gallery: {
+                    $addToSet: "$gallery"
+                }
+            }
+        }]).exec(function(err, data2) {
             if (err) {
+                console.log(err);
                 callback(err, null);
             } else {
-                console.log(data2);
                 callback(null, data2);
             }
         });
