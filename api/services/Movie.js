@@ -1820,7 +1820,7 @@ var models = {
     getMovieGal: function(data, callback) {
         Movie.aggregate([{
             $match: {
-                _id: data._id
+                _id: objectid(data._id)
             }
         }, {
             $unwind: "$gallery"
