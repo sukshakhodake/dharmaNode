@@ -134,28 +134,43 @@ var models = {
                             as: 'movie'
                         }
                     }, {
-                        $unwind: "$movie"
-                    }, {
-                        $match: {
-                            "movie.name": {
-                                $regex: check
-                            }
-                        }
-                    }, {
                         $project: {
                             _id: 1,
+                            title: 1,
+                            image: 1,
                             date: 1,
+                            text: 1,
+                            __v: 1,
                             year: {
                                 $year: "$date"
                             },
-
                             month: {
                                 $month: "$date"
+                            },
+                            movie: {
+                                $cond: [{
+                                        $eq: ["$movie", []]
+                                    },
+                                    [{
+                                        name: "$__v"
+                                    }], "$movie"
+                                ]
                             }
                         }
                     }, {
+                        $unwind: "$movie"
+                    }, {
+                        $match: {
+                            $or: [{
+                                "movie.name": {
+                                    $regex: check
+                                }
+                            }, {
+                                "movie.name": 0
+                            }]
+                        }
+                    }, {
                         $match: matchobj
-
                     }, {
                         $group: {
                             _id: null,
@@ -187,29 +202,43 @@ var models = {
                             as: 'movie'
                         }
                     }, {
-                        $unwind: "$movie"
-                    }, {
-                        $match: {
-                            "movie.name": {
-                                $regex: check
-                            }
-                        }
-                    }, {
                         $project: {
                             _id: 1,
                             title: 1,
                             image: 1,
                             date: 1,
                             text: 1,
+                            __v: 1,
                             year: {
                                 $year: "$date"
                             },
                             month: {
                                 $month: "$date"
+                            },
+                            movie: {
+                                $cond: [{
+                                        $eq: ["$movie", []]
+                                    },
+                                    [{
+                                        name: "$__v"
+                                    }], "$movie"
+                                ]
                             }
                         }
                     }, {
-                      $match: matchobj
+                        $unwind: "$movie"
+                    }, {
+                        $match: {
+                            $or: [{
+                                "movie.name": {
+                                    $regex: check
+                                }
+                            }, {
+                                "movie.name": 0
+                            }]
+                        }
+                    }, {
+                        $match: matchobj
                     }]).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
                         if (err) {
                             console.log(err);
