@@ -103,10 +103,11 @@ var models = {
                 tag: 1,
                 order: 1,
                 "movie.name": 1,
+                "movie._id": 1,
                 "movie.upcomingOrder": 1
             }
         }]).exec(function(err, data2) {
-            console.log(data2);
+            // console.log(data2);
             if (err) {
                 console.log(err);
                 callback(err, null);
