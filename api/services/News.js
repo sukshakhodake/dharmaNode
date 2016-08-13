@@ -80,7 +80,9 @@ var models = {
         });
     },
     getAll: function(data, callback) {
-        this.find({}).exec(function(err, found) {
+        this.find({}).sort({
+            _id: -1
+        }).exec(function(err, found) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -239,7 +241,23 @@ var models = {
                         }
                     }, {
                         $match: matchobj
-                    }]).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+                    }, {
+                        $project: {
+                            _id: 1,
+                            title: 1,
+                            image: 1,
+                            date: 1,
+                            text: 1,
+                            year: {
+                                $year: "$date"
+                            },
+                            month: {
+                                $month: "$date"
+                            }
+                        }
+                    }]).sort({
+                        _id: -1
+                    }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
