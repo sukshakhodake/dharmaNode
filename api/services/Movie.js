@@ -290,7 +290,7 @@ var models = {
                         $unwind: "$gallery"
                     }, {
                         $sort: {
-                            "gallery.order": -1
+                            "gallery.order": 1
                         }
                     }, {
                         $group: {
@@ -323,7 +323,7 @@ var models = {
                         $unwind: "$wallpaper"
                     }, {
                         $sort: {
-                            "wallpaper.order": -1
+                            "wallpaper.order": 1
                         }
                     }, {
                         $group: {
@@ -355,7 +355,7 @@ var models = {
                         $unwind: "$videos"
                     }, {
                         $sort: {
-                            "videos.order": -1
+                            "videos.order": 1
                         }
                     }, {
                         $group: {
@@ -387,7 +387,7 @@ var models = {
                         $unwind: "$behindTheScenes"
                     }, {
                         $sort: {
-                            "behindTheScenes.order": -1
+                            "behindTheScenes.order": 1
                         }
                     }, {
                         $group: {
@@ -419,7 +419,7 @@ var models = {
                         $unwind: "$crew"
                     }, {
                         $sort: {
-                            "crew.order": -1
+                            "crew.order": 1
                         }
                     }, {
                         $group: {
