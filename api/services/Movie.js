@@ -1943,6 +1943,7 @@ var models = {
             name: 1,
             url: 1,
             year: 1,
+            month: 1,
             upcomingOrder: 1
         }).sort({
             upcomingOrder: -1,
@@ -1961,6 +1962,7 @@ var models = {
             recentSmall: 1,
             name: 1,
             year: 1,
+            month: 1,
             upcomingOrder: 1
         }).sort({
             // year: -1
