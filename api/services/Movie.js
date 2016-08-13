@@ -406,7 +406,6 @@ var models = {
                           } else {
                               newreturns.behindTheScenes = [];
                           }
-
                             callback(null, newreturns);
                         }
                     });
@@ -435,7 +434,7 @@ var models = {
                             callback(err, null);
                         } else {
                           if (data6 && data6.length > 0) {
-                              newreturns.crew = data5[0].crew;
+                              newreturns.crew = data6[0].crew;
                           } else {
                               newreturns.crew = [];
                           }
@@ -521,7 +520,6 @@ var models = {
     //SIDEMENU CAST
 
     saveCast: function(data, callback) {
-        console.log(data);
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -703,8 +701,7 @@ var models = {
     //SIDEMENU CREW
 
     saveCrew: function(data, callback) {
-        console.log(data);
-        var movie = data.movie;
+      var movie = data.movie;
         if (!data._id) {
             Movie.update({
                 _id: movie
@@ -884,7 +881,6 @@ var models = {
     //SIDEMENU Gallery
 
     saveGallery: function(data, callback) {
-        console.log(data);
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1066,7 +1062,6 @@ var models = {
     //SIDEMENU Videos
 
     saveVideos: function(data, callback) {
-        console.log(data);
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1247,7 +1242,6 @@ var models = {
     //SIDEMENU Wallpaper
 
     saveWallpaper: function(data, callback) {
-        console.log(data);
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1457,7 +1451,6 @@ var models = {
     //SIDEMENU Awards
 
     saveAwards: function(data, callback) {
-        console.log(data);
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1699,7 +1692,6 @@ var models = {
     //SIDEMENU BehindTheScenes
 
     saveBehindTheScenes: function(data, callback) {
-        console.log(data);
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1990,7 +1982,6 @@ var models = {
             if (err) {
                 callback(err, null);
             } else if (data2) {
-                console.log(data2);
                 callback(null, data2);
             } else {
                 callback(null, {});
@@ -2110,8 +2101,7 @@ var models = {
             if (err) {
                 callback(err, null);
             } else {
-                console.log(data2);
-                callback(null, data2);
+                  callback(null, data2);
             }
         });
     },
@@ -2125,7 +2115,7 @@ var models = {
             if (err) {
                 callback(err, null);
             } else {
-                console.log(data2);
+
                 callback(null, data2);
             }
         });
@@ -2139,7 +2129,7 @@ var models = {
             if (err) {
                 callback(err, null);
             } else {
-                console.log(data2);
+
                 callback(null, data2);
             }
         });
@@ -2153,7 +2143,7 @@ var models = {
             if (err) {
                 callback(err, null);
             } else {
-                console.log(data2);
+
                 callback(null, data2);
             }
         });
@@ -2168,7 +2158,7 @@ var models = {
             if (err) {
                 callback(err, null);
             } else {
-                console.log(data2);
+
                 callback(null, data2);
             }
         });
@@ -2182,7 +2172,7 @@ var models = {
             if (err) {
                 callback(err, null);
             } else {
-                console.log(data2);
+
                 callback(null, data2);
             }
         });
@@ -2196,7 +2186,7 @@ var models = {
             if (err) {
                 callback(err, null);
             } else {
-                console.log(data2);
+
                 callback(null, data2);
             }
         });
