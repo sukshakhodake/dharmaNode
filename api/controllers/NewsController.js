@@ -22,6 +22,17 @@ module.exports = {
             });
         }
     },
+    getOneNews: function(req, res) {
+
+        if (req.body) {
+            News.getOneNews(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
     getOneArticle: function(req, res) {
 
         if (req.body) {

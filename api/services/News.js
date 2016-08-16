@@ -107,6 +107,42 @@ var models = {
             }
         });
     },
+    getOneNews: function(data, callback) {
+        var newreturns = {};
+        this.findOne({
+            "_id": data._id
+        }).exec(function(err, found) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (found && Object.keys(found).length > 0) {
+                newreturns.data = found;
+                if (found.movie) {
+                    News.find({
+                        movie: found.movie,
+
+                        _id: {
+                            $ne: data._id
+                        }
+
+                    }).limit(3).exec(function(err, data3) {
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                            newreturns.related = data3;
+                            callback(null, newreturns);
+                        }
+                    });
+                } else {
+                    callback(null, newreturns);
+                }
+
+            } else {
+                callback(null, {});
+            }
+        });
+    },
     findLimited: function(data, callback) {
         var newreturns = {};
         newreturns.data = [];
