@@ -23,7 +23,12 @@ var schema = new Schema({
   url: {
     type: String,
     default: ""
-  }
+  },
+  movie: {
+    type: Schema.Types.ObjectId,
+    ref: 'Movie',
+    index: true
+  },
 
 });
 
