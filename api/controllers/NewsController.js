@@ -22,6 +22,25 @@ module.exports = {
             });
         }
     },
+    getOneArticle: function(req, res) {
+
+        if (req.body) {
+          if(req.body._id){
+            News.getOneArticle(req.body, res.callback);
+          }else {
+              res.json({
+                  value: false,
+                  data: "Invalid Id"
+              });
+          }
+
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
 
     delete: function(req, res) {
         if (req.body) {

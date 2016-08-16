@@ -372,6 +372,20 @@ var models = {
             }
         });
     },
+    getOneArticle: function(data, callback) {
+        this.find({
+            "movie": data._id
+        }).limit(3).exec(function(err, found) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (found && Object.keys(found).length > 0) {
+                callback(null, found);
+            } else {
+                callback(null, {});
+            }
+        });
+    },
 };
 
 module.exports = _.assign(module.exports, models);
