@@ -109,7 +109,6 @@ var models = {
                movie:data._id
              };
     }
-    console.log(obj);
     var newreturns = {};
     newreturns.data = [];
     data.pagenumber = parseInt(data.pagenumber);
