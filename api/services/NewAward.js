@@ -104,23 +104,12 @@ var models = {
   findLimited: function(data, callback) {
     var obj={};
 
-    var check = new RegExp(data.search, "i");
-    if(data._id && data._id !=='')
-    {
+    if(data._id && data._id !==''){
        obj={
-        name: {
-          '$regex': check
-        },
-        movie:data._id
-      };
+               movie:data._id
+             };
     }
-    else{
-       obj={
-        name: {
-          '$regex': check
-        }
-      };
-    }
+    console.log(obj);
     var newreturns = {};
     newreturns.data = [];
     data.pagenumber = parseInt(data.pagenumber);
@@ -141,7 +130,7 @@ var models = {
           });
         },
         function(callback) {
-          NewAward.find(obj).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+          NewAward.find(obj).populate("movie",'name').skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
             if (err) {
               console.log(err);
               callback(err, null);
