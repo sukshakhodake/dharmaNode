@@ -20,5 +20,7 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
+  host:"dharma.com",
+  port: 80
 
 };

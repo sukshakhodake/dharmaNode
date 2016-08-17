@@ -1,39 +1,24 @@
+/**
+ * Dharma140.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ */
+
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
 var schema = new Schema({
-  name: {
-    type: String,
-    default: ""
-  }
-  // status: {
-  //   type: Number,
-  //   default: ""
-  // },
-  // oauthLogin: {
-  //   type: [{
-  //     socialProvider: String,
-  //     socialId: String,
-  //     modificationTime: Date
-  //   }],
-  //   index: true
-  // },
-  // K120K200: {
-  //   type: String,
-  //   default: ""
-  // },
-  // profilePic: {
-  //   type: String,
-  //   default: ""
-  // }
-
+  hashTags: ["String"],
+  user: ["String"]
 });
+module.exports = mongoose.model('Dharma140', schema);
 
-module.exports = mongoose.model('User', schema);
 var models = {
+
   saveData: function(data, callback) {
-    var user = this(data);
-    user.timestamp = new Date();
+    var dharma140 = this(data);
+    dharma140.timestamp = new Date();
     if (data._id) {
       this.findOneAndUpdate({
         _id: data._id
@@ -48,7 +33,7 @@ var models = {
         }
       });
     } else {
-      user.save(function(err, created) {
+      dharma140.save(function(err, created) {
         if (err) {
           callback(err, null);
         } else if (created) {
@@ -73,8 +58,25 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    this.find({}).exec(function(err, found) {
+    this.find({}).populate("user", "name ").sort({
+      upcomingOrder: -1
+    }).lean().exec(function(err, found) {
       if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (found && found.length > 0) {
+        callback(null, found);
+      } else {
+        callback(null, []);
+      }
+    });
+  },
+  getData: function(data, callback) {
+    this.find({}, {
+      url: 1
+    }).lean().exec(function(err, found) {
+      if (err) {
+
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
@@ -102,12 +104,13 @@ var models = {
     var newreturns = {};
     newreturns.data = [];
     var check = new RegExp(data.search, "i");
+    console.log(check);
     data.pagenumber = parseInt(data.pagenumber);
     data.pagesize = parseInt(data.pagesize);
     async.parallel([
         function(callback) {
-          User.count({
-            name: {
+          Dharma140.count({
+            hashTags: {
               '$regex': check
             }
           }).exec(function(err, number) {
@@ -124,8 +127,9 @@ var models = {
           });
         },
         function(callback) {
-          User.find({
-            name: {
+          Dharma140.find({
+            hashTags: {
+
               '$regex': check
             }
           }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
