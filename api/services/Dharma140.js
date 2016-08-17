@@ -61,9 +61,7 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    this.find({}).populate("user", "name ").sort({
-      upcomingOrder: -1
-    }).lean().exec(function(err, found) {
+    this.find({}).exec(function(err, found) {
       if (err) {
         console.log(err);
         callback(err, null);

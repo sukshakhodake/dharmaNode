@@ -48,9 +48,7 @@ module.exports = {
     },
 
     getAll: function(req, res) {
-        function callback(err, data) {
-            Global.response(err, data, res);
-        }
+  
         if (req.body) {
             Dharma140.getAll(req.body, res.callback);
         } else {
@@ -60,17 +58,6 @@ module.exports = {
             });
         }
     },
-    // getHash: function(req, res) {
-    //   function callback(err, data) {
-    //     console.log("Againn");
-    //     console.log(data);
-    //       // Global.response(err, data, res);
-    //   }
-    //   if(req.body._id){
-    //         Dharma140.getHash(req.body, callback);
-    //       // Config.getTweets("#pokemon", ["gaming_otb","YumiScott"], res.callback);
-    //   }
-    // },
 
     getHash: function(req, res) {
       function callback(err, data) {
