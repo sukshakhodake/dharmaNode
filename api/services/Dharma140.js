@@ -9,10 +9,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var schema = new Schema({
-  hashTags: {
-    type: String,
-    required: true
-  },
+  hashTags: ["String"],
   user: ["String"]
 });
 module.exports = mongoose.model('Dharma140', schema);

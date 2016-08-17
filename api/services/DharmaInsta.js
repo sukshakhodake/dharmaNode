@@ -25,13 +25,18 @@ var schema = new Schema({
     default: Date.now
   },
   image:{
-     type: String
+     type: String,
+      default :''
+  },
+  thumbnail:{
+     type: String,
+     default :''
   },
   content: {
     type: String,
     required:true
   },
-  status : String
+  status : Boolean
 });
 module.exports = mongoose.model('DharmaInsta', schema);
 
