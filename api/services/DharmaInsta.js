@@ -181,6 +181,57 @@ var models = {
           callback(null, newreturns);
         }
       });
+  },
+  getAllInstaPosts: function(data, callback) {
+    var newreturns = {};
+    newreturns.data = [];
+    var check = new RegExp(data.search, "i");
+    console.log(check);
+    data.pagenumber = parseInt(data.pagenumber);
+    data.pagesize = parseInt(data.pagesize);
+    async.parallel([
+        function(callback) {
+          DharmaInsta.count({
+            status: true
+          }).exec(function(err, number) {
+            if (err) {
+              console.log(err);
+              callback(err, null);
+            } else if (number && number !== "") {
+              newreturns.total = number;
+              newreturns.totalpages = Math.ceil(number / data.pagesize);
+              callback(null, newreturns);
+            } else {
+              callback(null, newreturns);
+            }
+          });
+        },
+        function(callback) {
+          DharmaInsta.find({
+            status: true
+          }).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+            if (err) {
+              console.log(err);
+              callback(err, null);
+            } else if (data2 && data2.length > 0) {
+              newreturns.data = data2;
+              callback(null, newreturns);
+            } else {
+              callback(null, newreturns);
+            }
+          });
+        }
+      ],
+      function(err, data4) {
+        if (err) {
+          console.log(err);
+          callback(err, null);
+        } else if (data4) {
+          callback(null, newreturns);
+        } else {
+          callback(null, newreturns);
+        }
+      });
   }
 };
 

@@ -60,6 +60,19 @@ module.exports = {
       });
     }
   },
+  getAllInstaPosts: function(req, res) {
+    function callback(err, data) {
+      Global.response(err, data, res);
+    }
+    if (req.body) {
+      DharmaInsta.getAllInstaPosts(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
 
   findLimited: function(req, res) {
     if (req.body) {
