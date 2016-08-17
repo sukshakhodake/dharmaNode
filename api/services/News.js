@@ -165,13 +165,6 @@ var models = {
         async.parallel([
                 function(callback) {
                     News.aggregate([{
-                        $lookup: {
-                            from: 'movies',
-                            localField: 'movie',
-                            foreignField: '_id',
-                            as: 'movie'
-                        }
-                    }, {
                         $project: {
                             _id: 1,
                             title: 1,
@@ -184,27 +177,18 @@ var models = {
                             },
                             month: {
                                 $month: "$date"
-                            },
-                            movie: {
-                                $cond: [{
-                                        $eq: ["$movie", []]
-                                    },
-                                    [{
-                                        name: "$__v"
-                                    }], "$movie"
-                                ]
                             }
                         }
                     }, {
-                        $unwind: "$movie"
-                    }, {
                         $match: {
                             $or: [{
-                                "movie.name": {
-                                    $regex: check
-                                }
-                            }, {
-                                "movie.name": 0
+                              "text":{
+                                  $regex: check
+                              }
+                            },{
+                              "title":{
+                                $regex:check
+                              }
                             }]
                         }
                     }, {
@@ -233,13 +217,6 @@ var models = {
                 },
                 function(callback) {
                     News.aggregate([{
-                        $lookup: {
-                            from: 'movies',
-                            localField: 'movie',
-                            foreignField: '_id',
-                            as: 'movie'
-                        }
-                    }, {
                         $project: {
                             _id: 1,
                             title: 1,
@@ -252,27 +229,18 @@ var models = {
                             },
                             month: {
                                 $month: "$date"
-                            },
-                            movie: {
-                                $cond: [{
-                                        $eq: ["$movie", []]
-                                    },
-                                    [{
-                                        name: "$__v"
-                                    }], "$movie"
-                                ]
                             }
                         }
                     }, {
-                        $unwind: "$movie"
-                    }, {
                         $match: {
                             $or: [{
-                                "movie.name": {
-                                    $regex: check
-                                }
-                            }, {
-                                "movie.name": 0
+                              "text":{
+                                $regex:check
+                              }
+                            },{
+                              "title":{
+                                $regex:check
+                              }
                             }]
                         }
                     }, {
@@ -424,6 +392,199 @@ var models = {
             }
         });
     },
+
+    ////////backup
+
+    // findLimited: function(data, callback) {
+    //     var newreturns = {};
+    //     newreturns.data = [];
+    //     var matchobj = {
+    //         year: parseInt(data.year),
+    //         month: parseInt(data.month)
+    //     };
+    //     var check = new RegExp(data.search, "i");
+    //     console.log("check0", check);
+    //     data.pagenumber = parseInt(data.pagenumber);
+    //     data.pagesize = parseInt(data.pagesize);
+    //
+    //     if (!data.year || data.year == "All") {
+    //         delete matchobj.year;
+    //     }
+    //     if (!data.month || data.month == "All") {
+    //         delete matchobj.month;
+    //     }
+    //     console.log("sss", matchobj);
+    //     async.parallel([
+    //             function(callback) {
+    //                 News.aggregate([{
+    //                     $lookup: {
+    //                         from: 'movies',
+    //                         localField: 'movie',
+    //                         foreignField: '_id',
+    //                         as: 'movie'
+    //                     }
+    //                 }, {
+    //                     $project: {
+    //                         _id: 1,
+    //                         title: 1,
+    //                         image: 1,
+    //                         date: 1,
+    //                         text: 1,
+    //                         __v: 1,
+    //                         year: {
+    //                             $year: "$date"
+    //                         },
+    //                         month: {
+    //                             $month: "$date"
+    //                         },
+    //                         movie: {
+    //                             $cond: [{
+    //                                     $eq: ["$movie", []]
+    //                                 },
+    //                                 [{
+    //                                     name: "$__v"
+    //                                 }], "$movie"
+    //                             ]
+    //                         }
+    //                     }
+    //                 }, {
+    //                     $unwind: "$movie"
+    //                 }, {
+    //                     $match: {
+    //                         $or: [{
+    //                             "movie.name": {
+    //                                 $regex: check
+    //                             }
+    //                         }, {
+    //                             "movie.name": 0
+    //                         },{
+    //                           "text":{
+    //                               $regex: check
+    //                           }
+    //                         },{
+    //                           "title":{
+    //                             $regex:check
+    //                           }
+    //                         }]
+    //                     }
+    //                 }, {
+    //                     $match: matchobj
+    //                 }, {
+    //                     $group: {
+    //                         _id: null,
+    //                         count: {
+    //                             $sum: 1
+    //                         }
+    //                     }
+    //                 }]).exec(function(err, number) {
+    //                     if (err) {
+    //                         console.log(err);
+    //                         callback(err, null);
+    //                     } else if (number && number.length > 0) {
+    //                         newreturns.total = number[0].count;
+    //                         newreturns.totalpages = Math.ceil(number[0].count / data.pagesize);
+    //                         callback(null, newreturns);
+    //                     } else {
+    //                         newreturns.total = 0;
+    //                         newreturns.totalpages = 0;
+    //                         callback(null, newreturns);
+    //                     }
+    //                 });
+    //             },
+    //             function(callback) {
+    //                 News.aggregate([{
+    //                     $lookup: {
+    //                         from: 'movies',
+    //                         localField: 'movie',
+    //                         foreignField: '_id',
+    //                         as: 'movie'
+    //                     }
+    //                 }, {
+    //                     $project: {
+    //                         _id: 1,
+    //                         title: 1,
+    //                         image: 1,
+    //                         date: 1,
+    //                         text: 1,
+    //                         __v: 1,
+    //                         year: {
+    //                             $year: "$date"
+    //                         },
+    //                         month: {
+    //                             $month: "$date"
+    //                         },
+    //                         movie: {
+    //                             $cond: [{
+    //                                     $eq: ["$movie", []]
+    //                                 },
+    //                                 [{
+    //                                     name: "$__v"
+    //                                 }], "$movie"
+    //                             ]
+    //                         }
+    //                     }
+    //                 }, {
+    //                     $unwind: "$movie"
+    //                 }, {
+    //                     $match: {
+    //                         $or: [{
+    //                             "movie.name": {
+    //                                 $regex: check
+    //                             }
+    //                         }, {
+    //                             "movie.name": 0
+    //                         },{
+    //                           "text":{
+    //                             $regex:check
+    //                           }
+    //                         },{
+    //                           "title":{
+    //                             $regex:check
+    //                           }
+    //                         }]
+    //                     }
+    //                 }, {
+    //                     $match: matchobj
+    //                 }, {
+    //                     $project: {
+    //                         _id: 1,
+    //                         title: 1,
+    //                         image: 1,
+    //                         date: 1,
+    //                         text: 1,
+    //                         year: {
+    //                             $year: "$date"
+    //                         },
+    //                         month: {
+    //                             $month: "$date"
+    //                         }
+    //                     }
+    //                 }]).sort({
+    //                     _id: -1
+    //                 }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+    //                     if (err) {
+    //                         console.log(err);
+    //                         callback(err, null);
+    //                     } else if (data2 && data2.length > 0) {
+    //                         newreturns.data = data2;
+    //                         callback(null, data2);
+    //                     } else {
+    //                         callback(null, newreturns);
+    //                     }
+    //                 });
+    //             }
+    //         ],
+    //         function(err, data4) {
+    //             if (err) {
+    //                 console.log(err);
+    //                 callback(err, null);
+    //             } else if (data4) {
+    //                 callback(null, newreturns);
+    //             } else {
+    //                 callback(null, newreturns);
+    //             }
+    //         });
+    // },
 };
 
 module.exports = _.assign(module.exports, models);
