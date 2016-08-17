@@ -9,9 +9,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var schema = new Schema({
   user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    index: true
+    type:String,
+    default:''
   },
   image: {
     type: String
@@ -36,8 +35,8 @@ var schema = new Schema({
     ref: "DharmaAnswerUser"
   },
   status: {
-    type: String,
-    default: "Enable"
+    type: Boolean,
+    default: false
   }
 
 });
@@ -94,9 +93,7 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    this.find({}).populate("user", "name ").sort({
-      upcomingOrder: -1
-    }).lean().exec(function(err, found) {
+    this.find({}).exec(function(err, found) {
       if (err) {
 
         console.log(err);
@@ -168,7 +165,7 @@ var models = {
             question: {
               '$regex': check
             }
-          }).populate("user").populate("dharmaAnswerUser", "name ").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+          }).populate("dharmaAnswerUser", "name ").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
             if (err) {
               console.log(err);
               callback(err, null);
