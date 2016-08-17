@@ -9,7 +9,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var schema = new Schema({
-  hashTags: ["String"],
+  hashTags: {
+    type:String,
+    default : ''
+  },
   user: ["String"]
 });
 module.exports = mongoose.model('Dharma140', schema);
@@ -83,6 +86,20 @@ var models = {
         callback(null, found);
       } else {
         callback(null, []);
+      }
+    });
+  },
+  getHash: function(data, callback) {
+    this.findOne({
+      "_id": data._id
+    }).exec(function(err, found) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (found && Object.keys(found).length > 0) {
+          callback(null, found);
+      } else {
+        callback(null, {});
       }
     });
   },

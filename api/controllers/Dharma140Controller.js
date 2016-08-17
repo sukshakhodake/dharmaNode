@@ -60,11 +60,27 @@ module.exports = {
             });
         }
     },
+    // getHash: function(req, res) {
+    //   function callback(err, data) {
+    //     console.log("Againn");
+    //     console.log(data);
+    //       // Global.response(err, data, res);
+    //   }
+    //   if(req.body._id){
+    //         Dharma140.getHash(req.body, callback);
+    //       // Config.getTweets("#pokemon", ["gaming_otb","YumiScott"], res.callback);
+    //   }
+    // },
+
     getHash: function(req, res) {
-
-
-        Config.getTweets("#pokemon", ["gaming_otb","YumiScott"], res.callback);
-
+      function callback(err, data) {
+        var hashtag=data.hashTags;
+        var users=data.user;
+        Config.getTweets(hashtag, users, res.callback);
+      }
+      if(req.body._id){
+            Dharma140.getHash(req.body, callback);
+      }
     },
 
     findLimited: function(req, res) {
