@@ -37,7 +37,11 @@ var schema = new Schema({
   status: {
     type: Boolean,
     default: false
-  }
+  },
+  email: {
+    type: String,
+    default: ""
+  },
 
 });
 module.exports = mongoose.model('DharmaNYou', schema);
