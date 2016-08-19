@@ -44,12 +44,12 @@ var models = {
             string += n + " OR from:";
         });
 
-        string = string.substr(0, string.length - 9) + hashtag;
+        string = string.substr(0, string.length - 9) + " " + hashtag;
 
         console.log(string);
         var params = {
             q: string,
-            count:100
+            count: 100
         };
         client.get('search/tweets', params, function(error, tweets, response) {
 
