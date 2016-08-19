@@ -41,7 +41,7 @@ var schema = new Schema({
   email: {
     type: String,
     default: ""
-  },
+  }
 
 });
 module.exports = mongoose.model('DharmaNYou', schema);
