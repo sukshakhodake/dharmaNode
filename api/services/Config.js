@@ -39,12 +39,12 @@ module.exports = mongoose.model('Config', schema);
 var models = {
     getTweets: function(hashtag, users, callback) {
 
-        var string = hashtag + " from:";
+        var string = "from:";
         _.each(users, function(n) {
             string += n + " OR ";
         });
 
-        string = string.substr(0, string.length - 3);
+        string = string.substr(0, string.length - 3) + hashtag;
         console.log(string);
         var params = {
             q: string
