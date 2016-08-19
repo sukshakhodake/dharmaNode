@@ -41,10 +41,10 @@ var models = {
 
         var string = "from:";
         _.each(users, function(n) {
-            string += n + " OR ";
+            string += n + " OR from:";
         });
 
-        string = string.substr(0, string.length - 3) + hashtag;
+        string = string.substr(0, string.length - 9) + hashtag;
         console.log(string);
         var params = {
             q: string
