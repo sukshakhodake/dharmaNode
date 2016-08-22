@@ -322,7 +322,7 @@ var models = {
                     upcomingOrder: -1
                 }
             }
-        }).sort({order:-1}).exec(function(err, found) {
+        }).sort({upcomingOrder:-1}).exec(function(err, found) {
             if (err) {
 
                 console.log(err);
