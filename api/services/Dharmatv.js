@@ -289,21 +289,32 @@ var models = {
             }
         });
     },
+
+
     getDharmaTvHomeSlider: function(data, callback) {
-        this.find({}).populate({
-            path: 'movie',
-            match: {
-                year: {
-                    $exists: true
-                }
-            },
-            select: 'order',
-            options: {
-                sort: {
-                    order: -1
-                }
+        Dharmatv.aggregate([{
+            $lookup: {
+                from: 'movies',
+                localField: 'movie',
+                foreignField: '_id',
+                as: 'movie'
             }
-        }).exec(function(err, found) {
+        }, {
+            $unwind: "$movie"
+        }, {
+            $project: {
+                _id: 1,
+                'movie.name': 1,
+                "movie.upcomingOrder": -1,
+                title:1,
+                tags:1,
+                order:1
+            }
+        }, {
+            $sort: {
+                "movie.upcomingOrder": -1
+            }
+        }]).exec(function(err, found) {
             if (err) {
 
                 console.log(err);
@@ -316,6 +327,34 @@ var models = {
             }
         });
     },
+
+    // getDharmaTvHomeSlider: function(data, callback) {
+    //     this.find({}).populate({
+    //         path: 'movie',
+    //         match: {
+    //             year: {
+    //                 $exists: true
+    //             }
+    //         },
+    //         select: 'order',
+    //         options: {
+    //             sort: {
+    //                 order: -1
+    //             }
+    //         }
+    //     }).exec(function(err, found) {
+    //         if (err) {
+    //
+    //             console.log(err);
+    //             callback(err, null);
+    //         } else if (found && found.length > 0) {
+    //
+    //             callback(null, found);
+    //         } else {
+    //             callback(null, []);
+    //         }
+    //     });
+    // },
 };
 
 module.exports = _.assign(module.exports, models);
