@@ -316,13 +316,13 @@ var models = {
                     $exists: true
                 }
             },
-            select: 'order',
+            select: 'upcomingOrder',
             options: {
                 sort: {
-                    order: -1
+                    upcomingOrder: -1
                 }
             }
-        }).exec(function(err, found) {
+        }).sort({order:-1}).exec(function(err, found) {
             if (err) {
 
                 console.log(err);
