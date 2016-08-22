@@ -65,6 +65,23 @@ module.exports = {
       });
     }
   },
+  getAllAwardByMovie: function(req, res) {
+    if (req.body) {
+      if (req.body.pagenumber && req.body.pagenumber !== "" && req.body.pagesize && req.body.pagesize !== "" && req.body._id && req.body._id !== "") {
+        NewAward.getAllAwardByMovie(req.body, res.callback);
+      } else {
+        res.json({
+          value: false,
+          data: "Please provide parameters"
+        });
+      }
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
 
 
   // Awards

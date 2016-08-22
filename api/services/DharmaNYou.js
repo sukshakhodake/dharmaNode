@@ -1,43 +1,64 @@
 /**
- * HomeSlider.js
+ * DharmaNYou.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
 var schema = new Schema({
+  user: {
+    type:String,
+    default:''
+  },
   image: {
+    type: String
+  },
+  question: {
+    type: String,
+    required: true
+  },
+  questionTimestamp: {
+    type: Date,
+    default: Date.now
+  },
+  answer: {
     type: String,
     default: ""
   },
-  mobileImage: {
-    type: String,
-    default: ""
+  answerTimestamp: {
+    type: Date
   },
-  order: {
-    type: String,
-    default: ""
-  },
-  url: {
-    type: String,
-    default: ""
-  },
-  movie: {
+  dharmaAnswerUser: {
     type: Schema.Types.ObjectId,
-    ref: 'Movie',
-    index: true
+    ref: "DharmaAnswerUser"
   },
+  status: {
+    type: Boolean,
+    default: false
+  },
+  email: {
+    type: String,
+    default: ""
+  }
 
 });
+module.exports = mongoose.model('DharmaNYou', schema);
 
-module.exports = mongoose.model('HomeSlider', schema);
 var models = {
+
   saveData: function(data, callback) {
-    var homeSlider = this(data);
-    homeSlider.timestamp = new Date();
+    if (!data.dharmaAnswerUser || data.dharmaAnswerUser === "") {
+      delete data.dharmaAnswerUser;
+    }
+    var dharmaNYou = this(data);
+    // dharmaNYou.timestamp = new Date();
     if (data._id) {
+      if (data.answer ) {
+        data.answerTimestamp = new Date().getTime();
+        console.log(data.answerTimestamp);
+      }
       this.findOneAndUpdate({
         _id: data._id
       }, data).exec(function(err, updated) {
@@ -51,7 +72,7 @@ var models = {
         }
       });
     } else {
-      homeSlider.save(function(err, created) {
+      dharmaNYou.save(function(err, created) {
         if (err) {
           callback(err, null);
         } else if (created) {
@@ -78,6 +99,7 @@ var models = {
   getAll: function(data, callback) {
     this.find({}).exec(function(err, found) {
       if (err) {
+
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
@@ -87,9 +109,12 @@ var models = {
       }
     });
   },
-  getAllHomeSlider: function(data, callback) {
-    this.find({}).sort({ order: -1 }).exec(function(err, found) {
+  getData: function(data, callback) {
+    this.find({}, {
+      url: 1
+    }).lean().exec(function(err, found) {
       if (err) {
+
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
@@ -117,12 +142,13 @@ var models = {
     var newreturns = {};
     newreturns.data = [];
     var check = new RegExp(data.search, "i");
+    console.log(check);
     data.pagenumber = parseInt(data.pagenumber);
     data.pagesize = parseInt(data.pagesize);
     async.parallel([
         function(callback) {
-          HomeSlider.count({
-            order: {
+          DharmaNYou.count({
+            question: {
               '$regex': check
             }
           }).exec(function(err, number) {
@@ -139,11 +165,11 @@ var models = {
           });
         },
         function(callback) {
-          HomeSlider.find({
-            order: {
+          DharmaNYou.find({
+            question: {
               '$regex': check
             }
-          }).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+          }).populate("dharmaAnswerUser", "name ").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
             if (err) {
               console.log(err);
               callback(err, null);
@@ -166,8 +192,7 @@ var models = {
           callback(null, newreturns);
         }
       });
-  },
-
+  }
 };
 
 module.exports = _.assign(module.exports, models);

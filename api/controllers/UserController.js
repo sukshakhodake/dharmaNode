@@ -1,5 +1,4 @@
 var request = require('request');
-var redirect = "http://jaipurpinkpanthers.com/pantherworld/#/panther-army/level1";
 module.exports = {
 
   save: function(req, res) {
@@ -134,29 +133,5 @@ module.exports = {
       });
     }
   },
-
-  getFacebookDetails: function(req, res) {
-    if (req.session.user) {
-      var $access_token = req.session.user.K120K200;
-      var $socialid = req.session.user.oauthLogin.socialid;
-      request.get('https://graph.facebook.com/v2.6/me/taggable_friends?access_token=' + $access_token + '&format=json&limit=1000', function(error, response, body) {
-        if (!error && response.statusCode == 200) {
-          res.json({
-            value: true,
-            data: body
-          });
-        }
-      });
-    }
-
-
-
-  },
-
-  /* make the API call */
-  // facebook:getFbData('1745055379070800', '/me/friends', function(data){
-  //     console.log(data);
-  // })
-
 
 };

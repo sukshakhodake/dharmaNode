@@ -5,27 +5,27 @@ var schema = new Schema({
   name: {
     type: String,
     default: ""
-  },
-  status: {
-    type: Number,
-    default: ""
-  },
-  oauthLogin: {
-    type: [{
-      socialProvider: String,
-      socialId: String,
-      modificationTime: Date
-    }],
-    index: true
-  },
-  K120K200: {
-    type: String,
-    default: ""
-  },
-  profilePic: {
-    type: String,
-    default: ""
   }
+  // status: {
+  //   type: Number,
+  //   default: ""
+  // },
+  // oauthLogin: {
+  //   type: [{
+  //     socialProvider: String,
+  //     socialId: String,
+  //     modificationTime: Date
+  //   }],
+  //   index: true
+  // },
+  // K120K200: {
+  //   type: String,
+  //   default: ""
+  // },
+  // profilePic: {
+  //   type: String,
+  //   default: ""
+  // }
 
 });
 
@@ -107,7 +107,7 @@ var models = {
     async.parallel([
         function(callback) {
           User.count({
-            armyName: {
+            name: {
               '$regex': check
             }
           }).exec(function(err, number) {
@@ -125,7 +125,7 @@ var models = {
         },
         function(callback) {
           User.find({
-            armyName: {
+            name: {
               '$regex': check
             }
           }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {

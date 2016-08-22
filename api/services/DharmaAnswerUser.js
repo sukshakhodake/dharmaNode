@@ -1,42 +1,32 @@
 /**
- * HomeSlider.js
+ * DharmaAnswerUser.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var uniqueValidator = require('mongoose-unique-validator');
 
 var schema = new Schema({
-  image: {
+  name: {
     type: String,
-    default: ""
+    required: true,
+    unique:true
   },
-  mobileImage: {
-    type: String,
-    default: ""
-  },
-  order: {
-    type: String,
-    default: ""
-  },
-  url: {
-    type: String,
-    default: ""
-  },
-  movie: {
-    type: Schema.Types.ObjectId,
-    ref: 'Movie',
-    index: true
-  },
-
+  image:{
+     type: String
+  }
 });
+schema.plugin(uniqueValidator);
+module.exports = mongoose.model('DharmaAnswerUser', schema);
 
-module.exports = mongoose.model('HomeSlider', schema);
 var models = {
+
   saveData: function(data, callback) {
-    var homeSlider = this(data);
-    homeSlider.timestamp = new Date();
+    var dharmaAnswerUser = this(data);
+    dharmaAnswerUser.timestamp = new Date();
     if (data._id) {
       this.findOneAndUpdate({
         _id: data._id
@@ -51,7 +41,7 @@ var models = {
         }
       });
     } else {
-      homeSlider.save(function(err, created) {
+      dharmaAnswerUser.save(function(err, created) {
         if (err) {
           callback(err, null);
         } else if (created) {
@@ -76,8 +66,11 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    this.find({}).exec(function(err, found) {
+    this.find({}).populate("movie", "name upcomingOrder").sort({
+      upcomingOrder: -1
+    }).lean().exec(function(err, found) {
       if (err) {
+
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
@@ -87,9 +80,12 @@ var models = {
       }
     });
   },
-  getAllHomeSlider: function(data, callback) {
-    this.find({}).sort({ order: -1 }).exec(function(err, found) {
+  getData: function(data, callback) {
+    this.find({}, {
+      url: 1
+    }).lean().exec(function(err, found) {
       if (err) {
+
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
@@ -117,12 +113,13 @@ var models = {
     var newreturns = {};
     newreturns.data = [];
     var check = new RegExp(data.search, "i");
+    console.log(check);
     data.pagenumber = parseInt(data.pagenumber);
     data.pagesize = parseInt(data.pagesize);
     async.parallel([
         function(callback) {
-          HomeSlider.count({
-            order: {
+          DharmaAnswerUser.count({
+            name: {
               '$regex': check
             }
           }).exec(function(err, number) {
@@ -139,8 +136,8 @@ var models = {
           });
         },
         function(callback) {
-          HomeSlider.find({
-            order: {
+          DharmaAnswerUser.find({
+            name: {
               '$regex': check
             }
           }).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
@@ -166,8 +163,7 @@ var models = {
           callback(null, newreturns);
         }
       });
-  },
-
+  }
 };
 
 module.exports = _.assign(module.exports, models);

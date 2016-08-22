@@ -1,42 +1,27 @@
 /**
- * HomeSlider.js
+ * Dharma140.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
+
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
 var schema = new Schema({
-  image: {
-    type: String,
-    default: ""
+  hashTags: {
+    type:String,
+    default : ''
   },
-  mobileImage: {
-    type: String,
-    default: ""
-  },
-  order: {
-    type: String,
-    default: ""
-  },
-  url: {
-    type: String,
-    default: ""
-  },
-  movie: {
-    type: Schema.Types.ObjectId,
-    ref: 'Movie',
-    index: true
-  },
-
+  user: ["String"]
 });
+module.exports = mongoose.model('Dharma140', schema);
 
-module.exports = mongoose.model('HomeSlider', schema);
 var models = {
+
   saveData: function(data, callback) {
-    var homeSlider = this(data);
-    homeSlider.timestamp = new Date();
+    var dharma140 = this(data);
+    dharma140.timestamp = new Date();
     if (data._id) {
       this.findOneAndUpdate({
         _id: data._id
@@ -51,7 +36,7 @@ var models = {
         }
       });
     } else {
-      homeSlider.save(function(err, created) {
+      dharma140.save(function(err, created) {
         if (err) {
           callback(err, null);
         } else if (created) {
@@ -87,15 +72,32 @@ var models = {
       }
     });
   },
-  getAllHomeSlider: function(data, callback) {
-    this.find({}).sort({ order: -1 }).exec(function(err, found) {
+  getData: function(data, callback) {
+    this.find({}, {
+      url: 1
+    }).lean().exec(function(err, found) {
       if (err) {
+
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
         callback(null, found);
       } else {
         callback(null, []);
+      }
+    });
+  },
+  getHash: function(data, callback) {
+    this.findOne({
+      "_id": data._id
+    }).exec(function(err, found) {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else if (found && Object.keys(found).length > 0) {
+          callback(null, found);
+      } else {
+        callback(null, {});
       }
     });
   },
@@ -117,12 +119,13 @@ var models = {
     var newreturns = {};
     newreturns.data = [];
     var check = new RegExp(data.search, "i");
+    console.log(check);
     data.pagenumber = parseInt(data.pagenumber);
     data.pagesize = parseInt(data.pagesize);
     async.parallel([
         function(callback) {
-          HomeSlider.count({
-            order: {
+          Dharma140.count({
+            hashTags: {
               '$regex': check
             }
           }).exec(function(err, number) {
@@ -139,11 +142,12 @@ var models = {
           });
         },
         function(callback) {
-          HomeSlider.find({
-            order: {
+          Dharma140.find({
+            hashTags: {
+
               '$regex': check
             }
-          }).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+          }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
             if (err) {
               console.log(err);
               callback(err, null);
@@ -166,8 +170,7 @@ var models = {
           callback(null, newreturns);
         }
       });
-  },
-
+  }
 };
 
 module.exports = _.assign(module.exports, models);

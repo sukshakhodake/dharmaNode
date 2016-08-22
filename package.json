@@ -26,11 +26,13 @@
     "moment": "^2.14.1",
     "mongodb": "2.1.7",
     "mongoose": "^4.5.5",
+    "mongoose-unique-validator": "^1.0.2",
     "nodemon": "^1.9.2",
     "rc": "1.0.1",
     "request": "^2.74.0",
     "sails": "~0.12.3",
-    "sails-disk": "~0.10.9"
+    "sails-disk": "~0.10.9",
+    "twitter": "^1.4.0"
   },
   "scripts": {
     "debug": "node debug app.js",

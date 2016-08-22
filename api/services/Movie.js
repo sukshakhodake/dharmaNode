@@ -270,7 +270,7 @@ var models = {
                 function(callback) {
                     Movie.findOne({
                         _id: data._id
-                    }).select("awards cast note synopsis releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage name upcomingOrder").exec(function(err, data1) {
+                    }).select(" cast note synopsis releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage name upcomingOrder").exec(function(err, data1) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
@@ -437,6 +437,46 @@ var models = {
                               newreturns.crew = data6[0].crew;
                           } else {
                               newreturns.crew = [];
+                          }
+
+                            callback(null, newreturns);
+                        }
+                    });
+                },
+
+                //awards
+                function(callback) {
+                  NewAward.find({
+                    "movie": data._id
+                  }).exec(function(err, data7) {
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                          if (data7 && data7.length > 0) {
+                              newreturns.award = data7;
+                          } else {
+                              newreturns.award = [];
+                          }
+
+                            callback(null, newreturns);
+                        }
+                    });
+                },
+
+                //news
+                function(callback) {
+                  News.find({
+                    "movie": data._id
+                  }).exec(function(err, data8) {
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                          if (data8 && data8.length > 0) {
+                              newreturns.news = data8;
+                          } else {
+                              newreturns.news = [];
                           }
 
                             callback(null, newreturns);
