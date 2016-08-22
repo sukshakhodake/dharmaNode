@@ -323,7 +323,9 @@ var models = {
                 "movie.upcomingOrder": 1,
                 title: 1,
                 tags: 1,
-                order: 1
+                order: 1,
+                url:1,
+                thumbnail: 1
             }
         }, {
             $sort: {
