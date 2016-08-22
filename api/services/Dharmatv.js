@@ -320,14 +320,15 @@ var models = {
             $project: {
                 _id: 1,
                 'movie.name': 1,
-                "movie.upcomingOrder": -1,
-                title:1,
-                tags:1,
-                order:1
+                "movie.upcomingOrder": 1,
+                title: 1,
+                tags: 1,
+                order: 1
             }
         }, {
             $sort: {
-                "movie.upcomingOrder": -1
+                "movie.upcomingOrder": -1,
+                order: -1
             }
         }]).exec(function(err, found) {
             if (err) {
