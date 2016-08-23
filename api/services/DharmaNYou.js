@@ -97,7 +97,7 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    DharmaNYou.find({}).exec(function(err, found) {
+    DharmaNYou.find({}).populate('dharmaansweruser').exec(function(err, found) {
       console.log(found);
       if (err) {
 
