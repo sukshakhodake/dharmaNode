@@ -1952,9 +1952,10 @@ var models = {
         //     },
         //     function(cb) {
         Movie.find().sort({
-            'year': -1,
-            'name': 1
-        }).exec(function(err, respo) {
+            // 'year': -1,
+            // 'name': 1
+            upcomingOrder: -1
+        }).select("name upcomingOrder releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage").exec(function(err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
