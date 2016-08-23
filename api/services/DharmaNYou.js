@@ -97,7 +97,8 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    this.find({}).exec(function(err, found) {
+    DharmaNYou.find({}).exec(function(err, found) {
+      console.log(found);
       if (err) {
 
         console.log(err);
@@ -109,6 +110,7 @@ var models = {
       }
     });
   },
+
   getData: function(data, callback) {
     this.find({}, {
       url: 1
