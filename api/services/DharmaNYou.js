@@ -97,10 +97,9 @@ var models = {
     });
   },
   getAll: function(data, callback) {
-    DharmaNYou.find({}).populate('dharmaansweruser').exec(function(err, found) {
+    DharmaNYou.find({}).populate('dharmaAnswerUser').exec(function(err, found) {
       console.log(found);
       if (err) {
-
         console.log(err);
         callback(err, null);
       } else if (found && found.length > 0) {
