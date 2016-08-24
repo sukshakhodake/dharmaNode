@@ -323,7 +323,7 @@ var models = {
                             '$regex': check
                         }
                     }).populate("movie").sort({
-                        _id: -1
+                        order: -1
                     }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
                         if (err) {
                             console.log(err);
