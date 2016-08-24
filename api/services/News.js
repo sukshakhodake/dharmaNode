@@ -256,6 +256,7 @@ var models = {
                             image: 1,
                             date: 1,
                             text: 1,
+                            order:1,
                             year: {
                                 $year: "$date"
                             },
