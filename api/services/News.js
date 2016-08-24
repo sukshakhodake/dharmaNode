@@ -30,6 +30,10 @@ var schema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Movie',
         index: true
+    },
+    order:{
+      type: Number,
+      default: 0
     }
 });
 
@@ -260,7 +264,7 @@ var models = {
                             }
                         }
                     }]).sort({
-                        _id: -1
+                        order: -1
                     }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
                         if (err) {
                             console.log(err);
