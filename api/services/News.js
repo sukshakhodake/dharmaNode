@@ -155,7 +155,6 @@ var models = {
             month: parseInt(data.month)
         };
         var check = new RegExp(data.search, "i");
-        console.log("check0", check);
         data.pagenumber = parseInt(data.pagenumber);
         data.pagesize = parseInt(data.pagesize);
 
@@ -165,7 +164,6 @@ var models = {
         if (!data.month || data.month == "All") {
             delete matchobj.month;
         }
-        console.log("sss", matchobj);
         async.parallel([
                 function(callback) {
                     News.aggregate([{
@@ -175,6 +173,7 @@ var models = {
                             image: 1,
                             date: 1,
                             text: 1,
+                              order:1,
                             __v: 1,
                             year: {
                                 $year: "$date"
@@ -227,6 +226,7 @@ var models = {
                             image: 1,
                             date: 1,
                             text: 1,
+                              order:1,
                             __v: 1,
                             year: {
                                 $year: "$date"
