@@ -265,7 +265,7 @@ var models = {
                             }
                         }
                     }]).sort({
-                        order: -1
+                        date: -1
                     }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
                         if (err) {
                             console.log(err);
@@ -324,7 +324,7 @@ var models = {
                             '$regex': check
                         }
                     }).populate("movie").sort({
-                        order: -1
+                        date: -1
                     }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
                         if (err) {
                             console.log(err);
