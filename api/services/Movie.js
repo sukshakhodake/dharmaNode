@@ -1987,7 +1987,7 @@ var models = {
             month: 1,
             upcomingOrder: 1
         }).sort({
-            upcomingOrder: -1,
+            date: -1,
         }).exec(function(err, deleted) {
             if (err) {
                 callback(err, null);
