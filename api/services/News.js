@@ -85,7 +85,7 @@ var models = {
     },
     getAll: function(data, callback) {
         this.find({}).sort({
-            _id: -1
+            date: -1
         }).exec(function(err, found) {
             if (err) {
                 console.log(err);
