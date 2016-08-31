@@ -170,6 +170,37 @@ var models = {
         });
     },
     findLimited: function(data, callback) {
+      var obj={};
+
+      if(data._id && data._id !=='')
+      {
+        obj={
+            $or: [{
+                tag: {
+                    '$regex': check
+                }
+            }, {
+                title: {
+                    '$regex': check
+                }
+            }, {
+                movie: data.id
+            }]
+        };
+      }
+      else{
+        obj={
+            $or: [{
+                tag: {
+                    '$regex': check
+                }
+            }, {
+                title: {
+                    '$regex': check
+                }
+            }]
+        };
+      }
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -179,9 +210,7 @@ var models = {
         async.parallel([
                 function(callback) {
                     Dharmatv.count({
-                        // tag: {
-                        //     '$regex': check
-                        // }
+
                         $or: [{
                             tag: {
                                 '$regex': check
@@ -239,6 +268,78 @@ var models = {
                 }
             });
     },
+
+
+    // findLimited: function(data, callback) {
+    //     var newreturns = {};
+    //     newreturns.data = [];
+    //     var check = new RegExp(data.search, "i");
+    //     console.log(check);
+    //     data.pagenumber = parseInt(data.pagenumber);
+    //     data.pagesize = parseInt(data.pagesize);
+    //     async.parallel([
+    //             function(callback) {
+    //                 Dharmatv.count({
+    //                     // tag: {
+    //                     //     '$regex': check
+    //                     // }
+    //                     $or: [{
+    //                         tag: {
+    //                             '$regex': check
+    //                         }
+    //                     }, {
+    //                         title: {
+    //                             '$regex': check
+    //                         }
+    //                     }]
+    //                 }).exec(function(err, number) {
+    //                     if (err) {
+    //                         console.log(err);
+    //                         callback(err, null);
+    //                     } else if (number && number !== "") {
+    //                         newreturns.total = number;
+    //                         newreturns.totalpages = Math.ceil(number / data.pagesize);
+    //                         callback(null, newreturns);
+    //                     } else {
+    //                         callback(null, newreturns);
+    //                     }
+    //                 });
+    //             },
+    //             function(callback) {
+    //                 Dharmatv.find({
+    //                     $or: [{
+    //                         tag: {
+    //                             '$regex': check
+    //                         }
+    //                     }, {
+    //                         title: {
+    //                             '$regex': check
+    //                         }
+    //                     }]
+    //                 }).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+    //                     if (err) {
+    //                         console.log(err);
+    //                         callback(err, null);
+    //                     } else if (data2 && data2.length > 0) {
+    //                         newreturns.data = data2;
+    //                         callback(null, newreturns);
+    //                     } else {
+    //                         callback(null, newreturns);
+    //                     }
+    //                 });
+    //             }
+    //         ],
+    //         function(err, data4) {
+    //             if (err) {
+    //                 console.log(err);
+    //                 callback(err, null);
+    //             } else if (data4) {
+    //                 callback(null, newreturns);
+    //             } else {
+    //                 callback(null, newreturns);
+    //             }
+    //         });
+    // },
 
     getAllDharmatv: function(data, callback) {
         console.log(data.search);

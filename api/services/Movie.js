@@ -21,6 +21,10 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    status: {
+        type: Boolean,
+        default: ""
+    },
     order: {
         type: Number,
         default: 0
