@@ -223,7 +223,7 @@ var models = {
                     });
                 },
                 function(callback) {
-                    Dharmatv.find(obj).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+                    Dharmatv.find(obj).populate("movie",'name').skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
