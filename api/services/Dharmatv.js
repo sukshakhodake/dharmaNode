@@ -209,18 +209,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         async.parallel([
                 function(callback) {
-                    Dharmatv.count({
-
-                        $or: [{
-                            tag: {
-                                '$regex': check
-                            }
-                        }, {
-                            title: {
-                                '$regex': check
-                            }
-                        }]
-                    }).exec(function(err, number) {
+                    Dharmatv.count(obj).exec(function(err, number) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
@@ -234,17 +223,7 @@ var models = {
                     });
                 },
                 function(callback) {
-                    Dharmatv.find({
-                        $or: [{
-                            tag: {
-                                '$regex': check
-                            }
-                        }, {
-                            title: {
-                                '$regex': check
-                            }
-                        }]
-                    }).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+                    Dharmatv.find(obj).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
