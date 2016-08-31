@@ -184,7 +184,7 @@ var models = {
                     '$regex': check
                 }
             }, {
-                movie: data.id
+                movie: data._id
             }]
         };
       }
