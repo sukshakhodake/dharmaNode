@@ -1989,7 +1989,8 @@ var models = {
             url: 1,
             year: 1,
             month: 1,
-            upcomingOrder: 1
+            upcomingOrder: 1,
+            releaseDate: 1
         }).sort({
             releaseDate: -1,
         }).exec(function(err, deleted) {
