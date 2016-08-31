@@ -177,18 +177,8 @@ var models = {
       if(data._id && data._id !=='')
       {
         obj={
-            $or: [{
-                tag: {
-                    '$regex': check
-                }
-            }, {
-                title: {
-                    '$regex': check
-                }
-            }, {
-                movie: data._id
-            }]
-        };
+                movie:data._id
+              };
       }
       else{
         obj={
