@@ -6,6 +6,7 @@ var objectid = require("mongodb").ObjectID;
 var schema = new Schema({
     image: String,
     date: String,
+    releaseDate: Date,
     director: String,
     mainCast: String,
     upcomingOrder: {
@@ -401,11 +402,11 @@ var models = {
                             console.log(err);
                             callback(err, null);
                         } else {
-                          if (data5 && data5.length > 0) {
-                              newreturns.behindTheScenes = data5[0].behindTheScenes;
-                          } else {
-                              newreturns.behindTheScenes = [];
-                          }
+                            if (data5 && data5.length > 0) {
+                                newreturns.behindTheScenes = data5[0].behindTheScenes;
+                            } else {
+                                newreturns.behindTheScenes = [];
+                            }
                             callback(null, newreturns);
                         }
                     });
@@ -433,11 +434,11 @@ var models = {
                             console.log(err);
                             callback(err, null);
                         } else {
-                          if (data6 && data6.length > 0) {
-                              newreturns.crew = data6[0].crew;
-                          } else {
-                              newreturns.crew = [];
-                          }
+                            if (data6 && data6.length > 0) {
+                                newreturns.crew = data6[0].crew;
+                            } else {
+                                newreturns.crew = [];
+                            }
 
                             callback(null, newreturns);
                         }
@@ -446,18 +447,18 @@ var models = {
 
                 //awards
                 function(callback) {
-                  NewAward.find({
-                    "movie": data._id
-                  }).exec(function(err, data7) {
+                    NewAward.find({
+                        "movie": data._id
+                    }).exec(function(err, data7) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
                         } else {
-                          if (data7 && data7.length > 0) {
-                              newreturns.award = data7;
-                          } else {
-                              newreturns.award = [];
-                          }
+                            if (data7 && data7.length > 0) {
+                                newreturns.award = data7;
+                            } else {
+                                newreturns.award = [];
+                            }
 
                             callback(null, newreturns);
                         }
@@ -466,18 +467,18 @@ var models = {
 
                 //news
                 function(callback) {
-                  News.find({
-                    "movie": data._id
-                  }).exec(function(err, data8) {
+                    News.find({
+                        "movie": data._id
+                    }).exec(function(err, data8) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
                         } else {
-                          if (data8 && data8.length > 0) {
-                              newreturns.news = data8;
-                          } else {
-                              newreturns.news = [];
-                          }
+                            if (data8 && data8.length > 0) {
+                                newreturns.news = data8;
+                            } else {
+                                newreturns.news = [];
+                            }
 
                             callback(null, newreturns);
                         }
@@ -741,7 +742,7 @@ var models = {
     //SIDEMENU CREW
 
     saveCrew: function(data, callback) {
-      var movie = data.movie;
+        var movie = data.movie;
         if (!data._id) {
             Movie.update({
                 _id: movie
@@ -1978,7 +1979,10 @@ var models = {
 
     getAllUpcomingMovies: function(data, callback) {
         Movie.find({
-            "releaseType": "Upcoming"
+            "releaseType": "Upcoming",
+            "releaseDate": {
+                $gte: new Date()
+            }
         }, {
             upcomingSmall: 1,
             name: 1,
@@ -1987,7 +1991,7 @@ var models = {
             month: 1,
             upcomingOrder: 1
         }).sort({
-            date: -1,
+            releaseDate: -1,
         }).exec(function(err, deleted) {
             if (err) {
                 callback(err, null);
@@ -2144,7 +2148,7 @@ var models = {
             if (err) {
                 callback(err, null);
             } else {
-                  callback(null, data2);
+                callback(null, data2);
             }
         });
     },
