@@ -1960,7 +1960,7 @@ var models = {
             // 'year': -1,
             // 'name': 1
             upcomingOrder: -1
-        }).select("name upcomingOrder releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage").exec(function(err, respo) {
+        }).select("name upcomingOrder releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage status").exec(function(err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -1994,7 +1994,8 @@ var models = {
             year: 1,
             month: 1,
             upcomingOrder: 1,
-            releaseDate: 1
+            releaseDate: 1,
+            status:1
         }).sort({
             releaseDate: 1,
         }).exec(function(err, deleted) {
@@ -2013,7 +2014,8 @@ var models = {
             name: 1,
             year: 1,
             month: 1,
-            upcomingOrder: 1
+            upcomingOrder: 1,
+            status:1
         }).sort({
             // year: -1
             upcomingOrder: -1
@@ -2252,7 +2254,8 @@ var models = {
             recentSmall: 1,
             smallImage: 1,
             year: 1,
-            upcomingOrder: 1
+            upcomingOrder: 1,
+            status:1
         }, {}).sort({
             // year: -1
             upcomingOrder: -1
