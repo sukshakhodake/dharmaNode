@@ -174,12 +174,30 @@ var models = {
       console.log(check);
       var obj={};
 
-      if(data._id && data._id !=='')
+      if(data._id && data._id !==''&& data.search!=='')
+      {
+        obj={
+            $or: [{
+                tag: {
+                    '$regex': check
+                }
+            }, {
+                title: {
+                    '$regex': check
+                }
+            }, {
+                movie: data._id
+            }]
+        };
+      }
+
+      else if (data._id && data._id !=='' && data.search==='')
       {
         obj={
                 movie:data._id
               };
       }
+
       else{
         obj={
             $or: [{
