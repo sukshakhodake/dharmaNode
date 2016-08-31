@@ -170,6 +170,8 @@ var models = {
         });
     },
     findLimited: function(data, callback) {
+      var check = new RegExp(data.search, "i");
+      console.log(check);
       var obj={};
 
       if(data._id && data._id !=='')
@@ -203,8 +205,7 @@ var models = {
       }
         var newreturns = {};
         newreturns.data = [];
-        var check = new RegExp(data.search, "i");
-        console.log(check);
+
         data.pagenumber = parseInt(data.pagenumber);
         data.pagesize = parseInt(data.pagesize);
         async.parallel([
