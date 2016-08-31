@@ -208,6 +208,8 @@ var models = {
                 title: {
                     '$regex': check
                 }
+            }, {
+               movie: data._id
             }]
         };
       }
