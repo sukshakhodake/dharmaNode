@@ -36,20 +36,23 @@ module.exports.routes = {
         controller: "WebController",
         action: "index",
         skipAssets: true,
-        skipRegex: /api/i
+        skipRegex: /api+backend/i
     },
-    // Add other if Possible
-
-    'GET /*': {
-        controller: "WebController",
-        action: "index",
-        skipAssets: true,
-        skipRegex: /api/i
-    },
+    // 'GET /*': {
+    //     controller: "WebController",
+    //     action: "index",
+    //     skipAssets: true,
+    //     skipRegex: /api+backend/i
+    // },
     "GET /api/download/:filename": {
-      controller: "WebController",
-      action: "download"
-    }
+        controller: "WebController",
+        action: "download"
+    },
+    'GET /backend/*': {
+        controller: "WebController",
+        action: "backend",
+        skipAssets: true
+    },
 
     /***************************************************************************
      *                                                                          *

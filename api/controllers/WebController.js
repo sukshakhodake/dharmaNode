@@ -1,11 +1,12 @@
 module.exports = {
     index: function(req, res) {
         var jsFiles = require("../../frontend/files.js");
+        console.log("demo");
         res.view(sails.config.environment, {
             jsFiles: jsFiles,
-            title: "Abolute Business Manager",
-            description: "Abolute Business Manager",
-            keywords: "Abolute,Business,Manager",
+            title: "Dharma Production Backend",
+            description: "Dharma Production Backend",
+            keywords: "Dharma Production Backend",
             image: "http://www.wohlig.com/img/logo.png",
         });
     },

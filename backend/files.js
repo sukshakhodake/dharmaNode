@@ -26,11 +26,8 @@ module.exports = [
     "bower_components/ace-builds/src-noconflict/theme-monokai.js",
     "bower_components/ace-builds/src-noconflict/mode-json.js",
 
-    "./js/app.js",
-    "./js/controllers.js",
-    "./js/navigation.js",
-    "./js/templateservice.js",
-
-    //please do not change it
-    './w/js/templates.js',
+    "backend/js/app.js",
+    "backend/js/controllers.js",
+    "backend/js/navigation.js",
+    "backend/js/templateservice.js",
 ];

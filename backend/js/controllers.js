@@ -739,7 +739,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // };
 })
 
-.controller('HeaderCtrl', function($scope, TemplateService, NavigationService, $state) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
     $scope.logOut = function() {
         NavigationService.logout(function(data) {
             console.log(data);
