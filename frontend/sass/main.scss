@@ -29,6 +29,9 @@ body {
     padding-top: 0;
     -webkit-font-smoothing: antialiased;
 }
+[ui-sref] {
+    cursor: pointer;
+}
 .brand-primary, .brand-primary>* {
   color: $brand-primary;
 }

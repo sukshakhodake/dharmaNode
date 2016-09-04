@@ -88,7 +88,7 @@ var models = {
     });
   },
   getAllHomeSlider: function(data, callback) {
-    this.find({}).sort({ order: -1 }).exec(function(err, found) {
+    this.find({}).populate("movie","_id name year urlName").sort({ order: -1 }).exec(function(err, found) {
       if (err) {
         console.log(err);
         callback(err, null);
