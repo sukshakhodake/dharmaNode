@@ -11,7 +11,7 @@ module.exports = [
     "bower_components/angular-material/angular-material.js",
     "bower_components/angular-material-icons/angular-material-icons.min.js",
     "bower_components/svg-morpheus/compile/minified/svg-morpheus.js",
-    "bower_components/lodash/lodash.min.js",
+    "bower_components/lodash/dist/lodash.js",
     "bower_components/jStorage/jstorage.min.js",
     "bower_components/angular-clipboard/angular-clipboard.js",
     "bower_components/js-beautify/js/lib/beautify.js",
@@ -20,12 +20,9 @@ module.exports = [
     "bower_components/angular-ui-sortable/sortable.min.js",
     "bower_components/angular-bootstrap/ui-bootstrap.min.js",
     "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
-
-
     "bower_components/ace-builds/src-noconflict/ace.js",
     "bower_components/ace-builds/src-noconflict/theme-monokai.js",
     "bower_components/ace-builds/src-noconflict/mode-json.js",
-
     "backend/js/app.js",
     "backend/js/controllers.js",
     "backend/js/navigation.js",
