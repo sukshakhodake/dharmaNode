@@ -12,7 +12,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                   </button>
-                  <a class="" ui-sref="home"><img src="img/logo.png" alt="Dharma Productions" class="img-responsive logo-img"></a>
+                  <a class="" ui-sref="home"><img src="frontend/img/logo.png" alt="Dharma Productions" class="img-responsive logo-img"></a>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
                   <a href="https://www.youtube.com/c/dharmamovies" target="_blank"><i class="fa fa-youtube"></i></a>
                 </li>
                 <li ng-click="getHeaderSearch();">
-                  <a href=""><button type="button" name="button" class="my-main-btn"><img src="img/search-light.png" alt="" class="w15"></button></a>
+                  <a href=""><button type="button" name="button" class="my-main-btn"><img src="frontend/img/search-light.png" alt="" class="w15"></button></a>
                 </li>
               </ul>
             </div>
@@ -47,7 +47,7 @@
 </div>
 <div class="search-movie search-movie-mar my-search" ng-if="headerSearch">
     <div class="search-img">
-        <img src="img/search-grey.png" alt="Dharma Productions" class="doneLoading">
+        <img src="frontend/img/search-grey.png" alt="Dharma Productions" class="doneLoading">
     </div>
     <div class="movie-search-pg">
       <ui-select ng-model="movie.selected" ng-change="DoSearch(movie.selected.name,movie.selected._id)" style="width: 100%;" title="Search Movie" class="search-drop">
@@ -55,7 +55,7 @@
           <ui-select-choices repeat="movie in allMovieName | filter: {name:$select.search}">
               <div class="movi-src-rslt">
                   <div class="display-inline w60">
-                      <!-- <img src="img/movie-search.png" alt=""> -->
+                      <!-- <img src="frontend/img/movie-search.png" alt=""> -->
                       <img ng-src="{{movie.smallImage|uploadpath}}" alt="" ng-if="movie.releaseType=='Past'">
                       <img ng-src="{{movie.recentSmall|uploadpath}}" alt="" ng-if="movie.releaseType=='Recent'">
                       <img ng-src="{{movie.upcomingSmall|uploadpath}}" alt="" ng-if="movie.releaseType=='Upcoming'">
@@ -86,7 +86,7 @@
         </ui-select> -->
     </div>
     <div class="search-img2" ng-click="closeCross();">
-        <img src="img/error-2.png" alt="Dharma Productions">
+        <img src="frontend/img/error-2.png" alt="Dharma Productions">
     </div>
 </div>
 
@@ -96,5 +96,5 @@
 
 
 <div class="loaderHeader" ng-show="template.isLoader">
-  <img src="img/loadingdharma.gif" alt="" />
+  <img src="frontend/img/loadingdharma.gif" alt="" />
 </div>

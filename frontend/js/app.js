@@ -16,102 +16,102 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     $stateProvider
         .state('home', {
             url: "/",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'HomeCtrl'
         })
         .state('movies', {
             url: "/movies",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'MoviesCtrl'
         })
         .state('awards', {
             url: "/",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'AwardsCtrl'
         })
         .state('dharma-tv', {
             url: "/dharma-tv/",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'DharmaTvCtrl'
         })
         .state('dharma-tvsearch', {
             url: "/dharma-tv/:search",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'DharmaTvCtrl'
         })
         .state('tv-inside', {
             url: "/tv-inside/:id",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'TvInsideCtrl'
         })
         .state('tv-insideSearch', {
             url: "/tv-inside/:id/:search",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'TvInsideCtrl'
         })
         // .state('tv-insideMovie', {
         //     url: "/tv-inside/:id/:search",
-        //     templateUrl: "views/template.html",
+        //     templateUrl: "frontend/views/template.html",
         //     controller: 'TvInsideCtrl'
         // })
         .state('dharma-world', {
             url: "/dharma-world",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'DharmaWorldCtrl'
         })
         .state('news-events', {
             url: "/news-events",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'NewsEventsCtrl'
         })
         .state('dharma-journey', {
             url: "/dharma-journey",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'DharmaJourneyCtrl'
         })
         .state('contact-us', {
             url: "/contact-us",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'ContactUsCtrl'
         })
         .state('news-detail', {
             url: "/news-detail/:id",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'NewsDetailCtrl'
         })
         .state('privacy-policy', {
             url: "/privacy-policy",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'PrivacyPolicyCtrl'
         })
         .state('movie-inside', {
             url: "/movie-inside/:id",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'MovieInsideCtrl'
         })
         .state('movie-insideTab', {
             url: "/movie-inside/:id/:tab",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'MovieInsideCtrl'
         })
         .state('overview', {
             url: "/overview",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'OverviewCtrl'
         })
         .state('dharma140', {
             url: "/dharma140/:id",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'Dharma140Ctrl'
         })
         .state('dharma-insta', {
             url: "/dharma-insta",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'DharmaInstaCtrl'
         })
         .state('dharma-you', {
             url: "/dharma-you",
-            templateUrl: "views/template.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'DharmaYouCtrl'
         });
     $urlRouterProvider.otherwise("/");
@@ -254,7 +254,7 @@ firstapp.filter('cut', function() {
 
 firstapp.directive('uploadImage', function($http, $filter) {
     return {
-        templateUrl: 'views/directive/uploadFile.html',
+        templateUrl: 'frontend/views/directive/uploadFile.html',
         scope: {
             model: '=ngModel',
             callback: "=ngCallback"
@@ -336,7 +336,7 @@ firstapp.directive('img', function($compile, $parse) {
         link: function($scope, element, attrs) {
             var $element = $(element);
             if (!attrs.noloading) {
-                $element.after("<img src='img/loading.gif' class='loading' />");
+                $element.after("<img src='frontend/img/loading.gif' class='loading' />");
                 var $loading = $element.next(".loading");
                 $element.load(function() {
                     $loading.remove();

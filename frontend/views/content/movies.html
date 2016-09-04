@@ -11,11 +11,11 @@
                     </div>
                     <div class="search-movie dh-relative search-movie-mar">
                         <div class="search-img">
-                            <img src="img/search-grey.png" alt="Dharma Productions" class="doneLoading">
+                            <img src="frontend/img/search-grey.png" alt="Dharma Productions" class="doneLoading">
                         </div>
                         <!-- <input type="search" ng-change="DoSearch(searchdata.search)" ng-model="searchdata.search" name="name" value="" class="search-in colorchange" placeholder="Search for your favourite movie">
                         <div class="search-img2" ng-if="getsearch" ng-click="viewSearch();">
-                            <img src="img/error2.png" alt="Dharma Productions">
+                            <img src="frontend/img/error2.png" alt="Dharma Productions">
                         </div> -->
                         <div class="movie-search-pg">
                             <ui-select ng-model="movie.selected" ng-change="DoSearch(movie.selected.name,movie.selected._id)" style="width: 100%;" title="Search Movie" class="search-drop">
@@ -23,7 +23,7 @@
                                 <ui-select-choices repeat="movie in allMovieName | filter: {name:$select.search}">
                                     <div class="movi-src-rslt">
                                         <div class="display-inline w60">
-                                            <!-- <img src="img/movie-search.png" alt=""> -->
+                                            <!-- <img src="frontend/img/movie-search.png" alt=""> -->
                                             <img ng-src="{{movie.smallImage|uploadpath}}" alt="" ng-if="movie.releaseType=='Past'">
                                             <img ng-src="{{movie.recentSmall|uploadpath}}" alt="" ng-if="movie.releaseType=='Recent'">
                                             <img ng-src="{{movie.upcomingSmall|uploadpath}}" alt="" ng-if="movie.releaseType=='Upcoming'">
@@ -37,7 +37,7 @@
                             </ui-select>
                         </div>
                         <div class="search-img2" ng-if="mySearchFor" ng-click="viewSearch(mySearchFor);">
-                            <img src="img/error-2.png" alt="Dharma Productions">
+                            <img src="frontend/img/error-2.png" alt="Dharma Productions">
                         </div>
                     </div>
 

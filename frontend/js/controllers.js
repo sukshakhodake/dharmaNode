@@ -11,7 +11,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openModal = function() {
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
-            templateUrl: 'views/modal/subscribe.html',
+            templateUrl: 'frontend/views/modal/subscribe.html',
             controller: 'HomeCtrl',
             size: 'lg',
             windowClass: 'subscribe-modal',
@@ -25,12 +25,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.removeLoaderOn(5);
 
     $scope.mySlides = [
-        'img/banners/slide1.jpg',
-        'img/banners/slide1.jpg'
+        'frontend/img/banners/slide1.jpg',
+        'frontend/img/banners/slide1.jpg'
     ];
     $scope.mySlide = [
-        'img/banners/mob-slider.jpg',
-        'img/banners/mob-slider.jpg'
+        'frontend/img/banners/mob-slider.jpg',
+        'frontend/img/banners/mob-slider.jpg'
     ];
     NavigationService.getAllUpcomingMovies(function(data) {
         $scope.AllUpcomingMovies = _.orderBy(data.data, function(n) {
@@ -65,86 +65,86 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.movie = [{
-        img: "img/movie/m1.jpg",
+        img: "frontend/img/movie/m1.jpg",
         name: "Ae Dil hai mushkil"
     }, {
-        img: "img/movie/m2.jpg",
+        img: "frontend/img/movie/m2.jpg",
         name: "BAAR BAAR DEKHO"
     }, {
-        img: "img/movie/m3.jpg",
+        img: "frontend/img/movie/m3.jpg",
         name: "BADRINATH KI DULHANIYA"
     }, {
-        img: "img/movie/m4.jpg",
+        img: "frontend/img/movie/m4.jpg",
         name: "RAM LAKHAN"
     }, {
-        img: "img/movie/m5.jpg",
+        img: "frontend/img/movie/m5.jpg",
         name: "ok jaanu"
     }];
     $scope.video = [{
-        img: "img/video/v1.jpg",
+        img: "frontend/img/video/v1.jpg",
         name: "Director S.S. Rajamouli tells us why Katappa killed Bahubali"
 
     }, {
-        img: "img/video/v2.jpg",
+        img: "frontend/img/video/v2.jpg",
         name: "Kapoor & Sons | The Funny One: Fawad Khan"
 
     }, {
-        img: "img/video/v3.jpg",
+        img: "frontend/img/video/v3.jpg",
         name: "Arjun fights with his Bai? | Movie Review | Kapoor & Sons | Sidharth..."
 
     }, {
-        img: "img/video/v4.jpg",
+        img: "frontend/img/video/v4.jpg",
         name: "Kapoor & Sons | Rahul Meets Tia | Dialogue Promo | Fawad Khan..."
 
     }, {
-        img: "img/video/v1.jpg",
+        img: "frontend/img/video/v1.jpg",
         name: "Director S.S. Rajamouli tells us why Katappa killed Bahubali"
 
     }, {
-        img: "img/video/v2.jpg",
+        img: "frontend/img/video/v2.jpg",
         name: "Kapoor & Sons | The Funny One: Fawad Khan"
 
     }, {
-        img: "img/video/v3.jpg",
+        img: "frontend/img/video/v3.jpg",
         name: "Arjun fights with his Bai? | Movie Review | Kapoor & Sons | Sidharth..."
 
     }, {
-        img: "img/video/v4.jpg",
+        img: "frontend/img/video/v4.jpg",
         name: "Kapoor & Sons | Rahul Meets Tia | Dialogue Promo | Fawad Khan..."
 
     }];
     $scope.news = [{
-        img: "img/news/n1.jpg",
+        img: "frontend/img/news/n1.jpg",
         name: "Kapoor & Sons out now!",
         date: "28 Mar 2016",
         desc: "The story that will tug at your heartstrings, tickle your funny bone and leave you wanting to love your family evermore."
 
     }, {
-        img: "img/news/n2.jpg",
+        img: "frontend/img/news/n2.jpg",
         name: "Bahubali bags The Best Film Of 2015 National Award",
         date: "28 Mar 2016",
         desc: "Baahubali wins National Award for the best film in 2015! Congratulations to the team. We are proud partners! "
 
     }, {
-        img: "img/news/n3.jpg",
+        img: "frontend/img/news/n3.jpg",
         name: "Baahubali added to the Top 10 World TV premiere list!",
         date: "16 Nov 2015",
         desc: "Baahubali storms television ratings as TAM reports add it to the Top 10 World TV premiere list! Huge congratulations to the team."
 
     }, {
-        img: "img/news/n4.jpg",
+        img: "frontend/img/news/n4.jpg",
         name: "Shaandaar Out In Cinemas",
         date: "21 Oct 2015",
         desc: "Shaandaar starring Shahid Kapoor and Alia Bhatt hits the screens today. The movie is directed by Vikas Bahl and co produced by Fox Star Studios and Phantom films. "
 
     }, {
-        img: "img/news/n5.jpg",
+        img: "frontend/img/news/n5.jpg",
         name: "Shaandaar's title track out now!",
         date: "16 Sep 2015",
         desc: "Shaandaar's title track 'Shaam Shaandaar' sung by Amit Trivedi was released today. The song is a grand celebration featuring Shahid Kapoor and Alia Bhatt."
 
     }, {
-        img: "img/news/n6.jpg",
+        img: "frontend/img/news/n6.jpg",
         name: "35 Years Of Dharma",
         date: "08 Oct 2015",
         desc: "Heart-warming storylines, Stellar megastar casts, Record box-office collections...A legacy that paved way into the hearts of the audience completes celebrates 35 glorious years today."
@@ -374,7 +374,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         var icon = {
-            url: "img/dharmamapmarker.png",
+            url: "frontend/img/dharmamapmarker.png",
             fillOpacity: 1,
             scaledSize: {
                 width: 75,
@@ -661,7 +661,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/modal.html',
+                templateUrl: 'frontend/views/modal/modal.html',
                 controller: 'MovieInsideCtrl',
                 size: size,
                 resolve: {
@@ -849,122 +849,122 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
         $scope.cast = [{
-            img: "img/cast/c1.png",
+            img: "frontend/img/cast/c1.png",
             name: "Ranbir Kapoor",
             nick: "BUNNY"
         }, {
-            img: "img/cast/c2.png",
+            img: "frontend/img/cast/c2.png",
             name: "Deepika Padukone",
             nick: "NAINA"
         }, {
-            img: "img/cast/c3.png",
+            img: "frontend/img/cast/c3.png",
             name: "Kalki Koechlin",
             nick: "ADITI"
         }, {
-            img: "img/cast/c4.png",
+            img: "frontend/img/cast/c4.png",
             name: "Aditya Roy Kapur",
             nick: "AVI"
         }]
         $scope.gallery = [
-            "img/gallery/g18.jpg",
-            "img/gallery/g19.jpg",
-            "img/gallery/g20.jpg",
-            "img/gallery/g21.jpg",
-            "img/gallery/g22.jpg",
-            "img/gallery/g23.jpg",
-            "img/gallery/g24.jpg",
-            "img/gallery/g25.jpg",
-            "img/gallery/g20.jpg"
+            "frontend/img/gallery/g18.jpg",
+            "frontend/img/gallery/g19.jpg",
+            "frontend/img/gallery/g20.jpg",
+            "frontend/img/gallery/g21.jpg",
+            "frontend/img/gallery/g22.jpg",
+            "frontend/img/gallery/g23.jpg",
+            "frontend/img/gallery/g24.jpg",
+            "frontend/img/gallery/g25.jpg",
+            "frontend/img/gallery/g20.jpg"
         ]
         $scope.desktop = [
-            "img/wallpapper/d1.jpg",
-            "img/wallpapper/d2.jpg",
-            "img/wallpapper/d3.jpg",
-            "img/wallpapper/d4.jpg",
-            "img/wallpapper/d5.jpg",
-            "img/wallpapper/d6.jpg"
+            "frontend/img/wallpapper/d1.jpg",
+            "frontend/img/wallpapper/d2.jpg",
+            "frontend/img/wallpapper/d3.jpg",
+            "frontend/img/wallpapper/d4.jpg",
+            "frontend/img/wallpapper/d5.jpg",
+            "frontend/img/wallpapper/d6.jpg"
 
         ]
         $scope.mobile = [
-            "img/wallpapper/m1.jpg",
-            "img/wallpapper/m2.jpg",
-            "img/wallpapper/m3.jpg",
-            "img/wallpapper/m4.jpg",
-            "img/wallpapper/m1.jpg",
-            "img/wallpapper/m2.jpg",
-            "img/wallpapper/m3.jpg",
-            "img/wallpapper/m4.jpg"
+            "frontend/img/wallpapper/m1.jpg",
+            "frontend/img/wallpapper/m2.jpg",
+            "frontend/img/wallpapper/m3.jpg",
+            "frontend/img/wallpapper/m4.jpg",
+            "frontend/img/wallpapper/m1.jpg",
+            "frontend/img/wallpapper/m2.jpg",
+            "frontend/img/wallpapper/m3.jpg",
+            "frontend/img/wallpapper/m4.jpg"
 
         ]
         $scope.allvideos = [{
-            img: "img/video/v5.jpg",
+            img: "frontend/img/video/v5.jpg",
             name: "KABIRA SONG"
         }, {
-            img: "img/video/v6.jpg",
+            img: "frontend/img/video/v6.jpg",
             name: "BALAM PICHKARI SONG"
         }, {
-            img: "img/video/v7.jpg",
+            img: "frontend/img/video/v7.jpg",
             name: "GHAGRA SONG"
         }, {
-            img: "img/video/v8.jpg",
+            img: "frontend/img/video/v8.jpg",
             name: "BADTAMEEZ DIL SONG"
         }, {
-            img: "img/video/v9.jpg",
+            img: "frontend/img/video/v9.jpg",
             name: "ILAHI SONG"
         }, {
-            img: "img/video/v10.jpg",
+            img: "frontend/img/video/v10.jpg",
             name: "DILLIWAALI GIRLFRIEND SONG"
         }]
         $scope.news = [{
-            img: "img/dharma-world/d5.jpg",
+            img: "frontend/img/dharma-world/d5.jpg",
             name: "Deepika scares me as an actor: Ranbir Kapoor",
             date: "21 Mar 2016",
             desc: "New Delhi: Films as varied as Raajneeti, Rockstar, Yeh Jawaani Hai Deewani and Barfi! have been a window to his versatility. But Ranbir Kapoor says his Tamasha ..."
 
         }, {
-            img: "img/dharma-world/d6.jpg",
+            img: "frontend/img/dharma-world/d6.jpg",
             name: "Varun Dhawan shares picture of Dharma Productions new office",
             date: "21 Mar 2016",
             desc: "After four years, Varun Dhawan is back at Dharma’s office. Though everything remains the same, the office is now a new place for all those who work there. "
 
         }, {
-            img: "img/dharma-world/d7.jpg",
+            img: "frontend/img/dharma-world/d7.jpg",
             name: "Bahubali bags The Best Film Of 2015 National Award",
             date: "21 Mar 2016",
             desc: "SS Rajamouli's Bahubali: The Beginning (also spelt as Baahubali), starring Prabhas and Rana Daggubati, has won the Best Feature Film at the 63rd National Film Award (NFA). "
 
         }, {
-            img: "img/dharma-world/d8.jpg",
+            img: "frontend/img/dharma-world/d8.jpg",
             name: "Dharma production hints at first ever love franchise",
             date: "21 Mar 2016",
             desc: "Best known for producing films that grab the beauty of exotic locales across the globe and intricately weaving romance, Dharma Productions has hinted at a sequel to Bollywood’s first ever love franchise."
 
         }, {
-            img: "img/dharma-world/d9.jpg",
+            img: "frontend/img/dharma-world/d9.jpg",
             name: "Ranbir Kapoor to promote ‘Yeh Jawaani Hai Deewani’ in Russia",
             date: "21 Mar 2016",
             desc: "Mumbai: His grandfather, late cinema legend Raj Kapoor, continues to be a rage in Russia and now actor Ranbir Kapoor is set to promote his latest release ‘Yeh Jawaani Hai..."
 
         }, {
-            img: "img/dharma-world/d10.jpg",
+            img: "frontend/img/dharma-world/d10.jpg",
             name: "Arjun and SIddharth’s Dharma Office Darshan",
             date: "21 Mar 2016",
             desc: "Bollywood heartthrobs Arjun Kapoor and Sidharth Malhotra are spilling fun all over the new office of Karan Johar's Dharma Productions. "
 
         }, {
-            img: "img/dharma-world/d5.jpg",
+            img: "frontend/img/dharma-world/d5.jpg",
             name: "Deepika scares me as an actor: Ranbir Kapoor",
             date: "21 Mar 2016",
             desc: "New Delhi: Films as varied as Raajneeti, Rockstar, Yeh Jawaani Hai Deewani and Barfi! have been a window to his versatility. But Ranbir Kapoor says his Tamasha ..."
 
         }, {
-            img: "img/dharma-world/d6.jpg",
+            img: "frontend/img/dharma-world/d6.jpg",
             name: "Varun Dhawan shares picture of Dharma Productions new office",
             date: "21 Mar 2016",
             desc: "After four years, Varun Dhawan is back at Dharma’s office. Though everything remains the same, the office is now a new place for all those who work there. "
 
         }, {
-            img: "img/dharma-world/d7.jpg",
+            img: "frontend/img/dharma-world/d7.jpg",
             name: "Bahubali bags The Best Film Of 2015 National Award",
             date: "21 Mar 2016",
             desc: "SS Rajamouli's Bahubali: The Beginning (also spelt as Baahubali), starring Prabhas and Rana Daggubati, has won the Best Feature Film at the 63rd National Film Award (NFA). "
@@ -1247,37 +1247,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ];
 
         $scope.news = [{
-            img: "img/news/n1.jpg",
+            img: "frontend/img/news/n1.jpg",
             name: "Kapoor & Sons out now!",
             date: "28 Mar 2016",
             desc: "The story that will tug at your heartstrings, tickle your funny bone and leave you wanting to love your family evermore."
 
         }, {
-            img: "img/news/n2.jpg",
+            img: "frontend/img/news/n2.jpg",
             name: "Bahubali bags The Best Film Of 2015 National Award",
             date: "28 Mar 2016",
             desc: "Baahubali wins National Award for the best film in 2015! Congratulations to the team. We are proud partners! "
 
         }, {
-            img: "img/news/n3.jpg",
+            img: "frontend/img/news/n3.jpg",
             name: "Baahubali added to the Top 10 World TV premiere list!",
             date: "16 Nov 2015",
             desc: "Baahubali storms television ratings as TAM reports add it to the Top 10 World TV premiere list! Huge congratulations to the team."
 
         }, {
-            img: "img/news/n4.jpg",
+            img: "frontend/img/news/n4.jpg",
             name: "Shaandaar Out In Cinemas",
             date: "21 Oct 2015",
             desc: "Shaandaar starring Shahid Kapoor and Alia Bhatt hits the screens today. The movie is directed by Vikas Bahl and co produced by Fox Star Studios and Phantom films. "
 
         }, {
-            img: "img/news/n5.jpg",
+            img: "frontend/img/news/n5.jpg",
             name: "Shaandaar's title track out now!",
             date: "16 Sep 2015",
             desc: "Shaandaar's title track 'Shaam Shaandaar' sung by Amit Trivedi was released today. The song is a grand celebration featuring Shahid Kapoor and Alia Bhatt."
 
         }, {
-            img: "img/news/n6.jpg",
+            img: "frontend/img/news/n6.jpg",
             name: "35 Years Of Dharma",
             date: "08 Oct 2015",
             desc: "Heart-warming storylines, Stellar megastar casts, Record box-office collections...A legacy that paved way into the hearts of the audience completes celebrates 35 glorious years today."
@@ -1600,8 +1600,8 @@ var i = 0;
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
         $scope.mySlides = [
-            'img/video-play.jpg',
-            'img/video-play.jpg'
+            'frontend/img/video-play.jpg',
+            'frontend/img/video-play.jpg'
         ];
         $scope.mysearch = {};
         $scope.viewAll = function() {
@@ -1699,44 +1699,44 @@ var i = 0;
         // });
 
         $scope.video = [{
-            img: "img/movie/m6.jpg",
+            img: "frontend/img/movie/m6.jpg",
             name: "Dhivara Full Video Song  Baahubali (Hindi) "
 
         }, {
-            img: "img/movie/m7.jpg",
+            img: "frontend/img/movie/m7.jpg",
             name: "Making of Bahubali - Bull Fight Sequence"
 
         }, {
-            img: "img/movie/m8.jpg",
+            img: "frontend/img/movie/m8.jpg",
             name: "Baahubali Trailer | Prabhas, Rana Daggubati, Anushka, Tama..."
 
         }, {
-            img: "img/movie/m9.jpg",
+            img: "frontend/img/movie/m9.jpg",
             name: "Making Of Bahubali VFX Work On Bull Fight With Rana..."
 
         }, {
-            img: "img/movie/m6.jpg",
+            img: "frontend/img/movie/m6.jpg",
             name: "Dhivara Full Video Song  Baahubali (Hindi) "
 
         }, {
-            img: "img/movie/m7.jpg",
+            img: "frontend/img/movie/m7.jpg",
             name: "Making of Bahubali - Bull Fight Sequence"
 
         }, {
-            img: "img/movie/m8.jpg",
+            img: "frontend/img/movie/m8.jpg",
             name: "Baahubali Trailer | Prabhas, Rana Daggubati, Anushka, Tama..."
 
         }, {
-            img: "img/movie/m9.jpg",
+            img: "frontend/img/movie/m9.jpg",
             name: "Making Of Bahubali VFX Work On Bull Fight With Rana..."
 
 
         }, {
-            img: "img/movie/m6.jpg",
+            img: "frontend/img/movie/m6.jpg",
             name: "Dhivara Full Video Song  Baahubali (Hindi) "
 
         }, {
-            img: "img/movie/m8.jpg",
+            img: "frontend/img/movie/m8.jpg",
             name: "Baahubali Trailer | Prabhas, Rana Daggubati, Anushka, Tama..."
         }];
 
@@ -1960,7 +1960,7 @@ var i = 0;
         $scope.openModal = function() {
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/dharma-you.html',
+                templateUrl: 'frontend/views/modal/dharma-you.html',
                 controller: 'DharmaYouCtrl',
                 size: 'lg',
                 windowClass: 'dharma-you-modal',
@@ -1987,12 +1987,12 @@ var i = 0;
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
         // $scope.upcomingrelease = [{
-        //     img: "img/movie-banner-dam.png",
+        //     img: "frontend/img/movie-banner-dam.png",
         //     date: "10 March 2017",
         //     director: "Shashank Khaitan",
         //     cast: "Alia Bhatt, Varun Dhawan"
         // }, {
-        //     img: "img/movie-banner-dam.png",
+        //     img: "frontend/img/movie-banner-dam.png",
         //     date: "10 March 2017",
         //     director: "Shashank Khaitan",
         //     cast: "Alia Bhatt, Varun Dhawan"
@@ -2024,35 +2024,35 @@ var i = 0;
         ];
 
         $scope.video = [{
-            img: "img/movie/m11.jpg",
+            img: "frontend/img/movie/m11.jpg",
             name: "Ae Dil hai mushkil"
 
         }, {
-            img: "img/movie/m11.jpg",
+            img: "frontend/img/movie/m11.jpg",
             name: "BAAR BAAR DEKHO"
 
         }, {
-            img: "img/movie/m11.jpg",
+            img: "frontend/img/movie/m11.jpg",
             name: "BADRINATH KI DULHANIYA"
 
         }, {
-            img: "img/movie/m11.jpg",
+            img: "frontend/img/movie/m11.jpg",
             name: "RAM LAKHAN"
 
         }, {
-            img: "img/movie/m11.jpg",
+            img: "frontend/img/movie/m11.jpg",
             name: "ok jaanu"
 
         }, {
-            img: "img/movie/m11.jpg",
+            img: "frontend/img/movie/m11.jpg",
             name: "Ae Dil hai mushkil"
 
         }, {
-            img: "img/movie/m11.jpg",
+            img: "frontend/img/movie/m11.jpg",
             name: "BAAR BAAR DEKHO"
 
         }, {
-            img: "img/movie/m11.jpg",
+            img: "frontend/img/movie/m11.jpg",
             name: "BADRINATH KI DULHANIYA"
 
         }];
@@ -2148,43 +2148,43 @@ var i = 0;
 
 
         $scope.allvideos = [{
-            img: "img/movie/m1.jpg",
+            img: "frontend/img/movie/m1.jpg",
             name: "Ae Dil hai mushkil"
 
         }, {
-            img: "img/movie/m2.jpg",
+            img: "frontend/img/movie/m2.jpg",
             name: "BAAR BAAR DEKHO"
 
         }, {
-            img: "img/movie/m3.jpg",
+            img: "frontend/img/movie/m3.jpg",
             name: "BADRINATH KI DULHANIYA"
 
         }, {
-            img: "img/movie/m4.jpg",
+            img: "frontend/img/movie/m4.jpg",
             name: "RAM LAKHAN"
 
         }, {
-            img: "img/movie/m5.jpg",
+            img: "frontend/img/movie/m5.jpg",
             name: "ok jaanu"
 
         }, {
-            img: "img/movie/m1.jpg",
+            img: "frontend/img/movie/m1.jpg",
             name: "Ae Dil hai mushkil"
 
         }, {
-            img: "img/movie/m2.jpg",
+            img: "frontend/img/movie/m2.jpg",
             name: "BAAR BAAR DEKHO"
 
         }, {
-            img: "img/movie/m3.jpg",
+            img: "frontend/img/movie/m3.jpg",
             name: "BADRINATH KI DULHANIYA"
 
         }, {
-            img: "img/movie/m4.jpg",
+            img: "frontend/img/movie/m4.jpg",
             name: "RAM LAKHAN"
 
         }, {
-            img: "img/movie/m5.jpg",
+            img: "frontend/img/movie/m5.jpg",
             name: "ok jaanu"
 
         }];

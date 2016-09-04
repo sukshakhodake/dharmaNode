@@ -10,14 +10,14 @@ templateservicemod.service('TemplateService', function() {
     this.year = d.getFullYear();
 
     this.init = function() {
-        this.headermenu = "views/headermenu.html";
-        this.header = "views/header.html";
-        this.menu = "views/menu.html";
+        this.headermenu = "frontend/views/headermenu.html";
+        this.header = "frontend/views/header.html";
+        this.menu = "frontend/views/menu.html";
         this.isLoader = false;
-        this.slider = "views/slider.html";
-        this.content = "views/content/content.html";
-        this.footermenu = "views/footermenu.html";
-        this.footer = "views/footer.html";
+        this.slider = "frontend/views/slider.html";
+        this.content = "frontend/views/content/content.html";
+        this.footermenu = "frontend/views/footermenu.html";
+        this.footer = "frontend/views/footer.html";
         this.removeLoaderTemp = 0;
         this.removeLoaderNum = 0;
     };
@@ -39,7 +39,7 @@ templateservicemod.service('TemplateService', function() {
     this.changecontent = function(page) {
         this.init();
         var data = this;
-        data.content = "views/content/" + page + ".html";
+        data.content = "frontend/views/content/" + page + ".html";
         return data;
     };
 

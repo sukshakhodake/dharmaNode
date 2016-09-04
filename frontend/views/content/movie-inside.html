@@ -13,14 +13,14 @@
                             <h1 class="color-primary font-hammersmith text-up">Theatrical Trailer</h1>
                         </div>
                         <div class="movie-trailor dh-relative">
-                            <!-- <img src="img/movie-trailor.jpg" alt="Dharma Productions" class="img-responsive margin-auto width100"> -->
+                            <!-- <img src="frontend/img/movie-trailor.jpg" alt="Dharma Productions" class="img-responsive margin-auto width100"> -->
 
 
                             <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{moviefindOne.theatricalTrailerUrl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" data-fancybox-type="iframe">
                                 <img ng-src="{{moviefindOne.theatricalTrailerImage|uploadpath}}" alt="Dharma Productions" class="img-responsive margin-auto width100" ng-if="(moviefindOne.theatricalTrailerImage || moviefindOne.theatricalTrailerImage != '')">
                                 <img ng-src="{{moviefindOne.theatricalTrailerUrl|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(moviefindOne.theatricalTrailerImage || moviefindOne.theatricalTrailerImage != '')">
                                 <div class="dh-absulate middle">
-                                    <img src="img/play-small-btn.jpg" alt="Dharma Productions">
+                                    <img src="frontend/img/play-small-btn.jpg" alt="Dharma Productions">
                                 </div>
                             </a>
                         </div>
@@ -391,7 +391,7 @@
                                                     </div>
 
                                                     <div class="bottom-right dh-absulate ply-post">
-                                                        <img src="img/play-small-btn.jpg" alt="Dharma Productions">
+                                                        <img src="frontend/img/play-small-btn.jpg" alt="Dharma Productions">
                                             </div>
                                             </div>
                                             </a>
@@ -447,7 +447,7 @@
                                               </div>
 
                                               <div class="bottom-right dh-absulate ply-post">
-                                                  <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{item.url }}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"><img src="img/play-small-btn.jpg" alt="Dharma Productions"></a>
+                                                  <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{item.url }}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"><img src="frontend/img/play-small-btn.jpg" alt="Dharma Productions"></a>
                                               </div>
                                           </div>
                                         </div>
@@ -499,7 +499,7 @@
                                                 <div class="desktop dh-relative">
                                                     <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma productions" class="img-responsive width100">
                                                     <div class="download dh-absulate">
-                                                        <a href="{{item.image|uploadpath}}" download><img src="img/download.png" alt="Dharma productions"></a>
+                                                        <a href="{{item.image|uploadpath}}" download><img src="frontend/img/download.png" alt="Dharma productions"></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -533,7 +533,7 @@
                                                 <div class="desktop dh-relative mob-height">
                                                     <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma productions" class="img-responsive width100">
                                                     <div class="download dh-absulate">
-                                                        <a href="{{item.image|wallpaperpath}}" download><img ng-src="img/download.png" alt="Dharma productions"></a>
+                                                        <a href="{{item.image|wallpaperpath}}" download><img ng-src="frontend/img/download.png" alt="Dharma productions"></a>
                                                         <!-- <a href="{{item.image|uploadpath}}" download><img ng-src="{{item.image|uploadpath}}" alt="Dharma productions"></a>{{item.image|uploadpath}}abcd -->
                                                     </div>
                                                 </div>
@@ -813,6 +813,6 @@
 
 
         </div>
-        <div class="back-to-top pull-right" scroll-to-item scroll-to="#top-scroll"> <img src="img/top-scroll.png" alt="Dharma Productions">
+        <div class="back-to-top pull-right" scroll-to-item scroll-to="#top-scroll"> <img src="frontend/img/top-scroll.png" alt="Dharma Productions">
         </div>
 </section>
