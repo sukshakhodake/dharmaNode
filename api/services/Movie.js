@@ -195,6 +195,17 @@ var schema = new Schema({
             default: 0
         }
     }]
+}, {
+    toObject: {
+        virtuals: true
+    },
+    toJSON: {
+        virtuals: true
+    }
+});
+
+schema.virtual('urlName').get(function() {
+    return _.kebabCase(this.name + "_" + this.year);
 });
 
 module.exports = mongoose.model('Movie', schema);
@@ -274,17 +285,19 @@ var models = {
         async.parallel([
                 function(callback) {
                     Movie.findOne({
-                        _id: data._id
-                    }).select(" cast note synopsis releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage name upcomingOrder").exec(function(err, data1) {
-                        if (err) {
-                            console.log(err);
-                            callback(err, null);
-                        } else {
-                            // console.log(data2[0].gallery);
-                            newreturns.movie = data1;
-                            callback(null, newreturns);
-                        }
-                    });
+                            _id: data._id
+                        })
+                        .select(" cast note synopsis releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage name upcomingOrder urlName")
+                        .exec(function(err, data1) {
+                            if (err) {
+                                console.log(err);
+                                callback(err, null);
+                            } else {
+                                // console.log(data2[0].gallery);
+                                newreturns.movie = data1;
+                                callback(null, newreturns);
+                            }
+                        });
                 },
                 function(callback) {
                     Movie.aggregate([{
@@ -1995,7 +2008,7 @@ var models = {
             month: 1,
             upcomingOrder: 1,
             releaseDate: 1,
-            status:1
+            status: 1
         }).sort({
             releaseDate: 1,
         }).exec(function(err, deleted) {
@@ -2015,7 +2028,7 @@ var models = {
             year: 1,
             month: 1,
             upcomingOrder: 1,
-            status:1
+            status: 1
         }).sort({
             // year: -1
             upcomingOrder: -1
@@ -2255,7 +2268,7 @@ var models = {
             smallImage: 1,
             year: 1,
             upcomingOrder: 1,
-            status:1
+            status: 1
         }, {}).sort({
             // year: -1
             upcomingOrder: -1
