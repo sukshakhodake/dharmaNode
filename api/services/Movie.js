@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var lodash = require("lodash");
 var objectid = require("mongodb").ObjectID;
+require('mongoose-middleware').initialize(mongoose);
 
 var schema = new Schema({
     image: String,
@@ -205,7 +206,7 @@ var schema = new Schema({
 });
 
 schema.virtual('urlName').get(function() {
-    return _.kebabCase(this.name)+ "_" + this.year + "_" + this._id;
+    return _.kebabCase(this.name) + "_" + this.year;
 });
 
 module.exports = mongoose.model('Movie', schema);
@@ -280,238 +281,275 @@ var models = {
     },
 
     getOneMovie: function(data, callback) {
+        var data2;
+        if (data._id) {
+            data2 = data._id.split("_");
+        }
+        if (data2[0]) {
+            data2[0] = data2[0].replace(new RegExp("-", 'g'), " ");
+        }
+
         var newreturns = {};
-        newreturns.movie = {};
-        async.parallel([
-                function(callback) {
-                    Movie.findOne({
-                            _id: data._id
-                        })
-                        .select(" cast note synopsis releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage name upcomingOrder urlName")
-                        .exec(function(err, data1) {
+        var options = {
+            filters: {
+                keyword: {
+                    fields: ['name'],
+                    term: data2[0]
+                },
+                mandatory: {
+                    exact: {
+                        year: data2[data2.length - 1]
+                    }
+                },
+            }
+        };
+        Movie.find()
+            .filter(options)
+            .exec(function(err, results) {
+                if (err) {
+                    callback(err, null);
+                }
+                else if (results && results[0]) {
+                    var data = results[0];
+                    async.parallel([
+                            function(callback) {
+                                Movie.findOne({
+                                        _id: data._id
+                                    })
+                                    .select(" cast note synopsis releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage name upcomingOrder urlName")
+                                    .exec(function(err, data1) {
+                                        if (err) {
+                                            console.log(err);
+                                            callback(err, null);
+                                        } else {
+                                            // console.log(data2[0].gallery);
+                                            newreturns.movie = data1;
+                                            callback(null, newreturns);
+                                        }
+                                    });
+                            },
+                            function(callback) {
+                                Movie.aggregate([{
+                                    $match: {
+                                        _id: objectid(data._id)
+                                    }
+                                }, {
+                                    $unwind: "$gallery"
+                                }, {
+                                    $sort: {
+                                        "gallery.order": 1
+                                    }
+                                }, {
+                                    $group: {
+                                        _id: null,
+                                        gallery: {
+                                            $push: "$gallery"
+                                        }
+                                    }
+                                }]).exec(function(err, data2) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        // console.log(data2);
+                                        if (data2 && data2.length > 0) {
+                                            newreturns.gallery = data2[0].gallery;
+                                        } else {
+                                            newreturns.gallery = [];
+                                        }
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Movie.aggregate([{
+                                    $match: {
+                                        _id: objectid(data._id)
+                                    }
+                                }, {
+                                    $unwind: "$wallpaper"
+                                }, {
+                                    $sort: {
+                                        "wallpaper.order": 1
+                                    }
+                                }, {
+                                    $group: {
+                                        _id: null,
+                                        wallpaper: {
+                                            $push: "$wallpaper"
+                                        }
+                                    }
+                                }]).exec(function(err, data3) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        if (data3 && data3.length > 0) {
+                                            newreturns.wallpaper = data3[0].wallpaper;
+                                        } else {
+                                            newreturns.wallpaper = [];
+                                        }
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Movie.aggregate([{
+                                    $match: {
+                                        _id: objectid(data._id)
+                                    }
+                                }, {
+                                    $unwind: "$videos"
+                                }, {
+                                    $sort: {
+                                        "videos.order": 1
+                                    }
+                                }, {
+                                    $group: {
+                                        _id: null,
+                                        videos: {
+                                            $push: "$videos"
+                                        }
+                                    }
+                                }]).exec(function(err, data4) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        if (data4 && data4.length > 0) {
+                                            newreturns.videos = data4[0].videos;
+                                        } else {
+                                            newreturns.videos = [];
+                                        }
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Movie.aggregate([{
+                                    $match: {
+                                        _id: objectid(data._id)
+                                    }
+                                }, {
+                                    $unwind: "$behindTheScenes"
+                                }, {
+                                    $sort: {
+                                        "behindTheScenes.order": 1
+                                    }
+                                }, {
+                                    $group: {
+                                        _id: null,
+                                        behindTheScenes: {
+                                            $push: "$behindTheScenes"
+                                        }
+                                    }
+                                }]).exec(function(err, data5) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        if (data5 && data5.length > 0) {
+                                            newreturns.behindTheScenes = data5[0].behindTheScenes;
+                                        } else {
+                                            newreturns.behindTheScenes = [];
+                                        }
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Movie.aggregate([{
+                                    $match: {
+                                        _id: objectid(data._id)
+                                    }
+                                }, {
+                                    $unwind: "$crew"
+                                }, {
+                                    $sort: {
+                                        "crew.order": 1
+                                    }
+                                }, {
+                                    $group: {
+                                        _id: null,
+                                        crew: {
+                                            $push: "$crew"
+                                        }
+                                    }
+                                }]).exec(function(err, data6) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        if (data6 && data6.length > 0) {
+                                            newreturns.crew = data6[0].crew;
+                                        } else {
+                                            newreturns.crew = [];
+                                        }
+
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            },
+
+                            //awards
+                            function(callback) {
+                                NewAward.find({
+                                    "movie": data._id
+                                }).exec(function(err, data7) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        if (data7 && data7.length > 0) {
+                                            newreturns.award = data7;
+                                        } else {
+                                            newreturns.award = [];
+                                        }
+
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            },
+
+                            //news
+                            function(callback) {
+                                News.find({
+                                    "movie": data._id
+                                }).exec(function(err, data8) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        if (data8 && data8.length > 0) {
+                                            newreturns.news = data8;
+                                        } else {
+                                            newreturns.news = [];
+                                        }
+
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            }
+                        ],
+                        function(err, data10) {
                             if (err) {
                                 console.log(err);
                                 callback(err, null);
+                            } else if (data10) {
+                                callback(null, newreturns);
                             } else {
-                                // console.log(data2[0].gallery);
-                                newreturns.movie = data1;
                                 callback(null, newreturns);
                             }
                         });
-                },
-                function(callback) {
-                    Movie.aggregate([{
-                        $match: {
-                            _id: objectid(data._id)
-                        }
-                    }, {
-                        $unwind: "$gallery"
-                    }, {
-                        $sort: {
-                            "gallery.order": 1
-                        }
-                    }, {
-                        $group: {
-                            _id: null,
-                            gallery: {
-                                $push: "$gallery"
-                            }
-                        }
-                    }]).exec(function(err, data2) {
-                        if (err) {
-                            console.log(err);
-                            callback(err, null);
-                        } else {
-                            // console.log(data2);
-                            if (data2 && data2.length > 0) {
-                                newreturns.gallery = data2[0].gallery;
-                            } else {
-                                newreturns.gallery = [];
-                            }
-                            callback(null, newreturns);
-                        }
-                    });
-                },
-                function(callback) {
-                    Movie.aggregate([{
-                        $match: {
-                            _id: objectid(data._id)
-                        }
-                    }, {
-                        $unwind: "$wallpaper"
-                    }, {
-                        $sort: {
-                            "wallpaper.order": 1
-                        }
-                    }, {
-                        $group: {
-                            _id: null,
-                            wallpaper: {
-                                $push: "$wallpaper"
-                            }
-                        }
-                    }]).exec(function(err, data3) {
-                        if (err) {
-                            console.log(err);
-                            callback(err, null);
-                        } else {
-                            if (data3 && data3.length > 0) {
-                                newreturns.wallpaper = data3[0].wallpaper;
-                            } else {
-                                newreturns.wallpaper = [];
-                            }
-                            callback(null, newreturns);
-                        }
-                    });
-                },
-                function(callback) {
-                    Movie.aggregate([{
-                        $match: {
-                            _id: objectid(data._id)
-                        }
-                    }, {
-                        $unwind: "$videos"
-                    }, {
-                        $sort: {
-                            "videos.order": 1
-                        }
-                    }, {
-                        $group: {
-                            _id: null,
-                            videos: {
-                                $push: "$videos"
-                            }
-                        }
-                    }]).exec(function(err, data4) {
-                        if (err) {
-                            console.log(err);
-                            callback(err, null);
-                        } else {
-                            if (data4 && data4.length > 0) {
-                                newreturns.videos = data4[0].videos;
-                            } else {
-                                newreturns.videos = [];
-                            }
-                            callback(null, newreturns);
-                        }
-                    });
-                },
-                function(callback) {
-                    Movie.aggregate([{
-                        $match: {
-                            _id: objectid(data._id)
-                        }
-                    }, {
-                        $unwind: "$behindTheScenes"
-                    }, {
-                        $sort: {
-                            "behindTheScenes.order": 1
-                        }
-                    }, {
-                        $group: {
-                            _id: null,
-                            behindTheScenes: {
-                                $push: "$behindTheScenes"
-                            }
-                        }
-                    }]).exec(function(err, data5) {
-                        if (err) {
-                            console.log(err);
-                            callback(err, null);
-                        } else {
-                            if (data5 && data5.length > 0) {
-                                newreturns.behindTheScenes = data5[0].behindTheScenes;
-                            } else {
-                                newreturns.behindTheScenes = [];
-                            }
-                            callback(null, newreturns);
-                        }
-                    });
-                },
-                function(callback) {
-                    Movie.aggregate([{
-                        $match: {
-                            _id: objectid(data._id)
-                        }
-                    }, {
-                        $unwind: "$crew"
-                    }, {
-                        $sort: {
-                            "crew.order": 1
-                        }
-                    }, {
-                        $group: {
-                            _id: null,
-                            crew: {
-                                $push: "$crew"
-                            }
-                        }
-                    }]).exec(function(err, data6) {
-                        if (err) {
-                            console.log(err);
-                            callback(err, null);
-                        } else {
-                            if (data6 && data6.length > 0) {
-                                newreturns.crew = data6[0].crew;
-                            } else {
-                                newreturns.crew = [];
-                            }
 
-                            callback(null, newreturns);
-                        }
-                    });
-                },
-
-                //awards
-                function(callback) {
-                    NewAward.find({
-                        "movie": data._id
-                    }).exec(function(err, data7) {
-                        if (err) {
-                            console.log(err);
-                            callback(err, null);
-                        } else {
-                            if (data7 && data7.length > 0) {
-                                newreturns.award = data7;
-                            } else {
-                                newreturns.award = [];
-                            }
-
-                            callback(null, newreturns);
-                        }
-                    });
-                },
-
-                //news
-                function(callback) {
-                    News.find({
-                        "movie": data._id
-                    }).exec(function(err, data8) {
-                        if (err) {
-                            console.log(err);
-                            callback(err, null);
-                        } else {
-                            if (data8 && data8.length > 0) {
-                                newreturns.news = data8;
-                            } else {
-                                newreturns.news = [];
-                            }
-
-                            callback(null, newreturns);
-                        }
-                    });
                 }
-            ],
-            function(err, data10) {
-                if (err) {
-                    console.log(err);
-                    callback(err, null);
-                } else if (data10) {
-                    callback(null, newreturns);
-                } else {
-                    callback(null, newreturns);
+                else {
+                  callback("no Data Found",null);
                 }
+
             });
+
+        newreturns.movie = {};
 
     },
 
@@ -531,7 +569,7 @@ var models = {
                         if (err) {
                             console.log(err);
                             callback(err, null);
-                        } else if (number && number != "") {
+                        } else if (number && number !== "") {
                             newreturns.total = number;
                             newreturns.totalpages = Math.ceil(number / data.pagesize);
                             callback(null, newreturns);
@@ -1453,31 +1491,6 @@ var models = {
         });
 
     },
-    // getOneWallpaper: function(data, callback) {
-    //   // aggregate query
-    //   Movie.aggregate([{
-    //     $unwind: "$wallpaper"
-    //   }, {
-    //     $match: {
-    //       "wallpaper._id": objectid(data._id)
-    //     }
-    //   }, {
-    //     $project: {
-    //       wallpaper: 1
-    //     }
-    //   }]).exec(function(err, respo) {
-    //     if (err) {
-    //       console.log(err);
-    //       callback(err, null);
-    //     } else if (respo && respo.length > 0 && respo[0].wallpaper) {
-    //       callback(null, respo[0].wallpaper);
-    //     } else {
-    //       callback({
-    //         message: "No data found"
-    //       }, null);
-    //     }
-    //   });
-    // },
 
     getOneWallpaper: function(data, callback) {
         // aggregate query
@@ -1719,35 +1732,7 @@ var models = {
             });
         }
     },
-    // getOneAwards: function(data, callback) {
-    //   // aggregate query
-    //   Movie.aggregate([{
-    //     $unwind: "$awards"
-    //   }, {
-    //     $match: {
-    //       "awards._id": objectid(data._id)
-    //     }
-    //   }, {
-    //     $project: {
-    //       awards: 1
-    //     }
-    //   }]).exec(function(err, respo) {
-    //     if (err) {
-    //       console.log(err);
-    //       callback(err, null);
-    //     } else if (respo && respo.length > 0 && respo[0].awards) {
-    //       callback(null, respo[0].awards);
-    //     } else {
-    //       callback({
-    //         message: "No data found"
-    //       }, null);
-    //     }
-    //   });
-    // },
 
-
-
-    //SIDEMENU BehindTheScenes
 
     saveBehindTheScenes: function(data, callback) {
         var movie = data.movie;
@@ -2008,7 +1993,8 @@ var models = {
             month: 1,
             upcomingOrder: 1,
             releaseDate: 1,
-            status: 1
+            status: 1,
+            urlName:1,
         }).sort({
             releaseDate: 1,
         }).exec(function(err, deleted) {
@@ -2028,7 +2014,8 @@ var models = {
             year: 1,
             month: 1,
             upcomingOrder: 1,
-            status: 1
+            status: 1,
+            urlName:1,
         }).sort({
             // year: -1
             upcomingOrder: -1
@@ -2102,63 +2089,7 @@ var models = {
         });
     },
 
-    // getOneMovie: function(data, callback) {
-    //     Movie.aggregate([{
-    //         $match: {
-    //             _id: objectid(data._id)
-    //         }
-    //     }, {
-    //         $project: {
-    //             _id: 1,
-    //             bigImage: 1,
-    //             name: 1,
-    //             upcomingSmall: 1,
-    //             recentSmall: 1,
-    //             smallImage: 1,
-    //             backgroundImage: 1,
-    //             awards: {
-    //                 $cond: [{
-    //                         $eq: ["$awards", []]
-    //                     },
-    //                     [""], "$awards"
-    //                 ]
-    //             },
-    //             gallery: {
-    //                 $cond: [{
-    //                         $eq: ["$gallery", []]
-    //                     },
-    //                     [""], "$gallery"
-    //                 ]
-    //             }
-    //
-    //         }
-    //     }, {
-    //         $unwind: "$gallery"
-    //     }, {
-    //         $sort: {
-    //             "gallery.order": -1
-    //         }
-    //     }, {
-    //         $unwind: "$awards"
-    //     }, {
-    //         $group: {
-    //             _id: "$_id",
-    //             gallery: {
-    //                 $push: "$gallery"
-    //             },
-    //             awards: {
-    //                 $push: "$awards"
-    //             }
-    //         }
-    //     }]).exec(function(err, data2) {
-    //         if (err) {
-    //             console.log(err);
-    //             callback(err, null);
-    //         } else {
-    //             callback(null, data2);
-    //         }
-    //     });
-    // },
+
     getMovieBehindTheScenes: function(data, callback) {
         this.findOne({
             "_id": data._id
@@ -2268,7 +2199,8 @@ var models = {
             smallImage: 1,
             year: 1,
             upcomingOrder: 1,
-            status: 1
+            status: 1,
+            urlName: 1
         }, {}).sort({
             // year: -1
             upcomingOrder: -1

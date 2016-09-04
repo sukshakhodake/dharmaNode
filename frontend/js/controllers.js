@@ -222,7 +222,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     else {
       NavigationService.getAllMovieName(function(data) {
-          $.jStorage.setTTL("allMovieName",data.data,3600);
+          $.jStorage.setTTL("allMovieName",data.data,3600000);
           $scope.allMovieName = data.data;
 
       });
