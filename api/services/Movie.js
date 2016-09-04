@@ -281,12 +281,16 @@ var models = {
     },
 
     getOneMovie: function(data, callback) {
+        var dataori = data;
         var data2;
         if (data._id) {
+
             data2 = data._id.split("_");
         }
         if (data2[0]) {
+            console.log(data2);
             data2[0] = data2[0].replace(new RegExp("-", 'g'), " ");
+            console.log(data2);
         }
 
         var newreturns = {};
@@ -304,13 +308,20 @@ var models = {
             }
         };
         Movie.find()
+            .keyword(options)
             .filter(options)
             .exec(function(err, results) {
                 if (err) {
                     callback(err, null);
-                }
-                else if (results && results[0]) {
-                    var data = results[0];
+                } else if (results && results[0]) {
+                    var data;
+                    _.each(results, function(n) {
+                        if (n.urlName == dataori._id) {
+                            data = results[0];
+                        }
+                    });
+
+
                     async.parallel([
                             function(callback) {
                                 Movie.findOne({
@@ -542,9 +553,8 @@ var models = {
                             }
                         });
 
-                }
-                else {
-                  callback("no Data Found",null);
+                } else {
+                    callback("no Data Found", null);
                 }
 
             });
@@ -1994,7 +2004,7 @@ var models = {
             upcomingOrder: 1,
             releaseDate: 1,
             status: 1,
-            urlName:1,
+            urlName: 1,
         }).sort({
             releaseDate: 1,
         }).exec(function(err, deleted) {
@@ -2015,7 +2025,7 @@ var models = {
             month: 1,
             upcomingOrder: 1,
             status: 1,
-            urlName:1,
+            urlName: 1,
         }).sort({
             // year: -1
             upcomingOrder: -1
