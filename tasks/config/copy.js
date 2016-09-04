@@ -30,11 +30,26 @@ module.exports = function(grunt) {
                 dest: '.tmp/public/frontend'
             }]
         },
+        backendDevelopment: {
+            files: [{
+                expand: true,
+                cwd: './backend',
+                src: ['fonts/**', 'img/**', 'views/**', 'pageJson/**'],
+                dest: '.tmp/public/frontend'
+            }]
+        },
         jsDevelopment: {
             files: [{
                 expand: true,
                 src: require('../../frontend/files.js'),
                 dest: '.tmp/public/frontend/js'
+            }]
+        },
+        jsBackendDevelopment: {
+            files: [{
+                expand: true,
+                src: require('../../backend/files.js'),
+                dest: '.tmp/public/backend/js'
             }]
         },
         production: {
