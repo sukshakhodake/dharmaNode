@@ -10,6 +10,14 @@ module.exports = function(grunt) {
                 ".tmp/public/frontend/css/main.css": "frontend/sass/main.scss"
             }
         },
+        backendDevelopment: {
+            options: {
+                sourceMap: true
+            },
+            files: {
+                ".tmp/public/backend/css/main.css": "backend/sass/main.scss"
+            }
+        },
         production: {
             options: {
                 sourceMap: false

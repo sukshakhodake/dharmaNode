@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: './backend',
                 src: ['fonts/**', 'img/**', 'views/**', 'pageJson/**'],
-                dest: '.tmp/public/frontend'
+                dest: '.tmp/public/backend'
             }]
         },
         jsDevelopment: {
