@@ -1,12 +1,11 @@
 var initMap = {};
 var calculateAndDisplayRoute = {};
 var abc = {};
+var google;
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'wu.masonry', 'ksSwiper', 'imageupload', 'ui.select', 'infinite-scroll'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
     //Used to name the .html file
-
-    console.log("Testing Consoles");
 
     $scope.openModal = function() {
         var modalInstance = $uibModal.open({
@@ -37,28 +36,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var date2 = moment("1/" + n.month + "/" + n.year);
             return (date2.unix());
         });
-        // console.log('AllUpcomingMovies', $scope.AllUpcomingMovies);
+
         TemplateService.removeLoader();
     });
     NavigationService.getAllRecentMovies(function(data) {
         $scope.AllRecentMovies = data.data;
-        // console.log('AllRecentMovies', $scope.AllRecentMovies);
+
         TemplateService.removeLoader();
     });
     NavigationService.getAllSlides(function(data) {
         $scope.getAllSlides = data.data;
-        // console.log('getAllSlides', $scope.getAllSlides);
+
         TemplateService.removeLoader();
     });
     NavigationService.getDharmaTvSlides(function(data) {
         $scope.getDharmaTvSlides = data.data[0];
-        // console.log('getDharmaTvSlides', $scope.getDharmaTvSlides);
+
         TemplateService.removeLoader();
     });
     NavigationService.getAllUpcomingMoviesHome(function(data) {
         $scope.getAllUpcomingMovies = data.data;
         $scope.getAllUpcomingMovies = $filter('limitTo')($scope.getAllUpcomingMovies, 20);
-        console.log('getAllUpcomingMovies', $scope.getAllUpcomingMovies);
+
         TemplateService.removeLoader();
     });
 
@@ -152,13 +151,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
     NavigationService.getNews(function(data) {
         $scope.News = data.data;
-        console.log($scope.News);
+
         $scope.limitedNews = $filter('limitTo')($scope.News, 10);
-        console.log($scope.limitedNews, "$scope.limitedNews");
+
         _.each($scope.limitedNews, function(value) {
             value.date = new Date(value.date);
         });
-        // console.log('News', $scope.News);
+
     });
 
     $scope.subscribe = {};
@@ -199,7 +198,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.tabchanges = function(tabs, a) {
-        //        console.log(tab);
+
         $scope.tabs = tabs;
         if (a == 1) {
 
@@ -219,31 +218,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.template = TemplateService;
     NavigationService.getAllMovieName(function(data) {
         $scope.allMovieName = data.data;
-        // console.log('*********************', $scope.allMovieName);
     });
     NavigationService.getAllTwitter(function(data) {
         $scope.getAllTwitterTag = data.data;
         $scope.getFirstId = data.data[0]._id;
-        // console.log($scope.getFirstId);
-        // $scope.selectOneHashTag($scope.getFirstId);
-        // console.log($scope.getAllTwitterTag);
-    })
+
+    });
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
     $scope.showSub = function(menu) {
-        console.log("show sub");
+
         menu.show = !menu.show;
         // $scope.navigation = NavigationService.getnav();
-    }
+    };
     $scope.headerSearch = false;
     $scope.crossdisplay = true;
     $scope.getHeaderSearch = function() {
         $scope.headerSearch = true;
-    }
+    };
     $scope.closeCross = function() {
         $scope.headerSearch = false;
-    }
+    };
     $scope.DoSearch = function(search, id) {
         $state.go('movie-inside', {
             id: id
@@ -254,19 +250,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 .controller('OverviewCtrl', function($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.changecontent("overview");
-    $scope.menutitle = NavigationService.makeactive("Overview");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("overview");
+        $scope.menutitle = NavigationService.makeactive("Overview");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
-.controller('PrivacyPolicyCtrl', function($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.changecontent("privacy-policy");
-    $scope.menutitle = NavigationService.makeactive("Privacy Policy");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+    })
+    .controller('PrivacyPolicyCtrl', function($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("privacy-policy");
+        $scope.menutitle = NavigationService.makeactive("Privacy Policy");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
+    })
 
 .controller('AwardsCtrl', function($scope, TemplateService, NavigationService) {
     $scope.template = TemplateService.changecontent("awards");
@@ -393,9 +389,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         /// MAX til here
-        $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAc75yahObocBDF_deZ7T6_rUkS8LS4t00&callback=initMap", function(data, textStatus, jqxhr) {
-            console.log("Load was performed.");
-        });
+
+        if (google && google.maps) {
+            initMap();
+        } else {
+            $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAc75yahObocBDF_deZ7T6_rUkS8LS4t00&callback=initMap", function(data, textStatus, jqxhr) {
+
+            });
+        }
+
+
+
 
 
     })
@@ -405,14 +409,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);
-        //
-        // NavigationService.getDharmatvOne($stateParams.id, function(data) {
-        //     console.log('getDharmatvOne', data);
-        //     $scope.allvideos = data.data;
-        //     console.log("$scope.allvideos", $scope.allvideos.videos);
-        // });
 
-        // $scope.goMovie = false;
         $scope.getDharmaTV = function() {
             NavigationService.getAllDharmatv10(function(data) {
                 var data2 = _.filter(data.data, function(video) {
@@ -420,11 +417,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         return video.movie._id == $stateParams.id;
                     }
                 });
-                // console.log(data2);
+
                 $scope.allvideos = data2;
                 TemplateService.removeLoader();
             });
-        }
+        };
         if ($stateParams.id) {
             $scope.getDharmaTV();
 
@@ -448,10 +445,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }).name;
                 }
 
-                // console.log($scope.allMovieName);
                 TemplateService.removeLoader();
-                // $scope.MovieGal10 = _.chunk($scope.MovieGal, 4);
-                // console.log('chunk',$scope.MovieGal10);
+
             });
         };
         $scope.seeLessMovieName();
@@ -460,8 +455,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.seeLess = true;
             // $scope.allMovieName = {}
             $scope.allMovieName = movieNameArray;
-            // console.log('dfgyhujkdrftgh', $scope.allMovieName);
-        }
+        };
 
         NavigationService.getAllTags(function(data) {
             $scope.getAllTags = data.data;
@@ -474,7 +468,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $state.go('tv-inside', {
                 id: id
             });
-            console.log(id, name);
+
         };
         $scope.searchdata = {};
         $scope.searchdata.search = "";
@@ -512,14 +506,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.newGetOneMovie($stateParams.id, function(data) {
 
             $scope.myUrl = window.location.href;
-            // console.log($scope.myUrl);
+
             $scope.myid = $stateParams.id;
             $scope.moviefindOne = data.data.movie;
             $scope.moviefindOne.backgroundImage = $filter('uploadpath')($scope.moviefindOne.backgroundImage);
             $scope.moviefindOne.cutImage2 = $filter('uploadpath')($scope.moviefindOne.cutImage2);
             $scope.moviefindOne.cutImage = $filter('uploadpath')($scope.moviefindOne.cutImage);
-            console.log($scope.moviefindOne.cutImage2);
-            console.log('moviefindOne', $scope.moviefindOne);
+
+
             TemplateService.removeLoader();
             $scope.getOneMovie = data.data;
             // TemplateService.removeLoader();
@@ -537,7 +531,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.movieBehindTheScenes = data.data.behindTheScenes;
             // TemplateService.removeLoader();
             $scope.movieVideo = data.data.videos;
-            console.log('getMovieVideo', $scope.movieVideo);
+
             $scope.movieVideo10 = _.chunk($scope.movieVideo, 6);
             // TemplateService.removeLoader();
             $scope.movieWallpaper = data.data.wallpaper;
@@ -553,10 +547,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.movieNews = data.data.news;
             _.each($scope.movieNews, function(n) {
                 n.date = new Date(n.date);
-                console.log($scope.movieNews, '$scope.movieNews');
+
             });
             // TemplateService.removeLoader();
-        })
+        });
 
         $scope.subCast = false;
         $scope.viewAllCast = function() {
@@ -566,7 +560,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
                 $scope.viewCastText = "VIEW";
             }
-        }
+        };
         $scope.tabing = [{
                 name: "Synopsis",
                 class: "classa",
@@ -645,18 +639,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
 
-
-        // $(document).ready(function() {
-        //     console.log("tab");
-        //     if ($scope.tabing.class == 'classa') {
-        //         $scope.movieSynopsisAndNote.synopsis.length <= 0
-        //     } else if ($scope.tabing.class == 'classb') {
-        //         $scope.movieCast.length <= 0
-        //     } else if ($scope.tabing.class == 'classc') {
-        //         $scope.movieNews.length <= 0;
-        //     }
-        // });
-
         $scope.open = function(size) {
 
             var modalInstance = $uibModal.open({
@@ -707,7 +689,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.tabchanges = function(tabs, a) {
-            //        console.log(tab);
+
             $scope.tabs = tabs;
             if (a == 2) {
 
@@ -736,9 +718,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabchange = function(tab, a, id) {
 
-            console.log(tab);
-            console.log(a);
-            console.log($scope.tabing);
+
             $scope.tab = tab;
             if (a == 1) {
 
@@ -824,7 +804,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.tabchangeMob = function(selected, id) {
-            console.log("tabchangeMob", selected, id);
+
             $scope.tab = selected;
             $scope.tabid = id;
             _.each($scope.tabing, function(key) {
@@ -1013,10 +993,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getAllTwitter(function(data) {
             $scope.getAllTwitterTag = data.data;
             $scope.getFirstId = data.data[0]._id;
-            console.log($scope.getFirstId);
-            // $scope.selectOneHashTag($scope.getFirstId);
-            console.log($scope.getAllTwitterTag);
-        })
+
+        });
     })
     .controller('NewsEventsCtrl', function($scope, TemplateService, NavigationService, $state, $filter) {
         $scope.template = TemplateService.changecontent("news-events");
@@ -1069,7 +1047,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
                 if (newI == i) {
                     $scope.myTotal = data.data.total;
-                    if ($scope.filter.search.length == 0) {
+                    if ($scope.filter.search.length === 0) {
                         $scope.crossdisplay = false;
                     }
                     lastpage = data.data.totalpages;
@@ -1079,7 +1057,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.forViewMore = false;
                     }
                     $scope.myTotal = data.data.total;
-                    console.log(data.data.total);
+
                     if (data.value) {
                         if (data.data.data.length > 0) {
                             $scope.noNewsFound = false;
@@ -1117,82 +1095,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // $scope.movie.selected = "";
             //
             callMe();
-        }
+        };
 
-        // $scope.getNews10 = function(name) {
-        //     console.log(name);
-        //     $scope.filter.search = name;
-        //     callMe();
-        // };
-        // $scope.getNews10 = function(name) {
-        //     console.log(name);
-        //     $scope.crossdisplay = true;
-        //     $scope.filter.search = name;
-        //
-        //     callMe();
-        // };
         $scope.getNewsYear = function(year) {
             $scope.getYear = year;
             $scope.goYear = true;
-            console.log(year);
+
             $scope.filter.year = year;
             // callMe();
         };
         $scope.getNewsMonth = function(month) {
             $scope.getMonth = month;
             $scope.goMonth = true;
-            console.log(month);
+
             $scope.filter.month = month;
-            // callMe();
         };
 
-        // $scope.goSearch = function(month, year) {
-        //     console.log(month);
-        //     $scope.filter.month = month;
-        //     $scope.filter.year = year;
-        //     $scope.getNews10 = [];
-        //     callMe();
-        // };
 
-
-        // $scope.ViewMore = function(myTotal) {
-        //     console.log(myTotal);
-        //     if ($scope.filter.pagesize < myTotal) {
-        //       $scope.forViewMore = true;
-        //         console.log('in iffffffffff');
-        //         // $scope.noviewmore = true;
-        //         $scope.filter.pagesize = myTotal;
-        //         callMe();
-        //         console.log($scope.filter.pagesize);
-        //     } else {
-        //       $scope.forViewMore = false;
-        //         $scope.noviewmore = false;
-        //     }
-        //
-        //
-        // };
-        // ---------------------view more news----------------------------------------
-        // $scope.ViewMore = function(myTotal) {
-        //     console.log(myTotal);
-        //     if ($scope.filter.pagesize < myTotal) {
-        //         $scope.forViewMore = true;
-        //         $scope.filter.pagesize = myTotal;
-        //         callMe();
-        //         console.log($scope.filter.pagesize);
-        //     } else {
-        //         $scope.forViewMore = false;
-        //     }
-        //
-        //
-        // };
-        // ---------------end of view more news-----------------------------------------------
 
         $scope.loadMore = function() {
             if (lastpage > $scope.filter.pagenumber) {
-                // console.log('lastpageeee: ', lastpage)
+
                 ++$scope.filter.pagenumber;
                 $scope.pages.push($scope.filter.pagenumber);
-                console.log('pages:', $scope.pages);
+
                 callMe();
             }
         };
@@ -1202,7 +1128,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         NavigationService.getAllMovieName(function(data) {
             $scope.allMovieName = data.data;
-            console.log('edrtghjfghjk', $scope.allMovieName);
+
         });
 
         NavigationService.getMonthYear(function(data) {
@@ -1212,18 +1138,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             $scope.month = $scope.month.sort();
             $scope.month = $scope.month.sort(function(a, b) {
-                return b - a
+                return b - a;
             });
             $scope.month = $scope.month.reverse();
-            // $scope.month = $filter('getMonthAlpha')($scope.month);
-            console.log('$scope.month', $scope.month);
-        })
+        });
 
-        // NavigationService.findAllSearchParam(function(data) {
-        //     $scope.findAllSearchParam = _.uniq(data.data);
-        //
-        //     console.log('findAllSearchParam', $scope.findAllSearchParam);
-        // });
 
 
         // $scope.getNews($scope.filter);
@@ -1297,7 +1216,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         function newsDetail() {
             NavigationService.getOneNews($stateParams.id, function(data) {
                 $scope.getOneNews = data.data.data;
-                console.log('getOneNews', $scope.getOneNews);
+
                 $scope.getOneRelated = data.data.related;
                 TemplateService.removeLoader();
             });
@@ -1306,14 +1225,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         newsDetail();
 
-        // NavigationService.getOneRelated($stateParams.id, function(data) {
-        //     $scope.getOneRelated = data.data;
-        //     console.log('getOneRelated11111111111112222222222222222', $scope.getOneRelated);
-        //     TemplateService.removeLoader();
-        // });
-
-
-        // $scope.getNews($scope.filter);
         $scope.countries = [ // Taken from https://gist.github.com/unceus/6501985
             {
                 name: 'Kabhi Khushi Kabhi Gum',
@@ -1355,47 +1266,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var lastpage = 1;
         $scope.pages = [1];
 
-        // function callMe() {
-        //     NavigationService.getNewsHomeSearch($scope.filter, function(data) {
-        //         $scope.myTotal = data.data.total;
-        //         console.log($scope.myTotal);
-        //         if ($scope.filter.pagesize >= $scope.myTotal) {
-        //             $scope.forViewMore = true;
-        //         } else {
-        //             $scope.forViewMore = false;
-        //         }
-        //
-        //         console.log(data);
-        //         console.log($scope.filter);
-        //         if (data.value) {
-        //
-        //             console.log(data.data.data.length);
-        //             if (data.data.data.length > 0) {
-        //                 $scope.noNewsFound = false;
-        //                 console.log('herefghfghgh');
-        //                 _.each(data.data.data, function(n) {
-        //                     n.date = new Date(n.date);
-        //                     $scope.news10.push(n);
-        //                     AllNews = $scope.news10;
-        //                     console.log($scope.news10);
-        //                 });
-        //             } else {
-        //                 $scope.news10 = [];
-        //                 $scope.noNewsFound = true;
-        //             }
-        //
-        //         }
-        //         TemplateService.removeLoader();
-        //     });
-        // }
 
-var i = 0;
+
+        var i = 0;
+
         function callMe() {
             // $scope.news10 = [];
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
                 if (newI == i) {
                     $scope.myTotal = data.data.total;
-                    if ($scope.filter.search.length == 0) {
+                    if ($scope.filter.search.length === 0) {
                         $scope.crossdisplay = false;
                     }
                     lastpage = data.data.totalpages;
@@ -1405,7 +1285,6 @@ var i = 0;
                         $scope.forViewMore = false;
                     }
                     $scope.myTotal = data.data.total;
-                    console.log(data.data.total);
                     if (data.value) {
                         if (data.data.data.length > 0) {
                             $scope.noNewsFound = false;
@@ -1443,14 +1322,12 @@ var i = 0;
             $scope.filter.search = '';
             $scope.movie.selected = "";
             if ($scope.filter.month || $scope.filter.year) {
-                console.log('gosearch');
                 $scope.goSearch($scope.filter.month, $scope.filter.year);
             } else {
-                console.log('newsdetail runn');
                 newsDetail();
             }
 
-        }
+        };
 
         // $scope.closeCross = function() {
         //     $scope.news10 = [];
@@ -1462,43 +1339,43 @@ var i = 0;
         $scope.getNews10 = function(name) {
             // $scope.crossdisplay = true;
             $scope.filter.search = name;
-            console.log($scope.filter.search);
+
             callMe();
         };
         $scope.getNewsYear = function(year) {
             $scope.getYear = year;
             $scope.goYear = true;
-            console.log(year);
+
             $scope.filter.year = year;
             // callMe();
         };
         $scope.getNewsMonth = function(month) {
             $scope.getMonth = month;
             $scope.goMonth = true;
-            console.log(month);
+
             $scope.filter.month = month;
             // callMe();
         };
 
         $scope.goSearch = function(month, year) {
             $scope.getSearchNews = true;
-            console.log(month);
+
             $scope.filter.month = month;
             $scope.filter.year = year;
             callMe();
         };
         $scope.loadMore = function() {
             if (lastpage > $scope.filter.pagenumber) {
-                // console.log('lastpageeee: ', lastpage)
+
                 ++$scope.filter.pagenumber;
                 $scope.pages.push($scope.filter.pagenumber);
-                console.log('pages:', $scope.pages);
+
                 callMe();
             }
         };
         NavigationService.getAllMovieName(function(data) {
             $scope.allMovieName = data.data;
-            console.log('edrtghjfghjk', $scope.allMovieName);
+
         });
 
         NavigationService.getMonthYear(function(data) {
@@ -1506,85 +1383,35 @@ var i = 0;
                 $scope.month = data.data.month;
                 $scope.month = $scope.month.sort();
                 $scope.month = $scope.month.sort(function(a, b) {
-                    return b - a
+                    return b - a;
                 });
                 $scope.month = $scope.month.reverse();
-                console.log('cjdbsfsdjfhjsdkhf', $scope.month);
-                console.log('$scope.monthYear', $scope.monthYear);
-            })
-            // $scope.doSearch = function() {
-            //   $scope.getSearchNews = true;
-            //     // console.log($scope.searchdata.search);
-            //     console.log(AllNews, "AllNews************");
-            //     var data1 = $filter('filter')(AllNews, {
-            //         text: $scope.filter.search
-            //     });
-            //
-            //     var data3 = $filter('filter')(AllNews, {
-            //         title: $scope.filter.search
-            //     });
-            //     var data = _.union(data1,data3);
-            //     // data = _.orderBy(data,"movie.name");
-            //     // console.log('allvideo', Allvideos);
-            //     console.log(data);
-            //     $scope.news10 = data;
-            //     // TemplateService.getLoader();
-            //     // groupIt(data);
-            //
-            // };
-        // $scope.doSearch = function() {
-        //     $scope.getSearchNews = true;
-        //     $scope.crossdisplay = true;
-        //     console.log(AllNews, "AllNews************");
-        //     var data1 = $filter('filter')(AllNews, {
-        //         text: $scope.filter.search
-        //     });
-        //
-        //     var data3 = $filter('filter')(AllNews, {
-        //         title: $scope.filter.search
-        //     });
-        //     var data = _.union(data1, data3);
-        //     console.log(data);
-        //     $scope.news10 = data;
-        //     if ($scope.news10.length == 0) {
-        //
-        //         $scope.noNewsFound = true;
-        //     } else {
-        //         $scope.noNewsFound = false;
-        //     }
-        //     if ($scope.filter.search.length == 0) {
-        //
-        //         $scope.crossdisplay = false;
-        //         $scope.getSearchNews = false;
-        //         $scope.noNewsFound = false;
-        //         newsDetail();
-        //     }
-        //
-        // };
+            });
+
 
         $scope.doSearch = function() {
 
-            if ($scope.filter.search.length == 0 && !$scope.filter.month && !$scope.filter.year) {
+            if ($scope.filter.search.length === 0 && !$scope.filter.month && !$scope.filter.year) {
 
-                  $scope.crossdisplay = false;
-                  $scope.getSearchNews = false;
-                  $scope.noNewsFound = false;
-                  newsDetail();
-              }else{
+                $scope.crossdisplay = false;
+                $scope.getSearchNews = false;
+                $scope.noNewsFound = false;
+                newsDetail();
+            } else {
                 $scope.getSearchNews = true;
                 $scope.crossdisplay = true;
                 $scope.news10 = [];
                 callMe();
-              }
+            }
 
         };
         $scope.ViewMore = function(myTotal) {
-            console.log(myTotal);
+
             if ($scope.filter.pagesize < myTotal) {
                 $scope.forViewMore = true;
                 $scope.filter.pagesize = myTotal;
                 callMe();
-                console.log($scope.filter.pagesize);
+
             } else {
                 $scope.forViewMore = false;
             }
@@ -1606,7 +1433,7 @@ var i = 0;
         $scope.mysearch = {};
         $scope.viewAll = function() {
             $scope.AllDharmatv = array;
-            console.log('view all', $scope.AllDharmatv);
+
         };
 
         NavigationService.getAllDharmaTvSlider(function(data) {
@@ -1646,8 +1473,6 @@ var i = 0;
         //   $scope.searchdata.search=$stateParams.search;
         $scope.noMovieFound = false;
         $scope.doSearch = function() {
-            console.log($scope.searchdata.search);
-            console.log(Allvideos, "Movies");
             var data1 = $filter('filter')(Allvideos, {
                 title: $scope.searchdata.search
             });
@@ -1661,8 +1486,6 @@ var i = 0;
             });
             var data = _.union(data1, data2, data3);
             data = _.orderBy(data, "movie.name");
-            console.log('allvideo', Allvideos);
-            console.log(data);
             TemplateService.getLoader();
             groupIt(data);
 
@@ -1671,32 +1494,17 @@ var i = 0;
 
 
         function groupIt(alldata) {
-            console.log(alldata);
+
             var videos = _.groupBy(alldata, "movie.name");
             delete videos.undefined;
             TemplateService.removeLoader();
-            console.log(videos);
             if (Object.keys(videos).length == 0) {
                 $scope.noMovieFound = true;
             } else {
                 $scope.noMovieFound = false;
             }
             $scope.AllDharmatv = videos;
-            console.log('****************************', $scope.AllDharmatv);
         }
-        // console.log('heeeeeeeeeeeeeeeeeeeee', $scope.searchdata.search);
-        // NavigationService.getAllDharmatvSearch({search:$stateParams.search}, function(data) {
-        //     console.log("mydata", data);
-        //     console.log('statepar', $scope.searchdata.search);
-        //     $scope.getsearch = true;
-        //     console.log($scope.searchdata);
-        //     $scope.mysearch = data.data;
-        //     console.log('mysearch', $scope.mysearch);
-        //     if ($scope.mysearch == '') {
-        //         console.log('here');
-        //         $scope.nodata = true;
-        //     }
-        // });
 
         $scope.video = [{
             img: "frontend/img/movie/m6.jpg",
@@ -1754,15 +1562,15 @@ var i = 0;
 
         NavigationService.getAllPosts($scope.postFilter, function(data) {
             $scope.myPosts = data.data.data;
-            console.log($scope.myPosts);
+
             TemplateService.removeLoader();
-        })
+        });
 
         NavigationService.getAllConfig(function(data) {
             $scope.getInstaConfig = data.data;
-            console.log('$scope.getInstaConfig', $scope.getInstaConfig);
+
             TemplateService.removeLoader();
-        })
+        });
 
         $scope.posts = [{
             username: "TarunMansukhani",
@@ -1823,15 +1631,15 @@ var i = 0;
 
         NavigationService.getAllTwitter(function(data) {
             $scope.getAllTwitterTag = data.data;
-            console.log($scope.getAllTwitterTag);
+
             $scope.selectOneHashTag($stateParams.id);
             TemplateService.removeLoader();
 
-        })
+        });
         $scope.isMatch = false;
         // $scope.getClass = "";
         $scope.selectOneHashTag = function(id) {
-            console.log(id);
+
             _.each($scope.getAllTwitterTag, function(key) {
                 if (key._id == id) {
                     key.isMatch = true;
@@ -1841,20 +1649,15 @@ var i = 0;
 
                 }
             });
-            console.log($scope.getAllTwitterTag);
+
             NavigationService.getOneHashTag(id, function(data) {
                 $scope.getOneHashTag = data.data.statuses;
                 _.each($scope.getOneHashTag, function(key) {
-                    // console.log(key);
+
                     key.created_at = new Date(key.created_at);
-                    // if(key._id==id){
-                    //     $scope.isMatch=true;
-                    // }else{
-                    //     $scope.isMatch=false;
-                    // }
-                    //
-                })
-                console.log('rdftghjderfghnj', $scope.getOneHashTag);
+
+                });
+
                 TemplateService.removeLoader();
             });
 
@@ -1931,14 +1734,14 @@ var i = 0;
 
         NavigationService.dharmaYouAll(function(data) {
             $scope.dharmaPosts = data.data;
-            console.log($scope.dharmaPosts);
+
             $scope.enableData = _.groupBy($scope.dharmaPosts, "status");
-            console.log($scope.enableData.true);
+
             $scope.dharmaPosts = [];
             $scope.dharmaPosts = $scope.enableData.true;
-            console.log('before chunk', $scope.dharmaPosts);
+
             $scope.dharmaPosts = _.chunk($scope.dharmaPosts, 2);
-            console.log($scope.dharmaPosts, "Postsss");
+
             TemplateService.removeLoader();
         });
 
@@ -1968,17 +1771,17 @@ var i = 0;
         };
 
         $scope.submitForm = function(data) {
-            console.log(data);
+
         };
         $scope.questionSubmit = false;
         $scope.formData = {};
         $scope.saveYou = function(formData) {
             NavigationService.youSave($scope.formData, function(data) {
-                if (data.value == true) {
+                if (data.value === true) {
                     $scope.questionSubmit = true;
                 }
             });
-        }
+        };
     })
     .controller('MoviesCtrl', function($scope, TemplateService, NavigationService, $stateParams, $filter, $timeout, $state) {
         $scope.template = TemplateService.changecontent("movies");
@@ -1986,22 +1789,7 @@ var i = 0;
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
-        // $scope.upcomingrelease = [{
-        //     img: "frontend/img/movie-banner-dam.png",
-        //     date: "10 March 2017",
-        //     director: "Shashank Khaitan",
-        //     cast: "Alia Bhatt, Varun Dhawan"
-        // }, {
-        //     img: "frontend/img/movie-banner-dam.png",
-        //     date: "10 March 2017",
-        //     director: "Shashank Khaitan",
-        //     cast: "Alia Bhatt, Varun Dhawan"
-        // }]
-        // NavigationService.getMovieDetails(function(data) {
-        //   $scope.MovieDetails = data.data;
-        //   console.log('MovieDetails', $scope.MovieDetails);
-        //   console.log('$scope.MovieDetails',$scope.MovieDetails.upcoming);
-        //   });
+
 
 
         $scope.countries = [ // Taken from https://gist.github.com/unceus/6501985
@@ -2073,15 +1861,10 @@ var i = 0;
             $scope.MovieDetails = data;
             $scope.movieList = _.groupBy($scope.MovieDetails, "releaseType");
             $scope.movieList.PastViewAll = $scope.movieList.Past;
-            console.log($scope.movieList.PastViewAll);
-            console.log($scope.movieList.Past);
             $scope.movieList.Recent = _.chunk($scope.movieList.Recent, 4);
-            // $scope.movieList.Recent = _.sort($scope.movieList.Recent, 4);
-            console.log('  $scope.movieList.Recent', $scope.movieList.Recent);
 
 
             for (var i = 0; i < $scope.movieList.Recent.length; i++) {
-                console.log("CHECKING");
                 $scope.movieList.Recent[i] = _.chunk($scope.movieList.Recent[i], 4);
             }
             if ($scope.movieList.Past) {
@@ -2089,7 +1872,6 @@ var i = 0;
                 $scope.movieList.PastMore = _.takeRight($scope.movieList.Past, $scope.movieList.Past.length - 10);
                 $scope.movieList.PastMore = _.chunk($scope.movieList.PastMore, 5);
                 $scope.movieList.Past = $scope.movieList.Past.splice(0, 10);
-                console.log($scope.movieList.Past);
                 $scope.movieList.Past = _.chunk($scope.movieList.Past, 5);
             }
             $scope.showRecent = false;
@@ -2117,20 +1899,17 @@ var i = 0;
                 id: id
             });
             $scope.mySearchFor = search;
-            console.log('rdftghrtfg', $scope.mySearchFor);
-            console.log(search);
-            console.log(id);
-            console.log(allMovies);
+
             $scope.viewAll = true;
             var data = $filter('filter')(allMovies, {
                 name: search
             });
-            console.log(data);
+
             populateData(data);
         };
 
         $scope.viewSearch = function(moviename) {
-            console.log(moviename);
+
             $scope.moviename = '';
             $scope.mySearchFor = '';
             NavigationService.getMovieDetails(function(data) {
@@ -2139,10 +1918,7 @@ var i = 0;
                 TemplateService.removeLoader();
 
             });
-            // console.log('rdftghrtfgviewSearchClick',$scope.mySearchFor);
-            // $scope.mySearchFor = '';
-            // $scope.viewAll = false;
-            //   console.log('rdftghrtfgviewSearchClick',$scope.mySearchFor);
+
         };
 
 
@@ -2194,21 +1970,12 @@ var i = 0;
 
         NavigationService.getAllMovieName(function(data) {
             $scope.allMovieName = data.data;
-            // movieNameArray = _.cloneDeep($scope.allMovieName);
-            // $scope.allMovieName = _.chunk($scope.allMovieName,10);
-            // $scope.allMovieName = _.slice($scope.allMovieName, [0], [10]);
-            // $scope.seeMore = true;
-            console.log('edrtghjfghjk', $scope.allMovieName);
-            // TemplateService.removeLoader();
-            // $scope.MovieGal10 = _.chunk($scope.MovieGal, 4);
-            // console.log('chunk',$scope.MovieGal10);
         });
     })
 
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
 
     $scope.changeLanguage = function() {
-        console.log("Language CLicked");
 
         if (!$.jStorage.get("language")) {
             $translate.use("hi");
