@@ -7,7 +7,7 @@ var firstapp = angular.module('firstapp', [
     'imageupload'
 ]);
 
-firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider,$locationProvider) {
 
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
@@ -45,18 +45,22 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     })
 
     .state('page', {
-        url: "/page/:jsonName",
-        templateUrl: "views/template.html",
-        controller: 'jsonViewCtrl'
-    })
-    .state('pageno', {
-        url: "/page/:jsonName/:no/:search",
-        templateUrl: "views/template.html",
-        controller: 'jsonViewCtrl'
-    });
+            url: "/page/:jsonName",
+            templateUrl: "views/template.html",
+            controller: 'jsonViewCtrl'
+        })
+        .state('pageno', {
+            url: "/page/:jsonName/:no/:search",
+            templateUrl: "views/template.html",
+            controller: 'jsonViewCtrl'
+        });
 
     $urlRouterProvider.otherwise("/login");
-
+    $locationProvider.html5Mode({
+        enabled: isproduction,
+        requireBase: true,
+        rewriteLinks: true
+    });
 });
 
 firstapp.filter('uploadpath', function() {
@@ -90,14 +94,17 @@ firstapp.filter('getValue', function($filter) {
                 console.log('in date');
                 // return new Date(returnValue);
                 return $filter("date")(returnValue, "medium");
-            }if (type == "longdate") {
+            }
+            if (type == "longdate") {
                 console.log('in date');
                 // return new Date(returnValue);
                 return $filter("date")(returnValue, "longDate");
-            }if(type == "time"){
-              console.log('in time');
-              return $filter("date")(returnValue, "shortTime");
-            } if (type != "image") {
+            }
+            if (type == "time") {
+                console.log('in time');
+                return $filter("date")(returnValue, "shortTime");
+            }
+            if (type != "image") {
                 return returnValue;
             } else {
                 return $filter("uploadpath")(returnValue, 100, 100, "fill");
@@ -211,14 +218,14 @@ firstapp.directive('img', function($compile, $parse) {
     };
 });
 
-firstapp.directive('myEditor', function () {
+firstapp.directive('myEditor', function() {
     var uniqueId = 0;
     return {
         restrict: 'E',
         require: 'ngModel',
         scope: true,
         template: '<textarea></textarea>',
-        link: function (scope, element, attrs, ngModel) {
+        link: function(scope, element, attrs, ngModel) {
             var id = 'myEditor_' + uniqueId++;
             element.find('textarea').attr('id', id);
             tinymce.init({
