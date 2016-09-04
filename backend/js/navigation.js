@@ -1,11 +1,9 @@
-// var adminurl = "http://blazen.io/";
 // var adminurl = "http://104.199.151.75:82/";
-var adminurl = "http://104.154.89.21:85/";
-// var adminurl = "http://localhost:85/";
-// var imgurl = "http://146.148.4.222/upload/";
-var imgpath = adminurl + "upload/readFile";
-var uploadurl = adminurl + "upload/";
-// var imgpath = imgurl + "readFile";
+var adminurl = "http://localhost:1337/api/";
+var adminurl2 = "http://104.154.89.21:85/";
+var imgpath = adminurl2 + "upload/readFile";
+var uploadurl = adminurl2 + "upload/";
+
 var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function($http) {

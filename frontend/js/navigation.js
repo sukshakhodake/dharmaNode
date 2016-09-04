@@ -1,19 +1,8 @@
 // var adminurl = "http://104.199.151.75:82/";
-var adminurl = "http://104.154.89.21:85/";
-// var adminurl = "http://localhost:85/";
-// var adminurl = "http://dharma.com/";
-// var adminurl = "http://192.168.0.107:85/";
-var imgurl = adminurl + "upload/";
-var imgpath = imgurl + "readFile";
-var uploadurl = imgurl;
-
-// if(isproduction)
-// {
-//   adminURL =  "http://www.wohlig.co.in/demo/index.php";
-// }
-// else {
-//   adminURL = "http://localhost/demo/index.php";
-// }
+var adminurl = "http://localhost:1337/api/";
+var adminurl2 = "http://104.154.89.21:85/";
+var imgpath = adminurl2 + "upload/readFile";
+var uploadurl = adminurl2 + "upload/";
 
 var navigationservice = angular.module('navigationservice', [])
 
