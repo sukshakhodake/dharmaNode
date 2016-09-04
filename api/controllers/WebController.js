@@ -1,7 +1,6 @@
 module.exports = {
     index: function(req, res) {
         var jsFiles = require("../../frontend/files.js");
-        console.log("demo");
         res.view(sails.config.environment, {
             jsFiles: jsFiles,
             title: "Dharma Production Backend",
