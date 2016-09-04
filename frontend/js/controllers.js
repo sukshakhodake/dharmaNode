@@ -33,7 +33,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
     NavigationService.getAllUpcomingMovies(function(data) {
         $scope.AllUpcomingMovies = _.orderBy(data.data, function(n) {
-            var date2 = moment("1/" + n.month + "/" + n.year);
+            var date2 = moment("01-" + n.month + "-" + n.year,"D-M-YYYY");
             return (date2.unix());
         });
 

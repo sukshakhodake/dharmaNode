@@ -142,13 +142,13 @@ firstapp.filter('uploadpath', function() {
 firstapp.filter('wallpaperpath', function() {
     return function(input, width, height, style) {
         var other = "";
-        if (width && width != "") {
+        if (width && width !== "") {
             other += "&width=" + width;
         }
-        if (height && height != "") {
+        if (height && height !== "") {
             other += "&height=" + height;
         }
-        if (style && style != "") {
+        if (style && style !== "") {
             other += "&style=" + style;
         }
         if (input) {
@@ -171,86 +171,86 @@ firstapp.filter('shorten', function() {
 
             }
 
-    }
-})
+    };
+});
 firstapp.filter('getMonthAlpha', function() {
     return function(value) {
-      var month="";
-        if (value){
-          switch(value){
-            case 1:
-            month="Jan";
-            break;
-            case 2:
-            month="Feb";
-            break;
-            case 3:
-            month="Mar";
-            break;
-            case 4:
-            month="Apr";
-            break;
-            case 5:
-            month="May";
-            break;
-            case 6:
-            month="Jun";
-            break;
-            case 7:
-            month="Jul";
-            break;
-            case 8:
-            month="Aug";
-            break;
-            case 09:
-            month="Sept";
-            break;
-            case 10:
-            month="Oct";
-            break;
-            case 11:
-            month="Nov";
-            break;
-            case 12:
-            month="Dec";
-            break;
-            case 'All':
-            month="All";
-            break;
-          };
-                return month;
-            } else {
-                return month;
-
+        var month = "";
+        if (value) {
+            switch (value) {
+                case 1:
+                    month = "Jan";
+                    break;
+                case 2:
+                    month = "Feb";
+                    break;
+                case 3:
+                    month = "Mar";
+                    break;
+                case 4:
+                    month = "Apr";
+                    break;
+                case 5:
+                    month = "May";
+                    break;
+                case 6:
+                    month = "Jun";
+                    break;
+                case 7:
+                    month = "Jul";
+                    break;
+                case 8:
+                    month = "Aug";
+                    break;
+                case 09:
+                    month = "Sept";
+                    break;
+                case 10:
+                    month = "Oct";
+                    break;
+                case 11:
+                    month = "Nov";
+                    break;
+                case 12:
+                    month = "Dec";
+                    break;
+                case 'All':
+                    month = "All";
+                    break;
             }
+            return month;
+        } else {
+            return month;
 
-    }
-})
+        }
+
+    };
+});
 firstapp.filter('rawHtml', ['$sce',
     function($sce) {
-      return function(val) {
-        return $sce.trustAsHtml(val);
-      };
+        return function(val) {
+            return $sce.trustAsHtml(val);
+        };
     }
-  ])
+]);
 firstapp.filter('cut', function() {
-  return function(value, wordwise, max, tail) {
-    if (!value) return '';
-    // console.log("dfahsdkfgakhfgjfh");
-    max = parseInt(max, 10);
-    if (!max) return value;
-    if (value.length <= max) return value;
-    value = value.substr(0, max);
-    if (wordwise) {
-      var lastspace = value.lastIndexOf(' ');
-      if (lastspace != -1) {
-        value = value.substr(0, lastspace);
-      }
-    }
+    return function(value, wordwise, max, tail) {
+        if (!value) return '';
 
-    return value + (tail || ' …');
-  };
-})
+        max = parseInt(max, 10);
+        if (!max) return value;
+        if (value.length <= max) return value;
+        value = value.substr(0, max);
+        if (wordwise) {
+            var lastspace = value.lastIndexOf(' ');
+            if (lastspace != -1) {
+                value = value.substr(0, lastspace);
+            }
+        }
+
+        return value + (tail || ' …');
+    };
+});
 
 firstapp.directive('uploadImage', function($http, $filter) {
     return {
@@ -297,7 +297,7 @@ firstapp.directive('uploadImage', function($http, $filter) {
                     },
                     transformRequest: angular.identity
                 }).success(function(data) {
-                    // console.log("success");
+
                     if ($scope.callback) {
                         $scope.callback(data);
                     } else {
@@ -354,7 +354,7 @@ firstapp.directive('fancybox', function($compile, $parse) {
         replace: false,
         link: function($scope, element, attrs) {
             $element = $(element);
-            // console.log(attrs,"FancyBox");
+
             setTimeout(function() {
                 $(".various").fancybox({
                     maxWidth: 800,
@@ -460,7 +460,7 @@ firstapp.directive('fancyboxBox', function($document) {
 firstapp.filter('youtubethumb', function() {
     return function(input, onlyid) {
         if (input) {
-            return "http://img.youtube.com/vi/"+input+"/hqdefault.jpg";
+            return "http://img.youtube.com/vi/" + input + "/hqdefault.jpg";
         }
     };
 });
@@ -513,7 +513,7 @@ firstapp.directive('ngEnter', function() {
     };
 });
 firstapp.filter('urlEncode', [function() {
-  return window.encodeURIComponent;
+    return window.encodeURIComponent;
 }]);
 firstapp.config(function($translateProvider) {
     $translateProvider.translations('en', LanguageEnglish);
