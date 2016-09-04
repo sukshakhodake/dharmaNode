@@ -98,14 +98,7 @@ var navigationservice = angular.module('navigationservice', [])
             withCredentials: true
         }).success(callback);
     },
-    getMovieDetailsSearch: function(search,callback) {
-            $http({
-            url: adminurl + 'movie/getMovieDetails',
-            method: 'POST',
-            withCredentials: true,
-            data:search
-        }).success(callback);
-    },
+
     getJourney: function(callback) {
             $http({
             url: adminurl + 'journey/getall',
@@ -129,7 +122,6 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback);
     },
     subScribe: function(email ,callback) {
-console.log(email);
         $http({
             url: adminurl + 'subscribe/saveData',
             method: 'POST',
@@ -138,7 +130,6 @@ console.log(email);
         }).success(callback);
     },
     getAllDharmatv: function(input,callback) {
-
         $http({
             url: adminurl + 'Dharmatv/getAllDharmatv',
             method: 'POST',
@@ -190,73 +181,18 @@ console.log(email);
             withCredentials: true
         }).success(callback);
     },
-    getMovieNews: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/getMovieNews',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
+    // getMovieNews: function(id, callback) {
+    //        $http({
+    //         url: adminurl + 'Movie/getMovieNews',
+    //         method: 'POST',
+    //         withCredentials: true,
+    //         data: {
+    //             _id: id
+    //         }
+    //
+    //     }).success(callback);
+    // },
 
-        }).success(callback);
-    },
-    getMovieFinal: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/getOneMovie',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-    getMovieGal: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/getMovieGal',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-    getMovieBehindTheScenes: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/getMovieBehindTheScenes',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-    getMovieVideo: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/getMovieVideo',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-
-    findOne: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/findOne',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
     newGetOneMovie: function(id, callback) {
            $http({
             url: adminurl + 'Movie/getOneMovie',
@@ -278,49 +214,6 @@ console.log(email);
             }
 
         }).success(callback);
-    },
-    getMovieCast: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/getMovieCast',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-    getMovieCrew: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/getMovieCrew',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-    getMovieWallpaper: function(id, callback) {
-           $http({
-            url: adminurl + 'Movie/getMovieWallpaper',
-            method: 'POST',
-            withCredentials: true,
-            data: {
-                _id: id
-            }
-
-        }).success(callback);
-    },
-    getNewsHome: function(request, callback) {
-      console.log("myrequest",request);
-           $http({
-            url: adminurl + 'news/findLimitedForBackend',
-            method: 'POST',
-            withCredentials: true,
-            data:request
-            }).success(callback);
-
     },
     getNewsHomeSearch: function(request,i, callback) {
       console.log("myrequest",request);
@@ -362,22 +255,6 @@ console.log(email);
 
         $http({
             url: adminurl + 'dharmaslider/getAllDharmaTvSlider',
-            method: 'POST',
-            withCredentials: true
-        }).success(callback);
-    },
-    getAllUpcomingMovies: function(callback) {
-
-        $http({
-            url: adminurl + 'Movie/getAllUpcomingMovies',
-            method: 'POST',
-            withCredentials: true
-        }).success(callback);
-    },
-    findAllSearchParam: function(callback) {
-
-        $http({
-            url: adminurl + 'Movie/findAllSearchParam',
             method: 'POST',
             withCredentials: true
         }).success(callback);

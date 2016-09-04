@@ -205,7 +205,7 @@ var schema = new Schema({
 });
 
 schema.virtual('urlName').get(function() {
-    return _.kebabCase(this.name + "_" + this.year);
+    return _.kebabCase(this.name)+ "_" + this.year + "_" + this._id;
 });
 
 module.exports = mongoose.model('Movie', schema);
@@ -1973,7 +1973,7 @@ var models = {
             // 'year': -1,
             // 'name': 1
             upcomingOrder: -1
-        }).select("name upcomingOrder releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage status").exec(function(err, respo) {
+        }).select("name upcomingOrder releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage status urlName").exec(function(err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
