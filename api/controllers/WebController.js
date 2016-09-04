@@ -3,9 +3,9 @@ module.exports = {
         var jsFiles = require("../../frontend/files.js");
         res.view(sails.config.environment, {
             jsFiles: jsFiles,
-            title: "Dharma Production Backend",
-            description: "Dharma Production Backend",
-            keywords: "Dharma Production Backend",
+            title: "Dharma Production",
+            description: "Dharma Production",
+            keywords: "Dharma Production",
             image: "http://www.wohlig.com/img/logo.png",
         });
     },
