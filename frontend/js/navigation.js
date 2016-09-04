@@ -135,23 +135,6 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
-        getAllDharmatv: function(input, callback) {
-            $http({
-                url: adminurl + 'Dharmatv/getAllDharmatv',
-                method: 'POST',
-                withCredentials: true,
-                data: input
-            }).success(callback);
-        },
-        getAllDharmatvSearch: function(search, callback) {
-
-            $http({
-                url: adminurl + 'Dharmatv/getAllDharmatv',
-                method: 'POST',
-                withCredentials: true,
-                data: search
-            }).success(callback);
-        },
         getDharmatvOne: function(id, callback) {
             $http({
                 url: adminurl + 'Dharmatv/getOne',
@@ -275,7 +258,12 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'Dharmatv/getAll',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).success(function(data) {
+                _.each(data.data, function(n) {
+                    n.movie._id = _.kebabCase(n.movie.name)+"_"+n.movie.year;
+                });
+                callback(data);
+            });
         },
         getAllTags: function(callback) {
             $http({

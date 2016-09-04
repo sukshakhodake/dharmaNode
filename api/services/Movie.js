@@ -288,9 +288,7 @@ var models = {
             data2 = data._id.split("_");
         }
         if (data2[0]) {
-            console.log(data2);
             data2[0] = data2[0].replace(new RegExp("-", 'g'), " ");
-            console.log(data2);
         }
 
         var newreturns = {};
