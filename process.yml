@@ -1,5 +1,5 @@
 apps:
   - script: "app.js"
-    name: "chintan"
+    name: "Dharma Production"
     watch: true
     args: "--prod"
