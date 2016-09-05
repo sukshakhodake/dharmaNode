@@ -16,7 +16,9 @@ module.exports = function(grunt) {
         development: ['.tmp/public/frontend/css', '.tmp/public/frontend/js', '.tmp/public/frontend/fonts', '.tmp/public/frontend/views', '.tmp/public/frontend/img'],
         production: ['.tmp/public/frontend'],
         productionFiles: ['.tmp/public/frontend/css/main.css', '.tmp/public/frontend/js/main.js'],
-        backend:  ['.tmp/public/backend']
+        backend:  ['.tmp/public/backend'],
+        upload:  ['.tmp/uploads/**'],
+        uploadApp:  ['.tmp/uploads/app.js']
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');

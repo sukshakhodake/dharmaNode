@@ -67,7 +67,14 @@ module.exports = function(grunt) {
                 src: ['fonts/**', 'img/**'],
                 dest: '.tmp/public/frontend'
             }]
-        }
+        },
+        upload: {
+            files: [{
+                expand: true,
+                src: ["app.js"],
+                dest: '.tmp/uploads'
+            }]
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');
