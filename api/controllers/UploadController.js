@@ -34,6 +34,7 @@ module.exports = {
         });
     },
     readFile: function(req, res) {
+        res.header('Cache-Control', 'public, max-age=31536000');
         Config.readUploaded(req.query.file, req.query.width, req.query.height, req.query.style, res);
     },
     wallpaper: function(req, res) {
