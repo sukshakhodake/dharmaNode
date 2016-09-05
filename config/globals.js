@@ -62,7 +62,7 @@ module.exports.globals = {
     // models: true
 };
 
-global["mainUrl"] = "www.dharamaproduction.com";
+global["mainUrl"] = "http://104.154.89.21:600";
 global["metaImageUrl"] = "http://104.154.89.21:85/upload/readFile?file=";
 global["jsFiles"] = require("../frontend/files.js");
 global["jsFilesBackend"] = require("../backend/files.js");
