@@ -1,8 +1,12 @@
 // var adminurl = "http://104.199.151.75:82/";
-var adminurl = "http://localhost:1337/api/";
-var adminurl2 = "http://104.154.89.21:85/";
-var imgpath = adminurl2 + "upload/readFile";
-var uploadurl = adminurl2 + "upload/";
+if (adminurl || adminurl !== "") {
+    console.log(adminurl);
+} else {
+    adminurl = "http://localhost:1337/api/";
+}
+
+var imgpath = adminurl + "upload/readFile";
+var uploadurl = adminurl + "upload/";
 
 var navigationservice = angular.module('navigationservice', [])
 
@@ -260,7 +264,7 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(function(data) {
                 _.each(data.data, function(n) {
-                    n.movie._id = _.kebabCase(n.movie.name)+"_"+n.movie.year;
+                    n.movie._id = _.kebabCase(n.movie.name) + "_" + n.movie.year;
                 });
                 callback(data);
             });

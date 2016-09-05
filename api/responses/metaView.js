@@ -10,7 +10,9 @@ module.exports = function(data, options) {
         title: data.title,
         description: data.description,
         keywords: data.keywords,
-        image: metaImageUrl + data.image,
-        url: mainUrl + req.path
+        adminurl: "http://localhost:" + sails.config.port+"/api",
+        image: "http://localhost:" + sails.config.port +"/api/upload/readFile?file=" + data.image,
+        url: "http://localhost:" + sails.config.port + req.path,
+
     });
 };
