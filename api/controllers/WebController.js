@@ -55,15 +55,22 @@ module.exports = {
         Config.readUploaded(req.param("filename"), null, null, null, res);
     },
     backend: function(req, res) {
+        if (!sails.config.host) {
+            sails.config.host = "http://localhost";
+        }
+        if (sails.config.environment == "production") {
+            sails.config.host = "http://104.154.89.21";
+        }
         res.view("backend", {
             jsFiles: jsFilesBackend,
             title: "Dharma Production Backend",
             description: "Dharma Production Backend",
             keywords: "Dharma Production Backend",
+            adminurl: sails.config.host + ":" + sails.config.port + "/api/",
         });
     },
     gitPull: function(req, res) {
-          function gitPull() {
+        function gitPull() {
             exec('git pull', function(error, stdout, stderr) {
                 if (error) {
                     return;
