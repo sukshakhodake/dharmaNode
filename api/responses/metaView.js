@@ -10,6 +10,7 @@ module.exports = function(data, options) {
         title: data.title,
         description: data.description,
         keywords: data.keywords,
-        image: data.image
+        image: metaImageUrl + data.image,
+        url: mainUrl + req.path
     });
 };
