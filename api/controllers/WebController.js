@@ -6,7 +6,7 @@ module.exports = {
         if (req.params && req.params[0]) {
             var movieID = req.params[0].split("/");
             Movie.getOneMovie({
-                _id: req.params[0][0]
+                _id: movieID[0]
             }, function(err, data) {
                 if (err) {
                     res.callback(err, data);
