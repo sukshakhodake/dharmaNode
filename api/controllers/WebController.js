@@ -17,7 +17,7 @@ module.exports = {
                         title: movie.name + " - " + movie.year,
                         keywords: movie.keywords,
                         description: movie.desciption,
-                        image: movie.image
+                        image: movie.theatricalTrailerImage
                     });
                 }
             });
