@@ -40,12 +40,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'DharmaTvCtrl'
         })
         .state('tv-inside', {
-            url: "/tv-inside/:id",
+            url: "/tv/:id",
             templateUrl: "frontend/views/template.html",
             controller: 'TvInsideCtrl'
         })
         .state('tv-insideSearch', {
-            url: "/tv-inside/:id/:search",
+            url: "/tv/:id/:search",
             templateUrl: "frontend/views/template.html",
             controller: 'TvInsideCtrl'
         })
@@ -75,7 +75,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'ContactUsCtrl'
         })
         .state('news-detail', {
-            url: "/news-detail/:id",
+            url: "/news-events/:id",
             templateUrl: "frontend/views/template.html",
             controller: 'NewsDetailCtrl'
         })
@@ -85,12 +85,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'PrivacyPolicyCtrl'
         })
         .state('movie-inside', {
-            url: "/movie-inside/:id",
+            url: "/movie/:id",
             templateUrl: "frontend/views/template.html",
             controller: 'MovieInsideCtrl'
         })
         .state('movie-insideTab', {
-            url: "/movie-inside/:id/:tab",
+            url: "/movie/:id/:tab",
             templateUrl: "frontend/views/template.html",
             controller: 'MovieInsideCtrl'
         })

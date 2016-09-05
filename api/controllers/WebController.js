@@ -1,13 +1,6 @@
 module.exports = {
     index: function(req, res) {
-        var jsFiles = require("../../frontend/files.js");
-        res.view(sails.config.environment, {
-            jsFiles: jsFiles,
-            title: "Dharma Production",
-            description: "Dharma Production",
-            keywords: "Dharma Production",
-            image: "http://www.wohlig.com/img/logo.png",
-        });
+        res.metaView();
     },
     download: function(req, res) {
         Config.readUploaded(req.param("filename"), null, null, null, res);

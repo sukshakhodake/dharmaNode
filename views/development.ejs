@@ -11,8 +11,32 @@
     <meta name="author" content="">
     <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
-    <title ng-bind="'Dharma Production | '+template.title">Dharma Production</title>
     <link rel="shortcut icon" href="frontend/img/favicon.png" />
+
+    <title ng-bind="'Dharma Production | '+template.title">
+        <%= ((typeof title) == "undefined") ? "Dharma Production" : title  %>
+    </title>
+
+    <!-- SEO -->
+    <meta name="author" content="Wohlig Technology">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Facebook -->
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="frontend/img/fb-banner.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="frontend/img/tw-banner.jpg">
+
+    <link rel="canonical" href="http://example.com/wordpress/seo-plugin/">
 
 
 
