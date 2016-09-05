@@ -62,6 +62,6 @@ module.exports.globals = {
     // models: true
 };
 
-
+global["moment"] = require("moment");
 global["jsFiles"] = require("../frontend/files.js");
 global["jsFilesBackend"] = require("../backend/files.js");

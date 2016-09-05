@@ -69,6 +69,7 @@
   "license": "",
   "devDependencies": {
     "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-htmlmin": "^2.0.0"
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-http": "^2.0.1"
   }
 }

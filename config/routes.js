@@ -50,7 +50,7 @@ module.exports.routes = {
         skipAssets: true,
         skipRegex: /api|backend/i
     },
-    'GET /gitPull': {
+    'GET /gitPull/:data': {
         controller: "WebController",
         action: "gitPull",
         skipAssets: true,
