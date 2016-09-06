@@ -169,7 +169,7 @@ var models = {
             filename: filename
         });
 
-
+        console.log("Data");
 
         readstream.on('error', function(err) {
             res.json({
@@ -184,7 +184,8 @@ var models = {
 
             bufs.push(chunk);
 
-        }).on('end', function() { // done
+        });
+        readstream.on('end', function() { // done
             if (!(width && height)) {
                 var fbuf = Buffer.concat(bufs);
 
@@ -217,7 +218,8 @@ var models = {
 
                 bufs.push(chunk);
 
-            }).on('end', function() { // done
+            });
+            readstream2.on('end', function() { // done
                 if (!(width && height)) {
                     var fbuf = Buffer.concat(bufs);
 
