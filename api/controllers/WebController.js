@@ -19,10 +19,10 @@ module.exports = {
                 } else {
                     var movie = data.movie;
                     var text = htmlToText.fromString(movie.synopsis, {
-                        wordwrap: 130
+                        wordwrap: 500
                     });
                     text = _.trunc(_.trim(text), {
-                        'length': 300,
+                        'length': 190,
                         'separator': ' '
                     });
                     res.metaView({
