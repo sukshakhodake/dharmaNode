@@ -2,36 +2,36 @@
 <html lang="en" ng-app="firstapp">
 
 <head ng-controller="headerctrl">
-    <meta charset="utf-8">
-    <base href="/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <base href="/" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge /">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title ng-bind="'Dharma Production | '+template.title">
         <%= ((typeof title) == "undefined") ? "Dharma Production" : title  %>
     </title>
 
     <!-- SEO -->
-    <meta name="author" content="Dharma Production">
-    <meta name="description" content="<%= ((typeof description) == "undefined") ? "Dharma Production " : description  %>">
-    <meta name="keywords" content="<%= ((typeof keywords) == "undefined") ? "Dharma Production " : keywords  %>">
+    <meta name="author" content="Dharma Production" />
+    <meta name="description" content="<%= ((typeof description) == "undefined") ? "Dharma Production " : description  %>" />
+    <meta name="keywords" content="<%= ((typeof keywords) == "undefined") ? "Dharma Production " : keywords  %>" />
 
     <!-- Facebook -->
     <meta property="og:site_name" content="Dharma Production">
     <meta property="og:title" content="<%= ((typeof title) == "undefined") ? "Dharma Production " : title  %>" />
     <meta property="og:description" content="<%= ((typeof description) == "undefined") ? "Dharma Production " : description  %>" />
-    <meta property="og:image" content="<%= ((typeof image) == "undefined") ? "Dharma Production " : image  %>">
+    <meta property="og:image" content="<%= ((typeof image) == "undefined") ? "Dharma Production " : image  %>&width=800" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= ((typeof url) == "undefined") ? "Dharma Production " : url  %>" />
 
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@DharmaMovies">
-  <meta name="twitter:creator" content="@DharmaMovies">
-  <meta name="twitter:title" content="<%= ((typeof title) == "undefined") ? "Dharma Production " : title  %>">
-  <meta name="twitter:image" content="<%= ((typeof image) == "undefined") ? "Dharma Production " : image  %>">
-  <meta name="twitter:description" content="<%= ((typeof description) == "undefined") ? "Dharma Production " : description  %>" >
+    <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@DharmaMovies" />
+  <meta name="twitter:creator" content="@DharmaMovies" />
+  <meta name="twitter:title" content="<%= ((typeof title) == "undefined") ? "Dharma Production " : title  %>" />
+  <meta name="twitter:image" content="<%= ((typeof image) == "undefined") ? "Dharma Production " : image  %>&width=800" />
+  <meta name="twitter:description" content="<%= ((typeof description) == "undefined") ? "Dharma Production " : description  %>" />
 
 
     <link rel="canonical" href="<%= ((typeof url) == "undefined") ? "Dharma Production " : url  %>">
