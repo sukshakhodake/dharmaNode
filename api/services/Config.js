@@ -224,6 +224,7 @@ var models = {
                     error: err
                 });
             });
+            var bufs = [];
             readstream2.on('data', function(chunk) {
                 bufs.push(chunk);
             });
