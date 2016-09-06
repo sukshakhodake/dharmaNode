@@ -184,9 +184,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="video-slider slider-nav mt30 min-tp-nm">
-                            <flex-slider flex-slide="item in getAllUpcomingMovies track by $index" animation="slide" item-width="300" item-margin="0" animationloop="true" move="1">
+                            <flex-slider flex-slide="item in getAllUpcomingMovies track by $index" animation="slide" item-width="300" item-margin="0" animationloop="true" move="1" slideshowSpeed=1000>
                                 <li>
-                                    <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
+                                    <!-- <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
                                         <div class="video-box">
                                             <div class="video-slide-img">
 
@@ -197,7 +197,16 @@
                                                 <span class="color-white">{{item.title}}</span>
                                             </div>
                                         </div>
-                                    </a>
+                                    </a> -->
+                                    <div class="ifram-cl">
+                          <div data-id="1" data-youtube_id="" class="video-embed">
+
+                            <iframe width="100%" height="100%" ng-src="{{youtubeEmbed+item.url | trustAsResourceUrl}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                      </div>
+                            <div class="video-names mt10">
+                                <span class="color-white">{{item.title}}</span>
+                            </div>
                                 </li>
                             </flex-slider>
                             <div class="text-center btn-view-all mt40">

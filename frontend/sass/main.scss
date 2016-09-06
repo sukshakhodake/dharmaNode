@@ -2091,20 +2091,21 @@ height: 50px;
 
 .scroll-over::-webkit-scrollbar-track
 {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: #F5F5F5;
+  -webkit-box-shadow: none;
+        border-radius: 10px;
+        background-color: rgba(245, 245, 245, 0);
+        opacity: 0;
 }
 .scroll-over::-webkit-scrollbar
 {
 	width: 12px;
-	background-color: #F5F5F5;
+	background-color: transparent;
 }
 .scroll-over::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: $brand-primary;
+  -webkit-box-shadow: none;
+  	background-color: transparent;
 }
 .navbar-collapse {
 

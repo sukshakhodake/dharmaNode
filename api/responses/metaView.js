@@ -8,8 +8,9 @@ module.exports = function(data, options) {
     if (!sails.config.host) {
         sails.config.host = "http://localhost";
     }
-    if (sails.config.environment == "production") {
+    if (true) {
         sails.config.host = "http://104.154.89.21";
+        sails.config.port = 85;
     }
     res.view(sails.config.environment, {
         jsFiles: jsFiles,

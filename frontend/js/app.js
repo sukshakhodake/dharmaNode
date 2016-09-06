@@ -498,7 +498,11 @@ firstapp.directive('scrollToItem', function() {
         }
     }
 });
-
+firstapp.filter('trustAsResourceUrl', ['$sce', function($sce) {
+    return function(val) {
+        return $sce.trustAsResourceUrl(val);
+    };
+}]);
 firstapp.directive('ngEnter', function() {
     return function(scope, element, attrs) {
         element.bind("keydown keypress", function(event) {

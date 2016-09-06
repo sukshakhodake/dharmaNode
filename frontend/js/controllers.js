@@ -212,6 +212,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
+        $scope.youtubeEmbed = 'https://www.youtube.com/embed/';
+
 })
 
 .controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
