@@ -164,12 +164,10 @@ var models = {
         });
     },
     readUploaded: function(filename, width, height, style, res) {
+        res.set("Content-Type", "image/jpeg");
         var readstream = gfs.createReadStream({
             filename: filename
         });
-
-        console.log("Data");
-
         readstream.on('error', function(err) {
             res.json({
                 value: false,
@@ -180,17 +178,13 @@ var models = {
         var bufs = [];
 
         readstream.on('data', function(chunk) {
-            console.log("Chunk");
             bufs.push(chunk);
         });
         readstream.on('end', function() { // done
-            console.log("End");
             if (!(width && height)) {
                 var fbuf = Buffer.concat(bufs);
-                res.set("Content-Type", "image/jpeg");
                 res.send(fbuf);
             }
-
         });
 
         function writer2(filename, gridFSFilename, metaValue) {
