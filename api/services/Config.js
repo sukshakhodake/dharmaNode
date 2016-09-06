@@ -164,15 +164,35 @@ var models = {
         });
     },
     readUploaded: function(filename, width, height, style, res) {
-        res.set("Content-Type", "image/jpeg");
+        res.set("Content-Type", "image/jpeg;base64");
         var readstream = gfs.createReadStream({
             filename: filename
         });
+
+
+
         readstream.on('error', function(err) {
             res.json({
                 value: false,
                 error: err
             });
+        });
+
+        var bufs = [];
+
+        readstream.on('data', function(chunk) {
+
+            bufs.push(chunk);
+
+        }).on('end', function() { // done
+            if (!(width && height)) {
+                var fbuf = Buffer.concat(bufs);
+
+                var base64 = (fbuf.toString('base64'));
+
+                res.send(base64);
+            }
+
         });
 
         function writer2(filename, gridFSFilename, metaValue) {
@@ -183,8 +203,30 @@ var models = {
             writestream2.on('finish', function() {
                 fs.unlink(filename);
             });
-            fs.createReadStream(filename).pipe(res);
-            fs.createReadStream(filename).pipe(writestream2);
+            var readstream2 = fs.createReadStream(filename).pipe(writestream2);
+            readstream2.on('error', function(err) {
+                res.json({
+                    value: false,
+                    error: err
+                });
+            });
+
+            var bufs = [];
+
+            readstream2.on('data', function(chunk) {
+
+                bufs.push(chunk);
+
+            }).on('end', function() { // done
+                if (!(width && height)) {
+                    var fbuf = Buffer.concat(bufs);
+
+                    var base64 = (fbuf.toString('base64'));
+
+                    res.send(base64);
+                }
+
+            });
         }
 
         function read2(filename2) {
