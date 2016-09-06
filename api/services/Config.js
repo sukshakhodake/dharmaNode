@@ -206,19 +206,11 @@ var models = {
             var bufs = [];
 
             readstream2.on('data', function(chunk) {
-
                 bufs.push(chunk);
-
             });
             readstream2.on('end', function() { // done
-                if (!(width && height)) {
-                    var fbuf = Buffer.concat(bufs);
-
-                    var base64 = (fbuf.toString('base64'));
-
-                    res.send(base64);
-                }
-
+                var fbuf = Buffer.concat(bufs);
+                res.send(fbuf);
             });
         }
 
@@ -232,7 +224,13 @@ var models = {
                     error: err
                 });
             });
-            readstream2.pipe(res);
+            readstream2.on('data', function(chunk) {
+                bufs.push(chunk);
+            });
+            readstream2.on('end', function() { // done
+                var fbuf = Buffer.concat(bufs);
+                res.send(fbuf);
+            });
         }
         var onlyName = filename.split(".")[0];
         var extension = filename.split(".").pop();
