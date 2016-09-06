@@ -183,6 +183,7 @@ var models = {
         readstream.on('end', function() { // done
             if (!(width && height)) {
                 var fbuf = Buffer.concat(bufs);
+                res.set('Cache-Control', 'public, max-age=31536000');
                 res.set("Content-Type", "image/jpeg");
                 res.send(fbuf);
             }
@@ -211,6 +212,7 @@ var models = {
             });
             readstream2.on('end', function() { // done
                 var fbuf = Buffer.concat(bufs);
+                res.set('Cache-Control', 'public, max-age=31536000');
                 res.set("Content-Type", "image/jpeg");
                 res.send(fbuf);
             });
@@ -232,6 +234,7 @@ var models = {
             });
             readstream2.on('end', function() { // done
                 var fbuf = Buffer.concat(bufs);
+                res.set('Cache-Control', 'public, max-age=31536000');
                 res.set("Content-Type", "image/jpeg");
                 res.send(fbuf);
             });
