@@ -508,10 +508,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.getAllvideo = false;
         $scope.isSubCast = false;
-        $scope.myUrl = '';
+        $scope.myUrl = window.location.href;
         NavigationService.newGetOneMovie($stateParams.id, function(data) {
 
-            $scope.myUrl = window.location.href;
+
 
             $scope.myid = $stateParams.id;
             $scope.moviefindOne = data.data.movie;
