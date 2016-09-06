@@ -174,6 +174,11 @@ var models = {
                 error: err
             });
         });
+        readstream.on('finish', function(err) {
+            if (!(width || height || style)) {
+                readstream.pipe(res);
+            }
+        });
 
         function writer2(filename, gridFSFilename, metaValue) {
             var writestream2 = gfs.createWriteStream({
@@ -324,7 +329,9 @@ var models = {
             });
             //else create a resized image and serve
         } else {
-            readstream.pipe(res);
+            if (width || height || style) {
+                readstream.pipe(res);
+            }
         }
         //error handling, e.g. file does not exist
     }
