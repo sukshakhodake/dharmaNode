@@ -181,17 +181,14 @@ var models = {
         var bufs = [];
 
         readstream.on('data', function(chunk) {
-
+            console.log("Chunk");
             bufs.push(chunk);
-
         });
         readstream.on('end', function() { // done
+            console.log("End");
             if (!(width && height)) {
                 var fbuf = Buffer.concat(bufs);
-
-                var base64 = (fbuf.toString('base64'));
-
-                res.send(base64);
+                res.send(fbuf);
             }
 
         });
