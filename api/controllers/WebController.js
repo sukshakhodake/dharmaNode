@@ -62,6 +62,7 @@ module.exports = {
         }
     },
     download: function(req, res) {
+        res.header('Cache-Control', 'public, max-age=31536000');
         Config.readUploaded(req.param("filename"), null, null, null, res);
     },
     backend: function(req, res) {
