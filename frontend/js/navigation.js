@@ -1,10 +1,3 @@
-// var adminurl = "http://104.199.151.75:82/";
-if (adminurl || adminurl !== "") {
-    console.log(adminurl);
-} else {
-    adminurl = "http://localhost:1337/api/";
-}
-
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 
