@@ -12,7 +12,7 @@ module.exports = function(data, options) {
         description: data.description,
         keywords: data.keywords,
         adminurl: env.realHost + "/api/",
-        image: env.realHost + "/api/upload/readFile?file=" + data.image,
+        image:  "/api/upload/readFile?file=" + data.image,
         url: env.realHost + req.path,
     });
 };
