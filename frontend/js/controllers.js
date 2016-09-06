@@ -633,7 +633,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 ngdisabled: "MovieAwards.length  == 0",
                 index: 7,
                 nghide: "MovieAwards.length  == 0"
-            }]
+            }];
             // }, 1000);
 
         $(window).scroll(function() {
