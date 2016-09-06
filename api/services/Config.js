@@ -164,7 +164,6 @@ var models = {
         });
     },
     readUploaded: function(filename, width, height, style, res) {
-        // res.set("Content-Type", "image/jpeg;base64");
         var readstream = gfs.createReadStream({
             filename: filename
         });
@@ -188,6 +187,7 @@ var models = {
             console.log("End");
             if (!(width && height)) {
                 var fbuf = Buffer.concat(bufs);
+                res.set("Content-Type", "image/jpeg");
                 res.send(fbuf);
             }
 
