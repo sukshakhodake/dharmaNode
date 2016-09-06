@@ -365,7 +365,7 @@ var models = {
             });
             //else create a resized image and serve
         } else {
-            readstream.pipe(res);
+            // readstream.pipe(res);
         }
         //error handling, e.g. file does not exist
     }
