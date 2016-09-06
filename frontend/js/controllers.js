@@ -212,7 +212,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-        $scope.youtubeEmbed = 'https://www.youtube.com/embed/';
 
 })
 
@@ -237,7 +236,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showSub = function(menu) {
 
         menu.show = !menu.show;
-        // $scope.navigation = NavigationService.getnav();
+        $scope.navigation = NavigationService.getnav();
     };
     $scope.headerSearch = false;
     $scope.crossdisplay = true;

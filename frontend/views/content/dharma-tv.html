@@ -28,7 +28,7 @@
             </section> -->
             <div class="">
                 <div ng-show="(searchdata.search == '' || !searchdata.search)" class="no-ar video-player mt15 tv-all-slider marg-arrow mob-mt-15" ng-if="getAllDharmaTvSlider.length > 0">
-                    <flex-slider flex-slide="s in getAllDharmaTvSlider track by $index" prev-text="" next-text="" startAt="0" tem-width="280" item-margin="0">
+                    <flex-slider flex-slide="s in getAllDharmaTvSlider track by $index" prev-text="" next-text="" startAt="0" tem-width="280" item-margin="0"  animation="slide">
                         <li>
                             <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{s.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
 
@@ -60,7 +60,7 @@
                                 <h1 class="ml-7 color-primary font-hammersmith line45 f55 text-up">{{movie | shorten : 20}}</h1>
                             </div>
                             <div class="upcoming-slider tv-all-slider text-shadow cl-flex tv-ain-tp">
-                                <flex-slider flex-slide="item in videos | limitTo:4 track by $index" ng-if="videos.length>4" animation="slide" item-width="280" item-margin="0" animationloop="true" move="1">
+                                <flex-slider flex-slide="item in videos | limitTo:4 track by $index" ng-if="videos.length>4" animation="slide" item-width="280" item-margin="0" animationloop="true" move="1" animation="slide ">
                                     <li class="makePointer">
                                         <div class="video-box">
                                             <div class="video-slide-img em-box">
