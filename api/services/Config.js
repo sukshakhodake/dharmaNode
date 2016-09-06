@@ -164,7 +164,7 @@ var models = {
         });
     },
     readUploaded: function(filename, width, height, style, res) {
-        res.set("Content-Type", "image/jpeg");
+
         var readstream = gfs.createReadStream({
             filename: filename
         });
@@ -183,6 +183,7 @@ var models = {
         readstream.on('end', function() { // done
             if (!(width && height)) {
                 var fbuf = Buffer.concat(bufs);
+                res.set("Content-Type", "image/jpeg");
                 res.send(fbuf);
             }
         });
@@ -210,6 +211,7 @@ var models = {
             });
             readstream2.on('end', function() { // done
                 var fbuf = Buffer.concat(bufs);
+                res.set("Content-Type", "image/jpeg");
                 res.send(fbuf);
             });
         }
@@ -230,6 +232,7 @@ var models = {
             });
             readstream2.on('end', function() { // done
                 var fbuf = Buffer.concat(bufs);
+                res.set("Content-Type", "image/jpeg");
                 res.send(fbuf);
             });
         }
