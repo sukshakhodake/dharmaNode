@@ -2442,6 +2442,9 @@ position: relative;
 .pt20{
       padding-top: 20px;
 }
+.pt40{
+      padding-top: 40px;
+}
 .tv-ain-tp{
   .flex-direction-nav a{
     top:70% !important;
@@ -2455,6 +2458,16 @@ position: relative;
 }
 .h60{
   min-height: 60px;
+}
+.main-fan{
+  background: url(../img/main-fan.jpg)no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.lin-min-ht{
+  h1{
+        line-height: 80%;
+  }
 }
 @import "main2";
 @import "timeline";

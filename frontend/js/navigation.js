@@ -19,11 +19,6 @@ var navigationservice = angular.module('navigationservice', [])
                 classis: "active",
                 anchor: "dharma-journey",
                 isId: "no",
-            },{
-                name: "Fan Corner",
-                classis: "active",
-                anchor: "fan-corner",
-                isId: "no",
             }]
         }, {
             name: "Movies",
@@ -61,6 +56,11 @@ var navigationservice = angular.module('navigationservice', [])
                 name: "Dharma Insta",
                 classis: "active",
                 anchor: "dharma-insta",
+                isId: "no",
+            },{
+                name: "Fan Corner",
+                classis: "active",
+                anchor: "fan-corner",
                 isId: "no",
             }]
         }, {
