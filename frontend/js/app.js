@@ -34,6 +34,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'DharmaTvCtrl'
         })
+        .state('fan-corner', {
+            url: "/fan-corner",
+            templateUrl: "frontend/views/template.html",
+            controller: 'FanCornerCtrl'
+        })
+        .state('disclaimer', {
+            url: "/disclaimer",
+            templateUrl: "frontend/views/template.html",
+            controller: 'DisclaimerCtrl'
+        })
         .state('dharma-tvsearch', {
             url: "/dharma-tv/:search",
             templateUrl: "frontend/views/template.html",

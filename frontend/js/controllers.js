@@ -277,6 +277,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 
 })
+.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService) {
+    $scope.template = TemplateService.changecontent("fan-corner");
+    $scope.menutitle = NavigationService.makeactive("Fan Corner");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
+.controller('DisclaimerCtrl', function($scope, TemplateService, NavigationService) {
+    $scope.template = TemplateService.changecontent("disclaimer");
+    $scope.menutitle = NavigationService.makeactive("Disclaimer");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
 
 .controller('DharmaJourneyCtrl', function($scope, TemplateService, NavigationService) {
     $scope.template = TemplateService.changecontent("dharma-journey");
@@ -1192,13 +1206,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }];
     })
-    .controller('NewsDetailCtrl', function($scope, TemplateService, NavigationService, $stateParams, $filter) {
+    .controller('NewsDetailCtrl', function($scope, TemplateService, NavigationService, $uibModal, $stateParams, $filter, $window, $timeout, $state) {
         $scope.template = TemplateService.changecontent("news-detail");
         $scope.menutitle = NavigationService.makeactive("News Detail");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(1);
-
+        $scope.myUrl = window.location.href;
 
         $scope.getSearchNews = false;
 

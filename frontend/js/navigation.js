@@ -19,6 +19,11 @@ var navigationservice = angular.module('navigationservice', [])
                 classis: "active",
                 anchor: "dharma-journey",
                 isId: "no",
+            },{
+                name: "Fan Corner",
+                classis: "active",
+                anchor: "fan-corner",
+                isId: "no",
             }]
         }, {
             name: "Movies",

@@ -113,16 +113,18 @@ understanding of cinema and life, and little bit baring of her soul which we are
                     <div class="share-section mt15 pb40 text-c-m">
                       <h4 class="color-white font-bold font-karla display-inline dis-bl">Share this article on</h4>
                       <div class="display-inline">
-                        <button type="button" name="button"><i class="fa fa-facebook"></i>facebook</button>
+                        <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-facebook"></i>facebook</button></a>
                       </div>
                       <div class="display-inline">
-                        <button type="button" name="button"><i class="fa fa-twitter"></i>twitter</button>
+                        <a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-twitter"></i>twitter</button></a>
                       </div>
                       <div class="display-inline">
-                        <button type="button" name="button"><i class="fa fa-google-plus"></i>google+</button>
+                        <a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-google-plus"></i>google+</button></a>
                       </div>
                     </div>
 
+
+  
 
 <!-- ------------------------------related Articles--------------------------------- -->
 
@@ -133,7 +135,7 @@ understanding of cinema and life, and little bit baring of her soul which we are
                         <div class="black-bg makePointer" ui-sref="news-detail({id:article._id})">
                            <img ng-src="{{article.image|uploadpath}}" alt="Dharma Production" class="img-responsive">
                            <div class="padd10">
-                              <div class="news-title mt10">
+                              <div class="news-title mt10 h60">
                                  <h4 class="margin0">{{article.title}}</h4>
                               </div>
                               <div class="news-date">
