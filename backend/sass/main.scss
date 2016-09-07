@@ -214,6 +214,20 @@ li.pagination-page.ng-scope.active a {
   margin: 0px auto;
 
 }
+.min-w{
+  .md-no-style {
+    position: relative;
+    padding: 0px 0px;
+    flex: 1 1 auto;
+    position: absolute;
+    min-height: 48px !important;
+}
+.md-list-item-inner{
+  &:before{
+        padding: 0px 12px;
+  }
+}
+}
 .w200{
   width: 200px;
 }
