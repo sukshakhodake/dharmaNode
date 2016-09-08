@@ -277,11 +277,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 
 })
-.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService) {
+.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService,$uibModal) {
     $scope.template = TemplateService.changecontent("fan-corner");
     $scope.menutitle = NavigationService.makeactive("Fan Corner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.openModal = function() {
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'frontend/views/modal/share.html',
+            controller: 'FanCornerCtrl',
+            size: 'lg',
+            windowClass: 'fan-modal',
+        });
+    };
+
 
 })
 .controller('DisclaimerCtrl', function($scope, TemplateService, NavigationService) {

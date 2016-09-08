@@ -2417,6 +2417,11 @@ border-radius: 25px;
     padding: 35px 25px;
     border-radius: 20px;
 }
+.fan-modal .modal-content {
+    border: 2px solid #f37021;
+    padding: 35px 25px;
+    border-radius: 20px;
+}
 .mn-o{
   padding: 25px 0px 15px 0px;
 border: 2px solid #f37021;
@@ -2554,6 +2559,38 @@ input[type=radio]:checked ~ label{
 }
 .padall30{
   padding: 30px 0px;
+}
+.top-banner{
+  background: url(../img/main-fan.jpg)no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.pd-all{
+      padding: 10% 0px;
+}
+.final-score{
+  h1{
+    display: inline;
+  }
+  h4{
+    // display: block;
+  }
+}
+.dh-btn-min{
+  text-align: center;
+margin: 30px auto 0;
+width: 26%;
+.btn{
+  max-width: 215px;
+
+}
+.btn-1{
+  &:hover{
+    rect{
+          stroke-dasharray: 54, 332;
+    }
+  }
+}
 }
 @import "main2";
 @import "timeline";
