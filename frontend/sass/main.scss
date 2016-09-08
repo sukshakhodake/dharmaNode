@@ -2592,6 +2592,19 @@ width: 26%;
   }
 }
 }
+.sh-link{
+  ul{
+    li{
+      padding: 0px 10px;
+a{
+  cursor: pointer;
+  img{
+    width: 42px;
+  }
+}
+    }
+  }
+}
 @import "main2";
 @import "timeline";
 @import "mobile";
