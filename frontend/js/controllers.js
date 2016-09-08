@@ -1007,6 +1007,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, 0);
         });
 
+
+            $scope.movie = [{
+                img: "frontend/img/movie/m1.jpg",
+                name: "Ae Dil hai mushkil"
+            }, {
+                img: "frontend/img/movie/m2.jpg",
+                name: "BAAR BAAR DEKHO"
+            }, {
+                img: "frontend/img/movie/m3.jpg",
+                name: "BADRINATH KI DULHANIYA"
+            }, {
+                img: "frontend/img/movie/m4.jpg",
+                name: "RAM LAKHAN"
+            }, {
+                img: "frontend/img/movie/m5.jpg",
+                name: "ok jaanu"
+            }];
+
     })
     .controller('ContactUsCtrl', function($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("contact-us");

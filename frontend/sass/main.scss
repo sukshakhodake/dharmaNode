@@ -2605,6 +2605,14 @@ a{
     }
   }
 }
+.related-m{
+  padding: 40px 15px;
+background: rgba(0, 0, 0, 0.72);
+.img-pads {
+
+    box-shadow: none;
+}
+}
 @import "main2";
 @import "timeline";
 @import "mobile";
