@@ -228,7 +228,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
       });
     }
+    NavigationService.getAllTwitter(function(data) {
+        // $scope.getAllTwitterTag = data.data;
+        $scope.getFirstId = data.data[0]._id;
 
+    });
 
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
@@ -1713,13 +1717,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Dharma@140");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        TemplateService.removeLoaderOn(2);
+        // TemplateService.removeLoaderOn(2);
 
         NavigationService.getAllTwitter(function(data) {
             $scope.getAllTwitterTag = data.data;
 
             $scope.selectOneHashTag($stateParams.id);
-            TemplateService.removeLoader();
+            // TemplateService.removeLoader();
 
         });
         $scope.isMatch = false;
@@ -1744,7 +1748,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 });
 
-                TemplateService.removeLoader();
+                // TemplateService.removeLoader();
             });
 
         };
