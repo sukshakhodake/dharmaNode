@@ -181,7 +181,7 @@ var models = {
             bufs.push(chunk);
         });
         readstream.on('end', function() { // done
-            if (!(width && height)) {
+            if (!(width || height)) {
                 var fbuf = Buffer.concat(bufs);
                 res.set('Cache-Control', 'public, max-age=31536000');
                 res.set("Content-Type", "image/jpeg");
