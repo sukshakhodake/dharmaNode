@@ -44,6 +44,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'DisclaimerCtrl'
         })
+        .state('dictionary', {
+            url: "/dictionary",
+            templateUrl: "frontend/views/template.html",
+            controller: 'DictionaryCtrl'
+        })
         .state('dharma-tvsearch', {
             url: "/dharma-tv/:search",
             templateUrl: "frontend/views/template.html",
