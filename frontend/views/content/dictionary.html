@@ -1,0 +1,57 @@
+<section>
+  <div class="dark-bg2 padder-up">
+      <div class="container">
+          <div class="text-center white-color">
+              <h1 class="super-big font-hammersmith">Dharma DICTIONARY</h1>
+              <p class="descriptive">if you're going to be dramatic, do it the Dharma way! Here's an update on all the words
+                  <br>that need to make it to your vocab.</p>
+
+          </div>
+        </div>
+        <section class="mt40">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="all-movies custom-box mob-mt-top" style="min-height:400px;">
+                            <!-- <p class="color-white">  {{news10}}</p> -->
+                            <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
+
+                                <div class="masonry-brick bg-white" ng-repeat="item in dicks track by $index" >
+
+                                    <a >
+
+                                        <div class="masonry-box">
+                                            <div class="dh-relative">
+                                              <img ng-src="{{item.img}}" alt="Dharma Production">
+                                              <div class="dh-absulate middle">
+                                                <img src="frontend/img/dicks/gif.png" alt="Dharma Productions">
+                                              </div>
+                                            </div>
+                                            <div class="padd10">
+                                                <div class="news-title">
+                                                    <h4 class="margin0">{{item.name}}</h4>
+                                                    <span class="color-dark">{{item.def}}</span>
+                                                </div>
+                                                <div class="news-date dg-pd">
+                                                    <span class="color-dark">-{{item.tens}}</span>
+                                                </div>
+                                                <div class="news-date">
+                                                    <span class="color-dark">-{{item.meaning}}</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+        </section>
+      </div>
+</section>

@@ -874,7 +874,7 @@ width: auto;
     }
 }
 .color-dark {
-    color: $dark-black;
+    color: $dark-black !important;
 }
 .font-bold {
     font-weight: 700;
@@ -2613,7 +2613,24 @@ background: rgba(0, 0, 0, 0.72);
     box-shadow: none;
 }
 }
-
+.dark-bg2{
+  background-image: url('../img/bg-disctionary.jpg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: fixed;
+}
+.bg-white{
+  background-image: url('../img/dicks/bg-white.jpg');
+  background-position: bottom right;
+  background-repeat: no-repeat;
+    background-size: contain;
+      background-color: #fff !important;
+}
+.dg-pd{
+      padding: 10px 0px;
+      display: block;
+}
 @import "main2";
 @import "timeline";
 @import "mobile";

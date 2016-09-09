@@ -268,6 +268,57 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.dicks = [{
+                img: "frontend/img/dicks/1.jpg",
+                name: "SHANA-YISTA:",
+                def: "Sha-Naa-Yaa-Ista",
+                tens: "Noun",
+                meaning: "When your wardrobe makes headlines every day."
+
+            }, {
+              img: "frontend/img/dicks/2.jpg",
+              name: "SHANA-YISTA:",
+              def: "Sha-Naa-Yaa-Ista",
+              tens: "Noun",
+              meaning: "When your wardrobe makes headlines every day."
+            }, {
+              img: "frontend/img/dicks/3.jpg",
+              name: "SHANA-YISTA:",
+              def: "Sha-Naa-Yaa-Ista",
+              tens: "Noun",
+              meaning: "When your wardrobe makes headlines every day."
+            }, {
+              img: "frontend/img/dicks/4.jpg",
+              name: "SHANA-YISTA:",
+              def: "Sha-Naa-Yaa-Ista",
+              tens: "Noun",
+              meaning: "When your wardrobe makes headlines every day."
+            }, {
+              img: "frontend/img/dicks/5.jpg",
+              name: "SHANA-YISTA:",
+              def: "Sha-Naa-Yaa-Ista",
+              tens: "Noun",
+              meaning: "When your wardrobe makes headlines every day."
+            }, {
+              img: "frontend/img/dicks/1.jpg",
+              name: "SHANA-YISTA:",
+              def: "Sha-Naa-Yaa-Ista",
+              tens: "Noun",
+              meaning: "When your wardrobe makes headlines every day."
+            }, {
+              img: "frontend/img/dicks/2.jpg",
+              name: "SHANA-YISTA:",
+              def: "Sha-Naa-Yaa-Ista",
+              tens: "Noun",
+              meaning: "When your millionaire family is running out of ways to spend their money.."
+            }, {
+              img: "frontend/img/dicks/3.jpg",
+              name: "SHANA-YISTA:",
+              def: "Sha-Naa-Yaa-Ista",
+              tens: "Noun",
+              meaning: "When your wardrobe makes headlines every day."
+            }];
+
     })
     .controller('PrivacyPolicyCtrl', function($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("privacy-policy");
