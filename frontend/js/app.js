@@ -119,6 +119,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'Dharma140Ctrl'
         })
+        // .state('dharma140', {
+        //     url: "/dharma140",
+        //     templateUrl: "frontend/views/template.html",
+        //     controller: 'Dharma140Ctrl'
+        // })
         .state('dharma-insta', {
             url: "/dharma-insta",
             templateUrl: "frontend/views/template.html",

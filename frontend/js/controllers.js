@@ -1718,7 +1718,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         // TemplateService.removeLoaderOn(2);
+if(!$stateParams.id){
+  console.log($stateParams.id);
+  console.log('here11111111111111');
+  NavigationService.getAllTwitter(function(data) {
+    $scope.getFirstId = data.data[0]._id;
+    $stateParams.id=$scope.getFirstId;
+      // $scope.getAllTwitterTag = data.data;
 
+
+      // $scope.selectOneHashTag($stateParams.id);
+      // TemplateService.removeLoader();
+
+  });
+}
         NavigationService.getAllTwitter(function(data) {
             $scope.getAllTwitterTag = data.data;
 
