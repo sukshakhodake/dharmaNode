@@ -2556,6 +2556,12 @@ input[type=radio]:checked ~ label{
     background: rgba(0, 0, 0, 0.4);
     padding: 15px;
     border-radius: 20px;
+        position: relative;
+        .ticker{
+          position: absolute;
+right: 15px;
+top: 15px;
+        }
 }
 .padall30{
   padding: 30px 0px;
@@ -2619,6 +2625,7 @@ background: rgba(0, 0, 0, 0.72);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: fixed;
+      background-color: #000;
 }
 .bg-white{
   background-image: url('../img/dicks/bg-white.jpg');
