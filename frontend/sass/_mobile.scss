@@ -120,6 +120,18 @@
     }
 }
 @media (max-width: $screen-sm-max) {
+  .ans-opt ul li label {
+    font-size: 1.4em;
+
+}
+  .bg-transparent .ticker {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    img{
+          transform: scale(0.7);
+    }
+}
   .pd-all {
     padding: 30% 0px;
 }
@@ -912,8 +924,39 @@ margin: 0 auto;
 .dh-btn-min .btn {
   font-size: 14px !important;
 }
+.top-banner {
+
+  background-position: center center;
+}
 }
 @media (max-width:480px) {
+  .qsn-big{
+    h2{
+      text-align: left;
+    }
+  }
+  .btn-n-s .btn-view-more{
+    margin: 0px 0px;
+    a{
+          margin: 10px 0px;
+    }
+  }
+  .ans-opt ul{
+    padding-left: 10px;
+text-align: left;
+li {
+  padding: 5px 0px;
+  display: block;
+}
+  }
+  .ans-opt ul li label {
+    font-size: 1.2em;
+}
+
+  .top-banner {
+
+    background-position: center center;
+}
   .dh-btn-min {
     width: 80%;
 }
