@@ -281,7 +281,7 @@
                                     <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
                                         <div class="masonry-brick" ng-repeat="item in MovieGal track by $index" ng-show="item.image!='' || item.image">
                                             <div class="masonry-box">
-                                                <a ng-src="{{item.image|uploadpath}}" class="fancybox-thumb" rel="fancybox-thumb"> <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma Production"></a>
+                                                <a ng-href="{{item.image|uploadpath}}" class="fancybox-thumb" rel="fancybox-thumb"> <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma Production"></a>
 
                                             </div>
                                         </div>
@@ -317,7 +317,7 @@
                                     <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
                                         <div class="masonry-brick" ng-repeat="item in movieBehindTheScenes track by $index">
                                             <div class="masonry-box">
-                                                <a ng-src="{{item.image|uploadpath}}" class="fancybox-thumb" rel="fancybox-thumb"> <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma Production"></a>
+                                                <a ng-href="{{item.image|uploadpath}}" class="fancybox-thumb" rel="fancybox-thumb"> <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma Production"></a>
 
                                             </div>
                                         </div>
