@@ -1,0 +1,80 @@
+{
+    "title": "All Question",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [{
+            "name": "Title",
+            "isSort": "",
+            "tableRef": "title"
+        }, {
+            "name": "Year",
+            "isSort": "",
+            "tableRef": "year"
+        }, {
+            "name": "Image",
+            "isSort": "",
+            "tableRef": "image",
+            "type": "image"
+        }
+
+    ],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "#f37021",
+        "action": "redirect",
+        "jsonPage": "editQuestion",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "rapid/findOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete ",
+        "content": "Are you sure you want to delete crew?",
+        "api": "rapid/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "#f37021",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+    "filter": [{
+        "name": "category",
+        "url": "http://chaitalee.com/expertuser/getAll"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+    "apiCall": {
+        "url": "rapid/getAllQuestion",
+        "params": "_id"
+    },
+    "createButtonState": "page({jsonName:'createQuestion'})",
+    "sidemenu": [{
+        "name": "Rapid Fire Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editRapid",
+        "fieldsToSend": [1],
+        "callFindOne": "rapid/findOne"
+    }, {
+        "name": "Questions",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewQuestion",
+        "fieldsToSend": [1],
+        "callFindOne": "rapid/findAward"
+    }]
+}

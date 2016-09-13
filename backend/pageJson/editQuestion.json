@@ -1,0 +1,67 @@
+{
+    "title": "Edit Question",
+    "jsonPage": "viewQuestion",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Question Text",
+        "type": "text",
+        "tableRef": "questionName",
+        "model": "questionName",
+        "placeholder": "Enter questionName",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "option",
+        "type": "chips",
+        "tableRef": "option",
+        "model": "option",
+        "placeholder": "Enter option",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Order",
+        "type": "text",
+        "tableRef": "order",
+        "model": "order",
+        "placeholder": "Enter order",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "model": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": true,
+            "name": "Enable"
+        }, {
+            "value": false,
+            "name": "Disable"
+        }]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser"
+    }, {
+        "name": "cancel",
+        "action": "cancelUser",
+        "stateName": "page({jsonName:'viewQuestion'})"
+    }],
+    "apiCall": {
+        "url": "rapid/saveQuestion",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "rapid/findOneQuestion",
+        "params": "_id"
+    }
+
+}
