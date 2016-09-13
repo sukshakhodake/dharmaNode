@@ -2638,6 +2638,9 @@ background: rgba(0, 0, 0, 0.72);
       padding: 10px 0px;
       display: block;
 }
+.masonry-box a {
+    display: block !important;
+}
 @import "main2";
 @import "timeline";
 @import "mobile";
