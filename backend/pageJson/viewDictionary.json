@@ -7,14 +7,9 @@
             "isSort": "",
             "tableRef": "title"
         }, {
-            "name": "Year",
+            "name": "Name",
             "isSort": "",
-            "tableRef": "year"
-        }, {
-            "name": "Image",
-            "isSort": "",
-            "tableRef": "image",
-            "type":"image"
+            "tableRef": "name"
         }
 
     ],
