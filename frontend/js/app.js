@@ -159,6 +159,22 @@ firstapp.filter('uploadpath', function() {
         }
     };
 });
+
+firstapp.filter('uploadpath2', function() {
+    return function(input) {
+        var other = "";
+
+        if (input) {
+            if (input.indexOf('https://') == -1) {
+                return adminurl + "download/" + input;
+
+            } else {
+                return input;
+            }
+        }
+    };
+});
+
 firstapp.filter('wallpaperpath', function() {
     return function(input, width, height, style) {
         var other = "";
