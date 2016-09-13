@@ -39,7 +39,7 @@
       },{
         "name": "Description",
         "type": "text",
-        "tableRef": "Description",
+        "tableRef": "description",
         "placeholder": "Enter Description",
         "id": "input2",
         "validation": ["required", "trim", "unique"],

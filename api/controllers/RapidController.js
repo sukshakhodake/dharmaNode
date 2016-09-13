@@ -73,7 +73,7 @@ module.exports = {
 
 
 
-    findQuestion: function(req, res) {
+    getAllQuestion: function(req, res) {
       if (req.body.pagenumber && req.body.pagesize) {
         Rapid.getAllQuestion(req.body, function(err, respo) {
           if (err) {

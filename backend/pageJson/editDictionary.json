@@ -44,8 +44,8 @@
       },{
         "name": "Description",
         "type": "text",
-        "tableRef": "Description",
-        "model": "Description",
+        "tableRef": "description",
+        "model": "description",
         "placeholder": "Enter Description",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
