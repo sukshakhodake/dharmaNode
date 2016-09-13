@@ -3,18 +3,9 @@
     "desciption": "",
     "pageType": "view",
     "fields": [{
-            "name": "Title",
+            "name": "Question Text",
             "isSort": "",
-            "tableRef": "title"
-        }, {
-            "name": "Year",
-            "isSort": "",
-            "tableRef": "year"
-        }, {
-            "name": "Image",
-            "isSort": "",
-            "tableRef": "image",
-            "type": "image"
+            "tableRef": "questionName"
         }
 
     ],
