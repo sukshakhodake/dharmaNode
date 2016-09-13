@@ -166,7 +166,7 @@ firstapp.filter('uploadpath2', function() {
 
         if (input) {
             if (input.indexOf('https://') == -1) {
-                return adminurl + "download/" + input;
+                return "http://104.154.89.21:85/api/"+ "download/" + input;
 
             } else {
                 return input;
