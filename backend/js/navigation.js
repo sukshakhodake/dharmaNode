@@ -80,10 +80,20 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewDharmaInsta",
         subnav: []
+    },{
+        name: "Dharma Dictionary",
+        classis: "active",
+        link: "#/page/viewDictionary",
+        subnav: []
     }, {
         name: "Config",
         classis: "active",
         link: "#/page/viewConfig",
+        subnav: []
+    },{
+        name: "Rapid Fire With Dharma",
+        classis: "active",
+        link: "#/page/viewRapid",
         subnav: []
     }, {
         name: "Subscribe",

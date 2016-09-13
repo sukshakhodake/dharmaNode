@@ -1,0 +1,47 @@
+{
+    "title": "Edit Rapid",
+    "jsonPage": "viewRapid",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Contest Name",
+        "type": "text",
+        "tableRef": "contestName",
+        "model": "contestName",
+        "placeholder": "Enter contestName",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser"
+    }, {
+        "name": "cancel",
+        "action": "cancelUser",
+        "stateName": "page({jsonName:'viewRapid'})"
+    }],
+    "apiCall": {
+        "url": "rapid/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "rapid/getOne",
+        "params": "_id"
+    },
+    "sidemenu": [{
+        "name": "Rapid Fire Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editRapid",
+        "fieldsToSend": [1],
+        "callFindOne": "rapid/findOne"
+    }, {
+        "name": "Questions",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewQuestion",
+        "fieldsToSend": [1],
+        "callFindOne": "rapid/findAward"
+    }]
+
+}
