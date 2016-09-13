@@ -104,7 +104,7 @@ var models = {
         async.parallel([
                 function(callback) {
                     Rapid.count({
-                        title: {
+                        contestName: {
                             '$regex': check
                         }
                     }).exec(function(err, number) {
@@ -122,7 +122,7 @@ var models = {
                 },
                 function(callback) {
                     Rapid.find({
-                        title: {
+                        contestName: {
                             '$regex': check
                         }
                     }).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
