@@ -266,6 +266,12 @@
         "jsonPage": "viewBehind",
         "fieldsToSend": [1],
         "callFindOne": "movie/findBehindTheScenes"
+    }, {
+        "name": "Related Movies",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewRelated",
+        "fieldsToSend": [1],
+        "callFindOne": "movie/findRelated"
     }]
 
 }

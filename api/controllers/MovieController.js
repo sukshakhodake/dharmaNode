@@ -1101,5 +1101,100 @@ module.exports = {
                 });
             }
         });
-    }
+    },
+
+
+    // RELATED Movies
+
+
+    // cast
+
+    findRelated: function(req, res) {
+        if (req.body.pagenumber && req.body.pagesize) {
+            Movie.getAllRelated(req.body, function(err, respo) {
+                if (err) {
+                    res.json({
+                        value: false,
+                        data: err
+                    });
+                } else {
+                    res.json({
+                        value: true,
+                        data: respo
+                    });
+                }
+            });
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid call"
+            });
+        }
+    },
+    findOneRelated: function(req, res) {
+        if (req.body) {
+            Movie.getOneRelated(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
+
+    deleteRelated: function(req, res) {
+        if (req.body) {
+            if (req.body._id && req.body._id !== "") {
+                //	console.log("not valid");
+                Movie.deleteRelated(req.body, function(err, respo) {
+                    if (err) {
+                        res.json({
+                            value: false,
+                            data: err
+                        });
+                    } else {
+                        res.json({
+                            value: true,
+                            data: respo
+                        });
+                    }
+                });
+            } else {
+                res.json({
+                    value: false,
+                    data: "Invalid Id"
+                });
+            }
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid call"
+            });
+        }
+    },
+    saveRelated: function(req, res) {
+        console.log(req.body);
+        if (req.body) {
+            Movie.saveRelated(req.body, function(err, respo) {
+                if (err) {
+                    res.json({
+                        value: false,
+                        data: err
+                    });
+                } else {
+                    res.json({
+                        value: true,
+                        data: respo
+                    });
+                }
+            });
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid call"
+            });
+        }
+    },
+
+
 };

@@ -1,6 +1,8 @@
 {
     "title": "All Question",
     "desciption": "",
+      "urlFields": ["_id"],
+        "sendIdWithCreate": true,
     "pageType": "view",
     "fields": [{
             "name": "Question Text",
@@ -24,7 +26,7 @@
         "action": "apiCallConfirm",
         "title": "Delete ",
         "content": "Are you sure you want to delete crew?",
-        "api": "rapid/delete",
+        "api": "rapid/deleteQuestion",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"

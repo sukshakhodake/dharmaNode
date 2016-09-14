@@ -3,6 +3,7 @@
     "jsonPage": "viewQuestion",
     "desciption": "",
     "pageType": "create",
+      "urlFields": ["rapid"],
     "fields": [{
         "name": "Question Text",
         "type": "text",

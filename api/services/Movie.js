@@ -174,6 +174,21 @@ var schema = new Schema({
             default: ""
         }
     }],
+    related: [{
+        movie: {
+            type: Schema.Types.ObjectId,
+            ref: 'Movie',
+            index: true
+        },
+        order: {
+            type: String,
+            default: ""
+        },
+        status: {
+            type: Boolean,
+            default: ""
+        }
+    }],
     awards: [{
         awardname: {
             type: String,
@@ -2309,6 +2324,191 @@ var models = {
             });
 
     },
+
+
+// RELATED Movies
+
+//SIDEMENU CAST
+
+saveRelated: function(data, callback) {
+    var movie = data.movie;
+    if (!data._id) {
+        Movie.update({
+            _id: movie
+        }, {
+            $push: {
+                related: data
+            }
+        }, function(err, updated) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else {
+                callback(null, updated);
+            }
+        });
+    } else {
+        data._id = objectid(data._id);
+        tobechanged = {};
+        var attribute = "related.$.";
+        _.forIn(data, function(value, key) {
+            tobechanged[attribute + key] = value;
+        });
+        Movie.update({
+            "related._id": data._id
+        }, {
+            $set: tobechanged
+        }, function(err, updated) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else {
+                callback(null, updated);
+            }
+        });
+    }
+},
+
+getAllRelated: function(data, callback) {
+    var newreturns = {};
+    newreturns.data = [];
+    var check = new RegExp(data.search, "i");
+    data.pagenumber = parseInt(data.pagenumber);
+    data.pagesize = parseInt(data.pagesize);
+    var skip = parseInt(data.pagesize * (data.pagenumber - 1));
+    async.parallel([
+            function(callback) {
+                Movie.aggregate([{
+                    $match: {
+                        _id: objectid(data._id)
+                    }
+                }, {
+                    $unwind: "$related"
+                }, {
+                    $group: {
+                        _id: null,
+                        count: {
+                            $sum: 1
+                        }
+                    }
+                }, {
+                    $project: {
+                        count: 1
+                    }
+                }]).exec(function(err, result) {
+                    console.log(result);
+                    if (result && result[0]) {
+                        newreturns.total = result[0].count;
+                        newreturns.totalpages = Math.ceil(result[0].count / data.pagesize);
+                        callback(null, newreturns);
+                    } else if (err) {
+                        console.log(err);
+                        callback(err, null);
+                    } else {
+                        callback({
+                            message: "Count of null"
+                        }, null);
+                    }
+                });
+            },
+            function(callback) {
+                Movie.aggregate([{
+                    $match: {
+                        _id: objectid(data._id)
+                    }
+                }, {
+                    $unwind: "$related"
+                }, {
+                    $group: {
+                        _id: "_id",
+                        related: {
+                            $push: "$related"
+                        }
+                    }
+                }, {
+                    $project: {
+                        _id: 0,
+                        related: {
+                            $slice: ["$related", skip, data.pagesize]
+                        }
+                    }
+                }]).exec(function(err, found) {
+                    console.log(found);
+                    if (found && found.length > 0) {
+                        newreturns.data = found[0].related;
+                        callback(null, newreturns);
+                    } else if (err) {
+                        console.log(err);
+                        callback(err, null);
+                    } else {
+                        callback({
+                            message: "Count of null"
+                        }, null);
+                    }
+                });
+            }
+        ],
+        function(err, data4) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (data4) {
+                callback(null, newreturns);
+            } else {
+                callback(null, newreturns);
+            }
+        });
+},
+
+
+deleteRelated: function(data, callback) {
+    Movie.update({
+        "related._id": data._id
+    }, {
+        $pull: {
+            "related": {
+                "_id": objectid(data._id)
+            }
+        }
+    }, function(err, updated) {
+        console.log(updated);
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else {
+            callback(null, updated);
+        }
+    });
+
+},
+getOneRelated: function(data, callback) {
+    // aggregate query
+    Movie.aggregate([{
+        $unwind: "$related"
+    }, {
+        $match: {
+            "related._id": objectid(data._id)
+        }
+    }, {
+        $project: {
+            related: 1
+        }
+    }]).exec(function(err, respo) {
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else if (respo && respo.length > 0 && respo[0].related) {
+            callback(null, respo[0].related);
+        } else {
+            callback({
+                message: "No data found"
+            }, null);
+        }
+    });
+},
+
+
+
 
 };
 module.exports = _.assign(module.exports, models);

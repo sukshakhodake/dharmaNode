@@ -1,41 +1,29 @@
 {
-    "title": "Edit Question",
-    "jsonPage": "viewQuestion",
+    "title": "Create Related Movies",
+    "jsonPage": "viewMovie",
     "desciption": "",
-    "pageType": "edit",
-    "urlFields": ["_id"],
+    "urlFields": ["movie"],
+    "pageType": "create",
     "fields": [{
-        "name": "Question Text",
+        "name": "Related Movie",
         "type": "text",
-        "tableRef": "questionName",
-        "model": "questionName",
-        "placeholder": "Enter questionName",
+        "tableRef": "selectFromTable",
+        "placeholder": "Enter actor",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "option",
-        "type": "chips",
-        "tableRef": "option",
-        "model": "option",
-        "placeholder": "Enter option",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "movie/getAll"
     }, {
         "name": "Order",
         "type": "text",
         "tableRef": "order",
-        "model": "order",
         "placeholder": "Enter order",
-        "id": "input2",
+        "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
         "name": "Status",
         "type": "select",
         "tableRef": "status",
-        "model": "status",
         "placeholder": "Enter status",
         "id": "input3",
         "validation": ["required", "trim", "unique"],
@@ -52,15 +40,11 @@
         "action": "submitUser"
     }, {
         "name": "cancel",
-        "action": "cancelUser"
+        "sideMenuRedirect": true,
+        "stateName": "page({jsonName:'viewMovie'})"
     }],
-    "apiCall": {
-        "url": "rapid/saveQuestion",
-        "params": "_id"
-    },
-    "preApi": {
-        "url": "rapid/findOneQuestion",
-        "params": "_id"
-    }
 
+    "apiCall": {
+        "url": "movie/saveRelated"
+    }
 }
