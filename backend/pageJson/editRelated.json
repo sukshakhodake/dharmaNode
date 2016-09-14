@@ -6,9 +6,9 @@
     "urlFields": ["_id"],
     "fields": [{
         "name": "Related Movie",
-        "type": "text",
-        "tableRef": "selectFromTable",
-        "model": "selectFromTable",
+        "type": "selectFromTable",
+        "tableRef": "movie",
+        "model": "movie",
         "placeholder": "Enter actor",
         "id": "input2",
         "validation": ["required", "trim", "unique"],

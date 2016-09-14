@@ -6,8 +6,8 @@
     "pageType": "create",
     "fields": [{
         "name": "Related Movie",
-        "type": "text",
-        "tableRef": "selectFromTable",
+        "type": "selectFromTable",
+        "tableRef": "movie",
         "placeholder": "Enter actor",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
