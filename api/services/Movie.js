@@ -2432,7 +2432,7 @@ getAllRelated: function(data, callback) {
                             $slice: ["$related", skip, data.pagesize]
                         }
                     }
-                }]).exec(function(err, found) {
+                }]).populate('movie').exec(function(err, found) {
                     console.log(found);
                     if (found && found.length > 0) {
                         newreturns.data = found[0].related;
