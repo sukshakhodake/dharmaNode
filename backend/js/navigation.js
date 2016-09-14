@@ -86,6 +86,11 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewDictionary",
         subnav: []
+    },{
+        name: "Rapid Fire With Dharma",
+        classis: "active",
+        link: "#/page/viewRapid",
+        subnav: []
     }, {
         name: "Config",
         classis: "active",
