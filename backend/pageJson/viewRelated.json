@@ -29,7 +29,7 @@
         "color": "red",
         "action": "apiCallConfirm",
         "title": "Delete Related",
-        "content": "Are you sure you want to delete cast?",
+        "content": "Are you sure you want to delete?",
         "api": "movie/deleteRelated",
         "fieldsToSend": [{
             "name": "_id",

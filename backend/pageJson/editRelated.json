@@ -51,7 +51,7 @@
         "params": "_id"
     },
     "preApi": {
-        "url": "movie/findOneCast",
+        "url": "movie/findOneRelated",
         "params": "_id"
     }
 
