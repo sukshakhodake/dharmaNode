@@ -6,6 +6,11 @@
         "name": "Contest Name",
         "isSort": "",
         "tableRef": "contestName"
+    },{
+        "name": "Background Image",
+        "isSort": "",
+        "tableRef": "image",
+        "type": "image"
     }],
     "action": [{
         "name": "edit",
