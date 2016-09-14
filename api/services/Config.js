@@ -162,6 +162,9 @@ var models = {
             });
             fs.unlink(filename);
         });
+
+
+
     },
     readUploaded: function(filename, width, height, style, res) {
         var readstream = gfs.createReadStream({
