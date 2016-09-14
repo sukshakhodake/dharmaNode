@@ -7,6 +7,10 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    image: {
+        type: String,
+        default: ""
+    },
     question: [{
         questionName: {
             type: String,
