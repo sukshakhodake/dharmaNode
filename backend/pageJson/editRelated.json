@@ -9,10 +9,10 @@
         "type": "selectFromTable",
         "tableRef": "movie",
         "model": "movie",
-        "placeholder": "Enter actor",
-        "id": "input2",
+        "placeholder": "Enter movie",
+        "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "movie/getAll"
+        "url": "movie/find"
     }, {
         "name": "Order",
         "type": "text",
