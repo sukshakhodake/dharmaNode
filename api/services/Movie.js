@@ -2437,16 +2437,14 @@ var models = {
                         if (found && found.length > 0) {
                             newreturns.data = found[0].related;
 
-                            // 
-                            // Movie.populate(newreturns.data, {
-                            //     path: 'weapon',
-                            //     model: 'Weapon'
-                            // }, function(err, user) {
-                            //     console.log(user.weapon.name); // whip
-                            // });
+                            Movie.populate(newreturns.data, {
+                                path: "movie"
+                            }, function(err, data3) {
+                              callback(null, data3);
+                            });
 
 
-                            callback(null, newreturns);
+
                         } else if (err) {
                             console.log(err);
                             callback(err, null);
