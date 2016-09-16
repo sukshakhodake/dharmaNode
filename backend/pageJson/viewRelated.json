@@ -5,9 +5,9 @@
     "sendIdWithCreate": true,
       "urlFields": ["_id"],
     "fields": [{
-            "name": "Movie",
+            "name": "Related Movie",
             "isSort": "",
-            "tableRef": "movie.name"
+            "tableRef": "relatedMovie.name"
         }, {
             "name": "Order",
             "isSort": "",
