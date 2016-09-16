@@ -175,7 +175,7 @@ var schema = new Schema({
         }
     }],
     related: [{
-        movie: {
+        relatedMovie: {
             type: Schema.Types.ObjectId,
             ref: 'Movie',
             index: true

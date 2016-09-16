@@ -7,7 +7,7 @@
     "fields": [{
         "name": "Related Movie",
         "type": "selectFromTable",
-        "tableRef": "movie",
+        "tableRef": "relatedMovie",
         "placeholder": "Enter movie",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
