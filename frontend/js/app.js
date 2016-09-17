@@ -39,6 +39,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'FanCornerCtrl'
         })
+        .state('fan-landing', {
+            url: "/fan-landing",
+            templateUrl: "frontend/views/template.html",
+            controller: 'FanLandingCtrl'
+        })
         .state('disclaimer', {
             url: "/disclaimer",
             templateUrl: "frontend/views/template.html",

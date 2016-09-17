@@ -266,6 +266,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+.controller('FanLandingCtrl', function($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("overview");
+        $scope.menutitle = NavigationService.makeactive("Overview");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
 .controller('DictionaryCtrl', function($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("dictionary");
         $scope.menutitle = NavigationService.makeactive("Dictionary");
