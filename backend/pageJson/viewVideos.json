@@ -30,7 +30,7 @@
         "icon": "mode_edit",
         "color": "#f37021",
         "action": "redirect",
-        "jsonPage": "editVideos",
+        "jsonPage": "editvideos",
         "fieldsToSend": ["_id"],
         "callFindOne": "movie/findOneVideos"
     }, {
@@ -70,7 +70,7 @@
         "url": "movie/findVideos",
         "params": "_id"
     },
-    "createButtonState": "page({jsonName:'createVideos'})",
+    "createButtonState": "page({jsonName:'createvideos'})",
     "sidemenu": [{
         "name": "Movie Details",
         "action": "sidemenuRedirect",
