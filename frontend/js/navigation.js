@@ -60,7 +60,7 @@ var navigationservice = angular.module('navigationservice', [])
             },{
                 name: "Fan Corner",
                 classis: "active",
-                anchor: "fan-corner",
+                anchor: "fan-landing",
                 isId: "no",
             }]
         }, {

@@ -1850,10 +1850,13 @@ height: 50px;
     color: #818181;
     &.insta-bg {
       background-image: url('../img/dharm-insta.jpg');
-      background-size: 50% auto;
+      background-size: 100% auto;
       background-position: top center;
       background-repeat: no-repeat;
     }
+}
+.fan-bg{
+  background-color: $black;
 }
 .dark-bg{
   background-image: url('../img/you-bg.jpg');
@@ -2640,6 +2643,9 @@ background: rgba(0, 0, 0, 0.72);
 }
 .masonry-box a {
     display: block !important;
+}
+.pad-img {
+    padding: 70px 40px;
 }
 @import "main2";
 @import "timeline";
