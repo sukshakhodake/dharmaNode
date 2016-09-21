@@ -542,10 +542,10 @@ var models = {
                                     } else {
                                         if (data5 && data5.length > 0) {
                                             newreturns.related = data5[0].related;
-                                            Movie.populate(newreturns.data, {
+                                            Movie.populate(newreturns.related, {
                                                 path: "relatedMovie"
-                                            }, function(err, data5) {
-                                              callback(null, data5);
+                                            }, function(err, data14) {
+                                              callback(null, data14);
                                             });
                                         } else {
                                             newreturns.related = [];
