@@ -561,7 +561,7 @@ var models = {
                             //related movies
 
                             function(callback) {
-                                Movie.findOne({
+                                Movie.find({
                                     "_id": data._id
                                 }).populate('related.relatedMovie','upcomingSmall recentSmall smallImage').exec(function(err, data9) {
                                     if (err) {
