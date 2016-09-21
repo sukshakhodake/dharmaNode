@@ -561,7 +561,7 @@ var models = {
                             //related movies
 
                             function(callback) {
-                                Movie.find({
+                                Movie.findOne({
                                     "_id": data._id
                                 }).populate('related.relatedMovie','upcomingSmall recentSmall smallImage').exec(function(err, data9) {
                                     if (err) {
@@ -569,7 +569,7 @@ var models = {
                                         callback(err, null);
                                     } else {
                                         if (data9 && data9.length > 0) {
-                                            newreturns.related = data9;
+                                            newreturns.related = data9.related;
                                             console.log(newreturns.related);
                                         } else {
                                             newreturns.related = [];
