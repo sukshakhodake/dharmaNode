@@ -569,7 +569,7 @@ var models = {
                                         callback(err, null);
                                     } else {
                                         if (data9 && data9.length > 0) {
-                                            newreturns.related = data9.related;
+                                            newreturns.related = data9;
                                             console.log(newreturns.related);
                                         } else {
                                             newreturns.related = [];
