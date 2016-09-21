@@ -563,8 +563,6 @@ var models = {
                             function(callback) {
                                 Movie.find({
                                     "_id": data._id
-                                },{
-                                  related:1
                                 }).exec(function(err, data9) {
                                     if (err) {
                                         console.log(err);
