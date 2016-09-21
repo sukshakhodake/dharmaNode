@@ -544,8 +544,8 @@ var models = {
                                             newreturns.related = data5[0].related;
                                             Movie.populate(newreturns.data, {
                                                 path: "relatedMovie"
-                                            }, function(err, data3) {
-                                              callback(null, data3);
+                                            }, function(err, data5) {
+                                              callback(null, data5);
                                             });
                                         } else {
                                             newreturns.related = [];
