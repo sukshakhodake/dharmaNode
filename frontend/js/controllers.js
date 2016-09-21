@@ -626,6 +626,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
             // TemplateService.removeLoader();
             $scope.MovieGal = data.data.gallery;
+
+            $scope.MovieRelated = data.data.related[0].related;
+            console.log('$scope.MovieRelated ',$scope.MovieRelated);
             // TemplateService.removeLoader();
             $scope.movieBehindTheScenes = data.data.behindTheScenes;
             // TemplateService.removeLoader();
