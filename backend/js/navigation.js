@@ -5,7 +5,7 @@ if (adminurl || adminurl !== "") {
     adminurl = "http://localhost:1337/api/";
 }
 // var imgpath = adminurl + "upload/readFile";
-var imgpath =  "http://104.154.89.21:85/api/upload/readFile";
+var imgpath =  "http://104.155.129.33:85/api/upload/readFile";
 var uploadurl = adminurl + "upload/";
 
 var navigationservice = angular.module('navigationservice', [])
