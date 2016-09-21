@@ -515,6 +515,42 @@ var models = {
                                 });
                             },
 
+                            //related movies
+
+                            function(callback) {
+                                Movie.aggregate([{
+                                    $match: {
+                                        _id: objectid(data._id)
+                                    }
+                                }, {
+                                    $unwind: "$related"
+                                }, {
+                                    $sort: {
+                                        "related.order": 1
+                                    }
+                                }, {
+                                    $group: {
+                                        _id: null,
+                                        related: {
+                                            $push: "$related"
+                                        }
+                                    }
+                                }]).exec(function(err, data5) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        if (data5 && data5.length > 0) {
+                                            newreturns.related = data5[0].related;
+                                        } else {
+                                            newreturns.related = [];
+                                        }
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            },
+
+
                             //awards
                             function(callback) {
                                 NewAward.find({
