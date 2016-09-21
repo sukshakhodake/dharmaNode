@@ -568,25 +568,28 @@
         </div>
         <div class="back-to-top pull-right" scroll-to-item scroll-to="#top-scroll"> <img src="frontend/img/top-scroll.png" alt="Dharma Productions">
         </div>
-        <div class="related-m mt15">
+        <div class="related-m">
           <div class="bg-screen mobile-row">
-            <h1 class="color-white font-hammersmith text-up line45 margin0 ml15 f55" style="line-height: 35%;">Related Movies</h1><pre>{{MovieRelated[0]}}</pre>
+            <h1 class="color-white font-hammersmith text-up line45 margin0 ml15 f55" style="line-height: 35%;">Related Movies</h1>
+
             <div class="row-flex text-center hidden-xs">
-                <div class="col-flex" ng-repeat="item in MovieRelated.relatedMovie track by $index">
+                <div class="col-flex" ng-repeat="item in MovieRelated track by $index">
                     <div  class="img-pads">
-                        <img ng-if="item.recentSmall" ng-src="{{item.recentSmall}}" alt="Dharma Productions" class="img-responsive width100">
-                        <img ng-if="item.smallImage" ng-src="{{item.smallImage}}" alt="Dharma Productions" class="img-responsive width100">
-                        <img ng-if="item.upcomingSmall" ng-src="{{item.upcomingSmall}}" alt="Dharma Productions" class="img-responsive width100">
+                        <img ng-src="{{item.relatedMovie.recentSmall|uploadpath}}" ng-if="item.relatedMovie.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                        <img ng-src="{{item.relatedMovie.smallImage|uploadpath}}" ng-if="item.relatedMovie.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                        <img ng-src="{{item.relatedMovie.upcomingSmall|uploadpath}}" ng-if="item.relatedMovie.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
                     </div>
 
                 </div>
             </div>
             <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs">
-                <flex-slider flex-slide="item in movie track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
+                <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
                     <li>
                         <a >
                             <div class="img-pads">
-                                <img ng-src="{{item.img}}" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.relatedMovie.recentSmall|uploadpath}}" ng-if="item.relatedMovie.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.relatedMovie.recentSmall|uploadpath}}" ng-if="item.relatedMovie.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.relatedMovie.recentSmall|uploadpath}}" ng-if="item.relatedMovie.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
                             </div>
 
                         </a>

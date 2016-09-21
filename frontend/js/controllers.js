@@ -611,7 +611,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.moviefindOne.backgroundImage = $filter('uploadpath')($scope.moviefindOne.backgroundImage);
             $scope.moviefindOne.cutImage2 = $filter('uploadpath')($scope.moviefindOne.cutImage2);
             $scope.moviefindOne.cutImage = $filter('uploadpath')($scope.moviefindOne.cutImage);
-
+$scope.myrelated = {};
 
             TemplateService.removeLoader();
             $scope.getOneMovie = data.data;
@@ -629,6 +629,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             $scope.MovieRelated = data.data.related[0].related;
             console.log('$scope.MovieRelated ',$scope.MovieRelated);
+            // _.each($scope.MovieRelated,function(n){
+            // $scope.myrelated =  n.relatedMovie;
+            // console.log('$scope.MovieRelated ',$scope.myrelated);
+            // })
+
+
+
             // TemplateService.removeLoader();
             $scope.movieBehindTheScenes = data.data.behindTheScenes;
             // TemplateService.removeLoader();
