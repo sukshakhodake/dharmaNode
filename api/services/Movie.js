@@ -515,45 +515,6 @@ var models = {
                                 });
                             },
 
-                            //related movies
-
-                            function(callback) {
-                                Movie.aggregate([{
-                                    $match: {
-                                        _id: objectid(data._id)
-                                    }
-                                }, {
-                                    $unwind: "$related"
-                                }, {
-                                    $sort: {
-                                        "related.order": 1
-                                    }
-                                }, {
-                                    $group: {
-                                        _id: null,
-                                        related: {
-                                            $push: "$related"
-                                        }
-                                    }
-                                }]).exec(function(err, data5) {
-                                    if (err) {
-                                        console.log(err);
-                                        callback(err, null);
-                                    } else {
-                                        if (data5 && data5.length > 0) {
-                                            newreturns.related = data5[0].related;
-                                            Movie.populate(newreturns.related, {
-                                                path: "relatedMovie"
-                                            }, function(err, data14) {
-                                              callback(null, data14);
-                                            });
-                                        } else {
-                                            newreturns.related = [];
-                                        }
-                                        callback(null, newreturns);
-                                    }
-                                });
-                            },
 
 
                             //awards
@@ -594,7 +555,33 @@ var models = {
                                         callback(null, newreturns);
                                     }
                                 });
-                            }
+                            },
+
+
+                            //related movies
+
+                            function(callback) {
+                                Movie.find({
+                                    "_id": data._id
+                                },{
+                                  related:1
+                                }).exec(function(err, data9) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        if (data9 && data9.length > 0) {
+                                            newreturns.related = data9;
+                                            console.log(newreturns.related);
+                                        } else {
+                                            newreturns.related = [];
+                                        }
+
+                                        callback(null, newreturns);
+                                    }
+                                });
+                            },
+
                         ],
                         function(err, data10) {
                             if (err) {
@@ -2481,7 +2468,7 @@ var models = {
                             Movie.populate(newreturns.data, {
                                 path: "relatedMovie"
                             }, function(err, data3) {
-                              callback(null, data3);
+                                callback(null, data3);
                             });
 
 
