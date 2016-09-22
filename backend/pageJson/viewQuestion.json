@@ -1,13 +1,29 @@
 {
     "title": "All Question",
     "desciption": "",
-      "urlFields": ["_id"],
-        "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "sendIdWithCreate": true,
     "pageType": "view",
     "fields": [{
             "name": "Question Text",
             "isSort": "",
             "tableRef": "questionName"
+        }, {
+            "name": "Option 1",
+            "isSort": "",
+            "tableRef": "option1"
+        }, {
+            "name": "Option 2",
+            "isSort": "",
+            "tableRef": "option2"
+        }, {
+            "name": "Option 3",
+            "isSort": "",
+            "tableRef": "option3"
+        }, {
+            "name": "Option 4",
+            "isSort": "",
+            "tableRef": "option4"
         }
 
     ],
