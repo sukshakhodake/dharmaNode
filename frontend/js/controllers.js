@@ -627,7 +627,7 @@ $scope.myrelated = {};
             // TemplateService.removeLoader();
             $scope.MovieGal = data.data.gallery;
 
-            $scope.MovieRelated = data.data.related[0].related;
+            $scope.MovieRelated = data.data.related;
             console.log('$scope.MovieRelated ',$scope.MovieRelated);
             // _.each($scope.MovieRelated,function(n){
             // $scope.myrelated =  n.relatedMovie;

@@ -568,16 +568,16 @@
         </div>
         <div class="back-to-top pull-right" scroll-to-item scroll-to="#top-scroll"> <img src="frontend/img/top-scroll.png" alt="Dharma Productions">
         </div>
-        <div class="related-m">
+        <div class="related-m" ng-if="MovieRelated.length!='0'">
           <div class="bg-screen mobile-row">
             <h1 class="color-white font-hammersmith text-up line45 margin0 ml15 f55" style="line-height: 35%;">Related Movies</h1>
 
             <div class="row-flex text-center hidden-xs">
-                <div class="col-flex" ng-repeat="item in MovieRelated track by $index">
-                    <div  class="img-pads">
-                        <img ng-src="{{item.relatedMovie.recentSmall|uploadpath}}" ng-if="item.relatedMovie.recentSmall" alt="Dharma Productions" class="img-responsive width100">
-                        <img ng-src="{{item.relatedMovie.smallImage|uploadpath}}" ng-if="item.relatedMovie.smallImage" alt="Dharma Productions" class="img-responsive width100">
-                        <img ng-src="{{item.relatedMovie.upcomingSmall|uploadpath}}" ng-if="item.relatedMovie.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
+                <div class="col-flex" ng-repeat="item in MovieRelated track by $index" >
+                    <div  class="img-pads" ui-sref="movie-inside({id:item.urlName})">
+                        <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                        <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                        <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
                     </div>
 
                 </div>
@@ -586,10 +586,10 @@
                 <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
                     <li>
                         <a >
-                            <div class="img-pads">
-                                <img ng-src="{{item.relatedMovie.recentSmall|uploadpath}}" ng-if="item.relatedMovie.recentSmall" alt="Dharma Productions" class="img-responsive width100">
-                                <img ng-src="{{item.relatedMovie.recentSmall|uploadpath}}" ng-if="item.relatedMovie.smallImage" alt="Dharma Productions" class="img-responsive width100">
-                                <img ng-src="{{item.relatedMovie.recentSmall|uploadpath}}" ng-if="item.relatedMovie.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
+                            <div class="img-pads" ui-sref="movie-inside({id:item.urlName})">
+                                <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
                             </div>
 
                         </a>
