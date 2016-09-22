@@ -24,6 +24,26 @@ var schema = new Schema({
             type: String,
             default: ""
         },
+        option1: {
+            type: String,
+            default: ""
+        },
+        option2: {
+            type: String,
+            default: ""
+        },
+        option3: {
+            type: String,
+            default: ""
+        },
+        option4: {
+            type: String,
+            default: ""
+        },
+        correctOption: {
+            type: String,
+            default: ""
+        },
         status: {
             type: String,
             default: ""

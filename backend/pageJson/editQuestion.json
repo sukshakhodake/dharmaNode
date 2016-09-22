@@ -13,12 +13,43 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
+    },  {
+        "name": "Option 1",
+        "type": "text",
+        "tableRef": "option1",
+        "placeholder": "Enter option1",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
     }, {
-        "name": "option",
-        "type": "chips",
-        "tableRef": "option",
-        "model": "option",
-        "placeholder": "Enter option",
+        "name": "Option 2",
+        "type": "text",
+        "tableRef": "option2",
+        "placeholder": "Enter option2",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Option 3",
+        "type": "text",
+        "tableRef": "option3",
+        "placeholder": "Enter option3",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Option 4",
+        "type": "text",
+        "tableRef": "option4",
+        "placeholder": "Enter option4",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Correct Option",
+        "type": "text",
+        "tableRef": "correctOption",
+        "placeholder": "Enter Correct Option",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
@@ -31,21 +62,6 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    }, {
-        "name": "Status",
-        "type": "select",
-        "tableRef": "status",
-        "model": "status",
-        "placeholder": "Enter status",
-        "id": "input3",
-        "validation": ["required", "trim", "unique"],
-        "url": [{
-            "value": true,
-            "name": "Enable"
-        }, {
-            "value": false,
-            "name": "Disable"
-        }]
     }],
     "action": [{
         "name": "submit",
