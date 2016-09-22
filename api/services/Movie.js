@@ -561,16 +561,23 @@ var models = {
                             //related movies
 
                             function(callback) {
-                                Movie.find({
+                                Movie.findOne({
                                     "_id": data._id
-                                }).populate('related.relatedMovie','upcomingSmall recentSmall smallImage urlName').exec(function(err, data9) {
+                                }).populate('related.relatedMovie','upcomingSmall recentSmall smallImage name year urlName').exec(function(err, data9) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
                                     } else {
-                                        if (data9 && data9.length > 0) {
-                                            newreturns.related = data9;
-                                            console.log(newreturns.related);
+
+                                        if (data9) {
+                                            var related = [];
+
+                                            _.each(data9.related,function(n) {
+                                              console.log(n);
+                                              related.push(n.relatedMovie);
+                                            });
+                                            newreturns.related = related;
+                                            console.log(related);
                                         } else {
                                             newreturns.related = [];
                                         }

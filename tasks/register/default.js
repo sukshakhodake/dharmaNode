@@ -18,6 +18,6 @@
  */
 module.exports = function(grunt) {
     grunt.registerTask('default', ['clean:upload','copy:upload','clean:uploadApp','copy:assets','clean:backend', 'sass:backendDevelopment','copy:backendDevelopment', 'copy:jsBackendDevelopment', 'copy:backendDevelopment',
-    'clean:development', 'sass:development', 'copy:jsDevelopment', 'copy:development', 'browserSync', 'concurrent:watch']);
+    'clean:development', 'sass:development', 'copy:jsDevelopment', 'copy:development']);
     // grunt.registerTask('default', ['clean:development', 'sass:development', 'copy:jsDevelopment', 'copy:development', 'browserSync', 'concurrent:watch']);
 };
