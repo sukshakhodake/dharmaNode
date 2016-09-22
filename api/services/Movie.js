@@ -563,7 +563,7 @@ var models = {
                             function(callback) {
                                 Movie.find({
                                     "_id": data._id
-                                }).populate('related.relatedMovie','upcomingSmall recentSmall smallImage').exec(function(err, data9) {
+                                }).populate('related.relatedMovie','upcomingSmall recentSmall smallImage urlName').exec(function(err, data9) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
