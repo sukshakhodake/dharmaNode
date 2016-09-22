@@ -49,15 +49,6 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    },{
-        "name": "Correct Option",
-        "type": "text",
-        "tableRef": "correctOption",
-        "model": "correctOption",
-        "placeholder": "Enter Correct Option",
-        "id": "input2",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
     }, {
         "name": "Order",
         "type": "text",
