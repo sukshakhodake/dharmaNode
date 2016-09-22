@@ -117,7 +117,6 @@
     }, {
         "name": "Recent Release Image (Big)",
         "type": "image",
-        "model": "mediumImage",
         "tableRef": "mediumImage",
         "id": "input6",
         "validation": ["required", "trim", "unique"],
@@ -126,7 +125,6 @@
     }, {
         "name": "Recent Release Image (Small)",
         "type": "image",
-        "model": "recentSmall",
         "tableRef": "recentSmall",
         "id": "input6",
         "validation": ["required", "trim", "unique"],
@@ -135,7 +133,6 @@
     }, {
         "name": "Past Release Image",
         "type": "image",
-        "model": "smallImage",
         "tableRef": "smallImage",
         "id": "input5",
         "validation": ["required", "trim", "unique"],
@@ -144,7 +141,6 @@
     }, {
         "name": "Movie Inside Background Image",
         "type": "image",
-        "model": "cutImage",
         "tableRef": "cutImage",
         "id": "input7",
         "validation": ["required", "trim", "unique"],
@@ -153,7 +149,6 @@
     }, {
         "name": "Movie Inside Background Image For Synopsis",
         "type": "image",
-        "model": "cutImage2",
         "tableRef": "cutImage2",
         "id": "input7",
         "validation": ["required", "trim", "unique"],
