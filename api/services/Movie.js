@@ -181,7 +181,7 @@ var schema = new Schema({
             index: true
         },
         order: {
-            type: String,
+            type: Number,
             default: ""
         },
         status: {
@@ -563,21 +563,23 @@ var models = {
                             function(callback) {
                                 Movie.findOne({
                                     "_id": data._id
-                                }).populate('related.relatedMovie','upcomingSmall recentSmall smallImage name year urlName').exec(function(err, data9) {
+                                }).populate('related.relatedMovie', 'upcomingSmall recentSmall smallImage name year urlName').exec(function(err, data9) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
                                     } else {
-
                                         if (data9) {
                                             var related = [];
-
-                                            _.each(data9.related,function(n) {
-                                              console.log(n);
-                                              related.push(n.relatedMovie);
+                                            console.log(data9.related);
+                                            data9.related = _.sortByOrder(data9.related, function(n) {
+                                                console.log(n.order);
+                                                return parseInt(n.order);
                                             });
+                                            related = _.map(data9.related, function(n) {
+                                                return n.relatedMovie;
+                                            });
+
                                             newreturns.related = related;
-                                            console.log(related);
                                         } else {
                                             newreturns.related = [];
                                         }
