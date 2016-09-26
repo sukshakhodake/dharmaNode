@@ -133,7 +133,18 @@
                             <div class="div-none-slide" ng-repeat="item in movieList.Recent track by $index">
                                 <div class="row" ng-repeat="datas in item track by $index">
                                     <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="data in datas | orderBy: '-upcomingOrder' track by $index ">
-                                        <a ui-sref="movie-inside({id:data._id})">
+                                        <a ng-if="data.status==true" ui-sref="movie-inside({id:data._id})">
+                                            <div class="video-box mb20 common-class ">
+                                                <div class="video-slide-img img-pads ">
+                                                    <img ng-src="{{data.mediumImage|uploadpath}} " alt="Dharma Productions " class="img-responsive">
+                                                </div>
+                                                <div class="video-name font-karla text-up ">
+                                                    <span>{{data.name | shorten : 60}}
+                                                        ({{data.year}})</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a ng-if="data.status==false">
                                             <div class="video-box mb20 common-class ">
                                                 <div class="video-slide-img img-pads ">
                                                     <img ng-src="{{data.mediumImage|uploadpath}} " alt="Dharma Productions " class="img-responsive">
@@ -191,7 +202,17 @@
                 <div class="row-flex text-center " ng-repeat="videos in movieList.Past | orderBy:'-upcomingOrder' track by $index">
                     <div class="col-flex " ng-repeat="item in videos track by $index ">
 
-                        <a ui-sref="movie-inside({id:item._id})">
+                        <a ng-if="item.status==true" ui-sref="movie-inside({id:item._id})">
+                            <div class="img-pads ">
+                                <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
+                            </div>
+                            <div class="movie-names ">
+                                <h4 class="text-up color-grey ">{{item.name |shorten : 20}}
+                                    <br>({{item.year}})
+                                </h4>
+                            </div>
+                        </a>
+                        <a ng-if="item.status==false">
                             <div class="img-pads ">
                                 <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
                             </div>
@@ -207,7 +228,15 @@
             <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs" ng-repeat="videos in movieList.Past track by $index">
                 <flex-slider flex-slide="item in videos track by $index " animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
                     <li>
-                        <a ui-sref="movie-inside({id:item._id})">
+                        <a ng-if="item.status==true" ui-sref="movie-inside({id:item._id})">
+                            <div class="img-pads">
+                                <img ng-src="{{item.smallImage|uploadpath}}" alt="Dharma Productions" class="img-responsive">
+                            </div>
+                            <div class="movie-names">
+                                <h4 class="text-up color-grey">{{item.name|shorten : 20}}<br>({{item.year}})</h4>
+                            </div>
+                        </a>
+                        <a ng-if="item.status==false">
                             <div class="img-pads">
                                 <img ng-src="{{item.smallImage|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                             </div>
@@ -248,7 +277,17 @@
             <div class="mobile-row hidden-xs" ng-if="viewAll">
                 <div class="row-flex text-center " ng-repeat="videos in movieList.PastMore track by $index">
                     <div class="col-flex " ng-repeat="item in videos track by $index ">
-                        <a ui-sref="movie-inside({id:item._id})">
+                        <a ng-if="item.status==true" ui-sref="movie-inside({id:item._id})">
+                            <div class="img-pads ">
+                                <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
+                            </div>
+                            <div class="movie-names ">
+                                <h4 class="text-up color-grey ">{{item.name |shorten : 20}}
+                                    <br>({{item.year}})
+                                </h4>
+                            </div>
+                        </a>
+                        <a ng-if="item.status==false">
                             <div class="img-pads ">
                                 <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
                             </div>
@@ -264,7 +303,15 @@
             <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs" ng-repeat="videos in movieList.PastMore track by $index" ng-if="viewAll">
                 <flex-slider flex-slide="item in videos track by $index " animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
                     <li>
-                        <a ui-sref="movie-inside({id:item._id})">
+                        <a ng-if="item.status==true" ui-sref="movie-inside({id:item._id})">
+                            <div class="img-pads">
+                                <img ng-src="{{item.smallImage|uploadpath}}" alt="Dharma Productions" class="img-responsive">
+                            </div>
+                            <div class="movie-names">
+                                <h4 class="text-up color-grey">{{item.name|shorten : 20}}<br>({{item.year}})</h4>
+                            </div>
+                        </a>
+                        <a ng-if="item.status==false">
                             <div class="img-pads">
                                 <img ng-src="{{item.smallImage|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                             </div>
