@@ -220,19 +220,19 @@ var schema = new Schema({
     }
 });
 
-schema.virtual('urlName').get(function() {
+schema.virtual('urlName').get(function () {
     return _.kebabCase(this.name) + "_" + this.year;
 });
 
 module.exports = mongoose.model('Movie', schema);
 var models = {
-    saveData: function(data, callback) {
+    saveData: function (data, callback) {
         var movie = this(data);
         movie.timestamp = new Date();
         if (data._id) {
             this.findOneAndUpdate({
                 _id: data._id
-            }, data).exec(function(err, updated) {
+            }, data).exec(function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -244,7 +244,7 @@ var models = {
             });
         } else {
             movie.timestamp = new Date();
-            movie.save(function(err, created) {
+            movie.save(function (err, created) {
                 if (err) {
                     callback(err, null);
                 } else if (created) {
@@ -255,10 +255,10 @@ var models = {
             });
         }
     },
-    deleteData: function(data, callback) {
+    deleteData: function (data, callback) {
         this.findOneAndRemove({
             _id: data._id
-        }, function(err, deleted) {
+        }, function (err, deleted) {
             if (err) {
                 callback(err, null);
             } else if (deleted) {
@@ -268,8 +268,8 @@ var models = {
             }
         });
     },
-    getAll: function(data, callback) {
-        this.find({}).exec(function(err, found) {
+    getAll: function (data, callback) {
+        this.find({}).exec(function (err, found) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -280,10 +280,10 @@ var models = {
             }
         });
     },
-    getOne: function(data, callback) {
+    getOne: function (data, callback) {
         this.findOne({
             "_id": data._id
-        }).exec(function(err, found) {
+        }).exec(function (err, found) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -295,7 +295,7 @@ var models = {
         });
     },
 
-    getOneMovie: function(data, callback) {
+    getOneMovie: function (data, callback) {
         var dataori = data;
         var data2;
         if (data._id) {
@@ -323,12 +323,12 @@ var models = {
         Movie.find()
             .keyword(options)
             .filter(options)
-            .exec(function(err, results) {
+            .exec(function (err, results) {
                 if (err) {
                     callback(err, null);
                 } else if (results && results[0]) {
                     var data;
-                    _.each(results, function(n) {
+                    _.each(results, function (n) {
                         if (n.urlName == dataori._id) {
                             data = results[0];
                         }
@@ -336,12 +336,12 @@ var models = {
 
 
                     async.parallel([
-                            function(callback) {
+                            function (callback) {
                                 Movie.findOne({
                                         _id: data._id
                                     })
                                     .select(" cast note synopsis releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage name upcomingOrder urlName")
-                                    .exec(function(err, data1) {
+                                    .exec(function (err, data1) {
                                         if (err) {
                                             console.log(err);
                                             callback(err, null);
@@ -352,7 +352,7 @@ var models = {
                                         }
                                     });
                             },
-                            function(callback) {
+                            function (callback) {
                                 Movie.aggregate([{
                                     $match: {
                                         _id: objectid(data._id)
@@ -370,7 +370,7 @@ var models = {
                                             $push: "$gallery"
                                         }
                                     }
-                                }]).exec(function(err, data2) {
+                                }]).exec(function (err, data2) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
@@ -385,7 +385,7 @@ var models = {
                                     }
                                 });
                             },
-                            function(callback) {
+                            function (callback) {
                                 Movie.aggregate([{
                                     $match: {
                                         _id: objectid(data._id)
@@ -403,7 +403,7 @@ var models = {
                                             $push: "$wallpaper"
                                         }
                                     }
-                                }]).exec(function(err, data3) {
+                                }]).exec(function (err, data3) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
@@ -417,7 +417,7 @@ var models = {
                                     }
                                 });
                             },
-                            function(callback) {
+                            function (callback) {
                                 Movie.aggregate([{
                                     $match: {
                                         _id: objectid(data._id)
@@ -435,7 +435,7 @@ var models = {
                                             $push: "$videos"
                                         }
                                     }
-                                }]).exec(function(err, data4) {
+                                }]).exec(function (err, data4) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
@@ -449,7 +449,7 @@ var models = {
                                     }
                                 });
                             },
-                            function(callback) {
+                            function (callback) {
                                 Movie.aggregate([{
                                     $match: {
                                         _id: objectid(data._id)
@@ -467,7 +467,7 @@ var models = {
                                             $push: "$behindTheScenes"
                                         }
                                     }
-                                }]).exec(function(err, data5) {
+                                }]).exec(function (err, data5) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
@@ -481,7 +481,7 @@ var models = {
                                     }
                                 });
                             },
-                            function(callback) {
+                            function (callback) {
                                 Movie.aggregate([{
                                     $match: {
                                         _id: objectid(data._id)
@@ -499,7 +499,7 @@ var models = {
                                             $push: "$crew"
                                         }
                                     }
-                                }]).exec(function(err, data6) {
+                                }]).exec(function (err, data6) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
@@ -518,10 +518,10 @@ var models = {
 
 
                             //awards
-                            function(callback) {
+                            function (callback) {
                                 NewAward.find({
                                     "movie": data._id
-                                }).exec(function(err, data7) {
+                                }).exec(function (err, data7) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
@@ -538,10 +538,10 @@ var models = {
                             },
 
                             //news
-                            function(callback) {
+                            function (callback) {
                                 News.find({
                                     "movie": data._id
-                                }).exec(function(err, data8) {
+                                }).exec(function (err, data8) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
@@ -560,10 +560,10 @@ var models = {
 
                             //related movies
 
-                            function(callback) {
+                            function (callback) {
                                 Movie.findOne({
                                     "_id": data._id
-                                }).populate('related.relatedMovie', 'upcomingSmall recentSmall smallImage name year urlName').exec(function(err, data9) {
+                                }).populate('related.relatedMovie', 'upcomingSmall recentSmall smallImage name year urlName status').exec(function (err, data9) {
                                     if (err) {
                                         console.log(err);
                                         callback(err, null);
@@ -571,11 +571,11 @@ var models = {
                                         if (data9) {
                                             var related = [];
                                             console.log(data9.related);
-                                            data9.related = _.sortByOrder(data9.related, function(n) {
+                                            data9.related = _.sortByOrder(data9.related, function (n) {
                                                 console.log(n.order);
                                                 return parseInt(n.order);
                                             });
-                                            related = _.map(data9.related, function(n) {
+                                            related = _.map(data9.related, function (n) {
                                                 return n.relatedMovie;
                                             });
 
@@ -590,7 +590,7 @@ var models = {
                             },
 
                         ],
-                        function(err, data10) {
+                        function (err, data10) {
                             if (err) {
                                 console.log(err);
                                 callback(err, null);
@@ -611,19 +611,19 @@ var models = {
 
     },
 
-    findLimited: function(data, callback) {
+    findLimited: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
         data.pagenumber = parseInt(data.pagenumber);
         data.pagesize = parseInt(data.pagesize);
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.count({
                         name: {
                             '$regex': check
                         }
-                    }).exec(function(err, number) {
+                    }).exec(function (err, number) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
@@ -636,7 +636,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.find({
                         name: {
                             '$regex': check
@@ -645,7 +645,7 @@ var models = {
                         password: 0
                     }).sort({
                         name: 1
-                    }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+                    }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function (err, data2) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
@@ -658,7 +658,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -673,7 +673,7 @@ var models = {
 
     //SIDEMENU CAST
 
-    saveCast: function(data, callback) {
+    saveCast: function (data, callback) {
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -682,7 +682,7 @@ var models = {
                 $push: {
                     cast: data
                 }
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -694,14 +694,14 @@ var models = {
             data._id = objectid(data._id);
             tobechanged = {};
             var attribute = "cast.$.";
-            _.forIn(data, function(value, key) {
+            _.forIn(data, function (value, key) {
                 tobechanged[attribute + key] = value;
             });
             Movie.update({
                 "cast._id": data._id
             }, {
                 $set: tobechanged
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -712,7 +712,7 @@ var models = {
         }
     },
 
-    getAllCast: function(data, callback) {
+    getAllCast: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -720,7 +720,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         var skip = parseInt(data.pagesize * (data.pagenumber - 1));
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -738,7 +738,7 @@ var models = {
                         $project: {
                             count: 1
                         }
-                    }]).exec(function(err, result) {
+                    }]).exec(function (err, result) {
                         console.log(result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
@@ -754,7 +754,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -775,7 +775,7 @@ var models = {
                                 $slice: ["$cast", skip, data.pagesize]
                             }
                         }
-                    }]).exec(function(err, found) {
+                    }]).exec(function (err, found) {
                         console.log(found);
                         if (found && found.length > 0) {
                             newreturns.data = found[0].cast;
@@ -791,7 +791,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -804,7 +804,7 @@ var models = {
     },
 
 
-    deleteCast: function(data, callback) {
+    deleteCast: function (data, callback) {
         Movie.update({
             "cast._id": data._id
         }, {
@@ -813,7 +813,7 @@ var models = {
                     "_id": objectid(data._id)
                 }
             }
-        }, function(err, updated) {
+        }, function (err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
@@ -824,7 +824,7 @@ var models = {
         });
 
     },
-    getOneCast: function(data, callback) {
+    getOneCast: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
             $unwind: "$cast"
@@ -836,7 +836,7 @@ var models = {
             $project: {
                 cast: 1
             }
-        }]).exec(function(err, respo) {
+        }]).exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -854,7 +854,7 @@ var models = {
 
     //SIDEMENU CREW
 
-    saveCrew: function(data, callback) {
+    saveCrew: function (data, callback) {
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -863,7 +863,7 @@ var models = {
                 $push: {
                     crew: data
                 }
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -875,14 +875,14 @@ var models = {
             data._id = objectid(data._id);
             tobechanged = {};
             var attribute = "crew.$.";
-            _.forIn(data, function(value, key) {
+            _.forIn(data, function (value, key) {
                 tobechanged[attribute + key] = value;
             });
             Movie.update({
                 "crew._id": data._id
             }, {
                 $set: tobechanged
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -893,7 +893,7 @@ var models = {
         }
     },
 
-    getAllCrew: function(data, callback) {
+    getAllCrew: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -901,7 +901,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         var skip = parseInt(data.pagesize * (data.pagenumber - 1));
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -919,7 +919,7 @@ var models = {
                         $project: {
                             count: 1
                         }
-                    }]).exec(function(err, result) {
+                    }]).exec(function (err, result) {
                         console.log(result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
@@ -935,7 +935,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -956,7 +956,7 @@ var models = {
                                 $slice: ["$crew", skip, data.pagesize]
                             }
                         }
-                    }]).exec(function(err, found) {
+                    }]).exec(function (err, found) {
                         console.log(found);
                         if (found && found.length > 0) {
                             newreturns.data = found[0].crew;
@@ -972,7 +972,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -985,7 +985,7 @@ var models = {
     },
 
 
-    deleteCrew: function(data, callback) {
+    deleteCrew: function (data, callback) {
         Movie.update({
             "crew._id": data._id
         }, {
@@ -994,7 +994,7 @@ var models = {
                     "_id": objectid(data._id)
                 }
             }
-        }, function(err, updated) {
+        }, function (err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
@@ -1005,7 +1005,7 @@ var models = {
         });
 
     },
-    getOneCrew: function(data, callback) {
+    getOneCrew: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
             $unwind: "$crew"
@@ -1017,7 +1017,7 @@ var models = {
             $project: {
                 crew: 1
             }
-        }]).exec(function(err, respo) {
+        }]).exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -1034,7 +1034,7 @@ var models = {
 
     //SIDEMENU Gallery
 
-    saveGallery: function(data, callback) {
+    saveGallery: function (data, callback) {
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1043,7 +1043,7 @@ var models = {
                 $push: {
                     gallery: data
                 }
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1055,14 +1055,14 @@ var models = {
             data._id = objectid(data._id);
             tobechanged = {};
             var attribute = "gallery.$.";
-            _.forIn(data, function(value, key) {
+            _.forIn(data, function (value, key) {
                 tobechanged[attribute + key] = value;
             });
             Movie.update({
                 "gallery._id": data._id
             }, {
                 $set: tobechanged
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1073,7 +1073,7 @@ var models = {
         }
     },
 
-    getAllGallery: function(data, callback) {
+    getAllGallery: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -1081,7 +1081,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         var skip = parseInt(data.pagesize * (data.pagenumber - 1));
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1099,7 +1099,7 @@ var models = {
                         $project: {
                             count: 1
                         }
-                    }]).exec(function(err, result) {
+                    }]).exec(function (err, result) {
                         console.log(result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
@@ -1115,7 +1115,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1136,7 +1136,7 @@ var models = {
                                 $slice: ["$gallery", skip, data.pagesize]
                             }
                         }
-                    }]).exec(function(err, found) {
+                    }]).exec(function (err, found) {
                         console.log(found);
                         if (found && found.length > 0) {
                             newreturns.data = found[0].gallery;
@@ -1152,7 +1152,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1165,7 +1165,7 @@ var models = {
     },
 
 
-    deleteGallery: function(data, callback) {
+    deleteGallery: function (data, callback) {
         Movie.update({
             "gallery._id": data._id
         }, {
@@ -1174,7 +1174,7 @@ var models = {
                     "_id": objectid(data._id)
                 }
             }
-        }, function(err, updated) {
+        }, function (err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
@@ -1186,7 +1186,7 @@ var models = {
 
     },
 
-    getOneGallery: function(data, callback) {
+    getOneGallery: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
             $unwind: "$gallery"
@@ -1198,7 +1198,7 @@ var models = {
             $project: {
                 gallery: 1
             }
-        }]).exec(function(err, respo) {
+        }]).exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -1215,7 +1215,7 @@ var models = {
 
     //SIDEMENU Videos
 
-    saveVideos: function(data, callback) {
+    saveVideos: function (data, callback) {
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1224,7 +1224,7 @@ var models = {
                 $push: {
                     videos: data
                 }
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1236,14 +1236,14 @@ var models = {
             data._id = objectid(data._id);
             tobechanged = {};
             var attribute = "videos.$.";
-            _.forIn(data, function(value, key) {
+            _.forIn(data, function (value, key) {
                 tobechanged[attribute + key] = value;
             });
             Movie.update({
                 "videos._id": data._id
             }, {
                 $set: tobechanged
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1254,7 +1254,7 @@ var models = {
         }
     },
 
-    getAllVideos: function(data, callback) {
+    getAllVideos: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -1262,7 +1262,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         var skip = parseInt(data.pagesize * (data.pagenumber - 1));
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1280,7 +1280,7 @@ var models = {
                         $project: {
                             count: 1
                         }
-                    }]).exec(function(err, result) {
+                    }]).exec(function (err, result) {
                         console.log(result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
@@ -1296,7 +1296,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1317,7 +1317,7 @@ var models = {
                                 $slice: ["$videos", skip, data.pagesize]
                             }
                         }
-                    }]).exec(function(err, found) {
+                    }]).exec(function (err, found) {
                         console.log(found);
                         if (found && found.length > 0) {
                             newreturns.data = found[0].videos;
@@ -1333,7 +1333,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1346,7 +1346,7 @@ var models = {
     },
 
 
-    deleteVideos: function(data, callback) {
+    deleteVideos: function (data, callback) {
         Movie.update({
             "videos._id": data._id
         }, {
@@ -1355,7 +1355,7 @@ var models = {
                     "_id": objectid(data._id)
                 }
             }
-        }, function(err, updated) {
+        }, function (err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
@@ -1366,7 +1366,7 @@ var models = {
         });
 
     },
-    getOneVideos: function(data, callback) {
+    getOneVideos: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
             $unwind: "$videos"
@@ -1378,7 +1378,7 @@ var models = {
             $project: {
                 videos: 1
             }
-        }]).exec(function(err, respo) {
+        }]).exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -1395,7 +1395,7 @@ var models = {
 
     //SIDEMENU Wallpaper
 
-    saveWallpaper: function(data, callback) {
+    saveWallpaper: function (data, callback) {
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1404,7 +1404,7 @@ var models = {
                 $push: {
                     wallpaper: data
                 }
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1416,14 +1416,14 @@ var models = {
             data._id = objectid(data._id);
             tobechanged = {};
             var attribute = "wallpaper.$.";
-            _.forIn(data, function(value, key) {
+            _.forIn(data, function (value, key) {
                 tobechanged[attribute + key] = value;
             });
             Movie.update({
                 "wallpaper._id": data._id
             }, {
                 $set: tobechanged
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1434,7 +1434,7 @@ var models = {
         }
     },
 
-    getAllWallpaper: function(data, callback) {
+    getAllWallpaper: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -1442,7 +1442,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         var skip = parseInt(data.pagesize * (data.pagenumber - 1));
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1460,7 +1460,7 @@ var models = {
                         $project: {
                             count: 1
                         }
-                    }]).exec(function(err, result) {
+                    }]).exec(function (err, result) {
                         console.log(result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
@@ -1476,7 +1476,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1497,7 +1497,7 @@ var models = {
                                 $slice: ["$wallpaper", skip, data.pagesize]
                             }
                         }
-                    }]).exec(function(err, found) {
+                    }]).exec(function (err, found) {
                         console.log(found);
                         if (found && found.length > 0) {
                             newreturns.data = found[0].wallpaper;
@@ -1516,7 +1516,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1529,7 +1529,7 @@ var models = {
     },
 
 
-    deleteWallpaper: function(data, callback) {
+    deleteWallpaper: function (data, callback) {
         Movie.update({
             "wallpaper._id": data._id
         }, {
@@ -1538,7 +1538,7 @@ var models = {
                     "_id": objectid(data._id)
                 }
             }
-        }, function(err, updated) {
+        }, function (err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
@@ -1550,7 +1550,7 @@ var models = {
 
     },
 
-    getOneWallpaper: function(data, callback) {
+    getOneWallpaper: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
             $unwind: "$wallpaper"
@@ -1562,7 +1562,7 @@ var models = {
             $project: {
                 wallpaper: 1
             }
-        }]).exec(function(err, respo) {
+        }]).exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -1579,7 +1579,7 @@ var models = {
 
     //SIDEMENU Awards
 
-    saveAwards: function(data, callback) {
+    saveAwards: function (data, callback) {
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1588,7 +1588,7 @@ var models = {
                 $push: {
                     awards: data
                 }
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1600,14 +1600,14 @@ var models = {
             data._id = objectid(data._id);
             tobechanged = {};
             var attribute = "awards.$.";
-            _.forIn(data, function(value, key) {
+            _.forIn(data, function (value, key) {
                 tobechanged[attribute + key] = value;
             });
             Movie.update({
                 "awards._id": data._id
             }, {
                 $set: tobechanged
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1618,7 +1618,7 @@ var models = {
         }
     },
 
-    getAllAwards: function(data, callback) {
+    getAllAwards: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -1626,7 +1626,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         var skip = parseInt(data.pagesize * (data.pagenumber - 1));
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1644,7 +1644,7 @@ var models = {
                         $project: {
                             count: 1
                         }
-                    }]).exec(function(err, result) {
+                    }]).exec(function (err, result) {
                         console.log(result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
@@ -1660,7 +1660,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1681,7 +1681,7 @@ var models = {
                                 $slice: ["$awards", skip, data.pagesize]
                             }
                         }
-                    }]).exec(function(err, found) {
+                    }]).exec(function (err, found) {
                         console.log(found);
                         if (found && found.length > 0) {
                             newreturns.data = found[0].awards;
@@ -1697,7 +1697,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1710,7 +1710,7 @@ var models = {
     },
 
 
-    deleteAwards: function(data, callback) {
+    deleteAwards: function (data, callback) {
         Movie.update({
             "awards._id": data._id
         }, {
@@ -1719,7 +1719,7 @@ var models = {
                     "_id": objectid(data._id)
                 }
             }
-        }, function(err, updated) {
+        }, function (err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
@@ -1730,7 +1730,7 @@ var models = {
         });
 
     },
-    getOneAwards: function(data, callback) {
+    getOneAwards: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
             $unwind: "$awards"
@@ -1742,7 +1742,7 @@ var models = {
             $project: {
                 awards: 1
             }
-        }]).exec(function(err, respo) {
+        }]).exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -1758,8 +1758,8 @@ var models = {
 
 
 
-    getAllMovies: function(data, callback) {
-        this.find({}, {}, {}).exec(function(err, deleted) {
+    getAllMovies: function (data, callback) {
+        this.find({}, {}, {}).exec(function (err, deleted) {
             if (err) {
                 callback(err, null);
             } else {
@@ -1768,12 +1768,12 @@ var models = {
         });
     },
 
-    saveDataMovie: function(data, callback) {
+    saveDataMovie: function (data, callback) {
         var movie = this(data);
         if (data._id) {
             this.findOneAndUpdate({
                 _id: data._id
-            }, data, function(err, data2) {
+            }, data, function (err, data2) {
                 if (err) {
                     callback(err, null);
                 } else {
@@ -1781,7 +1781,7 @@ var models = {
                 }
             });
         } else {
-            movie.save(function(err, data2) {
+            movie.save(function (err, data2) {
                 if (err) {
                     callback(err, null);
                 } else {
@@ -1792,7 +1792,7 @@ var models = {
     },
 
 
-    saveBehindTheScenes: function(data, callback) {
+    saveBehindTheScenes: function (data, callback) {
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -1801,7 +1801,7 @@ var models = {
                 $push: {
                     behindTheScenes: data
                 }
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1813,14 +1813,14 @@ var models = {
             data._id = objectid(data._id);
             tobechanged = {};
             var attribute = "behindTheScenes.$.";
-            _.forIn(data, function(value, key) {
+            _.forIn(data, function (value, key) {
                 tobechanged[attribute + key] = value;
             });
             Movie.update({
                 "behindTheScenes._id": data._id
             }, {
                 $set: tobechanged
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1831,7 +1831,7 @@ var models = {
         }
     },
 
-    getAllBehindTheScenes: function(data, callback) {
+    getAllBehindTheScenes: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -1839,7 +1839,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         var skip = parseInt(data.pagesize * (data.pagenumber - 1));
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1857,7 +1857,7 @@ var models = {
                         $project: {
                             count: 1
                         }
-                    }]).exec(function(err, result) {
+                    }]).exec(function (err, result) {
                         console.log(result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
@@ -1873,7 +1873,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -1894,7 +1894,7 @@ var models = {
                                 $slice: ["$behindTheScenes", skip, data.pagesize]
                             }
                         }
-                    }]).exec(function(err, found) {
+                    }]).exec(function (err, found) {
                         console.log(found);
                         if (found && found.length > 0) {
                             newreturns.data = found[0].behindTheScenes;
@@ -1910,7 +1910,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -1923,7 +1923,7 @@ var models = {
     },
 
 
-    deleteBehindTheScenes: function(data, callback) {
+    deleteBehindTheScenes: function (data, callback) {
         Movie.update({
             "behindTheScenes._id": data._id
         }, {
@@ -1932,7 +1932,7 @@ var models = {
                     "_id": objectid(data._id)
                 }
             }
-        }, function(err, updated) {
+        }, function (err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
@@ -1943,7 +1943,7 @@ var models = {
         });
 
     },
-    getOneBehindTheScenes: function(data, callback) {
+    getOneBehindTheScenes: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
             $unwind: "$behindTheScenes"
@@ -1955,7 +1955,7 @@ var models = {
             $project: {
                 behindTheScenes: 1
             }
-        }]).exec(function(err, respo) {
+        }]).exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -1969,7 +1969,7 @@ var models = {
         });
     },
 
-    getMovieDetails: function(data, callback) {
+    getMovieDetails: function (data, callback) {
         var check = "";
         if (data.search) {
             check = new RegExp(data.search, "i");
@@ -2016,7 +2016,7 @@ var models = {
             // 'year': -1,
             // 'name': 1
             upcomingOrder: -1
-        }).select("name upcomingOrder releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage status urlName").exec(function(err, respo) {
+        }).select("name upcomingOrder releaseType cutImage2 theatricalTrailerUrl theatricalTrailerImage cutImage month year mediumImage backgroundImage smallImage recentSmall upcomingSmall order bigImage status urlName").exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -2037,7 +2037,7 @@ var models = {
         // });
     },
 
-    getAllUpcomingMovies: function(data, callback) {
+    getAllUpcomingMovies: function (data, callback) {
         Movie.find({
             "releaseType": "Upcoming",
             "releaseDate": {
@@ -2055,7 +2055,7 @@ var models = {
             urlName: 1,
         }).sort({
             releaseDate: 1,
-        }).exec(function(err, deleted) {
+        }).exec(function (err, deleted) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2063,7 +2063,7 @@ var models = {
             }
         });
     },
-    getAllRecentMovies: function(data, callback) {
+    getAllRecentMovies: function (data, callback) {
         this.find({
             "releaseType": "Recent"
         }, {
@@ -2077,7 +2077,7 @@ var models = {
         }).sort({
             // year: -1
             upcomingOrder: -1
-        }).exec(function(err, deleted) {
+        }).exec(function (err, deleted) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2087,10 +2087,10 @@ var models = {
     },
     // getMovieNews: function()
 
-    getMovieNews: function(data, callback) {
+    getMovieNews: function (data, callback) {
         News.find({
             movie: data._id
-        }).exec(function(err, data2) {
+        }).exec(function (err, data2) {
             if (err) {
                 callback(err, null);
             } else if (data2) {
@@ -2119,7 +2119,7 @@ var models = {
     //     });
     // },
 
-    getMovieGal: function(data, callback) {
+    getMovieGal: function (data, callback) {
         Movie.aggregate([{
             $match: {
                 _id: objectid(data._id)
@@ -2137,7 +2137,7 @@ var models = {
                     $addToSet: "$gallery"
                 }
             }
-        }]).exec(function(err, data2) {
+        }]).exec(function (err, data2) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -2148,12 +2148,12 @@ var models = {
     },
 
 
-    getMovieBehindTheScenes: function(data, callback) {
+    getMovieBehindTheScenes: function (data, callback) {
         this.findOne({
             "_id": data._id
         }, {
             behindTheScenes: 1
-        }, {}).exec(function(err, data2) {
+        }, {}).exec(function (err, data2) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2161,13 +2161,13 @@ var models = {
             }
         });
     },
-    getMovieVideo: function(data, callback) {
+    getMovieVideo: function (data, callback) {
         this.findOne({
             "_id": data._id,
             // "type": "desktop"
         }, {
             videos: 1
-        }, {}).exec(function(err, data2) {
+        }, {}).exec(function (err, data2) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2176,12 +2176,12 @@ var models = {
             }
         });
     },
-    getMovieWallpaper: function(data, callback) {
+    getMovieWallpaper: function (data, callback) {
         this.findOne({
             "_id": data._id
         }, {
             wallpaper: 1
-        }, {}).exec(function(err, data2) {
+        }, {}).exec(function (err, data2) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2190,12 +2190,12 @@ var models = {
             }
         });
     },
-    getMovieAwards: function(data, callback) {
+    getMovieAwards: function (data, callback) {
         this.findOne({
             "_id": data._id
         }, {
             awards: 1
-        }, {}).exec(function(err, data2) {
+        }, {}).exec(function (err, data2) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2204,13 +2204,13 @@ var models = {
             }
         });
     },
-    getMovieSynopsisAndNote: function(data, callback) {
+    getMovieSynopsisAndNote: function (data, callback) {
         this.findOne({
             "_id": data._id
         }, {
             synopsis: 1,
             note: 1
-        }, {}).exec(function(err, data2) {
+        }, {}).exec(function (err, data2) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2219,12 +2219,12 @@ var models = {
             }
         });
     },
-    getMovieCast: function(data, callback) {
+    getMovieCast: function (data, callback) {
         this.findOne({
             "_id": data._id
         }, {
             cast: 1
-        }, {}).exec(function(err, data2) {
+        }, {}).exec(function (err, data2) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2233,12 +2233,12 @@ var models = {
             }
         });
     },
-    getMovieCrew: function(data, callback) {
+    getMovieCrew: function (data, callback) {
         this.findOne({
             "_id": data._id
         }, {
             crew: 1
-        }, {}).exec(function(err, data2) {
+        }, {}).exec(function (err, data2) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2247,7 +2247,7 @@ var models = {
             }
         });
     },
-    getAllMovieName: function(data, callback) {
+    getAllMovieName: function (data, callback) {
         Movie.find({}, {
             _id: 1,
             name: 1,
@@ -2262,7 +2262,7 @@ var models = {
         }, {}).sort({
             // year: -1
             upcomingOrder: -1
-        }).exec(function(err, deleted) {
+        }).exec(function (err, deleted) {
             if (err) {
                 callback(err, null);
             } else {
@@ -2272,10 +2272,10 @@ var models = {
 
     },
 
-    getAllTest: function(data, callback) {
+    getAllTest: function (data, callback) {
         Movie.find({}).sort({
             upcomingOrder: -1
-        }).exec(function(err, found) {
+        }).exec(function (err, found) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -2285,21 +2285,21 @@ var models = {
         });
     },
 
-    findAllSearchParam: function(data, callback) {
+    findAllSearchParam: function (data, callback) {
         var newreturns = {};
         var searchResult = [];
         newreturns.data = [];
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Dharmatv.find({}, {
                         tag: 1
-                    }).exec(function(err, data3) {
+                    }).exec(function (err, data3) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
                         } else if (data3 && data3.length > 0) {
-                            _.each(data3, function(n) {
-                                _.each(n.tag, function(m) {
+                            _.each(data3, function (n) {
+                                _.each(n.tag, function (m) {
                                     console.log(m);
                                     searchResult.push(m);
                                 });
@@ -2310,15 +2310,15 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.find({}, {
                         name: 1
-                    }).exec(function(err, data2) {
+                    }).exec(function (err, data2) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
                         } else if (data2 && data2.length > 0) {
-                            _.each(data2, function(o) {
+                            _.each(data2, function (o) {
                                 searchResult.push(o.name);
                             });
                             callback(null, searchResult);
@@ -2327,16 +2327,16 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.find({}, {
                         cast: 1
-                    }).exec(function(err, data1) {
+                    }).exec(function (err, data1) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
                         } else if (data1 && data1.length > 0) {
-                            _.each(data1, function(n) {
-                                _.each(n.cast, function(m) {
+                            _.each(data1, function (n) {
+                                _.each(n.cast, function (m) {
                                     searchResult.push(m.actor);
                                 });
                             });
@@ -2347,7 +2347,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -2365,7 +2365,7 @@ var models = {
 
     //SIDEMENU CAST
 
-    saveRelated: function(data, callback) {
+    saveRelated: function (data, callback) {
         var movie = data.movie;
         if (!data._id) {
             Movie.update({
@@ -2374,7 +2374,7 @@ var models = {
                 $push: {
                     related: data
                 }
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -2386,14 +2386,14 @@ var models = {
             data._id = objectid(data._id);
             tobechanged = {};
             var attribute = "related.$.";
-            _.forIn(data, function(value, key) {
+            _.forIn(data, function (value, key) {
                 tobechanged[attribute + key] = value;
             });
             Movie.update({
                 "related._id": data._id
             }, {
                 $set: tobechanged
-            }, function(err, updated) {
+            }, function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -2404,7 +2404,7 @@ var models = {
         }
     },
 
-    getAllRelated: function(data, callback) {
+    getAllRelated: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
         var check = new RegExp(data.search, "i");
@@ -2412,7 +2412,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         var skip = parseInt(data.pagesize * (data.pagenumber - 1));
         async.parallel([
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -2430,7 +2430,7 @@ var models = {
                         $project: {
                             count: 1
                         }
-                    }]).exec(function(err, result) {
+                    }]).exec(function (err, result) {
                         console.log(result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
@@ -2446,7 +2446,7 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
+                function (callback) {
                     Movie.aggregate([{
                         $match: {
                             _id: objectid(data._id)
@@ -2467,14 +2467,14 @@ var models = {
                                 $slice: ["$related", skip, data.pagesize]
                             }
                         }
-                    }]).exec(function(err, found) {
+                    }]).exec(function (err, found) {
                         console.log(found);
                         if (found && found.length > 0) {
                             newreturns.data = found[0].related;
 
                             Movie.populate(newreturns.data, {
                                 path: "relatedMovie"
-                            }, function(err, data3) {
+                            }, function (err, data3) {
                                 callback(null, data3);
                             });
 
@@ -2491,7 +2491,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -2504,7 +2504,7 @@ var models = {
     },
 
 
-    deleteRelated: function(data, callback) {
+    deleteRelated: function (data, callback) {
         Movie.update({
             "related._id": data._id
         }, {
@@ -2513,7 +2513,7 @@ var models = {
                     "_id": objectid(data._id)
                 }
             }
-        }, function(err, updated) {
+        }, function (err, updated) {
             console.log(updated);
             if (err) {
                 console.log(err);
@@ -2524,7 +2524,7 @@ var models = {
         });
 
     },
-    getOneRelated: function(data, callback) {
+    getOneRelated: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
             $unwind: "$related"
@@ -2536,7 +2536,7 @@ var models = {
             $project: {
                 related: 1
             }
-        }]).exec(function(err, respo) {
+        }]).exec(function (err, respo) {
             if (err) {
                 console.log(err);
                 callback(err, null);
