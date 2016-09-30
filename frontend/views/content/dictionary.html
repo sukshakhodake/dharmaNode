@@ -17,27 +17,27 @@
                             <!-- <p class="color-white">  {{news10}}</p> -->
                             <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
 
-                                <div class="masonry-brick bg-white" ng-repeat="item in dicks track by $index" >
+                                <div class="masonry-brick bg-white" ng-repeat="item in myDictionary track by $index" >
 
                                     <a >
 
                                         <div class="masonry-box">
                                             <div class="dh-relative">
-                                              <img ng-src="{{item.img}}" alt="Dharma Production">
+                                              <img ng-src="{{item.image |uploadpath}}" alt="Dharma Production">
                                               <div class="dh-absulate middle text-c-m">
                                                 <img src="frontend/img/dicks/gif.png" alt="Dharma Productions" class="w30">
                                               </div>
                                             </div>
                                             <div class="padd10">
                                                 <div class="news-title">
-                                                    <h4 class="margin0">{{item.name}}</h4>
-                                                    <span class="color-dark">{{item.def}}</span>
+                                                    <h4 class="margin0">{{item.title}}</h4>
+                                                    <span class="color-dark">{{item.name}}</span>
                                                 </div>
                                                 <div class="news-date dg-pd">
-                                                    <span class="color-dark">-{{item.tens}}</span>
+                                                    <span class="color-dark">-{{item.grammar}}</span>
                                                 </div>
                                                 <div class="news-date">
-                                                    <span class="color-dark">-{{item.meaning}}</span>
+                                                    <span class="color-dark">-{{item.description}}</span>
                                                 </div>
 
                                             </div>

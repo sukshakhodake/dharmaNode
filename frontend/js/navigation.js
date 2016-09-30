@@ -217,6 +217,18 @@ var navigationservice = angular.module('navigationservice', [])
             });
 
         },
+        getNewsHomeSearch: function(request, i, callback) {
+            console.log("myrequest", request);
+            $http({
+                url: adminurl + 'dictionary/findLimited',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(function(data) {
+                callback(data, i);
+            });
+
+        },
         getAllMovieName: function(callback) {
 
             $http({

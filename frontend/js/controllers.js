@@ -278,6 +278,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Dictionary");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+          TemplateService.removeLoaderOn(1);
 
         $scope.dicks = [{
                 img: "frontend/img/dicks/1.jpg",
@@ -329,6 +330,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               tens: "Noun",
               meaning: "When your wardrobe makes headlines every day."
             }];
+            $scope.myDictionary = [];
+            $scope.filter = {};
+            $scope.filter.pagenumber = 1;
+            $scope.filter.pagesize = 500;
+            var i = 0;
+            NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
+              console.log('inside api');
+                if (newI == i) {
+                    $scope.myDictionary = data.data.data;
+                    console.log($scope.myDictionary);
+                    TemplateService.removeLoader();
+
+                }
+                  });
+
 
     })
     .controller('PrivacyPolicyCtrl', function($scope, TemplateService, NavigationService) {
