@@ -575,16 +575,16 @@
                     <div class="row-flex text-center" ng-if="MovieRelated.length<=5">
                 <div class="col-flex" ng-repeat="item in MovieRelated track by $index" >
                     <div  class="img-pads">
-                      <a ui-sref="movie-inside({id:item.urlName})">
+                      <a ng-if="item.status==true" ui-sref="movie-inside({id:item.urlName})">
                         <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
                         <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
                         <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
                       </a>
-                      <!-- <a ng-if="item.status==false" ui-sref="movie-inside({id:item._id})">
+                      <a ng-if="item.status==false">
                         <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
                         <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
                         <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
-                      </a> -->
+                      </a>
                     </div>
 
                 </div>
@@ -593,7 +593,7 @@
                     <div class="mobs-slider" ng-if="MovieRelated.length>5">
                         <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1">
                             <li>
-                                <a ui-sref="movie-inside({id:item.urlName})">
+                                <a ng-if="item.status==true" ui-sref="movie-inside({id:item.urlName})">
                                     <div class="img-pads">
                                         <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
                                         <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
@@ -602,7 +602,7 @@
                                     </div>
 
                                 </a>
-                                <!-- <a ng-if="item.status==false" ui-sref="movie-inside({id:item.urlName})">
+                                <a ng-if="item.status==false">
                                     <div class="img-pads">
                                         <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
                                         <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
@@ -610,7 +610,7 @@
 
                                     </div>
 
-                                </a> -->
+                                </a>
                             </li>
                         </flex-slider>
                     </div>
