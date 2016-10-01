@@ -19,7 +19,7 @@ $black: #171717 !default;
 $grey: #6f6f6e !default;
 $dark-black: #383838 !default;
 $dark-primary: #da4f09 !default;
-$font-family-sans-serif: "Karla", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif: "Karla", "Helvetica Neue","AMRTYPEN", Helvetica, Arial, sans-serif !default;
 $font-family-serif: "Hammersmith One", Georgia, "Times New Roman", Times, serif !default;
 $border-radius-base: 0 !default;
 $border-radius-large: 0 !default;
@@ -28,6 +28,13 @@ $border-radius-small: 0 !default;
 body {
     padding-top: 0;
     -webkit-font-smoothing: antialiased;
+}
+@font-face {
+    font-family: "AMRTYPEN";
+    src: url("../fonts/AMRTYPEN.ttf");
+}
+.font-amrtypen{
+  font-family: 'amrtypen';
 }
 [ui-sref] {
     cursor: pointer;
@@ -49,6 +56,9 @@ img.loading {
     .flex-direction-nav {
         margin-top: 30px;
     }
+}
+.font-italic{
+  font-style: italic;
 }
 .common-class {
     .flex-control-nav {
