@@ -206,7 +206,7 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getNewsHomeSearch: function(request, i, callback) {
-            console.log("myrequest", request);
+            console.log("in news", request);
             $http({
                 url: adminurl + 'news/findLimited',
                 method: 'POST',
@@ -217,8 +217,8 @@ var navigationservice = angular.module('navigationservice', [])
             });
 
         },
-        getNewsHomeSearch: function(request, i, callback) {
-            console.log("myrequest", request);
+        getDictionary: function(request, i, callback) {
+            console.log("in dictionary", request);
             $http({
                 url: adminurl + 'dictionary/findLimited',
                 method: 'POST',

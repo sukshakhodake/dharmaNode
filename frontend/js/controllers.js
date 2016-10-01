@@ -335,7 +335,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.filter.pagenumber = 1;
             $scope.filter.pagesize = 500;
             var i = 0;
-            NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
+            NavigationService.getDictionary($scope.filter, ++i, function(data, newI) {
               console.log('inside api');
                 if (newI == i) {
                     $scope.myDictionary = data.data.data;
