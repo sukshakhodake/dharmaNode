@@ -35,7 +35,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'DharmaTvCtrl'
         })
         .state('fan-corner', {
-            url: "/fan-corner",
+            url: "/fan-corner/:quesno",
             templateUrl: "frontend/views/template.html",
             controller: 'FanCornerCtrl'
         })

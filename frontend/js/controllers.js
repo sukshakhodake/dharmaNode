@@ -33,7 +33,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
     NavigationService.getAllUpcomingMovies(function(data) {
         $scope.AllUpcomingMovies = _.orderBy(data.data, function(n) {
-            var date2 = moment("01-" + n.month + "-" + n.year,"D-M-YYYY");
+            var date2 = moment("01-" + n.month + "-" + n.year, "D-M-YYYY");
             return (date2.unix());
         });
 
@@ -217,16 +217,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
     $scope.template = TemplateService;
-    if($.jStorage.get("allMovieName"))
-    {
-      $scope.allMovieName = $.jStorage.get("allMovieName");
-    }
-    else {
-      NavigationService.getAllMovieName(function(data) {
-          $.jStorage.setTTL("allMovieName",data.data,3600000);
-          $scope.allMovieName = data.data;
+    if ($.jStorage.get("allMovieName")) {
+        $scope.allMovieName = $.jStorage.get("allMovieName");
+    } else {
+        NavigationService.getAllMovieName(function(data) {
+            $.jStorage.setTTL("allMovieName", data.data, 3600000);
+            $scope.allMovieName = data.data;
 
-      });
+        });
     }
     NavigationService.getAllTwitter(function(data) {
         // $scope.getAllTwitterTag = data.data;
@@ -266,84 +264,84 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-.controller('FanLandingCtrl', function($scope, TemplateService, NavigationService) {
+    .controller('FanLandingCtrl', function($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("fan-landing");
         $scope.menutitle = NavigationService.makeactive("Fan Landing");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
     })
-.controller('DictionaryCtrl', function($scope, TemplateService, NavigationService) {
+    .controller('DictionaryCtrl', function($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("dictionary");
         $scope.menutitle = NavigationService.makeactive("Dictionary");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-          TemplateService.removeLoaderOn(1);
+        TemplateService.removeLoaderOn(1);
 
         $scope.dicks = [{
-                img: "frontend/img/dicks/1.jpg",
-                name: "SHANA-YISTA:",
-                def: "Sha-Naa-Yaa-Ista",
-                tens: "Noun",
-                meaning: "When your wardrobe makes headlines every day."
+            img: "frontend/img/dicks/1.jpg",
+            name: "SHANA-YISTA:",
+            def: "Sha-Naa-Yaa-Ista",
+            tens: "Noun",
+            meaning: "When your wardrobe makes headlines every day."
 
-            }, {
-              img: "frontend/img/dicks/2.jpg",
-              name: "SHANA-YISTA:",
-              def: "Sha-Naa-Yaa-Ista",
-              tens: "Noun",
-              meaning: "When your wardrobe makes headlines every day."
-            }, {
-              img: "frontend/img/dicks/3.jpg",
-              name: "SHANA-YISTA:",
-              def: "Sha-Naa-Yaa-Ista",
-              tens: "Noun",
-              meaning: "When your wardrobe makes headlines every day."
-            }, {
-              img: "frontend/img/dicks/4.jpg",
-              name: "SHANA-YISTA:",
-              def: "Sha-Naa-Yaa-Ista",
-              tens: "Noun",
-              meaning: "When your wardrobe makes headlines every day."
-            }, {
-              img: "frontend/img/dicks/5.jpg",
-              name: "SHANA-YISTA:",
-              def: "Sha-Naa-Yaa-Ista",
-              tens: "Noun",
-              meaning: "When your wardrobe makes headlines every day."
-            }, {
-              img: "frontend/img/dicks/1.jpg",
-              name: "SHANA-YISTA:",
-              def: "Sha-Naa-Yaa-Ista",
-              tens: "Noun",
-              meaning: "When your wardrobe makes headlines every day."
-            }, {
-              img: "frontend/img/dicks/2.jpg",
-              name: "SHANA-YISTA:",
-              def: "Sha-Naa-Yaa-Ista",
-              tens: "Noun",
-              meaning: "When your millionaire family is running out of ways to spend their money.."
-            }, {
-              img: "frontend/img/dicks/3.jpg",
-              name: "SHANA-YISTA:",
-              def: "Sha-Naa-Yaa-Ista",
-              tens: "Noun",
-              meaning: "When your wardrobe makes headlines every day."
-            }];
-            $scope.myDictionary = [];
-            $scope.filter = {};
-            $scope.filter.pagenumber = 1;
-            $scope.filter.pagesize = 500;
-            var i = 0;
-            NavigationService.getDictionary($scope.filter, ++i, function(data, newI) {
-              console.log('inside api');
-                if (newI == i) {
-                    $scope.myDictionary = data.data.data;
-                    console.log($scope.myDictionary);
-                    TemplateService.removeLoader();
+        }, {
+            img: "frontend/img/dicks/2.jpg",
+            name: "SHANA-YISTA:",
+            def: "Sha-Naa-Yaa-Ista",
+            tens: "Noun",
+            meaning: "When your wardrobe makes headlines every day."
+        }, {
+            img: "frontend/img/dicks/3.jpg",
+            name: "SHANA-YISTA:",
+            def: "Sha-Naa-Yaa-Ista",
+            tens: "Noun",
+            meaning: "When your wardrobe makes headlines every day."
+        }, {
+            img: "frontend/img/dicks/4.jpg",
+            name: "SHANA-YISTA:",
+            def: "Sha-Naa-Yaa-Ista",
+            tens: "Noun",
+            meaning: "When your wardrobe makes headlines every day."
+        }, {
+            img: "frontend/img/dicks/5.jpg",
+            name: "SHANA-YISTA:",
+            def: "Sha-Naa-Yaa-Ista",
+            tens: "Noun",
+            meaning: "When your wardrobe makes headlines every day."
+        }, {
+            img: "frontend/img/dicks/1.jpg",
+            name: "SHANA-YISTA:",
+            def: "Sha-Naa-Yaa-Ista",
+            tens: "Noun",
+            meaning: "When your wardrobe makes headlines every day."
+        }, {
+            img: "frontend/img/dicks/2.jpg",
+            name: "SHANA-YISTA:",
+            def: "Sha-Naa-Yaa-Ista",
+            tens: "Noun",
+            meaning: "When your millionaire family is running out of ways to spend their money.."
+        }, {
+            img: "frontend/img/dicks/3.jpg",
+            name: "SHANA-YISTA:",
+            def: "Sha-Naa-Yaa-Ista",
+            tens: "Noun",
+            meaning: "When your wardrobe makes headlines every day."
+        }];
+        $scope.myDictionary = [];
+        $scope.filter = {};
+        $scope.filter.pagenumber = 1;
+        $scope.filter.pagesize = 500;
+        var i = 0;
+        NavigationService.getDictionary($scope.filter, ++i, function(data, newI) {
+            console.log('inside api');
+            if (newI == i) {
+                $scope.myDictionary = data.data.data;
+                console.log($scope.myDictionary);
+                TemplateService.removeLoader();
 
-                }
-                  });
+            }
+        });
 
 
     })
@@ -356,36 +354,333 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 .controller('AwardsCtrl', function($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.changecontent("awards");
-    $scope.menutitle = NavigationService.makeactive("Awards");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("awards");
+        $scope.menutitle = NavigationService.makeactive("Awards");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
-.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService,$uibModal) {
-    $scope.template = TemplateService.changecontent("fan-corner");
-    $scope.menutitle = NavigationService.makeactive("Fan Corner");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.openModal = function() {
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/share.html',
-            controller: 'FanCornerCtrl',
-            size: 'lg',
-            windowClass: 'fan-modal',
-        });
-    };
+    })
+    .controller('FanCornerCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state,$stateParams) {
+        $scope.template = TemplateService.changecontent("fan-corner");
+        $scope.menutitle = NavigationService.makeactive("Fan Corner");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.openModal = function() {
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'frontend/views/modal/share.html',
+                controller: 'FanCornerCtrl',
+                size: 'lg',
+                windowClass: 'fan-modal',
+            });
+        };
+        $scope.currentquestion = {};
+        $scope.quest = {};
+        // $scope.myVal = $.jStorage.set("myAnswer", $scope.quest);
+        // console.log($scope.myVal);
+
+        // _.find(users, ['active', false]);
+        $scope.rapidFire = [{
+            id: 1,
+            quesNo: "Q1",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest1",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, {
+            id: 2,
+            quesNo: "Q2",
+            question: "When was SRK born?",
+            model: "quest2",
+            options: [{
+                "id": "radio1",
+                "name": "November"
+            }, {
+                "id": "radio2",
+                "name": "January"
+            }, {
+                "id": "radio3",
+                "name": "May"
+            }, {
+                "id": "radio4",
+                "name": "December"
+            }]
+        }, {
+            id: 3,
+            quesNo: "Q3",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest3",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, {
+            id: 4,
+            quesNo: "Q4",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest4",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, {
+            id: 5,
+            quesNo: "Q5",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest5",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, {
+            id: 6,
+            quesNo: "Q6",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest6",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, {
+            id: 7,
+            quesNo: "Q7",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest7",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, {
+            id: 8,
+            quesNo: "Q8",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest8",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, {
+            id: 9,
+            quesNo: "Q9",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest9",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, {
+            id: 10,
+            quesNo: "Q10",
+            question: "What was SRK’s name in Kal Ho Na Ho?",
+            model: "quest10",
+            options: [{
+                "id": "radio1",
+                "name": "aman"
+            }, {
+                "id": "radio2",
+                "name": "jaman"
+            }, {
+                "id": "radio3",
+                "name": "raman"
+            }, {
+                "id": "radio4",
+                "name": "daman"
+            }]
+        }, ];
+
+        $scope.rapidFireAnswer = [{
+            quesNo: "Q1",
+            answer: "aman"
+        }, {
+            quesNo: "Q2",
+            answer: "November"
+        }, {
+            quesNo: "Q3",
+            answer: "jaman"
+        }, {
+            quesNo: "Q4",
+            answer: "daman"
+        }, {
+            quesNo: "Q5",
+            answer: "aman"
+        }, {
+            quesNo: "Q6",
+            answer: "aman"
+        }, {
+            quesNo: "Q7",
+            answer: "aman"
+        }, {
+            quesNo: "Q8",
+            answer: "daman"
+        }, {
+            quesNo: "Q9",
+            answer: "aman"
+        }, {
+            quesNo: "Q10",
+            answer: "raman"
+        }]
+
+        $scope.count = 0;
+        // $scope.nextQuest = function(val) {
+        //     $scope.count = $scope.count + 1;
+        //     $state.go('fan-corner', {
+        //         quesno: $scope.count
+        //     },{
+        //       notify:false
+        //     });
+        //     console.log($scope.count);
+        // }
+        $scope.showScore = false;
+        $scope.skipQuest = function() {
+          $state.go('fan-corner', {
+              quesno: $scope.currentquestion.id + 1
+          });
+        }
+        $scope.allotQuestion = function (questionNo) {
+          console.log(questionNo);
+          $scope.currentquestion = _.find($scope.rapidFire,function(o) { return o.id == questionNo; });
+          console.log('$scope.currentquestion',$scope.currentquestion);
+
+        }
+
+        $scope.answerQuestion = function () {
+          if($stateParams.quesno < 10){
+            $.jStorage.set($scope.currentquestion.quesNo,$scope.currentquestion.answer);
+            console.log($.jStorage.get($scope.currentquestion.quesNo));
+            console.log('$scope.currentquestion.id',$scope.currentquestion.id);
+            $state.go('fan-corner', {
+                quesno: $scope.currentquestion.id + 1
+            });
+          }else{
+            $scope.showScore = true;
+            _.each($scope.rapidFireAnswer,function (key) {
+              if($.jStorage.get(key.quesNo)== key.answer){
+                $scope.count = $scope.count+1;
+                console.log($scope.count);
+              }
+            })
+          }
 
 
-})
-.controller('DisclaimerCtrl', function($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.changecontent("disclaimer");
-    $scope.menutitle = NavigationService.makeactive("Disclaimer");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        }
+        // $scope.showScore = false;
+        // if($stateParams.quesno  10){
+        //   $scope.showScore = true;
+        //   _.each($scope.rapidFireAnswer,function (key) {
+        //     if($.jStorage.get(key.quesno)== key.answer){
+        //       $scope.count = $scope.count+1;
+        //       console.log($scope.count);
+        //     }
+        //   })
+        // }
 
-})
+
+        $scope.selectAnswer = function (answer) {
+          $scope.currentquestion.answer = answer;
+        }
+        // $scope.questPoints = 0;
+        // $scope.storeVal = function(qno, val) {
+        //     console.log(qno, val, '/////////');
+        //     $scope.findAns = _.findIndex($scope.rapidFireAnswer, {
+        //         'quesNo': qno,
+        //         'answer': val
+        //     });
+        //     console.log($scope.findAns);
+        //     if ($scope.findAns != -1) {
+        //         $scope.questPoints = $scope.questPoints + 1;
+        //     }
+        //     console.log($scope.questPoints, 'myPoints');
+        // }
+
+        if (!$stateParams.quesno) {
+            // $stateParams.quesno = 1;
+            $scope.allotQuestion(1)
+        }else{
+          $scope.allotQuestion($stateParams.quesno)
+        }
+
+    })
+    .controller('DisclaimerCtrl', function($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("disclaimer");
+        $scope.menutitle = NavigationService.makeactive("Disclaimer");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
 
 .controller('DharmaJourneyCtrl', function($scope, TemplateService, NavigationService) {
     $scope.template = TemplateService.changecontent("dharma-journey");
@@ -627,7 +922,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.moviefindOne.backgroundImage = $filter('uploadpath')($scope.moviefindOne.backgroundImage);
             $scope.moviefindOne.cutImage2 = $filter('uploadpath')($scope.moviefindOne.cutImage2);
             $scope.moviefindOne.cutImage = $filter('uploadpath')($scope.moviefindOne.cutImage);
-$scope.myrelated = {};
+            $scope.myrelated = {};
 
             TemplateService.removeLoader();
             $scope.getOneMovie = data.data;
@@ -644,7 +939,7 @@ $scope.myrelated = {};
             $scope.MovieGal = data.data.gallery;
 
             $scope.MovieRelated = data.data.related;
-            console.log('$scope.MovieRelated ',$scope.MovieRelated);
+            console.log('$scope.MovieRelated ', $scope.MovieRelated);
             // _.each($scope.MovieRelated,function(n){
             // $scope.myrelated =  n.relatedMovie;
             // console.log('$scope.MovieRelated ',$scope.myrelated);
@@ -687,73 +982,73 @@ $scope.myrelated = {};
             }
         };
         $scope.tabing = [{
-                name: "Synopsis",
-                class: "classa",
-                tab: "synopsis",
-                id: "1",
-                ngclass: "movieSynopsisAndNote.synopsis ==''",
-                ngdisabled: "movieSynopsisAndNote.synopsis ==''",
-                index: 0
-            }, {
-                name: "CAST & CREDITS",
-                class: "classb",
-                tab: "cast",
-                id: "2",
-                ngclass: "movieCast.length<=0",
-                ngdisabled: "movieCast.length<=0",
-                index: 1
-            }, {
-                name: "News",
-                class: "classc",
-                tab: "news",
-                id: "3",
-                ngclass: "movieNews.length<=0",
-                ngdisabled: "movieNews.length<=0",
-                index: 2,
-                nghide: "movieNews.length<=0"
-            }, {
-                name: "Gallery",
-                class: "classd",
-                tab: "gallery",
-                id: "4",
-                ngclass: "MovieGal.length<=0",
-                ngdisabled: "MovieGal.length<=0",
-                index: 3
-            }, {
-                name: "behind the scenes",
-                class: "classe",
-                tab: "scene",
-                id: "5",
-                ngclass: "movieBehindTheScenes.length<=0",
-                ngdisabled: "movieBehindTheScenes.length<=0",
-                index: 4
-            }, {
-                name: "VIDEOS",
-                class: "classf",
-                tab: "video",
-                id: "6",
-                ngclass: "movieVideo10.length<=0",
-                ngdisabled: "movieVideo10.length<=0",
-                index: 5
-            }, {
-                name: "WALLPAPERS",
-                class: "classg",
-                tab: "wallpapper",
-                id: "7",
-                ngclass: "movieWallpaper.length<=0",
-                ngdisabled: "movieWallpaper.length<=0",
-                index: 6
-            }, {
-                name: "AWARDS",
-                class: "classh",
-                tab: "awards",
-                id: "8",
-                ngclass: "MovieAwards.length  == 0",
-                ngdisabled: "MovieAwards.length  == 0",
-                index: 7,
-                nghide: "MovieAwards.length  == 0"
-            }];
-            // }, 1000);
+            name: "Synopsis",
+            class: "classa",
+            tab: "synopsis",
+            id: "1",
+            ngclass: "movieSynopsisAndNote.synopsis ==''",
+            ngdisabled: "movieSynopsisAndNote.synopsis ==''",
+            index: 0
+        }, {
+            name: "CAST & CREDITS",
+            class: "classb",
+            tab: "cast",
+            id: "2",
+            ngclass: "movieCast.length<=0",
+            ngdisabled: "movieCast.length<=0",
+            index: 1
+        }, {
+            name: "News",
+            class: "classc",
+            tab: "news",
+            id: "3",
+            ngclass: "movieNews.length<=0",
+            ngdisabled: "movieNews.length<=0",
+            index: 2,
+            nghide: "movieNews.length<=0"
+        }, {
+            name: "Gallery",
+            class: "classd",
+            tab: "gallery",
+            id: "4",
+            ngclass: "MovieGal.length<=0",
+            ngdisabled: "MovieGal.length<=0",
+            index: 3
+        }, {
+            name: "behind the scenes",
+            class: "classe",
+            tab: "scene",
+            id: "5",
+            ngclass: "movieBehindTheScenes.length<=0",
+            ngdisabled: "movieBehindTheScenes.length<=0",
+            index: 4
+        }, {
+            name: "VIDEOS",
+            class: "classf",
+            tab: "video",
+            id: "6",
+            ngclass: "movieVideo10.length<=0",
+            ngdisabled: "movieVideo10.length<=0",
+            index: 5
+        }, {
+            name: "WALLPAPERS",
+            class: "classg",
+            tab: "wallpapper",
+            id: "7",
+            ngclass: "movieWallpaper.length<=0",
+            ngdisabled: "movieWallpaper.length<=0",
+            index: 6
+        }, {
+            name: "AWARDS",
+            class: "classh",
+            tab: "awards",
+            id: "8",
+            ngclass: "MovieAwards.length  == 0",
+            ngdisabled: "MovieAwards.length  == 0",
+            index: 7,
+            nghide: "MovieAwards.length  == 0"
+        }];
+        // }, 1000);
 
         $(window).scroll(function() {
             if ($(this).scrollTop() > 500) {
@@ -1103,22 +1398,22 @@ $scope.myrelated = {};
         });
 
 
-            $scope.movie = [{
-                img: "frontend/img/movie/m1.jpg",
-                name: "Ae Dil hai mushkil"
-            }, {
-                img: "frontend/img/movie/m2.jpg",
-                name: "BAAR BAAR DEKHO"
-            }, {
-                img: "frontend/img/movie/m3.jpg",
-                name: "BADRINATH KI DULHANIYA"
-            }, {
-                img: "frontend/img/movie/m4.jpg",
-                name: "RAM LAKHAN"
-            }, {
-                img: "frontend/img/movie/m5.jpg",
-                name: "ok jaanu"
-            }];
+        $scope.movie = [{
+            img: "frontend/img/movie/m1.jpg",
+            name: "Ae Dil hai mushkil"
+        }, {
+            img: "frontend/img/movie/m2.jpg",
+            name: "BAAR BAAR DEKHO"
+        }, {
+            img: "frontend/img/movie/m3.jpg",
+            name: "BADRINATH KI DULHANIYA"
+        }, {
+            img: "frontend/img/movie/m4.jpg",
+            name: "RAM LAKHAN"
+        }, {
+            img: "frontend/img/movie/m5.jpg",
+            name: "ok jaanu"
+        }];
 
     })
     .controller('ContactUsCtrl', function($scope, TemplateService, NavigationService) {
@@ -1502,14 +1797,14 @@ $scope.myrelated = {};
 
 
         NavigationService.getMonthYear(function(data) {
-                $scope.monthYear = data.data;
-                $scope.month = data.data.month;
-                $scope.month = $scope.month.sort();
-                $scope.month = $scope.month.sort(function(a, b) {
-                    return b - a;
-                });
-                $scope.month = $scope.month.reverse();
+            $scope.monthYear = data.data;
+            $scope.month = data.data.month;
+            $scope.month = $scope.month.sort();
+            $scope.month = $scope.month.sort(function(a, b) {
+                return b - a;
             });
+            $scope.month = $scope.month.reverse();
+        });
 
 
         $scope.doSearch = function() {
@@ -1751,20 +2046,20 @@ $scope.myrelated = {};
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         // TemplateService.removeLoaderOn(2);
-if(!$stateParams.id){
-  console.log($stateParams.id);
-  console.log('here11111111111111');
-  NavigationService.getAllTwitter(function(data) {
-    $scope.getFirstId = data.data[0]._id;
-    $stateParams.id=$scope.getFirstId;
-      // $scope.getAllTwitterTag = data.data;
+        if (!$stateParams.id) {
+            console.log($stateParams.id);
+            console.log('here11111111111111');
+            NavigationService.getAllTwitter(function(data) {
+                $scope.getFirstId = data.data[0]._id;
+                $stateParams.id = $scope.getFirstId;
+                // $scope.getAllTwitterTag = data.data;
 
 
-      // $scope.selectOneHashTag($stateParams.id);
-      // TemplateService.removeLoader();
+                // $scope.selectOneHashTag($stateParams.id);
+                // TemplateService.removeLoader();
 
-  });
-}
+            });
+        }
         NavigationService.getAllTwitter(function(data) {
             $scope.getAllTwitterTag = data.data;
 
