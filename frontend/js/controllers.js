@@ -374,6 +374,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: 'fan-modal',
             });
         };
+
+        console.log();
+// $.jStorage.set('firstUI',true);
+// $scope.firstUI = false;
+// if($.jStorage.get("Q1") == null){
+//   console.log('///////////////////');
+//     $scope.firstUI = true;
+// }else{
+//   $scope.firstUI = false;
+// }
+
+        // $scope.secondUI = false;
+        $scope.showSecondUI = function(){
+          $state.go('fan-corner', {
+              quesno: 1
+          });
+          // $.jStorage.flush();
+          // $scope.firstUI = false;
+          // $scope.secondUI = true;
+        }
+
         $scope.currentquestion = {};
         $scope.quest = {};
         // $scope.myVal = $.jStorage.set("myAnswer", $scope.quest);
@@ -606,6 +627,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
         $scope.showScore = false;
         $scope.skipQuest = function() {
+
           if($stateParams.quesno < 10){
             $state.go('fan-corner', {
                 quesno: $scope.currentquestion.id + 1
@@ -630,7 +652,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.answerQuestion = function () {
-
+  $scope.firstUI = false;
           if($stateParams.quesno < 10){
             $.jStorage.set($scope.currentquestion.quesNo,$scope.currentquestion.answer);
             console.log($.jStorage.get($scope.currentquestion.quesNo));
@@ -682,9 +704,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
         if (!$stateParams.quesno) {
+          $scope.firstUI = true;
             // $stateParams.quesno = 1;
             $scope.allotQuestion(1)
         }else{
+          $scope.firstUI = false;
           $scope.allotQuestion($stateParams.quesno)
         }
 

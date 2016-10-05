@@ -8,19 +8,19 @@
                         <h1 class="color-white font-hammersmith f120 margin0">RAPID FIRE</h1>
                         <h1 class="color-white font-hammersmith f120 margin0">WITH DHARMA</h1>
                     </div>
-                    <!-- <div class="hide-first">
+                    <div class="hide-first" ng-show="firstUI">
   <div class="text-center f18 color-white mob-font-10 mob-web-font-10 pt20">
     <p class="margin0">Will you make it to the end – without the hero dying?</p>
     <div class="change-sc pt40">
   <h2 class="color-primary font-bold text-center">TODAYS CONTEST: HOW WELL DO YOU KNOW SRK?</h2>
   <div class="big-pl text-center mt15">
-    <a href=""><img src="frontend/img/big-play.png" alt="Dharma Production"></a>
+    <a ng-click="showSecondUI()"><img src="frontend/img/big-play.png" alt="Dharma Production"></a>
   </div>
     </div>
 
   </div>
-</div> -->
-                    <div class="hide-sec">
+</div>
+                    <div class="hide-sec" ng-hide="firstUI">
                         <div class="change-sc pt40 ">
                             <h2 class="color-primary font-bold text-center">TODAYS CONTEST: HOW WELL DO YOU KNOW SRK?</h2>
                             <div class="big-pl text-center mt15">
