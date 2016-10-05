@@ -2665,6 +2665,46 @@ a{
 .pad-img {
     padding: 70px 40px;
 }
+.progres {
+  overflow: hidden;
+  height: 80px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+.progres:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 5px solid #f37021;
+  border-radius: 50%;
+  padding: 35px;
+  margin: -2px 0px 0px 0px;
+
+}
+#bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sc-bg{
+  background: url(../img/wt.png) no-repeat;
+  background-size: cover;
+  background-position: top center;
+  padding: 13px;
+}
+.ps-wt{
+  position: absolute;
+top: 29px;
+right: 10px;
+span{
+  display: block;
+font-size: 30px;
+}
+}
 @import "main2";
 @import "timeline";
 @import "mobile";
