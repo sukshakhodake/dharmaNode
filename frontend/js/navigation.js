@@ -363,6 +363,22 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
+        changeTimerRapid: function() {
+          var rapidTimer = $.jStorage.get("rapidTimer");
+          var returnVal;
+          if(rapidTimer && rapidTimer != 1) {
+            returnVal  = rapidTimer - 1;
+            $.jStorage.set("rapidTimer",returnVal);
+          }
+          else if( rapidTimer != 1) {
+            $.jStorage.set("rapidTimer",90);
+            returnVal = 90;
+          } else {
+            $.jStorage.set("rapidTimer",null);
+            returnVal = 0;
+          }
+          return returnVal;
+        }
 
     };
 });

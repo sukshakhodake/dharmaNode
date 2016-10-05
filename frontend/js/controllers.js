@@ -2,7 +2,8 @@ var initMap = {};
 var calculateAndDisplayRoute = {};
 var google;
 var allMovieName = [];
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'wu.masonry', 'ksSwiper', 'imageupload', 'ui.select', 'infinite-scroll'])
+var context;
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'wu.masonry', 'ksSwiper', 'imageupload', 'ui.select', 'infinite-scroll', 'rapidAnswer'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
     //Used to name the .html file
@@ -354,372 +355,164 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 .controller('AwardsCtrl', function($scope, TemplateService, NavigationService) {
-        $scope.template = TemplateService.changecontent("awards");
-        $scope.menutitle = NavigationService.makeactive("Awards");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
+    $scope.template = TemplateService.changecontent("awards");
+    $scope.menutitle = NavigationService.makeactive("Awards");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
 
-    })
-    .controller('FanCornerCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state,$stateParams) {
-        $scope.template = TemplateService.changecontent("fan-corner");
-        $scope.menutitle = NavigationService.makeactive("Fan Corner");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
-        $scope.openModal = function() {
-            var modalInstance = $uibModal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'frontend/views/modal/share.html',
-                controller: 'FanCornerCtrl',
-                size: 'lg',
-                windowClass: 'fan-modal',
+})
+
+.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval) {
+    $scope.template = TemplateService.changecontent("fan-corner");
+    $scope.menutitle = NavigationService.makeactive("Fan Corner");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.openModal = function() {
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'frontend/views/modal/share.html',
+            controller: 'FanCornerCtrl',
+            size: 'lg',
+            windowClass: 'fan-modal',
+        });
+    };
+
+    $scope.firstUI = true;
+
+    $scope.showSecondUI = function() {
+        $state.go('fan-corner-play', {
+            id: 1
+        });
+    };
+
+
+
+
+})
+
+.controller('FanCornerPlayCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, RapidAnswer, $timeout) {
+    $scope.template = TemplateService.changecontent("fan-corner");
+    $scope.menutitle = NavigationService.makeactive("Fan Corner");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.openModal = function() {
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'frontend/views/modal/share.html',
+            controller: 'FanCornerCtrl',
+            size: 'lg',
+            windowClass: 'fan-modal',
+        });
+    };
+
+    $scope.firstUI = false;
+
+    $scope.currentquestion = RapidAnswer.getQuestion($stateParams.id);
+
+    $scope.selectAnswer = function(s) {
+        _.each($scope.currentquestion.options, function(option) {
+            option.selected = undefined;
+        });
+        s.selected = true;
+    };
+    $scope.nextQuestion = function() {
+        RapidAnswer.saveAnswer($scope.currentquestion);
+        console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
+        if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
+
+            $interval.cancel(counter);
+            $state.go('fan-corner-score', {
+                id: RapidAnswer.getScore()
             });
-        };
-
-        console.log();
-// $.jStorage.set('firstUI',true);
-// $scope.firstUI = false;
-// if($.jStorage.get("Q1") == null){
-//   console.log('///////////////////');
-//     $scope.firstUI = true;
-// }else{
-//   $scope.firstUI = false;
-// }
-
-        // $scope.secondUI = false;
-        $scope.showSecondUI = function(){
-          $state.go('fan-corner', {
-              quesno: 1
-          });
-          // $.jStorage.flush();
-          // $scope.firstUI = false;
-          // $scope.secondUI = true;
-        }
-
-        $scope.currentquestion = {};
-        $scope.quest = {};
-        // $scope.myVal = $.jStorage.set("myAnswer", $scope.quest);
-        // console.log($scope.myVal);
-
-        // _.find(users, ['active', false]);
-        $scope.rapidFire = [{
-            id: 1,
-            quesNo: "Q1",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest1",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, {
-            id: 2,
-            quesNo: "Q2",
-            question: "When was SRK born?",
-            model: "quest2",
-            options: [{
-                "id": "radio1",
-                "name": "November"
-            }, {
-                "id": "radio2",
-                "name": "January"
-            }, {
-                "id": "radio3",
-                "name": "May"
-            }, {
-                "id": "radio4",
-                "name": "December"
-            }]
-        }, {
-            id: 3,
-            quesNo: "Q3",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest3",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, {
-            id: 4,
-            quesNo: "Q4",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest4",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, {
-            id: 5,
-            quesNo: "Q5",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest5",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, {
-            id: 6,
-            quesNo: "Q6",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest6",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, {
-            id: 7,
-            quesNo: "Q7",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest7",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, {
-            id: 8,
-            quesNo: "Q8",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest8",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, {
-            id: 9,
-            quesNo: "Q9",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest9",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, {
-            id: 10,
-            quesNo: "Q10",
-            question: "What was SRK’s name in Kal Ho Na Ho?",
-            model: "quest10",
-            options: [{
-                "id": "radio1",
-                "name": "aman"
-            }, {
-                "id": "radio2",
-                "name": "jaman"
-            }, {
-                "id": "radio3",
-                "name": "raman"
-            }, {
-                "id": "radio4",
-                "name": "daman"
-            }]
-        }, ];
-
-        $scope.rapidFireAnswer = [{
-            quesNo: "Q1",
-            answer: "aman"
-        }, {
-            quesNo: "Q2",
-            answer: "November"
-        }, {
-            quesNo: "Q3",
-            answer: "jaman"
-        }, {
-            quesNo: "Q4",
-            answer: "daman"
-        }, {
-            quesNo: "Q5",
-            answer: "aman"
-        }, {
-            quesNo: "Q6",
-            answer: "aman"
-        }, {
-            quesNo: "Q7",
-            answer: "aman"
-        }, {
-            quesNo: "Q8",
-            answer: "daman"
-        }, {
-            quesNo: "Q9",
-            answer: "aman"
-        }, {
-            quesNo: "Q10",
-            answer: "raman"
-        }]
-
-        $scope.count = 0;
-        // $scope.nextQuest = function(val) {
-        //     $scope.count = $scope.count + 1;
-        //     $state.go('fan-corner', {
-        //         quesno: $scope.count
-        //     },{
-        //       notify:false
-        //     });
-        //     console.log($scope.count);
-        // }
-        $scope.showScore = false;
-        $scope.skipQuest = function() {
-
-          if($stateParams.quesno < 10){
-            $state.go('fan-corner', {
-                quesno: $scope.currentquestion.id + 1
+        } else {
+            $interval.cancel(counter);
+            $state.go('fan-corner-play', {
+                id: parseInt($stateParams.id) + 1
             });
-          }else {
-            $scope.showScore = true;
-            _.each($scope.rapidFireAnswer,function (key) {
-              if($.jStorage.get(key.quesNo)== key.answer){
-                $scope.count = $scope.count+1;
-                console.log($scope.count);
-              }
-            })
-            $.jStorage.flush();
-          }
-
         }
-        $scope.allotQuestion = function (questionNo) {
-          console.log(questionNo);
-          $scope.currentquestion = _.find($scope.rapidFire,function(o) { return o.id == questionNo; });
-          console.log('$scope.currentquestion',$scope.currentquestion);
+    };
+    $scope.skipQuestion = function() {
+        _.each($scope.currentquestion.options, function(option) {
+            option.selected = undefined;
+        });
+        $scope.nextQuestion();
+    };
+    $scope.showTimerCount = $.jStorage.get("rapidTimer");
+    $timeout(function() {
+        makeArc();
+    }, 100);
 
-        }
-
-        $scope.answerQuestion = function () {
-  $scope.firstUI = false;
-          if($stateParams.quesno < 10){
-            $.jStorage.set($scope.currentquestion.quesNo,$scope.currentquestion.answer);
-            console.log($.jStorage.get($scope.currentquestion.quesNo));
-            console.log('$scope.currentquestion.id',$scope.currentquestion.id);
-            $state.go('fan-corner', {
-                quesno: $scope.currentquestion.id + 1
+    var counter = $interval(function() {
+        $scope.showTimerCount = RapidAnswer.changeTimerRapid();
+        makeArc();
+        if ($scope.showTimerCount == 0) {
+            $interval.cancel(counter);
+            $state.go('fan-corner-score', {
+                id: RapidAnswer.getScore()
             });
-          }else{
-
-            $scope.showScore = true;
-            _.each($scope.rapidFireAnswer,function (key) {
-              if($.jStorage.get(key.quesNo)== key.answer){
-                $scope.count = $scope.count+1;
-                console.log($scope.count);
-              }
-            })
-            $.jStorage.flush();
-          }
-
 
         }
-        // $scope.showScore = false;
-        // if($stateParams.quesno  10){
-        //   $scope.showScore = true;
-        //   _.each($scope.rapidFireAnswer,function (key) {
-        //     if($.jStorage.get(key.quesno)== key.answer){
-        //       $scope.count = $scope.count+1;
-        //       console.log($scope.count);
-        //     }
-        //   })
-        // }
+    }, 1000);
+
+    function makeArc() {
+        var totalTime = RapidAnswer.getTotalTime();
+        currentTime = parseInt($.jStorage.get("rapidTimer"));
+        var can = $('#canvas1').get(0);
+        context = can.getContext('2d');
+
+        var percentage = currentTime / totalTime; // no specific length
+        var degrees = percentage * 360.0;
+        var radians = degrees * (Math.PI / 180);
+
+        var x = 38;
+        var y = 37;
+        var r = 35;
+        var s = 0; //1.5 * Math.PI;
+        context.clearRect(0, 0, 80, 80);
+        context.strokeStyle = '#f37021';
+        context.beginPath();
+        context.lineWidth = 4;
+        context.arc(x, y, r, s, radians, false);
+        //context.closePath();
+        context.stroke();
+    }
 
 
-        $scope.selectAnswer = function (answer) {
-          $scope.currentquestion.answer = answer;
-        }
-        // $scope.questPoints = 0;
-        // $scope.storeVal = function(qno, val) {
-        //     console.log(qno, val, '/////////');
-        //     $scope.findAns = _.findIndex($scope.rapidFireAnswer, {
-        //         'quesNo': qno,
-        //         'answer': val
-        //     });
-        //     console.log($scope.findAns);
-        //     if ($scope.findAns != -1) {
-        //         $scope.questPoints = $scope.questPoints + 1;
-        //     }
-        //     console.log($scope.questPoints, 'myPoints');
-        // }
 
-        if (!$stateParams.quesno) {
-          $scope.firstUI = true;
-            // $stateParams.quesno = 1;
-            $scope.allotQuestion(1)
-        }else{
-          $scope.firstUI = false;
-          $scope.allotQuestion($stateParams.quesno)
-        }
+})
 
-    })
-    .controller('DisclaimerCtrl', function($scope, TemplateService, NavigationService) {
-        $scope.template = TemplateService.changecontent("disclaimer");
-        $scope.menutitle = NavigationService.makeactive("Disclaimer");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
+.controller('FanCornerScoreCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, RapidAnswer, $timeout) {
+    $scope.template = TemplateService.changecontent("fan-corner");
+    $scope.menutitle = NavigationService.makeactive("Fan Corner");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.openModal = function() {
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'frontend/views/modal/share.html',
+            controller: 'FanCornerCtrl',
+            size: 'lg',
+            windowClass: 'fan-modal',
+        });
+    };
+    $scope.showTimerCount = 0;
+    $scope.firstUI = false;
+    $scope.showScore = true;
 
-    })
+    $scope.count = $stateParams.id;
+
+
+
+})
+
+
+.controller('DisclaimerCtrl', function($scope, TemplateService, NavigationService) {
+    $scope.template = TemplateService.changecontent("disclaimer");
+    $scope.menutitle = NavigationService.makeactive("Disclaimer");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
 
 .controller('DharmaJourneyCtrl', function($scope, TemplateService, NavigationService) {
     $scope.template = TemplateService.changecontent("dharma-journey");

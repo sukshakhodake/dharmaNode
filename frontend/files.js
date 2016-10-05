@@ -36,5 +36,6 @@ module.exports = [
   'frontend/js/language.js',
   'frontend/js/controllers.js',
   'frontend/js/templateservice.js',
+  'frontend/js/rapidAnswer.js',
   'frontend/js/navigation.js',
 ];

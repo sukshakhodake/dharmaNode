@@ -26,17 +26,18 @@
                             <div class="big-pl text-center mt15">
                                 <div class="bg-transparent">
                                     <div class="ticker dh-relative">
-                                        <div class="tp-head">
+                                        <div class="tp-head" ng-hide="showScore">
                                             <img src="frontend/img/tp-head.png" alt="">
-                                            <div class="progres">
-                                                <canvas id="bar" width="80" height="80"></canvas>
+                                            <div>
+                                                <canvas id="canvas1" width="80" height="80"></canvas>
                                             </div>
                                             <div class="sc-bg ps-wt">
-                                              <span class="color-primary font-bold">95</span>
+                                              <span class="color-primary font-bold">{{showTimerCount}}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
+
                                     <div class="padall30">
                                         <div class="next-qsn" ng-hide="showScore">
                                             <div class="qsn-big">
@@ -47,54 +48,31 @@
                                                 <div class="form">
                                                     <ul>
                                                         <li ng-repeat="s in currentquestion.options">
-                                                            <input type="radio" id="{{s.id}}" name="selector" ng-model="quest" value="{{s.name}}" ng-change="selectAnswer(s.name)">
+                                                            <input type="radio" id="{{s.id}}" name="selector" ng-model="quest" value="{{s.name}}" ng-change="selectAnswer(s)">
                                                             <label for="{{s.id}}">{{s.name}}</label>
 
                                                             <div class="check">
                                                                 <div class="inside"></div>
                                                             </div>
                                                         </li>
-                                                        <!-- <li>
-                                                            <input type="radio" id="t-option2" name="selector" ng-model="quest.quest1">
-                                                            <label for="t-option2">Raman</label>
 
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" id="t-option3" name="selector" ng-model="quest.quest1">
-                                                            <label for="t-option3">Jaman</label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" id="t-option4" name="selector" ng-model="quest.quest1">
-                                                            <label for="t-option4">Daman</label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li> -->
                                                     </ul>
                                                 </div>
                                                 <div class="btn-n-s mt30" ng-hide="count==9">
                                                     <div class="btn-view-more mt15 ">
-                                                        <a ng-click="answerQuestion()" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                            <svg>
-                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                            </svg>
+                                                        <a ng-click="nextQuestion()" class="btn-1 font-hammersmith btn color-primary mobile-center">
+                                                          <svg>
+                                                              <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                                          </svg>
                                                             NEXT
                                                         </a>
 
                                                     </div>
                                                     <div class="btn-view-more mt15 ">
-                                                        <a ng-click="skipQuest()" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                            <svg>
-                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                            </svg>
+                                                        <a ng-click="skipQuestion()" class="btn-1 font-hammersmith btn color-primary mobile-center">
+                                                          <svg>
+                                                              <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                                          </svg>
                                                             SKIP
                                                         </a>
 
@@ -103,134 +81,7 @@
 
                                             </div>
                                         </div>
-                                        <!-- <div class="next-qsn">
-                                            <div class="qsn-big">
-                                                <h2 class="color-white font-bold font-karla">Q1: What was SRK’s name in Kal Ho Na Ho?</h2>
-                                            </div>
-                                            <div class="ans-opt">
-                                                <div class="form">
-                                                    <ul>
-                                                        <li>
-                                                            <input type="radio" id="t-option" name="selector" ng-model="quest.quest1">
-                                                            <label for="t-option">Aman</label>
 
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" id="t-option2" name="selector" ng-model="quest.quest1">
-                                                            <label for="t-option2">Raman</label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" id="t-option3" name="selector" ng-model="quest.quest1">
-                                                            <label for="t-option3">Jaman</label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" id="t-option4" name="selector" ng-model="quest.quest1">
-                                                            <label for="t-option4">Daman</label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="btn-n-s mt30">
-                                                    <div class="btn-view-more mt15 ">
-                                                        <a ui-sref="movies" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                            <svg>
-                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                            </svg>
-                                                            NEXT
-                                                        </a>
-
-                                                    </div>
-                                                    <div class="btn-view-more mt15 ">
-                                                        <a ui-sref="movies" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                            <svg>
-                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                            </svg>
-                                                            SKIP
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div> -->
-                                        <!-- <div class="next-qsn">
-                                            <div class="qsn-big">
-                                                <h2 class="color-white font-bold font-karla">Q10: When was SRK born?</h2>
-                                            </div>
-                                            <div class="ans-opt">
-                                                <div class="form">
-                                                    <ul>
-                                                        <li>
-                                                            <input type="radio" id="t-option" name="selector">
-                                                            <label for="t-option">2<sup>nd</sup> November </label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" id="t-option2" name="selector">
-                                                            <label for="t-option2">10<sup>th</sup> January</label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" id="t-option3" name="selector">
-                                                            <label for="t-option3">6<sup>th</sup> August</label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" id="t-option4" name="selector">
-                                                            <label for="t-option4">27<sup>th</sup> August</label>
-
-                                                            <div class="check">
-                                                                <div class="inside"></div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="btn-n-s mt30">
-                                                    <div class="btn-view-more mt15 ">
-                                                        <a ui-sref="movies" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                            <svg>
-                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                            </svg>
-                                                            SKIP
-                                                        </a>
-
-                                                    </div>
-                                                    <div class="btn-view-more mt15 ">
-                                                        <a ui-sref="movies" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                            <svg>
-                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                            </svg>
-                                                            SUBMIT
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div> -->
                                         <div class="final-score text-center" ng-show="showScore">
                                             <h1 class="color-white font-bold font-karla">Your Score: {{count}} &#47 10</h1>
                                             <div class="text-center">
