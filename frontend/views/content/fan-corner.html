@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="padall30">
-                                        <div class="next-qsn" ng-hide="count">
+                                        <div class="next-qsn" ng-hide="showScore">
                                             <div class="qsn-big">
                                                 <h2 class="color-white font-bold font-karla">{{currentquestion.quesNo}}: {{currentquestion.question}}</h2>
                                                 <!-- <h2 class="color-white font-bold font-karla">{{currentquestion.options}}</h2> -->
@@ -223,7 +223,7 @@
 
                                             </div>
                                         </div> -->
-                                        <div class="final-score text-center" ng-if="showScore">
+                                        <div class="final-score text-center" ng-show="showScore">
                                             <h1 class="color-white font-bold font-karla">Your Score: {{count}} &#47 10</h1>
                                           <div class="text-center">
                                               <h4 class="text-center color-white">Your Dharma Fan Meter is {{count}}0%</h4>
