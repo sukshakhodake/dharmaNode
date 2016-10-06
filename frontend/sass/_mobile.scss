@@ -115,6 +115,12 @@
     }
 }
 @media (max-width: $screen-sm-max) {
+    .mt-sm-40 {
+        margin-top: 40px;
+    }
+    .dh-btn-min {
+        width: 30%;
+    }
     .ans-opt ul li label {
         font-size: 1.4em;
     }
@@ -909,8 +915,18 @@
     .top-banner {
         background-position: center center;
     }
+    .pad-img {
+        padding: 70px 0;
+    }
 }
 @media (max-width:480px) {
+  .mt-sm-40 {
+      margin-top: 40px;
+  }
+
+    .pad-img {
+        padding: 70px 0;
+    }
     .qsn-big {
         h2 {
             text-align: left;
@@ -948,9 +964,9 @@
         }
     }
     .bg-transparent .ticker {
-        position: absolute;
-        right: -12px;
-        top: -12px;
+      position: absolute;
+right: 4px;
+top: 4px;
         img {
             transform: scale(0.5);
         }
