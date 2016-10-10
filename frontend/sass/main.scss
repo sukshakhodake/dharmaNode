@@ -2706,6 +2706,11 @@ font-size: 30px;
 min-width: 40px;
 }
 }
+.vs-dis{
+  .flex-control-nav{
+    display: none;
+  }
+}
 @import "main2";
 @import "timeline";
 @import "mobile";

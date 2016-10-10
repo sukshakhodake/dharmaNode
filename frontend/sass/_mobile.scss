@@ -334,7 +334,7 @@
         margin-bottom: 25px;
     }
     .bg-synopsis {
-        background: none;
+        background: none !important;
     }
     .movie-inner-bg {
         margin-top: -1px;
@@ -487,6 +487,9 @@
     }
 }
 @media (max-width: $screen-xs-max) {
+  .bg-synopsis {
+      background: none !important;
+  }
     .w30 {
         width: 30px !important;
     }
