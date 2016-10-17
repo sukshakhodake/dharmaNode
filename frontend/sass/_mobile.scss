@@ -921,8 +921,37 @@
     .pad-img {
         padding: 70px 0;
     }
+    .f-gin{
+
+      font-size: 22px;
+    }
+    .dharma-fan-modal{
+      .modal-dialog {
+            width: auto;
+                margin: 0px;
+          .modal-content{
+                padding: 20px;
+          }
+      }
+    }
 }
 @media (max-width:480px) {
+  .dharma-fan-modal{
+    .modal-dialog {
+          width: auto;
+              margin: 0px;
+        .modal-content{
+              padding: 20px;
+        }
+    }
+  }
+  .f-gin{
+
+    font-size: 22px;
+  }
+  .pop-pad{
+        padding: 20px 0px;
+  }
   .mt-sm-40 {
       margin-top: 40px;
   }

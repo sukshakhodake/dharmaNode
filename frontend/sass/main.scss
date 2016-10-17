@@ -2392,6 +2392,33 @@ border-radius: 25px;
     left: 50%;
     transform: translate(-50%,-50%) !important;
 }
+.dharma-fan-modal{
+  .modal-dialog {
+      position: absolute;
+        width: 600px;
+      margin: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%) !important;
+      .modal-content{
+            padding: 25PX;
+      }
+  }
+}
+.plc-hld{
+  .form-group{
+    @include placeholder {
+        color: #c4c4c4;
+    }
+    input{
+      border-bottom: 1px solid #dddddd !important;
+      border: 0px solid #ccc;
+    }
+  }
+}
+.pop-pad{
+      padding: 20px 70px;
+}
 .shr-img{
       margin-top: -30px;
 }

@@ -376,6 +376,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'fan-modal',
         });
     };
+    $scope.openModals = function() {
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'frontend/views/modal/fan-popup.html',
+            controller: 'FanCornerCtrl',
+            size: 'sm',
+            windowClass: 'dharma-fan-modal',
+        });
+    };
 
     $scope.firstUI = true;
 
