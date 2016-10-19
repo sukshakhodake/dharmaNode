@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <!-- mobile -->
-                <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs">
+                <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider">
                     <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
                         <li>
                             <a ui-sref="movie-inside({id:item._id})">
@@ -279,7 +279,7 @@
                             </div>
                         </div>
                     </a>
-                </li>  
+                </li>
                 <li ng-if="News.length > 10 && $index == 9">
                     <a ui-sref="news-events"><img src="frontend/img/more.jpg" alt=""></a>
                 </li>
