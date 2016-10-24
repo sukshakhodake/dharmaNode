@@ -26,7 +26,7 @@
         "icon": "mode_edit",
         "color": "#f37021",
         "action": "redirect",
-        "jsonPage": "editTag",
+        "jsonPage": "editForm",
         "fieldsToSend": ["_id"],
         "callFindOne": "form/findOne"
     }, {
