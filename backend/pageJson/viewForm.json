@@ -1,0 +1,48 @@
+{
+    "title": "All Contacts",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [{
+            "name": "First Name",
+            "isSort": "",
+            "tableRef": "firstName"
+        }, {
+            "name": "Last Name",
+            "isSort": "",
+            "tableRef": "lastName"
+        }, {
+            "name": "Email",
+            "isSort": "",
+            "tableRef": "email"
+        }, {
+            "name": "Mobile",
+            "isSort": "",
+            "tableRef": "mobile"
+        }
+
+    ],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "#f37021",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+    "filter": [{
+        "name": "category",
+        "url": "http://chaitalee.com/expertuser/getAll"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+    "apiCall": {
+        "url": "Form/search",
+        "params": "_id"
+    }
+}
