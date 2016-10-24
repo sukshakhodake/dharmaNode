@@ -16,21 +16,21 @@
     }, {
         "name": "First Name",
         "type": "text",
-        "tableRef": "firstname",
-        "placeholder": "Enter firstname",
+        "tableRef": "firstName",
+        "placeholder": "Enter firstName",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "firstname"
+        "model": "firstName"
     }, {
         "name": "Last Name",
         "type": "text",
-        "tableRef": "lastname",
-        "placeholder": "Enter lastname",
+        "tableRef": "lastName",
+        "placeholder": "Enter lastName",
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "lastname"
+        "model": "lastName"
     }, {
         "name": "Email",
         "type": "text",
