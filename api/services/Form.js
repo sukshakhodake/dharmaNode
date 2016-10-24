@@ -102,7 +102,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         async.parallel([
                 function (callback) {
-                    form.count({
+                    Subscribe.count({
                         email: {
                             '$regex': check
                         }
@@ -120,11 +120,11 @@ var models = {
                     });
                 },
                 function (callback) {
-                    form.find({
+                    Subscribe.find({
                         email: {
                             '$regex': check
                         }
-                    }).populate("movie").skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function (err, data2) {
+                    }).skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function (err, data2) {
                         if (err) {
                             console.log(err);
                             callback(err, null);

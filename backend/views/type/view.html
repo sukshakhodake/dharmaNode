@@ -1,18 +1,18 @@
 <section class="md-whiteframe-z1 users pb50">
     <md-list ng-cloak>
-      <md-input-container ng-if="json.addSearch">
-    <label>Movies</label>
-    <md-select ng-model="movie" ng-change="getAwardByMovie(movie)">
-      <md-option ng-repeat="dropdown in dropdownvalues" value="{{dropdown._id}}">
-        {{dropdown.name}}
-      </md-option>
-    </md-select>
-  </md-input-container>
-  <div class="search-input" ng-if="!json.showSearch">
-    <input ng-model="search" type="text">
-      <md-button class="md-raised md-primary" ng-click="searchClick(search);">Go</md-button>
-    </div>
-  <!-- <md-autocomplete
+        <md-input-container ng-if="json.addSearch">
+            <label>Movies</label>
+            <md-select ng-model="movie" ng-change="getAwardByMovie(movie)">
+                <md-option ng-repeat="dropdown in dropdownvalues" value="{{dropdown._id}}">
+                    {{dropdown.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <div class="search-input" ng-if="!json.showSearch">
+            <input ng-model="search" type="text">
+            <md-button class="md-raised md-primary" ng-click="searchClick(search);">Go</md-button>
+        </div>
+        <!-- <md-autocomplete
               md-search-text="searchForm.name"
               md-items="item in ctrl.querySearch(searchForm.name)"
               md-item-text="item.display"
@@ -37,11 +37,9 @@
                 <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
             </md-button>
         </md-list-item>
-
         <div ng-hide="json.tableData.length>=0" class="loadingbox">
             Loading...
         </div>
-
         <md-list-item ng-show="json.tableData.length>=0" ng-repeat="result in json.tableData track by $index" class="secondary-button-padding padlr16">
             <p ng-repeat="field in json.fields">
                 <span ng-if="field.type!='image' && result|getValue:field.tableRef:field.type!=''">{{result|getValue:field.tableRef:field.type}}</span>
@@ -56,12 +54,14 @@
         </md-list-item>
         <!-- {{pageInfo}}{{pagination}} -->
         <div class="" ng-if="pageInfo.totalitems"></div>
-        <uib-pagination force-ellipses="true" boundary-link-numbers="true" max-size="16" rotate="true" ng-show="json.tableData.length>=0" ng-if="!search" ng-change="getMoreResults(true)" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" items-per-page="pagination.pagesize"></uib-pagination>
-        <uib-pagination force-ellipses="true" boundary-link-numbers="true" max-size="16" rotate="true" ng-show="json.tableData.length>=0" ng-if="search && search !==''" ng-change="getMoreResults(true,search)" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" items-per-page="pagination.pagesize"></uib-pagination>
-
+        <uib-pagination force-ellipses="true" boundary-link-numbers="true" max-size="16" rotate="true" ng-show="json.tableData.length>=0"
+            ng-if="!search" ng-change="getMoreResults(true)" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber"
+            items-per-page="pagination.pagesize"></uib-pagination>
+        <uib-pagination force-ellipses="true" boundary-link-numbers="true" max-size="16" rotate="true" ng-show="json.tableData.length>=0"
+            ng-if="search && search !==''" ng-change="getMoreResults(true,search)" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber"
+            items-per-page="pagination.pagesize"></uib-pagination>
     </md-list>
-
-    <a class="add-position" ui-sref="{{json.createButtonState}}" ng-if="json.title!='Subscribers'">
+    <a class="add-position" ui-sref="{{json.createButtonState}}" ng-if="json.title!='Subscribers' && json.title!='Contacts'">
         <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users">
             <md-icon class="fa fa-plus plus-icon"></md-icon>
         </md-button>

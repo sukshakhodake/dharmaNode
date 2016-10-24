@@ -1,5 +1,5 @@
 {
-    "title": "All Contacts",
+    "title": "Contacts",
     "desciption": "",
     "pageType": "view",
     "fields": [{
@@ -21,6 +21,27 @@
         }
 
     ],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "#f37021",
+        "action": "redirect",
+        "jsonPage": "editForm",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "Form/findOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete ",
+        "content": "Are you sure you want to delete Form?",
+        "api": "Form/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+        }]
+    }],
     "button": [{
         "name": "excelexport",
         "icon": "print",
@@ -42,7 +63,7 @@
         "action": "uploadcsv"
     }],
     "apiCall": {
-        "url": "Form/findLimited",
+        "url": "Form/findLimted",
         "params": "_id"
     }
 }
