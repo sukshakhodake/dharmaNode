@@ -102,7 +102,7 @@ var models = {
         data.pagesize = parseInt(data.pagesize);
         async.parallel([
                 function (callback) {
-                    Subscribe.count({
+                    Form.count({
                         email: {
                             '$regex': check
                         }
@@ -120,7 +120,7 @@ var models = {
                     });
                 },
                 function (callback) {
-                    Subscribe.find({
+                    Form.find({
                         email: {
                             '$regex': check
                         }
