@@ -101,7 +101,7 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewSubscribe",
         subnav: []
-    }, , {
+    }, {
         name: "Contacts",
         classis: "active",
         link: "#/page/viewForm",
