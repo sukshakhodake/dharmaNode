@@ -38,6 +38,17 @@ module.exports = {
                 data: "Invalid Request"
             });
         }
-    }
+    },
+    getOne: function (req, res) {
+
+        if (req.body) {
+            Form.getOne(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
 
 };
