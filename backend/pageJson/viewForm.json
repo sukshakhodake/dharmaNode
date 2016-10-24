@@ -26,17 +26,17 @@
         "icon": "mode_edit",
         "color": "#f37021",
         "action": "redirect",
-        "jsonPage": "editForm",
+        "jsonPage": "editTag",
         "fieldsToSend": ["_id"],
-        "callFindOne": "Form/findOne"
+        "callFindOne": "form/findOne"
     }, {
         "name": "delete",
         "icon": "delete",
         "color": "red",
         "action": "apiCallConfirm",
         "title": "Delete ",
-        "content": "Are you sure you want to delete Form?",
-        "api": "Form/delete",
+        "content": "Are you sure you want to delete form?",
+        "api": "form/delete",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"
@@ -63,7 +63,7 @@
         "action": "uploadcsv"
     }],
     "apiCall": {
-        "url": "Form/findLimted",
+        "url": "form/findLimited",
         "params": "_id"
     }
 }
