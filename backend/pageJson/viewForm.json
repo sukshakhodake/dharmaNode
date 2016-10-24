@@ -42,7 +42,7 @@
         "action": "uploadcsv"
     }],
     "apiCall": {
-        "url": "Form/search",
+        "url": "Form/findLimited",
         "params": "_id"
     }
 }
