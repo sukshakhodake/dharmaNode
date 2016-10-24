@@ -137,6 +137,15 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
+        submitFormData: function(formData, callback) {
+            $http({
+
+                url: adminurl + 'Form/saveData',
+                method: 'POST',
+                withCredentials: true,
+                data: formData
+            }).success(callback);
+        },
         getDharmatvOne: function(id, callback) {
             $http({
                 url: adminurl + 'Dharmatv/getOne',

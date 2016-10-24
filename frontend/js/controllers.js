@@ -362,11 +362,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval) {
+.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, $timeout) {
     $scope.template = TemplateService.changecontent("fan-corner");
     $scope.menutitle = NavigationService.makeactive("Fan Corner");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    var modalInstance2 ={};
     $scope.openModal = function() {
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
@@ -377,22 +378,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.openModals = function() {
-        var modalInstance = $uibModal.open({
+      console.log("heraerasd",modalInstance2);
+          modalInstance2 = $uibModal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'frontend/views/modal/fan-popup.html',
-            controller: 'FanCornerCtrl',
+            scope: $scope,
             size: 'sm',
             windowClass: 'dharma-fan-modal',
         });
+        console.log("heraerasd",modalInstance2);
     };
+    // $scope.questionSubmit = false;
+    $scope.validEmail = false;
+    $scope.formData = {};
+    $scope.submitForm = function(formData) {
+        console.log("formData", modalInstance2);
+        NavigationService.submitFormData(formData, function(data) {
+            console.log("data", data);
+
+            if (data.data.message === "already exist") {
+                $scope.validEmail = true;
+            } else {
+                console.log("im else");
+               modalInstance2.close();
+                // $scope.questionSubmit = true;
+                $state.go('fan-corner-play', {
+                    id: 1
+                });
+
+                // $timeout(function () {
+                // $scope.questionSubmit = false;
+                //     $scope.formData = {};
+                // }, 2000);
+
+            }
+        });
+    }
 
     $scope.firstUI = true;
 
-    $scope.showSecondUI = function() {
-        $state.go('fan-corner-play', {
-            id: 1
-        });
-    };
+    // $scope.showSecondUI = function() {
+    //     $state.go('fan-corner-play', {
+    //         id: 1
+    //     });
+    // };
 
 
 
