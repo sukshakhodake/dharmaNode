@@ -392,9 +392,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.validEmail = false;
     $scope.formData = {};
     $scope.submitForm = function(formData) {
-        console.log("formData", modalInstance2);
         NavigationService.submitFormData(formData, function(data) {
-            console.log("data", data);
             if (data.data.message === "already exist") {
                 $scope.validEmail = true;
             } else {
@@ -404,8 +402,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $state.go('fan-corner-play', {
                     id: 1
                 });
-
-
             }
         });
     }
