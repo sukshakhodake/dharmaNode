@@ -378,15 +378,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.openModals = function() {
-        console.log("heraerasd", modalInstance2);
         modalInstance2 = $uibModal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'frontend/views/modal/fan-popup.html',
             scope: $scope,
             size: 'sm',
             windowClass: 'dharma-fan-modal',
-        });
-        console.log("heraerasd", modalInstance2);
+        })
     };
 
     $scope.validEmail = false;
@@ -396,9 +394,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (data.data.message === "already exist") {
                 $scope.validEmail = true;
             } else {
-                console.log("im else");
                 modalInstance2.close();
-
                 $state.go('fan-corner-play', {
                     id: 1
                 });
