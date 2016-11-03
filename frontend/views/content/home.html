@@ -1,7 +1,7 @@
 <!-- for desktop -->
 <section scrolldown class="hidden-xs">
     <div class="home-slider dh-relative ">
-        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide" animation-loop=true>
+        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
             <li auto-heightfixed><img ng-src="{{s.image|uploadpath}}" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" auto-heightfixed onloading="true"></li>
         </flex-slider>
         <div class="movie-tab text-center dh-absulate dh-list second">
