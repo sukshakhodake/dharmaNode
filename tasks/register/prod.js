@@ -11,7 +11,7 @@
  *   http://sailsjs.org/documentation/anatomy/my-app/tasks/register/prod-js
  *
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.registerTask('prod', [
         'clean:upload', 'copy:upload', 'clean:uploadApp',
         'copy:assets', 'clean:backend', 'sass:backendDevelopment', 'copy:backendDevelopment', 'copy:jsBackendDevelopment', 'copy:backendDevelopment',
