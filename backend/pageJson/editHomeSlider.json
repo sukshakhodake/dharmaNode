@@ -13,7 +13,22 @@
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "movie/find"
-    },{
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "model": "status",
+        "placeholder": "Enter status",
+        "id": "input3",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": true,
+            "name": "Enable"
+        }, {
+            "value": false,
+            "name": "Disable"
+        }]
+    }, {
         "name": "Image",
         "type": "image",
         "tableRef": "image",
@@ -42,7 +57,7 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    },{
+    }, {
         "name": "Url",
         "type": "text",
         "tableRef": "url",
