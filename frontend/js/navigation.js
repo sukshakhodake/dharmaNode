@@ -216,6 +216,7 @@ var navigationservice = angular.module('navigationservice', [])
         },
         getNewsHomeSearch: function(request, i, callback) {
             console.log("in news", request);
+            console.log(i);
             $http({
                 url: adminurl + 'news/findLimited',
                 method: 'POST',

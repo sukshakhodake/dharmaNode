@@ -1330,9 +1330,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var i = 0;
 
         function callMe() {
+          console.log('in call me');
             // $scope.news10 = [];
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
-                if (newI == i) {
+                // if (newI == i) {
                     $scope.myTotal = data.data.total;
                     if ($scope.filter.search.length === 0) {
                         $scope.crossdisplay = false;
@@ -1351,6 +1352,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             _.each(data.data.data, function(n) {
                                 n.date = new Date(n.date);
                                 $scope.news10.push(n);
+                                console.log('$scope.news10',$scope.news10);
                                 AllNews = $scope.news10;
 
                             });
@@ -1361,7 +1363,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
                     TemplateService.removeLoader();
 
-                }
+                // }else{
+                //   console.log('elseeeeee part');
+                // }
 
             });
         }

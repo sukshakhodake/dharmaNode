@@ -71,10 +71,13 @@
                                             <a ng-if="item.status==true" ui-sref="movie-inside({id:item._id})">
                                                 <img ng-src="{{item.bigImage|uploadpath}} " alt="Dharma Productions " noloading="true">
                                             </a>
-                                            <a ng-if="item.status==false">
-                                                <img ng-src="{{item.bigImage|uploadpath}} " alt="Dharma Productions " noloading="true">
-                                            </a>
+
                                         </div>
+                                        <div class="pointerarrow">
+                                        <a ng-if="item.status==false">
+                                            <img ng-src="{{item.bigImage|uploadpath}} " alt="Dharma Productions " noloading="true">
+                                        </a>
+                                      </div>
 
                                     </div>
                                 </li>
