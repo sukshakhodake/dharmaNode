@@ -2743,6 +2743,22 @@ min-width: 40px;
     display: none;
   }
 }
+.sm-bg{
+  background: #1a1a1a;
+}
+.coming-soon-box.text-center {
+    width: 400px;
+    img{
+      width: 100%;
+    }
+}
+.cm-text{
+      margin-top: 10px;
+  h2{
+      color: #f7941d;
+  }
+
+}
 @import "main2";
 @import "timeline";
 @import "mobile";

@@ -24,6 +24,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'MoviesCtrl'
         })
+        .state('coming-soon', {
+            url: "/coming-soon",
+            templateUrl: "frontend/views/template.html",
+            controller: 'ComingSoonCtrl'
+        })
         .state('awards', {
             url: "/",
             templateUrl: "frontend/views/template.html",
