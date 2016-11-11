@@ -60,7 +60,7 @@
                                 <h1 class="ml-7 color-primary font-hammersmith line45 f55 text-up">{{movie | shorten : 20}}</h1>
                             </div>
                             <div class="upcoming-slider tv-all-slider text-shadow cl-flex tv-ain-tp">
-                                <flex-slider flex-slide="item in videos | limitTo:4 track by $index" ng-if="videos.length>4" animation="slide" item-width="280" item-margin="0" animationloop="true" move="1" animation="slide ">
+                                <flex-slider flex-slide="item in videos | limitTo:4 |orderBy:'-order' track by $index" ng-if="videos.length>4" animation="slide" item-width="280" item-margin="0" animationloop="true" move="1" animation="slide ">
                                     <li class="makePointer">
                                         <div class="video-box">
                                             <div class="video-slide-img em-box">
