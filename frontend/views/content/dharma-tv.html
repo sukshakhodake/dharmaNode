@@ -104,7 +104,7 @@
                                         </li>
                                     </div>
                                     <div class="hidden-md hidden-lg hidden-sm visible-xs non-top">
-                                        <flex-slider flex-slide="item in videos track by $index" animation="slide" item-width="280" item-margin="0" animationloop="true" move="1">
+                                        <flex-slider flex-slide="item in videos  | orderBy:'-order' | limitTo:4 track by $index" animation="slide" item-width="280" item-margin="0" animationloop="true" move="1">
                                             <li class="makePointer">
                                                 <div class="video-box">
                                                     <div class="video-slide-img em-box">
