@@ -37,13 +37,13 @@ var schema = new Schema({
 
 module.exports = mongoose.model('Dharmatv', schema);
 var models = {
-    saveData: function(data, callback) {
+    saveData: function (data, callback) {
         var dharmatv = this(data);
         dharmatv.timestamp = new Date();
         if (data._id) {
             this.findOneAndUpdate({
                 _id: data._id
-            }, data).exec(function(err, updated) {
+            }, data).exec(function (err, updated) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -54,7 +54,7 @@ var models = {
                 }
             });
         } else {
-            dharmatv.save(function(err, created) {
+            dharmatv.save(function (err, created) {
                 if (err) {
                     callback(err, null);
                 } else if (created) {
@@ -65,10 +65,10 @@ var models = {
             });
         }
     },
-    deleteData: function(data, callback) {
+    deleteData: function (data, callback) {
         this.findOneAndRemove({
             _id: data._id
-        }, function(err, deleted) {
+        }, function (err, deleted) {
             if (err) {
                 callback(err, null);
             } else if (deleted) {
@@ -78,36 +78,41 @@ var models = {
             }
         });
     },
-    getAll: function(data, callback) {
+    getAll: function (data, callback) {
 
         Dharmatv.aggregate([{
-            $lookup: {
-                from: 'movies',
-                localField: 'movie',
-                foreignField: '_id',
-                as: 'movie'
+                $lookup: {
+                    from: 'movies',
+                    localField: 'movie',
+                    foreignField: '_id',
+                    as: 'movie'
+                }
+            }, {
+                $unwind: "$movie"
+            },
+            // {
+            //     $sort: {
+            //         "movie.upcomingOrder": -1
+            //     }
+            // },
+            {
+                $project: {
+                    title: 1,
+                    isbanner: 1,
+                    videos: 1,
+                    thumbnail: 1,
+                    url: 1,
+                    tag: 1,
+                    order: 1,
+                    "movie.name": 1,
+                    "movie._id": 1,
+                    "movie.upcomingOrder": 1,
+                    "movie.year": 1
+                }
             }
-        }, {
-            $unwind: "$movie"
-        }, {
-            $sort: {
-                "movie.upcomingOrder": -1
-            }
-        }, {
-            $project: {
-                title: 1,
-                isbanner: 1,
-                videos: 1,
-                thumbnail: 1,
-                url: 1,
-                tag: 1,
-                order: 1,
-                "movie.name": 1,
-                "movie._id": 1,
-                "movie.upcomingOrder": 1,
-                "movie.year": 1
-            }
-        }]).exec(function(err, data2) {
+        ]).sort({
+            "order": -1
+        }).exec(function (err, data2) {
             // console.log(data2);
 
             if (err) {
@@ -142,10 +147,10 @@ var models = {
     //         }
     //     });
     // },
-    getData: function(data, callback) {
+    getData: function (data, callback) {
         this.find({}, {
             url: 1
-        }).lean().exec(function(err, found) {
+        }).lean().exec(function (err, found) {
             if (err) {
 
                 console.log(err);
@@ -157,10 +162,10 @@ var models = {
             }
         });
     },
-    getOne: function(data, callback) {
+    getOne: function (data, callback) {
         this.findOne({
             "_id": data._id
-        }).exec(function(err, found) {
+        }).exec(function (err, found) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -171,53 +176,47 @@ var models = {
             }
         });
     },
-    findLimited: function(data, callback) {
-      var check = new RegExp(data.search, "i");
-      console.log(check);
-      var obj={};
+    findLimited: function (data, callback) {
+        var check = new RegExp(data.search, "i");
+        console.log(check);
+        var obj = {};
 
-      if(data._id && data._id !==''&& data.search!=='')
-      {
-        obj={
+        if (data._id && data._id !== '' && data.search !== '') {
+            obj = {
                 tag: {
                     '$regex': check
-                } ,
+                },
                 title: {
                     '$regex': check
                 },
                 movie: data._id
 
-        };
-      }
-
-      else if (data._id && data._id !=='' && data.search==='')
-      {
-        obj={
-                movie:data._id
-              };
-      }
-
-      else{
-        obj={
-            $or: [{
-                tag: {
-                    '$regex': check
-                }
-            }, {
-                title: {
-                    '$regex': check
-                }
-            }]
-        };
-      }
+            };
+        } else if (data._id && data._id !== '' && data.search === '') {
+            obj = {
+                movie: data._id
+            };
+        } else {
+            obj = {
+                $or: [{
+                    tag: {
+                        '$regex': check
+                    }
+                }, {
+                    title: {
+                        '$regex': check
+                    }
+                }]
+            };
+        }
         var newreturns = {};
         newreturns.data = [];
 
         data.pagenumber = parseInt(data.pagenumber);
         data.pagesize = parseInt(data.pagesize);
         async.parallel([
-                function(callback) {
-                    Dharmatv.count(obj).exec(function(err, number) {
+                function (callback) {
+                    Dharmatv.count(obj).exec(function (err, number) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
@@ -230,8 +229,8 @@ var models = {
                         }
                     });
                 },
-                function(callback) {
-                    Dharmatv.find(obj).populate("movie",'name').skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function(err, data2) {
+                function (callback) {
+                    Dharmatv.find(obj).populate("movie", 'name').skip(data.pagesize * (data.pagenumber - 1)).limit(data.pagesize).exec(function (err, data2) {
                         if (err) {
                             console.log(err);
                             callback(err, null);
@@ -244,7 +243,7 @@ var models = {
                     });
                 }
             ],
-            function(err, data4) {
+            function (err, data4) {
                 if (err) {
                     console.log(err);
                     callback(err, null);
@@ -328,7 +327,7 @@ var models = {
     //         });
     // },
 
-    getAllDharmatv: function(data, callback) {
+    getAllDharmatv: function (data, callback) {
         console.log(data.search);
         var check = new RegExp(data.search, "i");
         Dharmatv.aggregate([{
@@ -379,7 +378,7 @@ var models = {
             }
         }, {
             $unwind: "$movie"
-        }]).exec(function(err, data2) {
+        }]).exec(function (err, data2) {
             // console.log(data2);
             if (err) {
                 console.log(err);
@@ -394,7 +393,7 @@ var models = {
     },
 
 
-    getDharmaTvHomeSlider: function(data, callback) {
+    getDharmaTvHomeSlider: function (data, callback) {
         Dharmatv.aggregate([{
             $lookup: {
                 from: 'movies',
@@ -412,7 +411,7 @@ var models = {
                 title: 1,
                 tags: 1,
                 order: 1,
-                url:1,
+                url: 1,
                 thumbnail: 1
             }
         }, {
@@ -420,7 +419,7 @@ var models = {
                 "movie.upcomingOrder": -1,
                 order: -1
             }
-        }]).exec(function(err, found) {
+        }]).exec(function (err, found) {
             if (err) {
 
                 console.log(err);
