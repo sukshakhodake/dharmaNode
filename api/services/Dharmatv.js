@@ -81,41 +81,33 @@ var models = {
     getAll: function (data, callback) {
 
         Dharmatv.aggregate([{
-                $lookup: {
-                    from: 'movies',
-                    localField: 'movie',
-                    foreignField: '_id',
-                    as: 'movie'
-                }
-            }, {
-                $unwind: "$movie"
-            },
-            // {
-            //     $sort: {
-            //         "movie.upcomingOrder": -1
-            //     }
-            // }, 
-            {
-                $project: {
-                    title: 1,
-                    isbanner: 1,
-                    videos: 1,
-                    thumbnail: 1,
-                    url: 1,
-                    tag: 1,
-                    order: 1,
-                    "movie.name": 1,
-                    "movie._id": 1,
-                    "movie.upcomingOrder": 1,
-                    "movie.year": 1
-                }
-            }, {
-                $sort: {
-                    "movie.upcomingOrder": -1,
-                    "order": -1
-                }
+            $lookup: {
+                from: 'movies',
+                localField: 'movie',
+                foreignField: '_id',
+                as: 'movie'
             }
-        ]).exec(function (err, data2) {
+        }, {
+            $unwind: "$movie"
+        }, {
+            $sort: {
+                "movie.upcomingOrder": -1
+            }
+        }, {
+            $project: {
+                title: 1,
+                isbanner: 1,
+                videos: 1,
+                thumbnail: 1,
+                url: 1,
+                tag: 1,
+                order: 1,
+                "movie.name": 1,
+                "movie._id": 1,
+                "movie.upcomingOrder": 1,
+                "movie.year": 1
+            }
+        }]).exec(function (err, data2) {
             // console.log(data2);
 
             if (err) {
