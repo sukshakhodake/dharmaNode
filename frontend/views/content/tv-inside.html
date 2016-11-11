@@ -37,7 +37,7 @@
                         </div>
                         <div class="text-shadow">
                             <div class="row">
-                                <div class="col-md-4 padding0 col-sm-4 col-sx-12" ng-repeat="item in allvideos | filter:searchdata.search">
+                                <div class="col-md-4 padding0 col-sm-4 col-sx-12" ng-repeat="item in allvideos | filter:searchdata.search |orderBy:'-order'">
                                     <div class="tv-box ">
 
                                         <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
