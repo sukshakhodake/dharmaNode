@@ -3277,6 +3277,11 @@ button.navbar-toggle.collapsed {
         color: #f7941d;
     }
 }
+.pointerarrow{
+  a{
+    cursor: default !important;
+  }
+}
 @import "main2";
 @import "timeline";
 @import "mobile";

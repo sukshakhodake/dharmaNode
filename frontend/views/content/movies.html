@@ -147,17 +147,20 @@
                                                 </div>
                                             </div>
                                         </a>
-                                        <a ng-if="data.status==false">
+                                        <div class="pointerarrow">
+                                          <a ng-if="data.status==false" >
                                             <div class="video-box mb20 common-class ">
-                                                <div class="video-slide-img img-pads ">
-                                                    <img ng-src="{{data.mediumImage|uploadpath}} " alt="Dharma Productions " class="img-responsive">
+                                              <div class="video-slide-img img-pads ">
+                                                <img ng-src="{{data.mediumImage|uploadpath}} " alt="Dharma Productions " class="img-responsive">
+                                              </div>
+                                              <div class="video-name font-karla text-up ">
+                                                <span>{{data.name | shorten : 60}}
+                                                  ({{data.year}})</span>
                                                 </div>
-                                                <div class="video-name font-karla text-up ">
-                                                    <span>{{data.name | shorten : 60}}
-                                                        ({{data.year}})</span>
-                                                </div>
-                                            </div>
-                                        </a>
+                                              </div>
+                                            </a>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -215,16 +218,18 @@
                                 </h4>
                             </div>
                         </a>
-                        <a ng-if="item.status==false">
+                        <div class="pointerarrow">
+                          <a ng-if="item.status==false" class="">
                             <div class="img-pads ">
-                                <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
+                              <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
                             </div>
                             <div class="movie-names ">
-                                <h4 class="text-up color-grey ">{{item.name |shorten : 20}}
-                                    <br>({{item.year}})
-                                </h4>
+                              <h4 class="text-up color-grey ">{{item.name |shorten : 20}}
+                                <br>({{item.year}})
+                              </h4>
                             </div>
-                        </a>
+                          </a>
+                        </div>
                     </div>
                 </div>
             </div>
