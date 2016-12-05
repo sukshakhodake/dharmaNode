@@ -7,192 +7,198 @@ var rapidAnswer = angular.module('rapidAnswer', [])
     var questions = [{
         id: 1,
         quesNo: "Q1",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: "Which was Ranbir Kapoor's first movie with Dharma Productions?",
         model: "quest1",
         options: [{
             "id": "radio1",
-            "name": "aman",
-            answer: true
+            "name": "Ae Dil Hai Mushkil"
+
         }, {
             "id": "radio2",
-            "name": "jaman"
+            "name": "Wake Up Sid",
+              answer: true
         }, {
             "id": "radio3",
-            "name": "raman"
+            "name": "Yeh Jawaani Hai Deewani"
         }, {
             "id": "radio4",
-            "name": "daman"
+            "name": "I Hate Luv Story's "
         }]
     }, {
         id: 2,
         quesNo: "Q2",
-        question: "When was SRK born?",
+        question: "What was Ranbir's screen name in the movie Wake Up Sid?",
         model: "quest2",
         options: [{
             "id": "radio1",
-            "name": "November",
+            "name": "Siddharth Mehra",
             answer: true
         }, {
             "id": "radio2",
-            "name": "January"
+            "name": "Siddharth Malhotra"
         }, {
             "id": "radio3",
-            "name": "May"
+            "name": "Siddharth Dewan"
         }, {
             "id": "radio4",
-            "name": "December"
+            "name": "Siddharth Sinha"
         }]
     }, {
         id: 3,
         quesNo: "Q3",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: "Who played Ranbir's father in the movie Yeh Jawaani Hai Deewani?",
         model: "quest3",
         options: [{
             "id": "radio1",
-            "name": "aman"
+            "name": "Rishi Kapoor"
         }, {
             "id": "radio2",
-            "name": "jaman"
+            "name": "Anupam Kher"
         }, {
             "id": "radio3",
-            "name": "raman",
+            "name": "Farooq Sheikh",
             answer: true
         }, {
             "id": "radio4",
-            "name": "daman"
+            "name": "Javed Sheikh"
         }]
     }, {
         id: 4,
         quesNo: "Q4",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: "Complete the line...'Balam Pichkari Jo Tune Mujhe Maari........'",
         model: "quest4",
         options: [{
             "id": "radio1",
-            "name": "aman"
+            "name": "To Seedhi Saadhi Larki Deewani Ho Gayi"
         }, {
             "id": "radio2",
-            "name": "jaman"
+            "name": "To Bholi Bhaali Ladki Sharaabi Ho Gayi"
         }, {
             "id": "radio3",
-            "name": "raman"
+            "name": "To Bhabhi Meri Bilkul Deewani Ho Gayi"
         }, {
             "id": "radio4",
-            "name": "daman",
+            "name": "To Seedhi Saadhi Chhori Sharaabi Ho Gayi",
             answer: true
         }]
     }, {
         id: 5,
         quesNo: "Q5",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: " Which destination does Alizeh take Avan to after his heart-break with Lisa?",
         model: "quest5",
         options: [{
             "id": "radio1",
-            "name": "aman"
+            "name": "Vienna"
         }, {
             "id": "radio2",
-            "name": "jaman",
-            answer: true
+            "name": "London"
+
         }, {
             "id": "radio3",
-            "name": "raman"
+            "name": "New York"
         }, {
             "id": "radio4",
-            "name": "daman"
+            "name": "Paris",
+              answer: true
         }]
     }, {
         id: 6,
         quesNo: "Q6",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: "Complete this famous dialogue from the movie Yeh Jawaani Hai Deewani ; Tum samajhte kyun nahi Bunny..agar mein tumhare saath do minute aur rahi..........'",
         model: "quest6",
         options: [{
             "id": "radio1",
-            "name": "aman"
+            "name": "To meri train miss ho jaayegi"
         }, {
             "id": "radio2",
-            "name": "jaman"
+            "name": "To mein fir se ro padungi"
         }, {
             "id": "radio3",
-            "name": "raman"
+            "name": "To mujhe tumse pyaar ho jaayega...phir se",
+              answer: true
         }, {
             "id": "radio4",
-            "name": "daman",
-            answer: true
+            "name": "To mein tumse fir kabhi nahi mil paungi"
+
         }]
     }, {
         id: 7,
         quesNo: "Q7",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: "Who plays Ranbir's mother in the movie Wake Up Sid?",
         model: "quest7",
         options: [{
             "id": "radio1",
-            "name": "aman"
+            "name": "Ratna Pathak"
         }, {
             "id": "radio2",
-            "name": "jaman",
-            answer: true
+            "name": "Dolly Ahluwalia"
+
         }, {
             "id": "radio3",
-            "name": "raman"
+            "name": "Supriya Pathak",
+              answer: true
         }, {
             "id": "radio4",
-            "name": "daman"
+            "name": "Tanvi Azmi"
         }]
     }, {
         id: 8,
         quesNo: "Q8",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: "Where does Sid work as an intern in Wake Up Sid?",
         model: "quest8",
         options: [{
             "id": "radio1",
-            "name": "aman"
+            "name": "Mumbai Magic"
         }, {
             "id": "radio2",
-            "name": "jaman",
+            "name": "Mumbai Beat",
             answer: true
         }, {
             "id": "radio3",
-            "name": "raman"
+            "name": "Bombay Beat"
         }, {
             "id": "radio4",
-            "name": "daman"
+            "name": "Mumbai Treat"
         }]
     }, {
         id: 9,
         quesNo: "Q9",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: "Who was Ranbir’s neighbour in Wake Up Sid?",
         model: "quest9",
         options: [{
             "id": "radio1",
-            "name": "aman"
+            "name": "Rakhi Sawant"
         }, {
             "id": "radio2",
-            "name": "jaman"
-        }, {
-            "id": "radio3",
-            "name": "raman",
+            "name": "Kashmira Shah",
             answer: true
         }, {
-            "id": "radio4",
+            "id": "radio3",
+            "name": "Shefali Zariwala"
+
+        }, {
+            "id": "Shefali Shah",
             "name": "daman"
         }]
     }, {
         id: 10,
         quesNo: "Q10",
-        question: "What was SRK’s name in Kal Ho Na Ho?",
+        question: "Who is the lyric writer of Ae Dil Hai Mushkil?",
         model: "quest10",
         options: [{
             "id": "radio1",
-            "name": "aman",
-            answer: true
+            "name": "Javed Akhtar"
+
         }, {
             "id": "radio2",
-            "name": "jaman"
+            "name": "Niranjan Iyengar"
         }, {
             "id": "radio3",
-            "name": "raman"
+            "name": "Amitabh Bhattacharya",
+              answer: true
         }, {
             "id": "radio4",
-            "name": "daman"
+            "name": "Gulzar"
         }]
     }];
 var answered;

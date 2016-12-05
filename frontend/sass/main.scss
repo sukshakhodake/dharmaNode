@@ -3105,7 +3105,7 @@ button.navbar-toggle.collapsed {
 }
 
 .padall30 {
-    padding: 30px 0;
+      padding: 30px 90px 30px 0px;
 }
 
 .top-banner {
@@ -3284,6 +3284,12 @@ button.navbar-toggle.collapsed {
 }
 .mt-7{
       margin-top: -7px;
+}
+.middle-ware{
+  position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
 }
 @import "main2";
 @import "timeline";
