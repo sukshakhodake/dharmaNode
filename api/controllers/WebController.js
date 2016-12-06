@@ -44,7 +44,7 @@ module.exports = {
                 title: "Fancorner - Dharma Production - Score "+ score[0],
                 keywords: "Fancorner,dharma,game,production,score",
                 description: "Fancorner - Dharma Production - Score "+ score[0],
-                image: "../../frontend/img/fan-main.jpg"
+                image: "../../frontend/img/rapifire.jpg"
             });
         } else {
             res.metaView();
