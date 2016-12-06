@@ -37,6 +37,19 @@ module.exports = {
             res.metaView();
         }
     },
+    fanCorner: function(req, res) {
+        if (req.params && req.params[0]) {
+            var score = req.params[0].split("/");
+            res.metaView({
+                title: "Fancorner - Dharma Production - Score "+ score[0],
+                keywords: "Fancorner,dharma,game,production,score",
+                description: "Fancorner - Dharma Production - Score "+ score[0],
+                image: "../../frontend/img/fan-main.jpg"
+            });
+        } else {
+            res.metaView();
+        }
+    },
     tv: function(req, res) {
         if (req.params && req.params[0]) {
             var movieID = req.params[0].split("/");
@@ -62,7 +75,7 @@ module.exports = {
         }
     },
     download: function(req, res) {
-        
+
         Config.readUploaded(req.param("filename"), null, null, null, res);
     },
     backend: function(req, res) {

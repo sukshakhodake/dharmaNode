@@ -50,6 +50,13 @@ module.exports.routes = {
         skipAssets: true,
         skipRegex: /api|backend/i
     },
+    'GET /fan-corner-score/*': {
+        controller: "WebController",
+        action: "fanCorner",
+        skipAssets: true,
+        skipRegex: /api|backend/i
+    },
+
     'GET /gitPull/:data': {
         controller: "WebController",
         action: "gitPull",
