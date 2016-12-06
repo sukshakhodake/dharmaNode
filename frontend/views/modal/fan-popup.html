@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <!-- <label>NAME:</label> -->
-                    <input type="text" name="email" ng-model="formData.email" class="form-control" required placeholder="Email">
+                    <input type="email" name="email" ng-model="formData.email" class="form-control" required placeholder="Email">
                     <div class="error-msg" ng-show="formName.email.$invalid && formName.email.$touched">Please enter your email</div>
                     <div ng-if="validEmail">Email Id Already Exist.</div>
                 </div>
