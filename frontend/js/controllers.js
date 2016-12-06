@@ -419,7 +419,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     });
     // };
 
-
+    $scope.myUrl = window.location.url;
+    console.log('$scope.myUrl fan-cornerctrl',$scope.myUrl);
 
 
 })
@@ -511,7 +512,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         context.stroke();
     }
 
-
+    $scope.myUrl = window.location.url;
+    console.log('$scope.myUrl playctrl',$scope.myUrl);
 
 })
 
@@ -535,7 +537,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.count = $stateParams.id;
 
-
+$scope.myUrl = window.location.url;
+console.log('$scope.myUrl scorectrl',$scope.myUrl);
 
 })
 
