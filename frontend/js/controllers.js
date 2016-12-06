@@ -439,18 +439,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'fan-modal',
         });
     };
+    $scope.$on('$stateChangeStart', function(event, toState) {
+          console.log(toState);
 
+       console.log(answer);
+      //  if (!answer) {
+      //      event.preventDefault();
+      //  }
+                    if(toState.name == 'fan-corner-score' || toState.name == 'fan-corner-play'){
+
+                      console.log('herer');
+                    }else{
+                      var answer = alert("You cannot view your previous answer");
+                      event.preventDefault();
+                    }
+        });
     $scope.firstUI = false;
 
     $scope.currentquestion = RapidAnswer.getQuestion($stateParams.id);
 
     $scope.selectAnswer = function(s) {
+      $scope.mDisable = false;
         _.each($scope.currentquestion.options, function(option) {
             option.selected = undefined;
         });
         s.selected = true;
     };
+    $scope.mDisable = true;
     $scope.nextQuestion = function() {
+
         RapidAnswer.saveAnswer($scope.currentquestion);
         console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
         if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {

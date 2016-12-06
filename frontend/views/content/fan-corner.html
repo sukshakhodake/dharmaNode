@@ -49,7 +49,7 @@
                                                     <ul>
                                                         <li ng-repeat="s in currentquestion.options">
                                                             <input type="radio" id="{{s.id}}" name="selector" ng-model="quest" value="{{s.name}}" ng-change="selectAnswer(s)">
-                                                            <label for="{{s.id}}">{{s.name}}</label>
+                                                            <label for="{{s.id}}">{{s.name}} </label>
 
                                                             <div class="check">
                                                                 <div class="inside"></div>
@@ -59,7 +59,17 @@
                                                     </ul>
                                                 </div>
                                                 <div class="btn-n-s mt30" ng-hide="count==9">
-                                                    <div class="btn-view-more mt15 ">
+                                                    <div class="btn-view-more mt15 " ng-if="mDisable">
+                                                        <a ng-class="{disabled: mDisable}" ng-click="nextQuestion()" class="btn-1 font-hammersmith btn color-primary mobile-center">
+                                                          <svg>
+                                                              <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                                          </svg>
+                                                            NEXT
+                                                        </a>
+
+
+                                                    </div>
+                                                    <div class="btn-view-more mt15 " ng-if="!mDisable">
                                                         <a ng-click="nextQuestion()" class="btn-1 font-hammersmith btn color-primary mobile-center">
                                                           <svg>
                                                               <rect x="0" y="0" fill="none" width="100%" height="100%" />

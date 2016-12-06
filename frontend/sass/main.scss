@@ -3290,6 +3290,10 @@ button.navbar-toggle.collapsed {
 .mt-7{
       margin-top: -7px;
 }
+.disabled {
+  cursor: not-allowed;
+   pointer-events: none;
+}
 .middle-ware{
   position: absolute;
 top: 50%;
