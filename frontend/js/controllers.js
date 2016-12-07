@@ -2057,7 +2057,7 @@ $scope.myUrll = window.location.href;
         $scope.menutitle = NavigationService.makeactive("Dharma & You");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        TemplateService.removeLoaderOn(1);
+        // TemplateService.removeLoaderOn(1);
 
         NavigationService.dharmaYouAll(function(data) {
             $scope.dharmaPosts = data.data;
@@ -2069,7 +2069,7 @@ $scope.myUrll = window.location.href;
 
             $scope.dharmaPosts = _.chunk($scope.dharmaPosts, 2);
 
-            TemplateService.removeLoader();
+            // TemplateService.removeLoader();
         });
 
         $scope.posts = [{
