@@ -3048,6 +3048,7 @@ button.navbar-toggle.collapsed {
                 transition: border 0.25s linear;
                 -webkit-transition: border 0.25s linear;
                 vertical-align: text-top;
+                    cursor: pointer;
 
                 &:before {
                     display: block;
