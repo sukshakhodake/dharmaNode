@@ -227,7 +227,7 @@ var answered;
             return questions[questionNo - 1];
         },
         lastAnswer: function() {
-            return questions.length - 1;
+            return questions.length;
         },
         saveAnswer: function(answer) {
             var answered;

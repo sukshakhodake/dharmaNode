@@ -420,12 +420,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // };
 
     $scope.myUrl = window.location.href;
-    console.log('$scope.myUrl fan-cornerctrl',$scope.myUrl);
+    console.log('$scope.myUrl fan-cornerctrl', $scope.myUrl);
 
 
 })
 
-.controller('FanCornerPlayCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, RapidAnswer, $timeout) {
+.controller('FanCornerPlayCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, RapidAnswer, $timeout,$rootScope) {
     $scope.template = TemplateService.changecontent("fan-corner");
     $scope.menutitle = NavigationService.makeactive("Fan Corner");
     TemplateService.title = $scope.menutitle;
@@ -439,27 +439,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'fan-modal',
         });
     };
-    $scope.$on('$stateChangeStart', function(event, toState) {
-          console.log(toState);
+    $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
+      // console.log('$scope.myUrll',$scope.myUrll);
+      $scope.oldddUrl = oldUrl;
+      // console.log('oldddUrl0000000000000',oldUrl);
+      // console.log('newUrllllll',newUrl);
+if($scope.myUrll != newUrl || window.location.href=="http://localhost:1337/fan-corner"){
+  $scope.oldddUrl = $scope.oldddUrl;
+    console.log('yes allow');
+    console.log('$scope.oldddUrl',$scope.oldddUrl);
 
-       console.log(answer);
-      //  if (!answer) {
-      //      event.preventDefault();
-      //  }
-                    if(toState.name == 'fan-corner-score' || toState.name == 'fan-corner-play'){
 
-                      console.log('herer');
-                    }else{
-                      var answer = alert("You cannot view your previous answer");
-                      event.preventDefault();
-                    }
-        });
+}else{
+  // console.log('elseeeeeeeeeee');
+  var answer = alert("You cannot view your previous answer");
+          event.preventDefault();
+          // window.history.forward();
+}
+    }
+  );
     $scope.firstUI = false;
 
     $scope.currentquestion = RapidAnswer.getQuestion($stateParams.id);
-
+// $scope.myUrll = '';
     $scope.selectAnswer = function(s) {
-      $scope.mDisable = false;
+        $scope.mDisable = false;
         _.each($scope.currentquestion.options, function(option) {
             option.selected = undefined;
         });
@@ -467,7 +471,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.mDisable = true;
     $scope.nextQuestion = function() {
-
+$scope.myUrll = window.location.href;
         RapidAnswer.saveAnswer($scope.currentquestion);
         console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
         if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
@@ -478,6 +482,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         } else {
             $interval.cancel(counter);
+            $scope.myState = window.location.href;
+            // console.log('$scope.myState ', $scope.myState);
             $state.go('fan-corner-play', {
                 id: parseInt($stateParams.id) + 1
             });
@@ -530,7 +536,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.myUrl = window.location.href;
-    console.log('$scope.myUrl playctrl',$scope.myUrl);
+    // console.log('$scope.myUrl playctrl', $scope.myUrl);
 
 })
 
@@ -554,8 +560,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.count = $stateParams.id;
 
-$scope.myUrl = window.location.href;
-console.log('$scope.myUrl scorectrl',$scope.myUrl);
+    $scope.myUrl = window.location.href;
+    console.log('$scope.myUrl scorectrl', $scope.myUrl);
 
 })
 
@@ -1350,38 +1356,38 @@ console.log('$scope.myUrl scorectrl',$scope.myUrl);
         var i = 0;
 
         function callMe() {
-          console.log('in call me');
+            console.log('in call me');
             // $scope.news10 = [];
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
                 // if (newI == i) {
-                    $scope.myTotal = data.data.total;
-                    if ($scope.filter.search.length === 0) {
-                        $scope.crossdisplay = false;
-                    }
-                    lastpage = data.data.totalpages;
-                    if ($scope.filter.pagesize >= $scope.myTotal) {
-                        $scope.forViewMore = true;
+                $scope.myTotal = data.data.total;
+                if ($scope.filter.search.length === 0) {
+                    $scope.crossdisplay = false;
+                }
+                lastpage = data.data.totalpages;
+                if ($scope.filter.pagesize >= $scope.myTotal) {
+                    $scope.forViewMore = true;
+                } else {
+                    $scope.forViewMore = false;
+                }
+                $scope.myTotal = data.data.total;
+
+                if (data.value) {
+                    if (data.data.data.length > 0) {
+                        $scope.noNewsFound = false;
+                        _.each(data.data.data, function(n) {
+                            n.date = new Date(n.date);
+                            $scope.news10.push(n);
+                            console.log('$scope.news10', $scope.news10);
+                            AllNews = $scope.news10;
+
+                        });
                     } else {
-                        $scope.forViewMore = false;
+                        $scope.noNewsFound = true;
                     }
-                    $scope.myTotal = data.data.total;
 
-                    if (data.value) {
-                        if (data.data.data.length > 0) {
-                            $scope.noNewsFound = false;
-                            _.each(data.data.data, function(n) {
-                                n.date = new Date(n.date);
-                                $scope.news10.push(n);
-                                console.log('$scope.news10',$scope.news10);
-                                AllNews = $scope.news10;
-
-                            });
-                        } else {
-                            $scope.noNewsFound = true;
-                        }
-
-                    }
-                    TemplateService.removeLoader();
+                }
+                TemplateService.removeLoader();
 
                 // }else{
                 //   console.log('elseeeeee part');
