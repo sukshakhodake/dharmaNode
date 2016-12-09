@@ -1,6 +1,6 @@
 <div class="white-orange-bg">
     <div class="closure" ng-click="$dismiss()"><i class="fa fa-close"></i></div>
-    <form name="formName" ng-submit="s">
+    <form name="formName" ng-submit="subscribe10(subscribe.email,formName)">
         <div class="row">
             <div class="col-md-12">
             <div class="pad-box-pop">
@@ -8,15 +8,15 @@
                 <h4 class="color-white text-up font-bold margin0">Stay updated with all things</h4>
                 <h4 class="color-white text-up font-bold margin0">#okjAANU subcribe now!</h4>
               </div>
-                <div class="input-group">
+                <div class="input-group" ng-hide="subscribeSuccess">
                     <input type="email" class="form-control h43" placeholder="Enter your email-id" ng-model="subscribe.email" required>
                     <div class="error-msg" ng-show="formName.email.$invalid && formName.email.$touched">Please enter your email</div>
-                    <div ng-if="validEmail">Email Id Already Exist.</div>
+                    <div ng-if="checkEmail">Email Id Already Exist.</div>
                     <span class="input-group-btn go-btn go-sb">
                         <button class="font-hammersmith" type="submit">Go</button>
                   <div ng-messages="subForm.email.$error" ng-messages-include="error-messages"></div>
             </div>
-            <div class="brand-primary text-upper text-center" ng-if="questionSubmit">
+            <div class="brand-primary text-upper text-center" ng-if="subscribeSuccess">
               <h3 class="font-hammersmith color-primary text-up">Thank you for subscribe.
 
               </h3>

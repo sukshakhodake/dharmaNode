@@ -4,9 +4,7 @@ var google;
 var allMovieName = [];
 var context;
 
-window.onload = function() {
-  $.jStorage.flush();
-};
+
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'wu.masonry', 'ksSwiper', 'imageupload', 'ui.select', 'infinite-scroll', 'rapidAnswer'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
@@ -21,7 +19,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'subscribe-modal',
         });
     };
-popNot = $.jStorage.get('popNot');
+// popNot = $.jStorage.get('popNot');
+$scope.subscribe = {};
+$scope.subscribe.email = "";
+$scope.checkEmail = false;
+$scope.subscribeSuccess = false;
+$scope.subscribe10 = function(email, form) {
+    if (email && email !== '' && form.$valid) {
+        NavigationService.subScribe(email, function(data) {
+            if (data.data.message == 'already exist') {
+                // if ($scope.subscribe.email) {
+                $scope.checkEmail = true;
+                // $scope.subscribeSuccess = false;
+                $timeout(function() {
+                    $scope.checkEmail = false;
+                }, 2000);
+
+                // }
+            } else {
+                $scope.checkEmail = false;
+                $scope.subscribeSuccess = true;
+
+            }
+            $scope.subscribe.email = "";
+        });
+    }
+};
+
     $scope.openModals = function() {
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
@@ -34,13 +58,7 @@ popNot = $.jStorage.get('popNot');
     $scope.$on('$viewContentLoaded', function(){
     $scope.openModals();
     });
-    $scope.close = function() {
-  $.jStorage.set('popNot', true);
-  // console.log('popNot value: ', $.jStorage.get('popNot'))
-};
-if (!popNot) {
-  $scope.openModals();
-}
+
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
