@@ -936,6 +936,9 @@
     }
 }
 @media (max-width:480px) {
+  .subscribe-movie .modal-sm {
+    width: 370px !important;
+}
   .cm-text{
         margin-top: 10px;
     h2{

@@ -810,7 +810,7 @@ a {
             border-right: 1px solid #b2b2b2;
             padding: 0 6px;
             line-height: 100%;
-
+  color: #b2b2b2;
             &:last-child {
                 border: none;
             }
@@ -2933,7 +2933,37 @@ button.navbar-toggle.collapsed {
     padding: 35px 25px;
     border-radius: 20px;
 }
+.subscribe-movie .modal-content {
+    border: 2px solid #f37021;
+    padding: 35px 25px;
+    border-radius: 20px;
+    background: url("../img/pop-up.png")no-repeat;
+        background-size: cover;
 
+}
+.subscribe-movie{
+  .modal-sm {
+  width: 500px !important;
+}
+}
+.pad-box-pop{
+      padding-top: 100px;
+}
+.h43{
+  height: 43px;
+}
+.go-sb{
+  background: #f37021;
+color: #fff;
+padding: 6px 10px;
+button{
+      font-size: 21px;
+      color: #fff;
+}
+}
+.tit{
+      padding-bottom: 15px;
+}
 .fan-modal .modal-content {
     border: 2px solid #f37021;
     padding: 35px 25px;

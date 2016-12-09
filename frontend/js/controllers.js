@@ -17,16 +17,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'subscribe-modal',
         });
     };
-    $scope.openModal = function() {
+
+    $scope.openModals = function() {
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/subscribe.html',
+            templateUrl: 'frontend/views/modal/movie-subscribe.html',
             controller: 'HomeCtrl',
-            size: 'lg',
-            windowClass: 'subscribe-modal',
+            size: 'sm',
+            windowClass: 'subscribe-movie',
         });
     };
-
+    $scope.$on('$viewContentLoaded', function(){
+    $scope.openModals();
+    });
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
