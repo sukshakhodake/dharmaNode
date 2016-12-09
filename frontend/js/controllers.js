@@ -3,6 +3,10 @@ var calculateAndDisplayRoute = {};
 var google;
 var allMovieName = [];
 var context;
+
+window.onload = function() {
+  $.jStorage.flush();
+};
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'wu.masonry', 'ksSwiper', 'imageupload', 'ui.select', 'infinite-scroll', 'rapidAnswer'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
@@ -17,7 +21,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'subscribe-modal',
         });
     };
-
+popNot = $.jStorage.get('popNot');
     $scope.openModals = function() {
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
@@ -30,6 +34,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.$on('$viewContentLoaded', function(){
     $scope.openModals();
     });
+    $scope.close = function() {
+  $.jStorage.set('popNot', true);
+  // console.log('popNot value: ', $.jStorage.get('popNot'))
+};
+if (!popNot) {
+  $scope.openModals();
+}
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
@@ -236,6 +247,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getAllMovieName(function(data) {
             $.jStorage.setTTL("allMovieName", data.data, 3600000);
             $scope.allMovieName = data.data;
+            console.log('$scope.allMovieName',$scope.allMovieName);
+            $scope.allMovieName10 = _.groupBy($scope.allMovieName,"status");
+            $scope.allMovieName10 = $scope.allMovieName10.true;
+
+console.log('$scope.allMovieName10',$scope.allMovieName10.true);
 
         });
     }

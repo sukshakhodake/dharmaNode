@@ -52,7 +52,7 @@
     <div class="movie-search-pg">
       <ui-select ng-model="movie.selected" ng-change="DoSearch(movie.selected.name,movie.selected._id)" style="width: 100%;" title="Search Movie" class="search-drop">
           <ui-select-match placeholder="Search for movie">{{$select.selected.name}}</ui-select-match>
-          <ui-select-choices repeat="movie in allMovieName | filter: {name:$select.search}">
+          <ui-select-choices repeat="movie in allMovieName10 | filter: {name:$select.search}">
               <div class="movi-src-rslt">
                   <div class="display-inline w60">
                       <!-- <img src="frontend/img/movie-search.png" alt=""> -->
