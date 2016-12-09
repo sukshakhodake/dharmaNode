@@ -17,6 +17,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'subscribe-modal',
         });
     };
+    $scope.openModal = function() {
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'frontend/views/modal/subscribe.html',
+            controller: 'HomeCtrl',
+            size: 'lg',
+            windowClass: 'subscribe-modal',
+        });
+    };
 
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
