@@ -24,7 +24,7 @@ var schema = new Schema({
     },
     status: {
         type: Boolean,
-        default: ""
+        default: true
     },
     order: {
         type: Number,
