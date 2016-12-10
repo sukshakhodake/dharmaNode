@@ -84,7 +84,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
     }, {
         id: 5,
         quesNo: "Q5",
-        question: " Which destination does Alizeh take Avan to after his heart-break with Lisa?",
+        question: " Which destination does Alizeh take Ayan to after his heart-break with Lisa?",
         model: "quest5",
         options: [{
             "id": "radio1",
