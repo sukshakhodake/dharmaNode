@@ -56,7 +56,12 @@ $scope.subscribe10 = function(email, form) {
         });
     };
     $scope.$on('$viewContentLoaded', function(){
-    $scope.openModals();
+    if(!$.jStorage.get('FirstTime')){
+      $.jStorage.set('FirstTime',{
+        value:true
+      });
+      $scope.openModals();
+    }
     });
 
     $scope.template = TemplateService.changecontent("home");
