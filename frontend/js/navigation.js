@@ -3,7 +3,7 @@ var uploadurl = adminurl + "upload/";
 
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function($http) {
+.factory('NavigationService', function ($http) {
     var navigation = [{
             name: "Overview",
             classis: "active",
@@ -57,7 +57,7 @@ var navigationservice = angular.module('navigationservice', [])
                 classis: "active",
                 anchor: "dharma-insta",
                 isId: "no",
-            },{
+            }, {
                 name: "Fan Corner",
                 classis: "active",
                 anchor: "fan-landing",
@@ -78,10 +78,10 @@ var navigationservice = angular.module('navigationservice', [])
 
 
     return {
-        getnav: function() {
+        getnav: function () {
             return navigation;
         },
-        makeactive: function(menuname) {
+        makeactive: function (menuname) {
             for (var i = 0; i < navigation.length; i++) {
                 if (navigation[i].name == menuname) {
                     navigation[i].classis = "active";
@@ -92,302 +92,158 @@ var navigationservice = angular.module('navigationservice', [])
             return menuname;
         },
 
-        getMovieDetails: function(callback) {
-            $http({
-                url: adminurl + 'movie/getMovieDetails',
-                method: 'POST',
-                withCredentials: true
-            }).success(function(data) {
-                _.each(data.data, function(n) {
+        getMovieDetails: function (callback) {
+            $http.post(adminurl + 'movie/getMovieDetails').success(function (data) {
+                _.each(data.data, function (n) {
                     n._id = n.urlName;
                 });
                 callback(data);
             });
         },
 
-        getJourney: function(callback) {
-            $http({
-                url: adminurl + 'journey/getall',
-                method: 'POST',
-                withCredentials: true
-            }).success(function(data) {
+        getJourney: function (callback) {
+            $http.post(adminurl + 'journey/getall').success(function (data) {
                 var a = _.orderBy(data.data, ["date"], ["desc"]);
-                _.each(a, function(n) {
+                _.each(a, function (n) {
                     n.dateShow = moment(a.date).format("D MMM YYYY");
                 });
                 a = _.reverse(_.toArray(_.groupBy(a, "year")));
                 callback(a);
             });
         },
-        getNews: function(callback) {
-
-            $http({
-                url: adminurl + 'News/getAll',
-                method: 'POST',
-                withCredentials: true
+        getNews: function (callback) {
+            $http.post(adminurl + 'News/getAll').success(callback);
+        },
+        subScribe: function (email, callback) {
+            $http.post(adminurl + 'subscribe/saveData', {
+                "email": email
             }).success(callback);
         },
-        subScribe: function(email, callback) {
-            $http({
-                url: adminurl + 'subscribe/saveData',
-                method: 'POST',
-                withCredentials: true,
-                data: {
-                    "email": email
-                }
+        submitFormData: function (formData, callback) {
+            $http.post(adminurl + 'Form/saveData', formData).success(callback);
+        },
+        getDharmatvOne: function (id, callback) {
+            $http.post(adminurl + 'Dharmatv/getOne', {
+                _id: id
             }).success(callback);
         },
-        submitFormData: function(formData, callback) {
-            $http({
-
-                url: adminurl + 'Form/saveData',
-                method: 'POST',
-                withCredentials: true,
-                data: formData
-            }).success(callback);
-        },
-        getDharmatvOne: function(id, callback) {
-            $http({
-                url: adminurl + 'Dharmatv/getOne',
-                method: 'POST',
-                withCredentials: true,
-                data: {
-                    _id: id
-                }
-
-            }).success(callback);
-        },
-        getAllUpcomingMovies: function(callback) {
-
-            $http({
-                url: adminurl + 'Movie/getAllUpcomingMovies',
-                method: 'POST',
-                withCredentials: true
-            }).success(function(data) {
-                _.each(data.data, function(n) {
+        getAllUpcomingMovies: function (callback) {
+            $http.post(adminurl + 'Movie/getAllUpcomingMovies').success(function (data) {
+                _.each(data.data, function (n) {
                     n._id = n.urlName;
                 });
                 callback(data);
             });
         },
-        getAllUpcomingMoviesHome: function(callback) {
-
-            $http({
-                url: adminurl + 'dharmatv/getDharmaTvHomeSlider',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
+        getAllUpcomingMoviesHome: function (callback) {
+            $http.post(adminurl + 'dharmatv/getDharmaTvHomeSlider').success(callback);
         },
-        getAllRecentMovies: function(callback) {
-
-            $http({
-                url: adminurl + 'Movie/getAllRecentMovies',
-                method: 'POST',
-                withCredentials: true
-            }).success(function(data) {
-                _.each(data.data, function(n) {
+        getAllRecentMovies: function (callback) {
+            $http.post(adminurl + 'Movie/getAllRecentMovies').success(function (data) {
+                _.each(data.data, function (n) {
                     n._id = n.urlName;
                 });
                 callback(data);
             });
         },
-
-        newGetOneMovie: function(id, callback) {
-            $http({
-                url: adminurl + 'Movie/getOneMovie',
-                method: 'POST',
-                withCredentials: true,
-                data: {
-                    _id: id
-                }
-
+        newGetOneMovie: function (id, callback) {
+            $http.post(adminurl + 'Movie/getOneMovie', {
+                _id: id
             }).success(callback);
         },
-        getMovieAwards: function(id, callback) {
-            $http({
-                url: adminurl + 'NewAward/getMovieAward',
-                method: 'POST',
-                withCredentials: true,
-                data: {
-                    _id: id
-                }
-
+        getMovieAwards: function (id, callback) {
+            $http.post(adminurl + 'NewAward/getMovieAward', {
+                _id: id
             }).success(callback);
         },
-        getNewsHomeSearch: function(request, i, callback) {
-            console.log("in news", request);
-            console.log(i);
-            $http({
-                url: adminurl + 'news/findLimited',
-                method: 'POST',
-                withCredentials: true,
-                data: request
-            }).success(function(data) {
+        getNewsHomeSearch: function (request, i, callback) {
+            $http.post(adminurl + 'news/findLimited', request).success(function (data) {
                 callback(data, i);
             });
 
         },
-        getDictionary: function(request, i, callback) {
-            console.log("in dictionary", request);
-            $http({
-                url: adminurl + 'dictionary/findLimited',
-                method: 'POST',
-                withCredentials: true,
-                data: request
-            }).success(function(data) {
+        getDictionary: function (request, i, callback) {
+            $http.post(adminurl + 'dictionary/findLimited', request).success(function (data) {
                 callback(data, i);
             });
-
         },
-        getAllMovieName: function(callback) {
+        getAllMovieName: function (callback) {
 
-            $http({
-                url: adminurl + 'Movie/getAllMovieName',
-                method: 'POST',
-                withCredentials: true
-            }).success(function(data) {
-                _.each(data.data, function(n) {
+            $http.post(adminurl + 'Movie/getAllMovieName').success(function (data) {
+                _.each(data.data, function (n) {
                     n._id = n.urlName;
                 });
                 callback(data);
             });
         },
-        getAllSlides: function(callback) {
-
-            $http({
-                url: adminurl + 'homeslider/getAllHomeSlider',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
+        getAllSlides: function (callback) {
+            $http.post(adminurl + 'homeslider/getAllHomeSlider').success(callback);
         },
-        getDharmaTvSlides: function(callback) {
+        getDharmaTvSlides: function (callback) {
 
-            $http({
-                url: adminurl + 'dharmahome/getDharmaTvHome',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
+            $http.post(adminurl + 'dharmahome/getDharmaTvHome').success(callback);
         },
-        getAllDharmaTvSlider: function(callback) {
-
-            $http({
-                url: adminurl + 'dharmaslider/getAllDharmaTvSlider',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
+        getAllDharmaTvSlider: function (callback) {
+            $http.post(adminurl + 'dharmaslider/getAllDharmaTvSlider').success(callback);
         },
-
-        getAllDharmatv10: function(callback) {
-            $http({
-                url: adminurl + 'Dharmatv/getAll',
-                method: 'POST',
-                withCredentials: true
-            }).success(function(data) {
-                _.each(data.data, function(n) {
+        getAllDharmatv10: function (callback) {
+            $http.post(adminurl + 'Dharmatv/getAll').success(function (data) {
+                _.each(data.data, function (n) {
                     n.movie._id = _.kebabCase(n.movie.name) + "_" + n.movie.year;
                 });
                 callback(data);
             });
         },
-        getAllTags: function(callback) {
-            $http({
-                url: adminurl + 'tag/getAll',
-                method: 'POST',
-                withCredentials: true
+        getAllTags: function (callback) {
+            $http.post(adminurl + 'tag/getAll').success(callback);
+        },
+        getOneNews: function (id, callback) {
+            $http.post(adminurl + 'News/getOneNews', {
+                _id: id
             }).success(callback);
         },
-        getOneNews: function(id, callback) {
-            $http({
-                url: adminurl + 'News/getOneNews',
-                method: 'POST',
-                withCredentials: true,
-                data: {
-                    _id: id
-                }
-
+        getMonthYear: function (callback) {
+            $http.post(adminurl + 'news/getMonthYear').success(callback);
+        },
+        getOneRelated: function (id, callback) {
+            $http.post(adminurl + 'news/getOneArticle', {
+                _id: id
             }).success(callback);
         },
-        getMonthYear: function(callback) {
-            $http({
-                url: adminurl + 'news/getMonthYear',
-                method: 'POST',
-                withCredentials: true
+        getAllPosts: function (filterdata, callback) {
+            $http.post(adminurl + 'dharmainsta/getAllInstaPosts', filterdata).success(callback);
+        },
+        getAllTwitter: function (callback) {
+            $http.post(adminurl + 'dharma140/getAll').success(callback);
+        },
+        dharmaYouAll: function (callback) {
+            $http.post(adminurl + 'dharmanyou/getAll').success(callback);
+        },
+        getOneHashTag: function (id, callback) {
+            $http.post(adminurl + 'dharma140/getHash', {
+                _id: id
             }).success(callback);
         },
-        getOneRelated: function(id, callback) {
-            console.log(id);
-            $http({
-                url: adminurl + 'news/getOneArticle',
-                method: 'POST',
-                withCredentials: true,
-                data: {
-                    _id: id
-                }
-            }).success(callback);
+        youSave: function (formData, callback) {
+            $http.post(adminurl + 'dharmanyou/save', formData).success(callback);
         },
-        getAllPosts: function(filterdata, callback) {
-            $http({
-                url: adminurl + 'dharmainsta/getAllInstaPosts',
-                method: 'POST',
-                withCredentials: true,
-                data: filterdata
-            }).success(callback);
+        getAllConfig: function (callback) {
+            $http.post(adminurl + 'NewConfig/getAll').success(callback);
         },
-        getAllTwitter: function(callback) {
-            $http({
-                url: adminurl + 'dharma140/getAll',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
-        },
-        dharmaYouAll: function(callback) {
-            $http({
-                url: adminurl + 'dharmanyou/getAll',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
-        },
-        getOneHashTag: function(id, callback) {
-            $http({
-                url: adminurl + 'dharma140/getHash',
-                method: 'POST',
-                withCredentials: true,
-                data: {
-                    _id: id
-                }
-            }).success(callback);
-        },
-        youSave: function(formData, callback) {
-            // console.log('form data: ', formData);
-            $http({
-                url: adminurl + 'dharmanyou/save',
-                method: 'POST',
-                withCredentials: true,
-                data: formData
-            }).success(callback);
-        },
-        getAllConfig: function(callback) {
-            $http({
-                url: adminurl + 'NewConfig/getAll',
-                method: 'POST',
-                withCredentials: true
-            }).success(callback);
-        },
-        changeTimerRapid: function() {
-          var rapidTimer = $.jStorage.get("rapidTimer");
-          var returnVal;
-          if(rapidTimer && rapidTimer != 1) {
-            returnVal  = rapidTimer - 1;
-            $.jStorage.set("rapidTimer",returnVal);
-          }
-          else if( rapidTimer != 1) {
-            $.jStorage.set("rapidTimer",90);
-            returnVal = 90;
-          } else {
-            $.jStorage.set("rapidTimer",null);
-            returnVal = 0;
-          }
-          return returnVal;
+        changeTimerRapid: function () {
+            var rapidTimer = $.jStorage.get("rapidTimer");
+            var returnVal;
+            if (rapidTimer && rapidTimer != 1) {
+                returnVal = rapidTimer - 1;
+                $.jStorage.set("rapidTimer", returnVal);
+            } else if (rapidTimer != 1) {
+                $.jStorage.set("rapidTimer", 90);
+                returnVal = 90;
+            } else {
+                $.jStorage.set("rapidTimer", null);
+                returnVal = 0;
+            }
+            return returnVal;
         }
 
     };
