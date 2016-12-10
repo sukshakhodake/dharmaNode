@@ -3337,6 +3337,12 @@ top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
 }
+.cl-hv{
+  color: #fff !important;
+  &:hover{
+    color: #fff !important;
+  }
+}
 @import "main2";
 @import "timeline";
 @import "mobile";
