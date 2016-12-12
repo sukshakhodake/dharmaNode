@@ -9,16 +9,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
     //Used to name the .html file
-
-    $scope.openModal = function () {
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/subscribe.html',
-            // controller: 'HomeCtrl',
-            size: 'lg',
-            windowClass: 'subscribe-modal',
-        });
-    };
     $scope.openModals = function () {
         $scope.modalInstanceABC = $uibModal.open({
             animation: $scope.animationsEnabled,
@@ -26,8 +16,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // controller: 'HomeCtrl',
             size: 'sm',
             windowClass: 'subscribe-movie',
+            scope: $scope
         });
     };
+    $scope.openModal = function () {
+      // $scope.modalInstanceABC.close();
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'frontend/views/modal/subscribe.html',
+            controller: 'HomeCtrl',
+            size: 'lg',
+            windowClass: 'subscribe-modal',
+        });
+    };
+
     // popNot = $.jStorage.get('popNot');
     $scope.subscribe = {};
     $scope.subscribe.email = "";
@@ -49,9 +51,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 } else {
                   console.log('yes success');
                   // $uibModalInstanceABC.dismiss('cancel');
+                  $scope.openModal();
                   $scope.modalInstanceABC.close();
                     $scope.checkEmail = false;
-                      $scope.openModal();
+
                     // $scope.subscribeSuccess = true;
 
                 }
