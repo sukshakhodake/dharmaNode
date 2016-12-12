@@ -1,4 +1,4 @@
-<div class="white-orange-bg">
+<div class="white-orange-bg" ng-controller="HomeCtrl">
     <div class="closure" ng-click="$dismiss()"><i class="fa fa-close"></i></div>
     <form name="formName" ng-submit="subscribe10(subscribe.email,formName)">
         <div class="row">
@@ -16,12 +16,12 @@
                         <button class="font-hammersmith" type="submit">Go</button>
                   <div ng-messages="subForm.email.$error" ng-messages-include="error-messages"></div>
             </div>
-            <div class="brand-primary text-upper text-center" ng-if="subscribeSuccess">
+            <!-- <div class="brand-primary text-upper text-center" ng-if="subscribeSuccess">
               <h3 class="font-hammersmith color-primary text-up">Thank you for subscribe.
 
               </h3>
 
-            </div>
+            </div> -->
             </div>
         </div>
 

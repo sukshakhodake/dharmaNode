@@ -14,9 +14,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'frontend/views/modal/subscribe.html',
-            controller: 'HomeCtrl',
+            // controller: 'HomeCtrl',
             size: 'lg',
             windowClass: 'subscribe-modal',
+        });
+    };
+    $scope.openModals = function () {
+        $scope.modalInstanceABC = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'frontend/views/modal/movie-subscribe.html',
+            // controller: 'HomeCtrl',
+            size: 'sm',
+            windowClass: 'subscribe-movie',
         });
     };
     // popNot = $.jStorage.get('popNot');
@@ -25,6 +34,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.checkEmail = false;
     $scope.subscribeSuccess = false;
     $scope.subscribe10 = function (email, form) {
+      console.log(email);
         if (email && email !== '' && form.$valid) {
             NavigationService.subScribe(email, function (data) {
                 if (data.data.message == 'already exist') {
@@ -37,24 +47,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                     // }
                 } else {
+                  console.log('yes success');
+                  // $uibModalInstanceABC.dismiss('cancel');
+                  $scope.modalInstanceABC.close();
                     $scope.checkEmail = false;
-                    $scope.subscribeSuccess = true;
+                      $scope.openModal();
+                    // $scope.subscribeSuccess = true;
 
                 }
                 $scope.subscribe.email = "";
+
+
             });
         }
     };
 
-    $scope.openModals = function () {
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/movie-subscribe.html',
-            controller: 'HomeCtrl',
-            size: 'sm',
-            windowClass: 'subscribe-movie',
-        });
-    };
+
     $scope.$on('$viewContentLoaded', function () {
         if (!$.jStorage.get('FirstTime')) {
             $.jStorage.set('FirstTime', {
@@ -77,6 +85,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.mySlide = [
         'frontend/img/banners/mob-slider.jpg',
         'frontend/img/banners/mob-slider.jpg'
+    ];
+    $scope.getAllSlidess = [
+        'frontend/img/tp.jpg',
+        'frontend/img/tp.jpg'
     ];
     NavigationService.getAllUpcomingMovies(function (data) {
         $scope.AllUpcomingMovies = _.orderBy(data.data, function (n) {
@@ -751,7 +763,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("TV Inside");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        TemplateService.removeLoaderOn(2);
+        TemplateService.removeLoaderOn(3);
 
         $scope.getDharmaTV = function () {
             NavigationService.getAllDharmatv10(function (data) {
