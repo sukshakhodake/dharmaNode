@@ -11,7 +11,7 @@
                 <div class="input-group" ng-hide="subscribeSuccess">
                     <input type="email" class="form-control h43" placeholder="Enter your email-id" ng-model="subscribe.email" required>
                     <div class="error-msg" ng-show="formName.email.$invalid && formName.email.$touched">Please enter your email</div>
-                    <div ng-if="checkEmail">Email Id Already Exist.</div>
+                    <div >Email Id Already Exist.</div>
                     <span class="input-group-btn go-btn go-sb">
                         <button class="font-hammersmith" type="submit">Go</button>
                   <div ng-messages="subForm.email.$error" ng-messages-include="error-messages"></div>
