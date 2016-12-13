@@ -87,10 +87,13 @@ module.exports = {
                 } else if (_.isEmpty(news)) {
                     res.callback(err, news);
                 } else {
+                      var text = htmlToText.fromString(news.text, {
+                        wordwrap: 500
+                    });
                     res.metaView({
                         title: news.title,
                         keywords: news.keywords,
-                        description: news.text,
+                        description: text,
                         image: news.image
                     });
                 }
