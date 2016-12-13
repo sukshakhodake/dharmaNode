@@ -22,6 +22,15 @@
         "id": "input2",
         "validation": ["required", "trim", "unique"],
         "url": ""
+    },{
+        "name": "Keywords",
+        "type": "text",
+        "tableRef": "keywords",
+        "model": "keywords",
+        "placeholder": "Enter keywords",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
     }, {
         "name": "Image",
         "type": "image",

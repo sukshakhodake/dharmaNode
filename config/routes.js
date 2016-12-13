@@ -50,6 +50,12 @@ module.exports.routes = {
         skipAssets: true,
         skipRegex: /api|backend/i
     },
+      'GET /news-events/*': {
+        controller: "WebController",
+        action: "news",
+        skipAssets: true,
+        skipRegex: /api|backend/i
+    },
     'GET /fan-corner-score/*': {
         controller: "WebController",
         action: "fanCorner",

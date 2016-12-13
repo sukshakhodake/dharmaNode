@@ -74,6 +74,31 @@ module.exports = {
             res.metaView();
         }
     },
+    news: function(req, res) {
+        if (req.params && req.params[0]) {
+            var newsID = req.params[0].split("/");
+        
+         News.findOne({
+            "_id": newsID
+        }).exec(function(err, news) {
+             if (err) {
+                    res.callback(err, data);
+                } else if (_.isEmpty(data)) {
+                    res.callback(err, data);
+                } else {
+                    res.metaView({
+                        title: news.title,
+                        keywords: news.keywords,
+                        description: news.text,
+                        image: news.image
+                    });
+                }
+        });
+
+        } else {
+            res.metaView();
+        }
+    },
     download: function(req, res) {
 
         Config.readUploaded(req.param("filename"), null, null, null, res);

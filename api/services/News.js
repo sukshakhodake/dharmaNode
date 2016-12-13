@@ -14,6 +14,10 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    keywords: {
+        type: String,
+        default: ""
+    },
     date: {
         type: Date,
         default: Date.now
