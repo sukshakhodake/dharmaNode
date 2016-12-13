@@ -36,7 +36,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.checkEmail = false;
     $scope.subscribeSuccess = false;
     $scope.subscribe10 = function (email, form) {
-      console.log(email);
+      //console.log(email);
         if (email && email !== '' && form.$valid) {
             NavigationService.subScribe(email, function (data) {
                 if (data.data.message == 'already exist') {
@@ -49,7 +49,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                     // }
                 } else {
-                  console.log('yes success');
+                  //console.log('yes success');
                   // $uibModalInstanceABC.dismiss('cancel');
                   $scope.openModal();
                   $scope.modalInstanceABC.close();
@@ -285,11 +285,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getAllMovieName(function (data) {
             $.jStorage.setTTL("allMovieName", data.data, 3600000);
             $scope.allMovieName = data.data;
-            console.log('$scope.allMovieName', $scope.allMovieName);
+            //console.log('$scope.allMovieName', $scope.allMovieName);
             $scope.allMovieName10 = _.groupBy($scope.allMovieName, "status");
             $scope.allMovieName10 = $scope.allMovieName10.true;
 
-            console.log('$scope.allMovieName10', $scope.allMovieName10.true);
+            //console.log('$scope.allMovieName10', $scope.allMovieName10.true);
 
         });
     }
@@ -410,10 +410,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.filter.pagesize = 500;
         var i = 0;
         NavigationService.getDictionary($scope.filter, ++i, function (data, newI) {
-            console.log('inside api');
+            //console.log('inside api');
             if (newI == i) {
                 $scope.myDictionary = data.data.data;
-                console.log($scope.myDictionary);
+                //console.log($scope.myDictionary);
                 TemplateService.removeLoader();
 
             }
@@ -486,7 +486,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // };
 
     $scope.myUrl = window.location.href;
-    console.log('$scope.myUrl fan-cornerctrl', $scope.myUrl);
+    //console.log('$scope.myUrl fan-cornerctrl', $scope.myUrl);
 
 
 })
@@ -529,7 +529,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.nextQuestion = function () {
         $scope.myUrll = window.location.href;
         RapidAnswer.saveAnswer($scope.currentquestion);
-        console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
+        //console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
         if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
 
             $interval.cancel(counter);
@@ -539,7 +539,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
             $interval.cancel(counter);
             $scope.myState = window.location.href;
-            // console.log('$scope.myState ', $scope.myState);
+            // //console.log('$scope.myState ', $scope.myState);
             $state.go('fan-corner-play', {
                 id: parseInt($stateParams.id) + 1
             });
@@ -592,7 +592,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.myUrl = window.location.href;
-    // console.log('$scope.myUrl playctrl', $scope.myUrl);
+    // //console.log('$scope.myUrl playctrl', $scope.myUrl);
 
 })
 
@@ -617,7 +617,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.count = $stateParams.id;
 
     $scope.myUrl = window.location.href;
-    console.log('$scope.myUrl scorectrl', $scope.myUrl);
+    //console.log('$scope.myUrl scorectrl', $scope.myUrl);
 
 })
 
@@ -887,10 +887,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.MovieGal = data.data.gallery;
 
             $scope.MovieRelated = data.data.related;
-            console.log('$scope.MovieRelated ', $scope.MovieRelated);
+            //console.log('$scope.MovieRelated ', $scope.MovieRelated);
             // _.each($scope.MovieRelated,function(n){
             // $scope.myrelated =  n.relatedMovie;
-            // console.log('$scope.MovieRelated ',$scope.myrelated);
+            // //console.log('$scope.MovieRelated ',$scope.myrelated);
             // })
 
 
@@ -1412,7 +1412,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var i = 0;
 
         function callMe() {
-            console.log('in call me');
+            //console.log('in call me');
             // $scope.news10 = [];
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function (data, newI) {
                 // if (newI == i) {
@@ -1434,7 +1434,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         _.each(data.data.data, function (n) {
                             n.date = new Date(n.date);
                             $scope.news10.push(n);
-                            console.log('$scope.news10', $scope.news10);
+                            //console.log('$scope.news10', $scope.news10);
                             AllNews = $scope.news10;
 
                         });
@@ -1446,7 +1446,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 TemplateService.removeLoader();
 
                 // }else{
-                //   console.log('elseeeeee part');
+                //   //console.log('elseeeeee part');
                 // }
 
             });
@@ -1999,8 +1999,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         // TemplateService.removeLoaderOn(2);
         if (!$stateParams.id) {
-            console.log($stateParams.id);
-            console.log('here11111111111111');
+            //console.log($stateParams.id);
+            //console.log('here11111111111111');
             NavigationService.getAllTwitter(function (data) {
                 $scope.getFirstId = data.data[0]._id;
                 $stateParams.id = $scope.getFirstId;
