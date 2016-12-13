@@ -81,10 +81,11 @@ module.exports = {
          News.findOne({
             "_id": newsID
         }).exec(function(err, news) {
+                console.log(news);
              if (err) {
-                    res.callback(err, data);
-                } else if (_.isEmpty(data)) {
-                    res.callback(err, data);
+                    res.callback(err, news);
+                } else if (_.isEmpty(news)) {
+                    res.callback(err, news);
                 } else {
                     res.metaView({
                         title: news.title,
