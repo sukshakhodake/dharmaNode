@@ -81,6 +81,7 @@ module.exports = {
          News.findOne({
             "_id": newsID
         }).exec(function(err, news) {
+                console.log("    $$$$    this is news ");
                 console.log(news);
              if (err) {
                     res.callback(err, news);
@@ -90,6 +91,8 @@ module.exports = {
                       var text = htmlToText.fromString(news.text, {
                         wordwrap: 500
                     });
+                    console.log("    8888888text ****     ");
+                    console.log(text);
                     res.metaView({
                         title: news.title,
                         keywords: news.keywords,
