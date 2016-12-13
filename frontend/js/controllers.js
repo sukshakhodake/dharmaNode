@@ -790,18 +790,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.seeLess = false;
         var movieNameArray = [];
         $scope.seeLessMovieName = function () {
+          // console.log('dddddddddddddddddddd');
             NavigationService.getAllMovieName(function (data) {
                 $scope.allMovieName = data.data;
+                console.log('$scope.allMovieName',$scope.allMovieName);
                 movieNameArray = _.cloneDeep($scope.allMovieName);
                 // $scope.allMovieName = _.chunk($scope.allMovieName,10);
-                $scope.allMovieName = _.slice($scope.allMovieName, [0], [10]);
+                // $scope.allMovieName = _.slice($scope.allMovieName, [0], [10]);
                 $scope.seeMore = true;
                 if ($stateParams.id) {
                     $scope.currentMovie = _.find($scope.allMovieName, function (key) {
+                      // console.log(key);
                         // $scope.goMovie=false;
                         return key._id == $stateParams.id;
+
                     }).name;
                 }
+                // else{
+                //   console.log('inside elseee');
+                // }
 
                 TemplateService.removeLoader();
 
@@ -1415,7 +1422,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //console.log('in call me');
             // $scope.news10 = [];
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function (data, newI) {
-                // if (newI == i) {
+                if (newI == i) {
                 $scope.myTotal = data.data.total;
                 if ($scope.filter.search.length === 0) {
                     $scope.crossdisplay = false;
@@ -1434,7 +1441,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         _.each(data.data.data, function (n) {
                             n.date = new Date(n.date);
                             $scope.news10.push(n);
-                            //console.log('$scope.news10', $scope.news10);
+                            console.log('$scope.news10', $scope.news10);
                             AllNews = $scope.news10;
 
                         });
@@ -1445,9 +1452,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
                 TemplateService.removeLoader();
 
-                // }else{
-                //   //console.log('elseeeeee part');
-                // }
+                }else{
+                  console.log('elseeeeee part');
+                }
 
             });
         }
