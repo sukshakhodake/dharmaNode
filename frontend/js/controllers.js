@@ -1419,7 +1419,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var i = 0;
 
         function callMe() {
-            $scope.filter.pagenumber = 1;
+
             //console.log('in call me');
             // $scope.news10 = [];
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function (data, newI) {
@@ -1462,6 +1462,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.searchdata='';
         callMe();
         $scope.doSearch = function () {
+          $scope.filter.pagenumber = 1;
             $scope.crossdisplay = true;
             $scope.news10 = [];
             callMe();
@@ -1499,7 +1500,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 ++$scope.filter.pagenumber;
                 $scope.pages.push($scope.filter.pagenumber);
-
+console.log('$scope.pages',$scope.pages);
                 callMe();
             }
         };
@@ -1750,7 +1751,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 ++$scope.filter.pagenumber;
                 $scope.pages.push($scope.filter.pagenumber);
-
+console.log('$scope.pages',$scope.pages);
                 callMe();
             }
         };
