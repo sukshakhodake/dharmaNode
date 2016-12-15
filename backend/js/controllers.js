@@ -96,7 +96,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.removeImage = function(page, image,field) {
-      field.model = "";
+      console.log($scope.json.editData[image],image);
         $scope.json.editData[image] = "";
     };
 
