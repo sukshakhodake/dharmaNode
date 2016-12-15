@@ -158,7 +158,7 @@ var navigationservice = angular.module('navigationservice', [])
         },
         getNewsHomeSearch: function (request, i, callback) {
             $http.post(adminurl + 'news/findLimited', request).success(function (data) {
-                callback(data, i);
+                callback(data, i,request.pagenumber);
             });
 
         },
