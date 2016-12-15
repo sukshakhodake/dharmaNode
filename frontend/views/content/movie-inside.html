@@ -594,7 +594,7 @@
             </div>
                     <!-- when image should be more than 5 then folloe this ui -->
                     <div class="mobs-slider" ng-if="MovieRelated.length>5">
-                        <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1">
+                        <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1" slideshow-Speed="2000">
                             <li>
                                 <a ng-if="item.status==true" ui-sref="movie-inside({id:item.urlName})">
                                     <div class="img-pads">
