@@ -1966,11 +1966,7 @@ a {
     }
 }
 
-.mobs-slider {
-    .flex-control-nav {
-        display: none;
-    }
-}
+
 
 .mob-slider {
     // .flex-control-nav {
@@ -2207,7 +2203,6 @@ a {
 .f55 {
     font-size: 45px;
 }
-@import "fancybox-override";
 
 .cl-flex {
     .flex-direction-nav .flex-disabled {
@@ -3347,6 +3342,7 @@ transform: translate(-50%,-50%);
     color: #fff !important;
   }
 }
+@import "fancybox-override";
 @import "main2";
 @import "timeline";
 @import "mobile";
