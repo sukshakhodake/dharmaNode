@@ -16,6 +16,10 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    ipadImage: {
+        type: String,
+        default: ""
+    },
     order: {
         type: String,
         default: ""

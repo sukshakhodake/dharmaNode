@@ -113,8 +113,8 @@
                     </div>
                 </div>
                 <!-- mobile -->
-                <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider">
-                    <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
+                <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider nav-hide-mob">
+                    <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animation-loop="true" move="1" slideshow-Speed="2000">
                         <li>
                             <a ui-sref="movie-inside({id:item._id})">
                                 <div class="img-pads">
@@ -152,7 +152,7 @@
                     </div>
                 </div>
                 <!-- mobile -->
-                <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs">
+                <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs ">
                     <flex-slider flex-slide="item in AllRecentMovies track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
                         <li>
                             <a ui-sref="movie-inside({id:item._id})">
@@ -211,7 +211,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="video-slider slider-nav mt30 min-tp-nm">
+                        <div class="video-slider slider-nav mt30 min-tp-nm nav-cn-hide">
                             <flex-slider flex-slide="item in getAllUpcomingMovies track by $index" animation="slide" item-width="300" item-margin="0" animationloop="true" move="1" slideshowSpeed=1000>
                                 <li>
                                    <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
@@ -289,7 +289,7 @@
             <h1 class="f90 font-hammersmith color-white margin0 line45 f-50-main">NEWS</h1>
         </div>
         <div class="news-slider slider-right mob-hide">
-            <flex-slider flex-slide="item in limitedNews track by $index" minItems=10 animation="slide" item-width="300" item-margin="60" animationloop="true" move="1">
+            <flex-slider flex-slide="item in limitedNews track by $index" minItems=10 animation="slide" item-width="300" item-margin="60" animationloop="true" move="1" slideshow-Speed="2000">
                 <li>
                     <a ui-sref="news-detail({id:item._id})">
                         <div class="video-box ">

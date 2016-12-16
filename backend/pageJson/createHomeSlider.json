@@ -43,6 +43,15 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "size": "705 x 1087px"
+    },{
+        "name": "Image For iPad",
+        "type": "image",
+        "tableRef": "ipadImage",
+        "placeholder": "Enter mobileImage",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "size": "941 x 900"
     }, {
         "name": "Order",
         "type": "text",
