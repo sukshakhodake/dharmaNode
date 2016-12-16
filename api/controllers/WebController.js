@@ -77,7 +77,7 @@ module.exports = {
     news: function(req, res) {
         if (req.params && req.params[0]) {
             var newsID = req.params[0].split("/");
-        
+
          News.findOne({
             "_id": newsID
         }).exec(function(err, news) {
@@ -97,7 +97,7 @@ module.exports = {
                         title: news.title,
                         keywords: news.keywords,
                         description: text,
-                        image: news.image
+                            image: "../../frontend/img/news-dharma.jpg"
                     });
                 }
         });
