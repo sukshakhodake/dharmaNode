@@ -92,7 +92,9 @@ module.exports = {
                         wordwrap: 500
                     });
                     console.log("    8888888text ****     ");
-                    console.log(text);
+                    var twiimg="../../frontend/img/news-dharma.jpg"
+                    console.log("twiimg");
+                      console.log(twiimg);
                     res.metaView({
                         title: news.title,
                         keywords: news.keywords,
