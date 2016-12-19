@@ -28,11 +28,12 @@
     </div>
 </section>
 <!-- for IPAD -->
-<!-- <section scrolldown class="visible-ipad">
+<section scrolldown class="visible-ipad">
     <div class="home-slider dh-relative ">
-        <flex-slider flex-slide="s in getAllSlidess track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
+        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
             <li auto-heightfixed>
-              <img ng-src="{{s}}"  alt="Dharma Productions" auto-heightfixed noloading="true">
+              <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+              <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" auto-heightfixed noloading="true">
 
           </li>
         </flex-slider>
@@ -49,7 +50,7 @@
         </div>
 
     </div>
-</section> -->
+</section>
 <!-- //for mobile -->
 <section scrolldown class="hidden-sm hidden-lg hidden-md visible-xs margin-top-minus hidden-ipad">
     <div class="home-slider dh-relative width-auto mo-bl-tp">
