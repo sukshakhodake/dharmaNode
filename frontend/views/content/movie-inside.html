@@ -31,6 +31,25 @@
                 <!-- FOR WEBSITE -->
                 <div class="all-tabs hidden-xs">
                     <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn {{classa}}" ng-click="tabchange('synopsis',1,myid)" ng-class="{'my-disable':movieSynopsisAndNote.synopsis.length<=0}" ng-disabled="movieSynopsisAndNote.synopsis.length<=0" ui-sref="movie-inside({id:myid})">Synopsis </button>
+
+                        <button type="button" class="btn {{classb}}" ng-click="tabchange('cast',2,myid)" ng-class="{'my-disable': movieCast.length<=0}" ng-disabled="movieCast.length<=0" ui-sref="movie-inside({id:myid})"> CAST & CREDITS</button>
+
+                        <button type="button" class="btn {{classc}}" ng-click="tabchange('news',3,myid)" ng-class="{'my-disable': movieNews.length<=0}" ng-hide="movieNews.length<=0" ui-sref="movie-inside({id:myid})"> News</button>
+
+                        <button type="button" class="btn {{classd}}" ng-class="{'my-disable': MovieGal.length<=0}" ng-click="tabchange('gallery',4,myid)" ng-disabled="MovieGal.length<=0" ui-sref="movie-inside({id:myid})">Gallery</button>
+
+                        <button type="button" class="btn {{classe}}" ng-click="tabchange('scene',5,myid)" ng-class="{'my-disable': movieBehindTheScenes.length<=0}" ng-disabled="movieBehindTheScenes.length<=0" ui-sref="movie-inside({id:myid})">behind the scenes</button>
+
+                        <button type="button" class="btn {{classf}}" ng-click="tabchange('video',6,myid)" ng-class="{'my-disable': movieVideo10.length<=0}" ng-disabled="movieVideo10.length<=0" ui-sref="movie-inside({id:myid})"> VIDEOS </button>
+
+                        <button type="button" class="btn {{classg}}" ng-click="tabchange('wallpapper',7,myid)" ng-class="{'my-disable': movieWallpaper.length<=0}" ng-disabled="movieWallpaper.length<=0" ui-sref="movie-inside({id:myid})">WALLPAPERS </button>
+
+                        <button type="button" class="btn {{classh}}" ng-click="tabchange('awards',8,myid)" ng-class="{'my-disable': MovieAwards.length  == 0}" ng-hide="MovieAwards.length  == 0" ui-sref="movie-inside({id:myid})"> AWARDS </button>
+                    </div>
+                </div>
+                <!-- <div class="all-tabs hidden-xs">
+                    <div class="btn-group" role="group" aria-label="...">
                         <button type="button" class="btn {{classa}}" ng-click="tabchange('synopsis',1,myid)" ng-class="{'my-disable':movieSynopsisAndNote.synopsis.length<=0}" ng-disabled="movieSynopsisAndNote.synopsis.length<=0" ui-sref="movie-insideTab({id:myid,tab:'synopsis'})">Synopsis </button>
 
                         <button type="button" class="btn {{classb}}" ng-click="tabchange('cast',2,myid)" ng-class="{'my-disable': movieCast.length<=0}" ng-disabled="movieCast.length<=0" ui-sref="movie-insideTab({id:myid,tab:'cast'})"> CAST & CREDITS</button>
@@ -47,7 +66,7 @@
 
                         <button type="button" class="btn {{classh}}" ng-click="tabchange('awards',8,myid)" ng-class="{'my-disable': MovieAwards.length  == 0}" ng-hide="MovieAwards.length  == 0" ui-sref="movie-insideTab({id:myid,tab:'awards'})"> AWARDS </button>
                     </div>
-                </div>
+                </div> -->
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs vs-dis">
                     <div class="all-tabs">
 
@@ -55,8 +74,11 @@
                             <flex-slider flex-slide="item in tabing track by $index" animation="slide" item-width="120" item-margin="10" animationloop="true" move="2">
 
                                 <li class="text-center mobileMovieTabs">
-                                    <button type="button" class="btn {{item.class}}" ng-click="tabchangeMob(item.tab,$index)" ng-class="{'my-disable': {{item.ngclass}},'active-list':item.activemob}" ng-disabled="{{item.ngdisabled}}" ui-sref="movie-insideTab({id:myid,tab:item.tab})" ng-hide="{{item.nghide}}">{{item.name}}</button>
+                                    <button type="button" class="btn {{item.class}}" ng-click="tabchangeMob(item.tab,$index)" ng-class="{'my-disable': {{item.ngclass}},'active-list':item.activemob}" ng-disabled="{{item.ngdisabled}}" ui-sref="movie-inside({id:myid})" ng-hide="{{item.nghide}}">{{item.name}}</button>
                                 </li>
+                                <!-- <li class="text-center mobileMovieTabs">
+                                    <button type="button" class="btn {{item.class}}" ng-click="tabchangeMob(item.tab,$index)" ng-class="{'my-disable': {{item.ngclass}},'active-list':item.activemob}" ng-disabled="{{item.ngdisabled}}" ui-sref="movie-insideTab({id:myid,tab:item.tab})" ng-hide="{{item.nghide}}">{{item.name}}</button>
+                                </li> -->
 
                                 <!-- ng-disabled="item.ngdisabled" ng-class="{'my-disable': item.ngclass}" -->
 
