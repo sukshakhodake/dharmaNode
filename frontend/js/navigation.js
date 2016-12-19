@@ -7,19 +7,21 @@ var navigationservice = angular.module('navigationservice', [])
     var navigation = [{
             name: "Overview",
             classis: "active",
-            noanchor: "overview",
-            class: "fa fa-angle-down",
-            subnav: [{
-                name: "About Us",
-                classis: "active",
-                anchor: "overview",
-                isId: "no",
-            }, {
-                name: "Dharma Journey",
-                classis: "active",
-                anchor: "dharma-journey",
-                isId: "no",
-            }]
+            // noanchor: "overview",
+            anchor: "overview",
+              subnav: []
+            // class: "fa fa-angle-down",
+            // subnav: [{
+            //     name: "About Us",
+            //     classis: "active",
+            //     anchor: "overview",
+            //     isId: "no",
+            // }, {
+            //     name: "Dharma Journey",
+            //     classis: "active",
+            //     anchor: "dharma-journey",
+            //     isId: "no",
+            // }]
         }, {
             name: "Movies",
             classis: "active",
@@ -35,7 +37,7 @@ var navigationservice = angular.module('navigationservice', [])
         }, {
             name: "Dharma World",
             classis: "active",
-            anchor: "dharma-world",
+            anchor: "",
             class: "fa fa-angle-down",
 
             subnav: [{
