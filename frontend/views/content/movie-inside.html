@@ -375,9 +375,9 @@
                                     <div class="col-md-4 pad5 col-sm-4 col-xs-12" ng-repeat="item in movieVideo track by $index">
                                         <div class="video-play-box dh-relative">
                                             <a class="fancybox.iframe fancybox-thumb" fancybox rel="fancybox-thumb" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
-                                                <div class="img-animate">
-                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="(item.thumbnail || item.thumbnail != '')">
-                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                <div class="img-animates">
+                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100 img-hv" ng-if="(item.thumbnail || item.thumbnail != '')">
+                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100 img-hv" ng-if="!(item.thumbnail || item.thumbnail != '')">
 
                                                     <div class="overlay dh-absulate">
                                                         <div class="pos-middle">

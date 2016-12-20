@@ -3352,6 +3352,23 @@ transform: translate(-50%,-50%);
     	 @include transform(scale(1.1));
         @include transition(all 300ms ease);
   }
+  .img-hv{
+    // transform: scale(1.1);
+    	 @include transform(scale(1.1));
+        @include transition(all 300ms ease);
+  }
+}
+
+}
+.img-animates{
+  overflow: hidden;
+&:hover{
+
+  .img-hv{
+    // transform: scale(1.1);
+    	 @include transform(scale(1.1));
+        @include transition(all 300ms ease);
+  }
 }
 
 }
