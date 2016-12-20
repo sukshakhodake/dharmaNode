@@ -90,8 +90,10 @@
 
                                 <a ui-sref="news-detail({id:item._id})">
 
-                                    <div class="masonry-box">
+                                    <div class="masonry-box ">
+                                      <div class="img-animate">
                                         <img ng-src="{{item.image | uploadpath}}" alt="Dharma Production">
+                                        </div>
                                         <div class="padd10">
                                             <div class="news-title">
                                                 <h4 class="margin0">{{item.title}}</h4>
