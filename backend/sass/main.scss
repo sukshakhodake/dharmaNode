@@ -1,8 +1,10 @@
 @import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../../bower_components/font-awesome/css/font-awesome";
+@import "btn";
 @import "../../bower_components/angular-material/angular-material";
 @import "../../bower_components/tinymce-dist/skins/lightgray/content.min";
 @import "../../bower_components/tinymce-dist/skins/lightgray/skin.min";
+@import "../../bower_components/textAngular/dist/textAngular";
 body {
 
 }
@@ -243,6 +245,13 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 }
 .md-button.md-default-theme.md-warn.md-raised:not([disabled]):hover, .md-button.md-warn.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-warn.md-fab:not([disabled]):hover, .md-button.md-warn.md-fab:not([disabled]):hover, a.md-button.md-default-theme.md-warn.md-raised:not([disabled]):hover, a.md-button.md-warn.md-raised:not([disabled]):hover, a.md-button.md-default-theme.md-warn.md-fab:not([disabled]):hover, a.md-button.md-warn.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-warn.md-raised:not([disabled]):hover, .md-button.md-warn.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-warn.md-fab:not([disabled]):hover, .md-button.md-warn.md-fab:not([disabled]):hover {
   background-color: darken(white,10%);
+}
+.ta-toolbar {
+  background-color: #efefef;
+  padding: 5px 0px 5px;
+  margin-left: 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 /*
 Copyright 2016 Google Inc. All Rights Reserved.

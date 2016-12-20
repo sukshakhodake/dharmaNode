@@ -2,7 +2,7 @@ var adminURL = "http://wohlig.io:81/";
 var mockURL = adminURL + "callApi/";
 var search='';
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ngSanitize', 'ngMaterial', 'ngMdIcons', 'ui.sortable', 'angular-clipboard', 'imageupload', 'ui.bootstrap', 'ui.tinymce'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ngSanitize', 'ngMaterial', 'ngMdIcons', 'ui.sortable', 'angular-clipboard', 'imageupload', 'ui.bootstrap', 'ui.tinymce','textAngular'])
 
 .controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     $scope.menutitle = NavigationService.makeactive("Login");
@@ -46,6 +46,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.totalItems = 64;
  $scope.currentPage = 4;
+
+ $scope.tinymceOptions = {
+   plugins: 'link image code',
+   toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+ };
 
  $scope.setPage = function (pageNo) {
    $scope.currentPage = pageNo;
