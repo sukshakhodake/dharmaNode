@@ -65,7 +65,8 @@
                                         <div class="video-box">
                                             <div class="video-slide-img em-box">
                                               <a class="various fancybox.iframe" fancybox rel="gallery2" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
-                                                  <div class="img-inside-box em-box">
+                                                  <div class="img-animated">
+                                                  <div class="img-inside-box em-box hover-sec">
 
                                                       <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail || item.thumbnail != ''">
 
@@ -74,7 +75,9 @@
                                                     <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
                                                     <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
                                                 </a> -->
+                                            
                                             </div>
+                                          </div>
                                             <div class="video-names mt10">
                                                 <span class="color-white text-cap">{{item.title|shorten : 60}}</span>
                                             </div></a>
@@ -87,7 +90,8 @@
                                             <div class="video-box">
                                                 <div class="video-slide-img em-box">
                                                   <a class="various fancybox.iframe" fancybox rel="gallery2" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
-                                                      <div class="img-inside-box em-box">
+                                                    <div class="img-animated">
+                                                      <div class="img-inside-box em-box hover-sec">
 
                                                           <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail || item.thumbnail != ''">
 
@@ -96,6 +100,8 @@
                                                         <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
                                                         <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
                                                     </a> -->
+
+                                                </div>
                                                 </div>
                                                 <div class="video-names mt10">
                                                     <span class="color-white text-cap">{{item.title |shorten : 60}}</span>

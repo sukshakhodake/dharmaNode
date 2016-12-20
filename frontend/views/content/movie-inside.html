@@ -167,8 +167,7 @@
                                             <a class="btn-1 font-hammersmith btn color-primary display-inline" ng-click="viewAllCast();">
                                                 <svg>
                                                     <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                </svg>
-                                                {{viewCastText}} ALL
+                                                </svg> {{viewCastText}} ALL
                                             </a>
                                             <!-- <button type="button" name="button" class="btn-primary-outline font-hammersmith btn-enter"></button> -->
                                         </div>
@@ -376,17 +375,18 @@
                                     <div class="col-md-4 pad5 col-sm-4 col-xs-12" ng-repeat="item in movieVideo track by $index">
                                         <div class="video-play-box dh-relative">
                                             <a class="fancybox.iframe fancybox-thumb" fancybox rel="fancybox-thumb" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                                                <div class="img-animate">
+                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="(item.thumbnail || item.thumbnail != '')">
+                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
 
-                                                <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="(item.thumbnail || item.thumbnail != '')">
-                                                <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                    <div class="overlay dh-absulate">
+                                                        <div class="pos-middle">
+                                                            <span class="color-white font-hammersmith">{{item.name}}</span>
+                                                        </div>
 
-                                                <div class="overlay dh-absulate">
-                                                    <div class="pos-middle">
-                                                        <span class="color-white font-hammersmith">{{item.name}}</span>
-                                                    </div>
-
-                                                    <div class="bottom-right dh-absulate ply-post">
-                                                        <img src="frontend/img/play-small-btn.jpg" alt="Dharma Productions">
+                                                        <div class="bottom-right dh-absulate ply-post">
+                                                            <img src="frontend/img/play-small-btn.jpg" alt="Dharma Productions">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </a>
@@ -595,25 +595,25 @@
                 <h1 class="color-white font-hammersmith text-up line45 margin0 ml15 f55" style="line-height: 35%;">Related Movies</h1>
                 <div class="hidden-xs">
                     <div class="row-flex text-center" ng-if="MovieRelated.length<=5">
-                <div class="col-flex" ng-repeat="item in MovieRelated track by $index" >
-                    <div  class="img-pads" ng-if="item.status==true">
-                      <a  ui-sref="movie-inside({id:item.urlName})">
-                        <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
-                        <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
-                        <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
-                      </a>
+                        <div class="col-flex" ng-repeat="item in MovieRelated track by $index">
+                            <div class="img-pads" ng-if="item.status==true">
+                                <a ui-sref="movie-inside({id:item.urlName})">
+                                    <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                                    <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                                    <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
+                                </a>
+                            </div>
+                            <div class="img-pads" ng-if="item.status==false">
+
+
+                                <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
+
+                            </div>
+
+                        </div>
                     </div>
-                    <div  class="img-pads" ng-if="item.status==false">
-
-
-                        <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
-                        <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
-                        <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
-
-                    </div>
-
-                </div>
-            </div>
                     <!-- when image should be more than 5 then folloe this ui -->
                     <div class="mobs-slider" ng-if="MovieRelated.length>5">
                         <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1" slideshow-Speed="2000">

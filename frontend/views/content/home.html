@@ -218,9 +218,10 @@
                                    <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
                                         <div class="video-box">
                                             <div class="video-slide-img">
-
+  <div class="img-animate">
                                                 <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
                                                 <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                              </div>
                                             </div>
                                             <div class="video-names mt10">
                                                 <span class="color-white">{{item.title}}</span>
@@ -295,7 +296,9 @@
                     <a ui-sref="news-detail({id:item._id})">
                         <div class="video-box ">
                             <div class="video-slide-img">
+                                <div class="img-animate">
                                 <img ng-src="{{item.image|uploadpath:300:224:'cover'}}" alt="Dharma Productions" class="img-responsive">
+                              </div>
                             </div>
                             <div class="video-name mt20 h40">
                                 <h4 class="color-white margin0">{{item.title|cut:true:55}}</h4>
