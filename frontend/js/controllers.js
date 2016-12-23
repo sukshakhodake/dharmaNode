@@ -9,6 +9,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
     //Used to name the .html file
+    $scope.template.header = "";
+    $scope.template.footer = "";
     $scope.openModals = function() {
         $scope.modalInstanceABC = $uibModal.open({
             animation: $scope.animationsEnabled,
