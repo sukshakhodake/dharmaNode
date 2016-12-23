@@ -9,6 +9,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
     //Used to name the .html file
+    $scope.template = TemplateService.changecontent("home");
+    $scope.menutitle = NavigationService.makeactive("Home");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    TemplateService.removeLoaderOn(5);
 
     $scope.openModals = function() {
         $scope.modalInstanceABC = $uibModal.open({
@@ -76,13 +81,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     });
 
-    $scope.template = TemplateService.changecontent("home");
-    $scope.menutitle = NavigationService.makeactive("Home");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.template.header = "";
-    $scope.template.footer = "";
-    TemplateService.removeLoaderOn(5);
 
     $scope.mySlides = [
         'frontend/img/banners/slide1.jpg',
