@@ -154,7 +154,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "frontend/views/template.html",
             controller: 'DharmaYouCtrl'
         });
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/coming-soon");
     $locationProvider.html5Mode(isproduction);
 });
 firstapp.filter('uploadpath', function() {
