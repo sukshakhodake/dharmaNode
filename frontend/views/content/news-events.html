@@ -86,7 +86,7 @@
                         <!-- <p class="color-white">  {{news10}}</p> -->
                         <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
 
-                            <div class="masonry-brick" ng-repeat="item in news10 track by $index">
+                            <div class="masonry-brick" ng-repeat="item in news10 | orderBy:date">
 
                                 <a ui-sref="news-detail({id:item._id})">
 
