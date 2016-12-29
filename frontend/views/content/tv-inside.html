@@ -69,7 +69,8 @@
                             <ul class="list-none color-white padding0">
                                 <li ng-repeat="name in allMovieName">
                                   <!-- <a ng-click="goToMovie(name._id,name.name)">{{name.name}}</a> -->
-                                    <a ui-sref="tv-inside({id:name._id})">{{name.name}}</a>
+                                    <a  ng-if="name.videos.length != 0" ui-sref="tv-inside({id:name._id})">{{name.name}}</a>
+                                    <a class="cursor-imp" ng-if="name.videos.length == 0">{{name.name}}</a>
                                 </li>
                                 <!-- <li><a href="">Brothers</a></li>
             <li><a href="">Hasee Toh Phasee</a></li>
