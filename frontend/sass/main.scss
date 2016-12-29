@@ -538,44 +538,44 @@ a {
 .min-tp-nm {
     .flex-direction-nav a.flex-next:before {
         content: '';
-        background: url("../img/right.png") no-repeat center;
-        width: 32px;
-        height: 55px;
+        background: url("../img/Grey-Right-Arrow.png") no-repeat center;
+        width: 70px;
+        height: 60px;
     }
 
     .flex-direction-nav a.flex-prev:before {
         content: '';
-        background: url("../img/left.png") no-repeat center;
-        width: 32px;
-        height: 55px;
+        background: url("../img/Grey-Left-Arrow.png") no-repeat center;
+        width: 70px;
+        height: 60px;
     }
 
     .flex-direction-nav a {
-        width: 32px;
-        height: 55px;
+      width: 70px;
+      height: 60px;
         opacity: 1 !important;
         top: 40%;
     }
 
     .flex-direction-nav .flex-prev {
-        left: -50px !important;
+        left: -55px !important;
         opacity: 1;
     }
 
     .flex-direction-nav .flex-next {
-        right: -50px !important;
+        right: -55px !important;
         opacity: 1;
     }
 
     .flexslider:hover .flex-direction-nav .flex-prev {
         opacity: 1;
-        left: -50px !important;
+      left: -55px !important;
         outline: 0;
     }
 
     .flexslider:hover .flex-direction-nav .flex-next {
         opacity: 1;
-        right: -50px !important;
+        right: -55px !important;
         outline: 0;
     }
 
@@ -741,21 +741,21 @@ a {
 
     .flex-direction-nav a.flex-next:before {
         content: '';
-        background: url("../img/right-white.png") no-repeat center;
-        width: 32px;
+        background: url("../img/news-left.png") no-repeat center !important;
+        width: 40px;
         height: 47px;
     }
 
     .flex-direction-nav a.flex-prev:before {
         content: '';
-        background: url("../img/left-white.png") no-repeat center;
-        width: 32px;
+        background: url("../img/news-right.png") no-repeat center !important;
+        width: 40px;
         height: 47px;
     }
 
     .flex-direction-nav a {
-        width: 32px;
-        height: 47px;
+      width: 40px;
+      height: 47px;
         // opacity: 1 !important;
     }
 
@@ -3388,6 +3388,14 @@ transform: translate(-50%,-50%);
   }
 }
 
+}
+.nav-cl .flex-control-paging li a.flex-active {
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    cursor: default;
+}
+.nav-cl .flex-control-paging li a {
+    background: rgba(255, 255, 255, 0.5);
 }
 @import "fancybox-override";
 @import "main2";
