@@ -2258,7 +2258,8 @@ var models = {
             year: 1,
             upcomingOrder: 1,
             status: 1,
-            urlName: 1
+            urlName: 1,
+            videos: 1
         }, {}).sort({
             // year: -1
             upcomingOrder: -1
