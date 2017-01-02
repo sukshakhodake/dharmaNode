@@ -12,15 +12,14 @@
 
 module.exports = {
 
-  /***************************************************************************
-   * Set the default database connection for models in the development       *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
+    /***************************************************************************
+     * Set the default database connection for models in the development       *
+     * environment (see config/connections.js and config/models.js )           *
+     ***************************************************************************/
 
-  // models: {
-  //   connection: 'someMongodbServer'
-  // }
-  port: 1337,
-  realHost: "http://104.155.129.33:85",
-
+    // models: {
+    //   connection: 'someMongodbServer'
+    // }
+    port: 1337,
+    realHost: "http://23.251.148.237:85/"
 };
