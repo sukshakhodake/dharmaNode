@@ -2363,6 +2363,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         NavigationService.getAllMovieName(function(data) {
             $scope.allMovieName = data.data;
+            $scope.allMovieName = _.groupBy($scope.allMovieName, "status");
+            $scope.allMovieName = $scope.allMovieName.true;
         });
     })
 

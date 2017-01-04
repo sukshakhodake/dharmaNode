@@ -74,7 +74,7 @@
 
                                         </div>
                                         <div class="pointerarrow">
-                                        <a ng-if="item.status==false">
+                                        <a ng-if="item.status==false" class="pointerarrow">
                                             <img ng-src="{{item.bigImage|uploadpath}} " alt="Dharma Productions " noloading="true">
                                         </a>
                                       </div>
@@ -148,7 +148,7 @@
                                             </div>
                                         </a>
                                         <div class="pointerarrow">
-                                          <a ng-if="data.status==false" >
+                                          <a ng-if="data.status==false" class="pointerarrow">
                                             <div class="video-box mb20 common-class ">
                                               <div class="video-slide-img img-pads ">
                                                 <img ng-src="{{data.mediumImage|uploadpath}} " alt="Dharma Productions " class="img-responsive">
@@ -219,7 +219,7 @@
                             </div>
                         </a>
                         <div class="pointerarrow">
-                          <a ng-if="item.status==false" class="">
+                          <a ng-if="item.status==false" class="pointerarrow">
                             <div class="img-pads ">
                               <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
                             </div>
@@ -244,7 +244,7 @@
                                 <h4 class="text-up color-grey">{{item.name|shorten : 20}}<br>({{item.year}})</h4>
                             </div>
                         </a>
-                        <a ng-if="item.status==false">
+                        <a ng-if="item.status==false" >
                             <div class="img-pads">
                                 <img ng-src="{{item.smallImage|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                             </div>
