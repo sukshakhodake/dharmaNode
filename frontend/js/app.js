@@ -186,7 +186,7 @@ firstapp.filter('uploadpath2', function() {
 
         if (input) {
             if (input.indexOf('https://') == -1) {
-                return "http://104.155.129.33:85/api/"+ "download/" + input;
+                return "http://23.251.148.237:85/api/"+ "download/" + input;
 
             } else {
                 return input;
