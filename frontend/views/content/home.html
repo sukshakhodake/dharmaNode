@@ -145,10 +145,10 @@
                 <!-- desktop -->
                 <div class="row-flex text-center hidden-xs">
                     <div class="col-flex" ng-repeat="item in AllRecentMovies track by $index">
-                        <div class="img-pads" ng-if="item.status=='true'" ui-sref="movie-inside({id:item._id})">
+                        <div class="img-pads" ng-if="item.status==true" ui-sref="movie-inside({id:item._id})">
                             <img ng-src="{{item.recentSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                         </div>
-                        <div class="img-pads" ng-if="item.status=='false'">
+                        <div class="img-pads" ng-if="item.status==false">
                             <img ng-src="{{item.recentSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                         </div>
                         <div class="movie-names">
@@ -160,7 +160,7 @@
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs ">
                     <flex-slider flex-slide="item in AllRecentMovies track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
                         <li>
-                            <a ng-if="item.status == 'true'" ui-sref="movie-inside({id:item._id})">
+                            <a ng-if="item.status == true" ui-sref="movie-inside({id:item._id})">
                                 <div class="img-pads">
                                     <img ng-src="{{item.recentSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                                 </div>
@@ -168,7 +168,7 @@
                                     <h4 class="text-up color-grey">{{item.name|shorten : 20}}<br>({{item.month|getMonthAlpha}} {{item.year}})</h4>
                                 </div>
                             </a>
-                            <a ng-if="item.status == 'false'">
+                            <a ng-if="item.status == false">
                                 <div class="img-pads">
                                     <img ng-src="{{item.recentSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                                 </div>
