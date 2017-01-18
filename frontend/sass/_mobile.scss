@@ -114,6 +114,11 @@
     .dharma-journey-bg {
         padding-bottom: 25px;
     }
+    .ch-nav{
+      .flex-control-nav{
+        display: none;
+      }
+    }
 }
 @media (max-width: $screen-sm-max) {
     .mt-sm-40 {
@@ -485,6 +490,11 @@
     }
     .dh-btn-min .btn {
         font-size: 14px !important;
+    }
+    .ch-nav{
+      .flex-control-nav{
+        display: none;
+      }
     }
 }
 @media (max-width: $screen-xs-max) {
@@ -956,8 +966,18 @@
         display: none !important;
     }
   }
+  .ch-nav{
+    .flex-control-nav{
+      display: none;
+    }
+  }
 }
 @media (max-width:480px) {
+  .ch-nav{
+    .flex-control-nav{
+      display: none;
+    }
+  }
   .nav-cn-dot{
     .flex-control-nav {
       display: none !important;

@@ -1,12 +1,9 @@
 <section class="movie-inside-bg" ng-style="{'background':'url('+moviefindOne.backgroundImage+')'}">
     <!-- <section ng-style="{'background-image':'url({{myBackgroundUrl}})';}"> -->
-
     <div class="container-fluid pd4">
-
         <div class="movie-inside-curve" id="top-scroll"></div>
         <div class="movie-inner-bg">
             <div class="row">
-
                 <div class="movie-inside-date">
                     <div class="text-center">
                         <div class="m-title">
@@ -14,8 +11,6 @@
                         </div>
                         <div class="movie-trailor dh-relative">
                             <!-- <img src="frontend/img/movie-trailor.jpg" alt="Dharma Productions" class="img-responsive margin-auto width100"> -->
-
-
                             <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{moviefindOne.theatricalTrailerUrl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" data-fancybox-type="iframe">
                                 <img ng-src="{{moviefindOne.theatricalTrailerImage|uploadpath}}" alt="Dharma Productions" class="img-responsive margin-auto width100" ng-if="(moviefindOne.theatricalTrailerImage || moviefindOne.theatricalTrailerImage != '')">
                                 <img ng-src="{{moviefindOne.theatricalTrailerUrl|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(moviefindOne.theatricalTrailerImage || moviefindOne.theatricalTrailerImage != '')">
@@ -32,20 +27,14 @@
                 <div class="all-tabs hidden-xs">
                     <div class="btn-group" role="group" aria-label="...">
                         <button type="button" class="btn {{classa}}" ng-click="tabchange('synopsis',1,myid)" ng-class="{'my-disable':movieSynopsisAndNote.synopsis.length<=0}" ng-disabled="movieSynopsisAndNote.synopsis.length<=0" ui-sref="movie-inside({id:myid})">Synopsis </button>
-
                         <button type="button" class="btn {{classb}}" ng-click="tabchange('cast',2,myid)" ng-class="{'my-disable': movieCast.length<=0}" ng-disabled="movieCast.length<=0" ui-sref="movie-inside({id:myid})"> CAST & CREDITS</button>
-
                         <button type="button" class="btn {{classc}}" ng-click="tabchange('news',3,myid)" ng-class="{'my-disable': movieNews.length<=0}" ng-hide="movieNews.length<=0" ui-sref="movie-inside({id:myid})"> News</button>
-
                         <button type="button" class="btn {{classd}}" ng-class="{'my-disable': MovieGal.length<=0}" ng-click="tabchange('gallery',4,myid)" ng-disabled="MovieGal.length<=0" ui-sref="movie-inside({id:myid})">Gallery</button>
-
                         <button type="button" class="btn {{classe}}" ng-click="tabchange('scene',5,myid)" ng-class="{'my-disable': movieBehindTheScenes.length<=0}" ng-disabled="movieBehindTheScenes.length<=0" ui-sref="movie-inside({id:myid})">behind the scenes</button>
-
                         <button type="button" class="btn {{classf}}" ng-click="tabchange('video',6,myid)" ng-class="{'my-disable': movieVideo10.length<=0}" ng-disabled="movieVideo10.length<=0" ui-sref="movie-inside({id:myid})"> VIDEOS </button>
-
                         <button type="button" class="btn {{classg}}" ng-click="tabchange('wallpapper',7,myid)" ng-class="{'my-disable': movieWallpaper.length<=0}" ng-disabled="movieWallpaper.length<=0" ui-sref="movie-inside({id:myid})">WALLPAPERS </button>
-
-                        <button type="button" class="btn {{classh}}" ng-click="tabchange('awards',8,myid)" ng-class="{'my-disable': MovieAwards.length  == 0}" ng-hide="MovieAwards.length  == 0" ui-sref="movie-inside({id:myid})"> AWARDS </button>
+                        <button type="button" class="btn {{classh}}" ng-click="tabchange('awards',8,myid)" ng-class="{'my-disable': MovieAwards.length  == 0}" ng-hide="MovieAwards.length  == 0" ui-sref="movie-inside({id:myid})">
+                                                        AWARDS </button>
                     </div>
                 </div>
                 <!-- <div class="all-tabs hidden-xs">
@@ -69,23 +58,18 @@
                 </div> -->
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs vs-dis">
                     <div class="all-tabs">
-
                         <div class="btn-group" role="group" aria-label="...">
                             <flex-slider flex-slide="item in tabing track by $index" animation="slide" item-width="120" item-margin="10" animationloop="true" move="2">
-
                                 <li class="text-center mobileMovieTabs">
                                     <button type="button" class="btn {{item.class}}" ng-click="tabchangeMob(item.tab,$index)" ng-class="{'my-disable': {{item.ngclass}},'active-list':item.activemob}" ng-disabled="{{item.ngdisabled}}" ui-sref="movie-inside({id:myid})" ng-hide="{{item.nghide}}">{{item.name}}</button>
                                 </li>
                                 <!-- <li class="text-center mobileMovieTabs">
                                     <button type="button" class="btn {{item.class}}" ng-click="tabchangeMob(item.tab,$index)" ng-class="{'my-disable': {{item.ngclass}},'active-list':item.activemob}" ng-disabled="{{item.ngdisabled}}" ui-sref="movie-insideTab({id:myid,tab:item.tab})" ng-hide="{{item.nghide}}">{{item.name}}</button>
                                 </li> -->
-
                                 <!-- ng-disabled="item.ngdisabled" ng-class="{'my-disable': item.ngclass}" -->
-
                             </flex-slider>
                         </div>
                     </div>
-
                 </div>
                 <div class="synopsis" ng-if="tab=='synopsis'">
                     <!-- <div class="movie-inside-date bg-synopsis"> -->
@@ -94,7 +78,6 @@
                             <div class="col-md-8">
                                 <div class="data-content scroll-over">
                                     <p ng-bind-html="getOneMovie.movie.synopsis">
-
                                     </p>
                                     <!-- <p>
                               Yeh Jawaani Hai Deewani is the story of the relationship between two characters, Bunny (Ranbir Kapoor) & Naina (Deepika Padukone), at two separate but defining times in their lives... first, when they are just out of college and standing on the crossroads
@@ -110,12 +93,9 @@
                                 </div>
                             </div>
                             <div class="col-md-offset-1 col-md-2">
-
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="" ng-if="tab=='cast'">
                     <div class="movie-inside-date bg-cast cast-credit mob-bg" ng-style="{'background':'url('+moviefindOne.cutImage+') no-repeat ','background-size':'contain','background-position':'right bottom','padding-top':'20px','padding-bottom':'30px'}">
@@ -142,10 +122,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
-
-
                                     <!-- //viewmore -->
                                     <div class="row mt30" ng-if="subCast">
                                         <div class="other-cast">
@@ -156,7 +133,6 @@
                                                         <br>
                                                         <span class="color-primary text-up font-bold">{{item.name}}</span>
                                                     </div>
-
                                                 </li>
                                             </ul>
                                         </div>
@@ -173,7 +149,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-md-2 col-sm-2 col-xs-2 hidden-xs">
                                     <div class="social-share pull-right">
                                         <span class="font-karla font-bold color-light-grey f18">share</span>
@@ -242,12 +217,10 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="news" ng-if="tab=='news'">
                     <div class="movie-inside-date bg-cast cast-credit" ng-style="{'background':'url('+moviefindOne.cutImage+') no-repeat ','background-size':'contain','background-position':'right bottom','padding-top':'20px','padding-bottom':'30px'}">
@@ -265,20 +238,16 @@
                                                     <div class="news-date">
                                                         <span class="color-black f12 font-karla">{{item.date|date:'d MMM y'}}</span>
                                                     </div>
-
-
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="col-md-1 col-sm-2 col-xs-3 hidden-xs">
                                 <div class="social-share float-right">
                                     <span class="font-karla font-bold color-light-grey f18">share</span>
                                     <ul class="padding0">
-
                                         <li>
                                             <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-facebook"></i></a>
                                         </li>
@@ -303,11 +272,42 @@
                                         <div class="masonry-brick" ng-repeat="item in MovieGal track by $index" ng-show="item.image!='' || item.image">
                                             <div class="masonry-box">
                                                 <a href="{{item.image|uploadpath2}}" class="fancybox-thumb" rel="fancybox-thumb"> <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma Production"></a>
-
                                             </div>
                                         </div>
                                     </div>
-
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-1 col-xs-3 hidden-xs">
+                                <div class="social-share float-right">
+                                    <span class="font-karla font-bold color-light-grey f18">share</span>
+                                    <ul class="padding0">
+                                        <li>
+                                            <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a ng-href="https://twitter.com/intent/tweet?url={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a ng-href="https://plus.google.com/share?url={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery" ng-if="tab=='scene'">
+                    <div class="movie-inside-date bg-cast cast-credit" ng-style="{'background':'url('+moviefindOne.cutImage+') no-repeat ','background-size':'contain','background-position':'right bottom','padding-top':'20px','padding-bottom':'30px'}">
+                        <div class="row">
+                            <div class="col-md-11 col-sm-11 col-xs-12">
+                                <div class="all-movies masonry-width">
+                                    <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
+                                        <div class="masonry-brick" ng-repeat="item in movieBehindTheScenes track by $index">
+                                            <div class="masonry-box">
+                                                <a href="{{item.image|uploadpath2}}" class="fancybox-thumb" rel="fancybox-thumb"> <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma Production"></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-1 col-sm-1 col-xs-3 hidden-xs">
@@ -327,46 +327,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-                <div class="gallery" ng-if="tab=='scene'">
-                    <div class="movie-inside-date bg-cast cast-credit" ng-style="{'background':'url('+moviefindOne.cutImage+') no-repeat ','background-size':'contain','background-position':'right bottom','padding-top':'20px','padding-bottom':'30px'}">
-                        <div class="row">
-                            <div class="col-md-11 col-sm-11 col-xs-12">
-                                <div class="all-movies masonry-width">
-                                    <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
-                                        <div class="masonry-brick" ng-repeat="item in movieBehindTheScenes track by $index">
-                                            <div class="masonry-box">
-                                                <a href="{{item.image|uploadpath2}}" class="fancybox-thumb" rel="fancybox-thumb"> <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma Production"></a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-1 col-sm-1 col-xs-3 hidden-xs">
-                                <div class="social-share float-right">
-                                    <span class="font-karla font-bold color-light-grey f18">share</span>
-                                    <ul class="padding0">
-
-                                        <li>
-                                            <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li>
-                                            <a ng-href="https://twitter.com/intent/tweet?url={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a ng-href="https://plus.google.com/share?url={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="video" ng-if="tab=='video' && !getAllvideo">
                     <div class="movie-inside-date bg-cast cast-credit" ng-style="{'background':'url('+moviefindOne.cutImage+') no-repeat ','background-size':'contain','background-position':'right bottom','padding-top':'20px','padding-bottom':'30px'}">
                         <div class="row">
@@ -378,12 +340,10 @@
                                                 <div class="img-animates">
                                                     <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100 img-hv" ng-if="(item.thumbnail || item.thumbnail != '')">
                                                     <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100 img-hv" ng-if="!(item.thumbnail || item.thumbnail != '')">
-
                                                     <div class="overlay dh-absulate">
                                                         <div class="pos-middle">
                                                             <span class="color-white font-hammersmith">{{item.name}}</span>
                                                         </div>
-
                                                         <div class="bottom-right dh-absulate ply-post">
                                                             <img src="frontend/img/play-small-btn.jpg" alt="Dharma Productions">
                                                         </div>
@@ -394,7 +354,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-1 col-sm-2 col-xs-3 hidden-xs">
                                 <div class="social-share pull-right">
                                     <span class="font-karla font-bold color-light-grey f18">share</span>
@@ -420,13 +379,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
                 <div class="wallpapper" ng-if="tab=='wallpapper'">
                     <div class="movie-inside-date bg-cast cast-credit" ng-style="{'background':'url('+moviefindOne.cutImage+') no-repeat ','background-size':'contain','background-position':'right bottom','padding-top':'20px','padding-bottom':'30px'}">
                         <div class="row">
@@ -434,7 +386,6 @@
                             <div class="btn-group custom-tabs" role="group" aria-label="...">
                                 <button type="button" class="btn {{classp}} font-hammersmith f18" ng-click="tabchanges('desktop',1)">Desktop</button>
                                 <button type="button" class="btn {{classv}} font-hammersmith f18" ng-click="tabchanges('mobile',2)">Mobile</button>
-
                             </div>
                         </div>
                         <div class="desktop mt15" ng-if="tabs=='desktop'">
@@ -446,7 +397,7 @@
                                                 <div class="desktop dh-relative">
                                                     <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma productions" class="img-responsive width100">
                                                     <div class="download dh-absulate">
-                                                        <a href="{{item.image|uploadpath}}" download><img src="frontend/img/download.png" alt="Dharma productions"></a>
+                                                        <a href="{{item.image|uploadpath2}}" download><img src="frontend/img/download.png" alt="Dharma productions"></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -480,8 +431,8 @@
                                                 <div class="desktop dh-relative mob-height">
                                                     <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma productions" class="img-responsive width100">
                                                     <div class="download dh-absulate">
-                                                        <a href="{{item.image|wallpaperpath}}" download><img ng-src="frontend/img/download.png" alt="Dharma productions"></a>
-                                                        <!-- <a href="{{item.image|uploadpath}}" download><img ng-src="{{item.image|uploadpath}}" alt="Dharma productions"></a>{{item.image|uploadpath}}abcd -->
+                                                        <a href="{{item.image|uploadpath2}}" download><img ng-src="frontend/img/download.png" alt="Dharma productions"></a>
+                                                        <!--<a href="{{item.image|uploadpath2}}" download><img ng-src="{{item.image|uploadpath}}" alt="Dharma productions"></a>{{item.image|uploadpath}}abcd-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -508,89 +459,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="awards" ng-if="tab=='awards'">
-                    <div class="movie-inside-date bg-cast cast-credit" ng-style="{'background':'url('+moviefindOne.cutImage+') no-repeat ','background-size':'contain','background-position':'right bottom','padding-top':'20px','padding-bottom':'30px'}">
-                        <div class="row">
-                            <div class="col-md-11 col-sm-10 col-xs-12">
-                                <div class="movie-award">
-                                    <uib-accordion close-others="true">
-
-                                        <uib-accordion-group is-open="accordian[$index].isFirstOpen" ng-repeat="data in MovieAwards">
-                                            <uib-accordion-heading class="mob-font">
-                                                <!-- <h4>Zee Cine Awards</h4> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i> -->
-                                                <div class="row">
-                                                    <div class="col-md-7 col-sm-6 col-xs-7">
-                                                        <h3 class="dark-black text-up font-karla font-bold margin0">{{data.name}}</h3>
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-5 col-xs-3">
-                                                        <h3 class="dark-black text-up font-karla font-bold margin0">{{data.year}}</h3>
-                                                    </div>
-                                                    <div class="col-md-1 col-sm-1 col-xs-2">
-                                                        <i class="pull-right fa" ng-class="{'fa fa-minus': accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
-                                                    </div>
-                                                </div>
-                                            </uib-accordion-heading>
-                                            <div class="row">
-                                                <div class="title-acc">
-                                                    <h1 class="font-karla color-primary pl10">Won</h1>
-                                                </div>
-                                                <div ng-repeat="data1 in data.award">
-                                                    <div class="col-md-7 col-sm-7 col-xs-6">
-                                                        <div class="awards-name">
-                                                            <ul class="padding0 list-none color-black">
-                                                                <li><span>{{data1.awardname}}</span></li>
-                                                                <!-- <li><span>Best Background Score</span></li>
-                                             <li><span>Best Screenplay</span></li>
-                                             <li><span>Best Choreography</span></li> -->
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                                        <div class="awards-name">
-                                                            <ul class="padding0 list-none color-primary">
-                                                                <li><span>{{data1.winner}}</span></li>
-                                                                <!-- <li><span>Pritam Chakraborty</span></li>
-                                             <li><span>Ayan Mukherjee</span> </li>
-                                             <li><span>Remo</span> -->
-                                                                <p class="color-black f12 line0">{{data1.note}}</p>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </uib-accordion-group>
-                                    </uib-accordion>
-                                </div>
-                            </div>
-                            <div class="col-md-1 col-sm-2 col-xs-2 hidden-xs">
-                                <div class="social-share float-right">
-                                    <span class="font-karla font-bold color-light-grey f18">share</span>
-                                    <ul class="padding0">
-                                        <li>
-                                            <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li>
-                                            <a ng-href="https://twitter.com/intent/tweet?url={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a ng-href="https://plus.google.com/share?url={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
-
-
-        </div>
-        <div class="back-to-top pull-right" scroll-to-item scroll-to="#top-scroll"> <img src="frontend/img/top-scroll.png" alt="Dharma Productions">
-        </div>
-        <div class="related-m" ng-if="MovieRelated.length!='0'">
+            <div class="back-to-top pull-right" scroll-to-item scroll-to="#top-scroll"> <img src="frontend/img/top-scroll.png" alt="Dharma Productions">
+            </div>
+            <!-- <div class="related-m" ng-if="MovieRelated.length!='0'">
             <div class="bg-screen mobile-row">
                 <h1 class="color-white font-hammersmith text-up line45 margin0 ml15 f55" style="line-height: 35%;">Related Movies</h1>
                 <div class="hidden-xs">
@@ -602,60 +474,140 @@
                                     <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
                                     <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
                                 </a>
+======= -->
+            <div class="awards" ng-if="tab=='awards'">
+                <div class="movie-inside-date bg-cast cast-credit" ng-style="{'background':'url('+moviefindOne.cutImage+') no-repeat','background-size':'contain','background-position':'right bottom','padding-top':'20px','padding-bottom':'30px'}">
+                    <div class="row">
+                        <div class="col-md-11 col-sm-10 col-xs-12">
+                            <div class="movie-award">
+                                <uib-accordion close-others="true">
+                                    <uib-accordion-group is-open="accordian[$index].isFirstOpen" ng-repeat="data in MovieAwards">
+                                        <uib-accordion-heading class="mob-font">
+                                            <!-- <h4>Zee Cine Awards</h4> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i> -->
+                                            <div class="row">
+                                                <div class="col-md-7 col-sm-6 col-xs-7">
+                                                    <h3 class="dark-black text-up font-karla font-bold margin0">{{data.name}}</h3>
+                                                </div>
+                                                <div class="col-md-4 col-sm-5 col-xs-3">
+                                                    <h3 class="dark-black text-up font-karla font-bold margin0">{{data.year}}</h3>
+                                                </div>
+                                                <div class="col-md-1 col-sm-1 col-xs-2">
+                                                    <i class="pull-right fa" ng-class="{'fa fa-minus': accordian[$index].isFirstOpen, 'fa fa-plus': !accordian[$index].isFirstOpen}"></i>
+                                                </div>
+                                            </div>
+                                        </uib-accordion-heading>
+                                        <div class="row">
+                                            <div class="title-acc">
+                                                <h1 class="font-karla color-primary pl10">Won</h1>
+                                            </div>
+                                            <div ng-repeat="data1 in data.award">
+                                                <div class="col-md-7 col-sm-7 col-xs-6">
+                                                    <div class="awards-name">
+                                                        <ul class="padding0 list-none color-black">
+                                                            <li><span>{{data1.awardname}}</span></li>
+                                                            <!-- <li><span>Best Background Score</span></li>
+                                             <li><span>Best Screenplay</span></li>
+                                             <li><span>Best Choreography</span></li> -->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-6">
+                                                    <div class="awards-name">
+                                                        <ul class="padding0 list-none color-primary">
+                                                            <li><span>{{data1.winner}}</span></li>
+                                                            <!-- <li><span>Pritam Chakraborty</span></li>
+                                             <li><span>Ayan Mukherjee</span> </li>
+                                             <li><span>Remo</span> -->
+                                                            <p class="color-black f12 line0">{{data1.note}}</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </uib-accordion-group>
+                                </uib-accordion>
                             </div>
-                            <div class="img-pads" ng-if="item.status==false">
-
-
+                        </div>
+                        <div class="col-md-1 col-sm-2 col-xs-2 hidden-xs">
+                            <div class="social-share float-right">
+                                <span class="font-karla font-bold color-light-grey f18">share</span>
+                                <ul class="padding0">
+                                    <li>
+                                        <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a ng-href="https://twitter.com/intent/tweet?url={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a ng-href="https://plus.google.com/share?url={{myUrl | urlEncode}}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="back-to-top pull-right" scroll-to-item scroll-to="#top-scroll"> <img src="frontend/img/top-scroll.png" alt="Dharma Productions">
+    </div>
+    <div class="related-m" ng-if="MovieRelated.length!='0'">
+        <div class="bg-screen mobile-row">
+            <h1 class="color-white font-hammersmith text-up line45 margin0 ml15 f55" style="line-height: 35%;">Related Movies</h1>
+            <div class="hidden-xs">
+                <div class="row-flex text-center" ng-if="MovieRelated.length<=5">
+                    <div class="col-flex" ng-repeat="item in MovieRelated track by $index">
+                        <div class="img-pads" ng-if="item.status==true">
+                            <a ui-sref="movie-inside({id:item.urlName})">
                                 <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
                                 <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
                                 <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
-
-                            </div>
-
+                            </a>
+                        </div>
+                        <div class="img-pads" ng-if="item.status==false">
+                            <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                            <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                            <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
                         </div>
                     </div>
-                    <!-- when image should be more than 5 then folloe this ui -->
-                    <div class="mobs-slider nav-cl" ng-if="MovieRelated.length>5">
-                        <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1" slideshow-Speed="2000">
-                            <li>
-                                <a ng-if="item.status==true" ui-sref="movie-inside({id:item.urlName})">
-                                    <div class="img-pads">
-                                        <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
-                                        <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
-                                        <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
-
-                                    </div>
-
-                                </a>
-                                <a ng-if="item.status==false">
-                                    <div class="img-pads">
-                                        <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
-                                        <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
-                                        <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
-
-                                    </div>
-
-                                </a>
-                            </li>
-                        </flex-slider>
-                    </div>
                 </div>
-
-                <!-- for mobile ui -->
-                <div class="mobs-slider hidden-lg hidden-md hidden-sm nav-cl">
-                    <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1">
+                <!-- when image should be more than 5 then folloe this ui -->
+                <div class="mobs-slider nav-cl" ng-if="MovieRelated.length>5">
+                    <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1" slideshow-Speed="2000">
                         <li>
-                            <a>
-                                <div class="img-pads" ui-sref="movie-inside({id:item.urlName})">
+                            <a ng-if="item.status==true" ui-sref="movie-inside({id:item.urlName})">
+                                <div class="img-pads">
                                     <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
                                     <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
                                     <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
                                 </div>
-
+                            </a>
+                            <a ng-if="item.status==false">
+                                <div class="img-pads">
+                                    <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                                    <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                                    <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
+                                </div>
                             </a>
                         </li>
                     </flex-slider>
                 </div>
             </div>
+            <!-- for mobile ui -->
+            <div class="mobs-slider hidden-lg hidden-md hidden-sm nav-cl">
+                <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1">
+                    <li>
+                        <a>
+                            <div class="img-pads" ui-sref="movie-inside({id:item.urlName})">
+                                <img ng-src="{{item.recentSmall|uploadpath}}" ng-if="item.recentSmall" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.smallImage|uploadpath}}" ng-if="item.smallImage" alt="Dharma Productions" class="img-responsive width100">
+                                <img ng-src="{{item.upcomingSmall|uploadpath}}" ng-if="item.upcomingSmall" alt="Dharma Productions" class="img-responsive width100">
+                            </div>
+                        </a>
+                    </li>
+                </flex-slider>
+            </div>
         </div>
+    </div>
 </section>
