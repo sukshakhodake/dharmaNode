@@ -65,9 +65,11 @@ img.loading {
         margin-top: 30px;
     }
 }
-.visible-ipad{
-  display: none;
+
+.visible-ipad {
+    display: none;
 }
+
 .font-italic {
     font-style: italic;
 }
@@ -94,8 +96,9 @@ img.loading {
     }
 }
 @mixin scale($scale) {
-	 @include transform(scale($scale));
+     @include transform(scale($scale));
 }
+
 img {
     opacity: 0;
     @include transition(all 300ms ease);
@@ -149,6 +152,7 @@ a {
     appearance: $value;
 }
 //bootstrap forms
+
 .btn,
 .form-control,
 .input-group-lg > .form-control,
@@ -551,8 +555,8 @@ a {
     }
 
     .flex-direction-nav a {
-      width: 70px;
-      height: 60px;
+        width: 70px;
+        height: 60px;
         opacity: 1 !important;
         top: 40%;
     }
@@ -569,7 +573,7 @@ a {
 
     .flexslider:hover .flex-direction-nav .flex-prev {
         opacity: 1;
-      left: -55px !important;
+        left: -55px !important;
         outline: 0;
     }
 
@@ -754,8 +758,8 @@ a {
     }
 
     .flex-direction-nav a {
-      width: 40px;
-      height: 47px;
+        width: 40px;
+        height: 47px;
         // opacity: 1 !important;
     }
 
@@ -814,7 +818,8 @@ a {
             border-right: 1px solid #b2b2b2;
             padding: 0 6px;
             line-height: 100%;
-  color: #b2b2b2;
+            color: #b2b2b2;
+
             &:last-child {
                 border: none;
             }
@@ -1968,8 +1973,6 @@ a {
     }
 }
 
-
-
 .mob-slider {
     // .flex-control-nav {
     //     display: none;
@@ -2479,7 +2482,6 @@ a {
     border: 2px solid $brand-primary;
     background-color: transparent;
 
-
     &:hover {
         background-color: $brand-primary;
         border-color: $brand-primary;
@@ -2902,8 +2904,9 @@ button.navbar-toggle.collapsed {
     }
 }
 
-.content {
-    min-height: 450px;
+.content,
+.min-hght-content {
+    min-height: calc(100vh - 105px);
 }
 
 .main-m-marg {
@@ -2932,42 +2935,49 @@ button.navbar-toggle.collapsed {
     padding: 35px 25px;
     border-radius: 20px;
 }
+
 .subscribe-movie .modal-content {
     border: 2px solid #f37021;
     padding: 35px 25px;
     border-radius: 20px;
     background: url("../img/pop-up.png")no-repeat;
-        background-size: cover;
+    background-size: cover;
+}
 
+.subscribe-movie {
+    .modal-sm {
+        width: 650px !important;
+    }
 }
-.subscribe-movie{
-  .modal-sm {
-  width: 650px !important;
-}
-}
-.pad-box-pop{
-  padding-top: 160px;
 
+.pad-box-pop {
+    padding-top: 160px;
 }
-.h43{
-  height: 43px;
+
+.h43 {
+    height: 43px;
 }
-.go-sb{
-  background: #f37021;
-color: #fff;
-padding: 6px 10px;
-min-height: 43px;
-button{
-      font-size: 21px;
-      color: #fff;
-      &:hover{
-          color: #fff !important;
-      }
+
+.go-sb {
+    background: #f37021;
+    color: #fff;
+    padding: 6px 10px;
+    min-height: 43px;
+
+    button {
+        font-size: 21px;
+        color: #fff;
+
+        &:hover {
+            color: #fff !important;
+        }
+    }
 }
+
+.tit {
+    padding-bottom: 15px;
 }
-.tit{
-      padding-bottom: 15px;
-}
+
 .fan-modal .modal-content {
     border: 2px solid #f37021;
     padding: 35px 25px;
@@ -3082,7 +3092,7 @@ button{
                 transition: border 0.25s linear;
                 -webkit-transition: border 0.25s linear;
                 vertical-align: text-top;
-                    cursor: pointer;
+                cursor: pointer;
 
                 &:before {
                     display: block;
@@ -3140,10 +3150,11 @@ button{
 }
 
 .padall30 {
-      padding: 30px 90px 30px 0px;
+    padding: 30px 90px 30px 0;
 }
+
 .padall0 {
-      padding: 30px 0px 30px 0px;
+    padding: 30px 0;
 }
 
 .top-banner {
@@ -3151,6 +3162,7 @@ button{
     background-size: cover;
     position: relative;
 }
+
 .top-bannerss {
     background: url(../img/1942x1139.jpg)no-repeat;
     background-size: cover;
@@ -3320,80 +3332,92 @@ button{
         color: #f7941d;
     }
 }
-.pointerarrow{
-  a{
+
+.pointerarrow {
+    a {
+        cursor: default !important;
+    }
+}
+
+.cursor-imp {
     cursor: default !important;
-  }
 }
-.cursor-imp{
-  cursor: default !important;
+
+.mt-7 {
+    margin-top: -7px;
 }
-.mt-7{
-      margin-top: -7px;
-}
+
 .disabled {
-  cursor: not-allowed;
-   pointer-events: none;
+    cursor: not-allowed;
+    pointer-events: none;
 }
-.middle-ware{
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
+
+.middle-ware {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
-.cl-hv{
-  color: #fff !important;
-  &:hover{
+
+.cl-hv {
     color: #fff !important;
-  }
-}
-.img-animate{
-  overflow: hidden;
-&:hover{
-  img{
-    // transform: scale(1.1);
-    	 @include transform(scale(1.1));
-        @include transition(all 300ms ease);
-  }
-  .img-hv{
-    // transform: scale(1.1);
-    	 @include transform(scale(1.1));
-        @include transition(all 300ms ease);
-  }
+
+    &:hover {
+        color: #fff !important;
+    }
 }
 
-}
-.img-animates{
-  overflow: hidden;
-&:hover{
+.img-animate {
+    overflow: hidden;
 
-  .img-hv{
-    // transform: scale(1.1);
-    	 @include transform(scale(1.1));
+    &:hover {
+        img {
+            // transform: scale(1.1);
+            @include transform(scale(1.1));
+            @include transition(all 300ms ease);
+        }
+
+        .img-hv {
+            // transform: scale(1.1);
+            @include transform(scale(1.1));
+            @include transition(all 300ms ease);
+        }
+    }
+}
+
+.img-animates {
+    overflow: hidden;
+
+    &:hover {
+        .img-hv {
+            // transform: scale(1.1);
+            @include transform(scale(1.1));
+            @include transition(all 300ms ease);
+        }
+    }
+}
+
+.img-animated {
+    overflow: hidden;
+
+    .hover-sec {
         @include transition(all 300ms ease);
-  }
+    }
+
+    &:hover {
+        .hover-sec {
+            @include transform(scale(1.1));
+            @include transition(all 300ms ease);
+        }
+    }
 }
 
-}
-.img-animated{
-  overflow: hidden;
-  .hover-sec{
-        @include transition(all 300ms ease);
-  }
-&:hover{
-  .hover-sec{
-
-    	 @include transform(scale(1.1));
-        @include transition(all 300ms ease);
-  }
-}
-
-}
 .nav-cl .flex-control-paging li a.flex-active {
     background: #fff;
     background: rgba(255, 255, 255, 0.9);
     cursor: default;
 }
+
 .nav-cl .flex-control-paging li a {
     background: rgba(255, 255, 255, 0.5);
 }
