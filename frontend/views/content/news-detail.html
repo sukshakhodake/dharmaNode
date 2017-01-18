@@ -12,7 +12,7 @@
                         <div class="search-img">
                             <img src="frontend/img/search.png" alt="Dharma Productions">
                         </div>
-              <input type="search" name="name" ng-change="doSearch();" ng-model="filter.search" value="" class="search-date" placeholder="Search">
+                        <input type="search" name="name" ng-change="doSearch();" ng-model="filter.search" value="" class="search-date" placeholder="Search">
                         <div class="search-img2" ng-if="crossdisplay" ng-click="closeCross();">
                             <img src="frontend/img/error3.png" alt="Dharma Productions">
                         </div>
@@ -26,19 +26,19 @@
       <option  value="March"><a href="">March</a></option>
 
     </select> -->
-    <div class="dropdown custom-dropdown">
-       <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <div class="dropdown custom-dropdown">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <span ng-if="!getMonth">Month</span>
           <span ng-if="getMonth">{{getMonth| getMonthAlpha}}</span>
           <img src="frontend/img/select-arrow.png" alt="">
        </button>
-       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li ng-repeat="data in month"><a ng-click="getNewsMonth(data)">{{data| getMonthAlpha}}</a></li>
-          <!-- <li><a href="">Feb</a></li>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li ng-repeat="data in month"><a ng-click="getNewsMonth(data)">{{data| getMonthAlpha}}</a></li>
+                                    <!-- <li><a href="">Feb</a></li>
           <li><a href="">March</a></li>+ -->
 
-       </ul>
-    </div>
+                                </ul>
+                            </div>
                         </div>
                         <div class="display-inline date-select ml15">
                             <!-- <select class="form-control">
@@ -49,21 +49,21 @@
 
                             </select> -->
                             <div class="dropdown custom-dropdown">
-                               <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                   <span ng-if="!getYear">Year</span>
                                   <span ng-if="getYear">{{getYear}}</span>
                                   <img src="frontend/img/select-arrow.png" alt="">
                                </button>
-                               <!-- <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <!-- <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                   Year
                                   <img src="frontend/img/select-arrow.png" alt="">
                                </button> -->
-                               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                  <li ng-repeat="data in monthYear.year|orderBy:'-'"><a ng-click="getNewsYear(data)">{{data}}</a></li>
-                                  <!-- <li><a href="">2015</a></li>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li ng-repeat="data in monthYear.year|orderBy:'-'"><a ng-click="getNewsYear(data)">{{data}}</a></li>
+                                    <!-- <li><a href="">2015</a></li>
                                   <li><a href="">2014</a></li> -->
 
-                               </ul>
+                                </ul>
                             </div>
                         </div>
                         <div class="btn-go display-inline ml15">
@@ -84,10 +84,10 @@
                         <h1 class="font-karla text-cap color-black margin0 f24-sem">{{getOneNews.title}}</h1>
                         <span class="color-light-grey top-set">{{getOneNews.date | date:'dd MMM yyyy'}}</span>
                         <div class="banner-news">
-                          <img ng-src="{{getOneNews.banner | uploadpath}}" alt="Dharma Productions" class="img-responsive width100">
+                            <img ng-src="{{getOneNews.banner | uploadpath}}" alt="Dharma Productions" class="img-responsive width100">
                         </div>
                         <div class="news-data color-white" ng-bind-html="getOneNews.text">
-                          <!-- <p>Films as varied as “Raajneeti”, “Rockstar”, “Yeh Jawaani Hai Deewani” and “Barfi!” have been a window to his versatility. But Ranbir Kapoor says his “Tamasha” co-star and former girlfriend Deepika
+                            <!-- <p>Films as varied as “Raajneeti”, “Rockstar”, “Yeh Jawaani Hai Deewani” and “Barfi!” have been a window to his versatility. But Ranbir Kapoor says his “Tamasha” co-star and former girlfriend Deepika
 Padukone, whom he calls a “mastikhor (fun-lover)”, “scares” him as an actor.</p>
 <p>
 “Deepika’s growth has been immense as an actor. It feels great whenever I work with her and I feel the most creatively satisfied working with her. I look up to her as an actor, and she scares me as an actor,” Ranbir said here during a media interaction.
@@ -111,81 +111,92 @@ understanding of cinema and life, and little bit baring of her soul which we are
                         </div>
                     </div>
                     <div class="share-section mt15 pb40 text-c-m">
-                      <h4 class="color-white font-bold font-karla display-inline dis-bl">Share this article on</h4>
-                      <div class="display-inline">
-                        <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-facebook"></i>facebook</button></a>
-                      </div>
-                      <div class="display-inline">
-                        <a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-twitter"></i>twitter</button></a>
-                      </div>
-                      <div class="display-inline">
-                        <a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-google-plus"></i>google+</button></a>
-                      </div>
+                        <h4 class="color-white font-bold font-karla display-inline dis-bl">Share this article on</h4>
+                        <div class="display-inline">
+                            <a ng-href="https://www.facebook.com/sharer/sharer.php?u={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-facebook"></i>facebook</button></a>
+                        </div>
+                        <div class="display-inline">
+                            <a ng-href="https://twitter.com/intent/tweet?url={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-twitter"></i>twitter</button></a>
+                        </div>
+                        <div class="display-inline">
+                            <a ng-href="https://plus.google.com/share?url={{myUrl|urlEncode}}" target="_blank"><button type="button" name="button"><i class="fa fa-google-plus"></i>google+</button></a>
+                        </div>
                     </div>
 
 
 
 
-<!-- ------------------------------related Articles--------------------------------- -->
+                    <!-- ------------------------------related Articles--------------------------------- -->
 
 
-                    <div class="row pb40" ng-if="getOneRelated.length>0">
-                      <h1 class="color-white font-hammersmith text-up line45 margin0 ml15">Related Articles</h1>
-                      <div class="col-md-4 col-sm-4 col-xs-12 mob-top-em" ng-repeat="article in getOneRelated">
-                        <div class="black-bg makePointer" ui-sref="news-detail({id:article._id})">
-                          <div class="img-animate">
-                           <img ng-src="{{article.image|uploadpath}}" alt="Dharma Production" class="img-responsive width100">
-                           </div>
-                           <div class="padd10">
-                              <div class="news-title mt10 h60">
-                                 <h4 class="margin0">{{article.title}}</h4>
-                              </div>
-                              <div class="news-date">
-                                 <span class="f12">{{article.date| date:'dd MMM yyyy'}}</span>
-                              </div>
-                              <!-- <div class="news-descp mt10 h70" ng-bind-html="article.text|cut:true:100">
+                    <div class="pb40" ng-if="getOneRelated.length>0 ">
+                        <h1 class="color-white font-hammersmith text-up line45 margin0 ml15">Related Articles</h1>
+                        <!-- ----------------------------------------related Articles for desktop-------------------------------------------->
+                        <div class="mobs-slider nav-cl mob-top-em hidden-xs">
+                            <div class="row" ng-if="getOneRelated.length<=3">
+                                <div class="col-md-4 col-sm-4 col-xs-12 mob-top-em" ng-repeat="article in getOneRelated">
+                                    <div class="black-bg makePointer" ui-sref="news-detail({id:article._id})">
+                                        <div class="img-animate">
+                                            <img ng-src="{{article.image|uploadpath}}" alt="Dharma Production" class="img-responsive width100">
+                                        </div>
+                                        <div class="padd10">
+                                            <div class="news-title mt10 h60">
+                                                <h4 class="margin0">{{article.title}}</h4>
+                                            </div>
+                                            <div class="news-date">
+                                                <span class="f12">{{article.date| date:'dd MMM yyyy'}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                              </div> -->
-                           </div>
+
+
+
+                            <div ng-if="getOneRelated.length>3">
+                                <flex-slider flex-slide="article in getOneRelated track by $index" animation="slide" item-width="380" item-margin="20" animationloop="true" move="1" slideshow-Speed="2000">
+                                    <li>
+                                        <div class="black-bg makePointer" ui-sref="news-detail({id:article._id})">
+                                            <div class="img-animate">
+                                                <img ng-src="{{article.image|uploadpath}}" alt="Dharma Production" class="img-responsive width100">
+                                            </div>
+                                            <div class="padd10">
+                                                <div class="news-title mt10 h60">
+                                                    <h4 class="margin0">{{article.title}}</h4>
+                                                </div>
+                                                <div class="news-date">
+                                                    <span class="f12">{{article.date| date:'dd MMM yyyy'}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </flex-slider>
+                            </div>
                         </div>
-                      </div>
-                      <!-- <div class="col-md-4 col-sm-4 col-xs-12 mob-top-em" >
-                        <div class="black-bg">
-                           <img ng-src="frontend/img/news/n1.jpg" alt="Dharma Production" class="img-responsive">
-                           <div class="padd10">
-                              <div class="news-title mt10">
-                                 <h4 class="margin0">Bahubali bags The Best Film
-Of 2015 National Award</h4>
-                              </div>
-                              <div class="news-date">
-                                 <span class="f12">21 Mar 2016</span>
-                              </div>
-                              <div class="news-descp mt10">
-                                <p>SS Rajamouli's "Bahubali: The Beginning" (also spelt as Baahubali), starring Prabhas and Rana Daggubati, has won the Best Feature Film at the 63rd National Film Award (NFA). </p>
-                              </div>
-                           </div>
+
+                        <!-- ----------------------------------------related Articles for mobile-------------------------------------------->
+                        <div class="mobs-slider nav-cl mob-top-em visible-xs">
+                                <flex-slider flex-slide="article in getOneRelated track by $index" animation="slide" item-width="320" item-margin="20" animationloop="true" move="1" slideshow-Speed="2000">
+                                    <li>
+                                        <div class="black-bg makePointer" ui-sref="news-detail({id:article._id})">
+                                            <div class="img-animate">
+                                                <img ng-src="{{article.image|uploadpath}}" alt="Dharma Production" class="img-responsive width100">
+                                            </div>
+                                            <div class="padd10">
+                                                <div class="news-title mt10 h60">
+                                                    <h4 class="margin0">{{article.title}}</h4>
+                                                </div>
+                                                <div class="news-date">
+                                                    <span class="f12">{{article.date| date:'dd MMM yyyy'}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </flex-slider>
                         </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4 col-xs-12 mob-top-em" >
-                        <div class="black-bg">
-                           <img ng-src="frontend/img/news/n1.jpg" alt="Dharma Production" class="img-responsive">
-                           <div class="padd10">
-                              <div class="news-title mt10">
-                                 <h4 class="margin0">Bahubali bags The Best Film
-Of 2015 National Award</h4>
-                              </div>
-                              <div class="news-date">
-                                 <span class="f12">21 Mar 2016</span>
-                              </div>
-                              <div class="news-descp mt10">
-                                <p>SS Rajamouli's "Bahubali: The Beginning" (also spelt as Baahubali), starring Prabhas and Rana Daggubati, has won the Best Feature Film at the 63rd National Film Award (NFA). </p>
-                              </div>
-                           </div>
-                        </div>
-                      </div> -->
                     </div>
-
-<!-- ----------------------------------------End of related Articles-------------------------------------------->
+                    <!-- ----------------------------------------End of related Articles-------------------------------------------->
 
                 </div>
             </div>
@@ -195,39 +206,39 @@ Of 2015 National Award</h4>
 
 
 
-<!-- ------------------------------------------------search UI----------------------------------- -->
+    <!-- ------------------------------------------------search UI----------------------------------- -->
 
     <section>
-       <div class="container" ng-if="getSearchNews">
-           <div infinite-scroll='loadMore()' infinite-scroll-disabled="shouldscroll">
-          <div class="row">
-             <div class="col-xs-12">
-                <div class="all-movies custom-box mob-mt-top">
-                   <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
-                      <div class="masonry-brick" ng-repeat="item in news10 track by $index">
-                        <a ui-sref="news-detail({id:item._id})">
+        <div class="container" ng-if="getSearchNews">
+            <div infinite-scroll='loadMore()' infinite-scroll-disabled="shouldscroll">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="all-movies custom-box mob-mt-top">
+                            <div masonry preserve-order masonry-options="{ fitWidth: 'true'}" class="margin-auto">
+                                <div class="masonry-brick" ng-repeat="item in news10 track by $index">
+                                    <a ui-sref="news-detail({id:item._id})">
 
-                         <div class="masonry-box">
-                     <img ng-src="{{item.image | uploadpath}}" alt="Dharma Production">
-                     <div class="padd10">
-                         <div class="news-title">
-                             <h4 class="margin0">{{item.title }}</h4>
-                         </div>
-                         <div class="news-date">
-                             <span class="f12">{{item.date | date:'dd MMM yyyy'}}</span>
-                         </div>
-                         <!-- <div class="news-descp mt10" ng-bind-html="item.text">
+                                        <div class="masonry-box">
+                                            <img ng-src="{{item.image | uploadpath}}" alt="Dharma Production">
+                                            <div class="padd10">
+                                                <div class="news-title">
+                                                    <h4 class="margin0">{{item.title }}</h4>
+                                                </div>
+                                                <div class="news-date">
+                                                    <span class="f12">{{item.date | date:'dd MMM yyyy'}}</span>
+                                                </div>
+                                                <!-- <div class="news-descp mt10" ng-bind-html="item.text">
 
                          </div> -->
-                     </div>
-                 </div>
-               </a>
-                      </div>
-                   </div>
-                   <div ng-if="noNewsFound">
-                       <center><strong><h1>No news Found</h1></strong></center>
-                   </div>
-                   <!-- <div class="text-center cast-credit" ng-if="!forViewMore && !noNewsFound">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div ng-if="noNewsFound">
+                                <center><strong><h1>No news Found</h1></strong></center>
+                            </div>
+                            <!-- <div class="text-center cast-credit" ng-if="!forViewMore && !noNewsFound">
                       <div class="text-center btn-view-news mt40">
 
                          <a class="btn-1 font-hammersmith btn color-primary" ng-click="ViewMore(myTotal)">
@@ -238,7 +249,7 @@ Of 2015 National Award</h4>
                          </a>
                       </div>
                    </div> -->
-                   <!-- <div class="text-center cast-credit" ng-if="!noviewmore">
+                            <!-- <div class="text-center cast-credit" ng-if="!noviewmore">
                       <div class="text-center btn-view-news mt40">
 
                          <a class="btn-1 font-hammersmith btn color-primary" ng-click="ViewMore(myTotal)">
@@ -249,20 +260,20 @@ Of 2015 National Award</h4>
                          </a>
                       </div>
                    </div> -->
-                </div>
-              </div>
+                        </div>
+                    </div>
 
-    <!-- <div ng-if="noNewsFound" style="min-height:400px"><center><strong><h1>No News Found</h1></strong></center></div> -->
-             </div>
-           </div>
-          </div>
-          <!-- <div ng-if="noNewsFound" style="min-height:400px">
+                    <!-- <div ng-if="noNewsFound" style="min-height:400px"><center><strong><h1>No News Found</h1></strong></center></div> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div ng-if="noNewsFound" style="min-height:400px">
               <center><strong><h1>No news Found</h1></strong></center>
           </div> -->
-       </div>
-       <!-- <div ng-if="noNewsFound"><center><strong><h1>No News Found</h1></strong></center></div> -->
+        </div>
+        <!-- <div ng-if="noNewsFound"><center><strong><h1>No News Found</h1></strong></center></div> -->
     </section>
 
-<!-- ------------------------------------------------End of search UI----------------------------------- -->
+    <!-- ------------------------------------------------End of search UI----------------------------------- -->
 
 </section>

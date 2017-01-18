@@ -95,7 +95,8 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         getMovieDetails: function (callback) {
-            $http.post(adminurl + 'movie/getMovieDetails').success(function (data) {
+            $http.post(adminurl + 'movie/getMovieDetails').then(function (data) {
+              data=data.data;
                 _.each(data.data, function (n) {
                     n._id = n.urlName;
                 });
@@ -104,7 +105,8 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         getJourney: function (callback) {
-            $http.post(adminurl + 'journey/getall').success(function (data) {
+            $http.post(adminurl + 'journey/getall').then(function (data) {
+              data=data.data;
                 var a = _.orderBy(data.data, ["date"], ["desc"]);
                 _.each(a, function (n) {
                     n.dateShow = moment(a.date).format("D MMM YYYY");
@@ -114,23 +116,36 @@ var navigationservice = angular.module('navigationservice', [])
             });
         },
         getNews: function (callback) {
-            $http.post(adminurl + 'News/getAll').success(callback);
+            $http.post(adminurl + 'News/getAll').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         subScribe: function (email, callback) {
             $http.post(adminurl + 'subscribe/saveData', {
                 "email": email
-            }).success(callback);
+            }).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         submitFormData: function (formData, callback) {
-            $http.post(adminurl + 'Form/saveData', formData).success(callback);
+            $http.post(adminurl + 'Form/saveData', formData).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getDharmatvOne: function (id, callback) {
             $http.post(adminurl + 'Dharmatv/getOne', {
                 _id: id
-            }).success(callback);
+            }).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getAllUpcomingMovies: function (callback) {
-            $http.post(adminurl + 'Movie/getAllUpcomingMovies').success(function (data) {
+            $http.post(adminurl + 'Movie/getAllUpcomingMovies').then(function (data) {
+              data=data.data;
                 _.each(data.data, function (n) {
                     n._id = n.urlName;
                 });
@@ -138,10 +153,14 @@ var navigationservice = angular.module('navigationservice', [])
             });
         },
         getAllUpcomingMoviesHome: function (callback) {
-            $http.post(adminurl + 'dharmatv/getDharmaTvHomeSlider').success(callback);
+            $http.post(adminurl + 'dharmatv/getDharmaTvHomeSlider').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getAllRecentMovies: function (callback) {
-            $http.post(adminurl + 'Movie/getAllRecentMovies').success(function (data) {
+            $http.post(adminurl + 'Movie/getAllRecentMovies').then(function (data) {
+              data=data.data;
                 _.each(data.data, function (n) {
                     n._id = n.urlName;
                 });
@@ -151,27 +170,36 @@ var navigationservice = angular.module('navigationservice', [])
         newGetOneMovie: function (id, callback) {
             $http.post(adminurl + 'Movie/getOneMovie', {
                 _id: id
-            }).success(callback);
+            }).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getMovieAwards: function (id, callback) {
             $http.post(adminurl + 'NewAward/getMovieAward', {
                 _id: id
-            }).success(callback);
+            }).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getNewsHomeSearch: function (request, i, callback) {
-            $http.post(adminurl + 'news/findLimited', request).success(function (data) {
+            $http.post(adminurl + 'news/findLimited', request).then(function (data) {
+              data=data.data;
                 callback(data, i,request.pagenumber);
             });
 
         },
         getDictionary: function (request, i, callback) {
-            $http.post(adminurl + 'dictionary/findLimited', request).success(function (data) {
+            $http.post(adminurl + 'dictionary/findLimited', request).then(function (data) {
+              data=data.data;
                 callback(data, i);
             });
         },
         getAllMovieName: function (callback) {
 
-            $http.post(adminurl + 'Movie/getAllMovieName').success(function (data) {
+            $http.post(adminurl + 'Movie/getAllMovieName').then(function (data) {
+              data=data.data;
                 _.each(data.data, function (n) {
                     n._id = n.urlName;
                 });
@@ -179,17 +207,27 @@ var navigationservice = angular.module('navigationservice', [])
             });
         },
         getAllSlides: function (callback) {
-            $http.post(adminurl + 'homeslider/getAllHomeSlider').success(callback);
+            $http.post(adminurl + 'homeslider/getAllHomeSlider').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getDharmaTvSlides: function (callback) {
 
-            $http.post(adminurl + 'dharmahome/getDharmaTvHome').success(callback);
+            $http.post(adminurl + 'dharmahome/getDharmaTvHome').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getAllDharmaTvSlider: function (callback) {
-            $http.post(adminurl + 'dharmaslider/getAllDharmaTvSlider').success(callback);
+            $http.post(adminurl + 'dharmaslider/getAllDharmaTvSlider').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getAllDharmatv10: function (callback) {
-            $http.post(adminurl + 'Dharmatv/getAll').success(function (data) {
+            $http.post(adminurl + 'Dharmatv/getAll').then(function (data) {
+              data=data.data;
                 _.each(data.data, function (n) {
                     n.movie._id = _.kebabCase(n.movie.name) + "_" + n.movie.year;
                 });
@@ -197,40 +235,70 @@ var navigationservice = angular.module('navigationservice', [])
             });
         },
         getAllTags: function (callback) {
-            $http.post(adminurl + 'tag/getAll').success(callback);
+            $http.post(adminurl + 'tag/getAll').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getOneNews: function (id, callback) {
             $http.post(adminurl + 'News/getOneNews', {
                 _id: id
-            }).success(callback);
+            }).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getMonthYear: function (callback) {
-            $http.post(adminurl + 'news/getMonthYear').success(callback);
+            $http.post(adminurl + 'news/getMonthYear').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getOneRelated: function (id, callback) {
             $http.post(adminurl + 'news/getOneArticle', {
                 _id: id
-            }).success(callback);
+            }).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getAllPosts: function (filterdata, callback) {
-            $http.post(adminurl + 'dharmainsta/getAllInstaPosts', filterdata).success(callback);
+            $http.post(adminurl + 'dharmainsta/getAllInstaPosts', filterdata).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getAllTwitter: function (callback) {
-            $http.post(adminurl + 'dharma140/getAll').success(callback);
+            $http.post(adminurl + 'dharma140/getAll').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         dharmaYouAll: function (callback) {
-            $http.post(adminurl + 'dharmanyou/getAll').success(callback);
+            $http.post(adminurl + 'dharmanyou/getAll').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getOneHashTag: function (id, callback) {
             $http.post(adminurl + 'dharma140/getHash', {
                 _id: id
-            }).success(callback);
+            }).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         youSave: function (formData, callback) {
-            $http.post(adminurl + 'dharmanyou/save', formData).success(callback);
+            $http.post(adminurl + 'dharmanyou/save', formData).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         getAllConfig: function (callback) {
-            $http.post(adminurl + 'NewConfig/getAll').success(callback);
+            $http.post(adminurl + 'NewConfig/getAll').then(function(data) {
+        data = data.data;
+        callback(data);
+      });
         },
         changeTimerRapid: function () {
             var rapidTimer = $.jStorage.get("rapidTimer");
