@@ -1,11 +1,16 @@
 // var adminurl = "http://104.199.151.75:82/";
+
+//  var adminurl = "http://23.251.148.237:85";
+
+
+
 if (adminurl || adminurl !== "") {
     console.log(adminurl);
 } else {
     adminurl = "http://localhost:1337/api/";
 }
 // var imgpath = adminurl + "upload/readFile";
-var imgpath = "http://104.155.129.33:85/api/upload/readFile";
+var imgpath = adminurl+ "upload/readFile";
 var uploadurl = adminurl + "upload/";
 
 var navigationservice = angular.module('navigationservice', [])

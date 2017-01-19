@@ -37,6 +37,11 @@ module.exports = {
         
         Config.readUploaded(req.query.file, req.query.width, req.query.height, req.query.style, res);
     },
+
+        readFile2: function(req, res) {
+        
+        Config.readUploaded2(req.query.file, req.query.width, req.query.height, req.query.style, res);
+    },
     wallpaper: function(req, res) {
         Config.readUploaded(req.query.file, req.query.width, req.query.height, req.query.style, res);
     }
