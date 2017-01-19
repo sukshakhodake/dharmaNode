@@ -1,9 +1,3 @@
-// var adminurl = "http://104.199.151.75:82/";
-
- var adminurl = "http://23.251.148.237:85";
-
-
-
 if (adminurl || adminurl !== "") {
     console.log(adminurl);
 } else {
