@@ -723,7 +723,8 @@ a {
 }
 
 .bg-sun {
-    background: url(../img/dharma-sun.png)no-repeat $brand-primary;
+    // background: url(../img/dharma-sun.png)no-repeat $brand-primary;
+    background: $brand-primary;
     background-position: left top;
     margin-top: -66px;
     padding: 215px 0 60px 215px;
