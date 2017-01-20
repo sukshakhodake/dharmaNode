@@ -15,7 +15,8 @@
                     <i class="fa fa-3x fa-angle-left"></i>
                 </button>
                 <ul class="handlers">
-                    <li ng-repeat="h in getAllTwitterTag">
+                    <li ng-repeat="h in getAllTwitterTag | orderBy:'order' ">
+                        
                         <div class="hashtagged font-hammersmith" ng-click="selectOneHashTag(h._id);" ui-sref="dharma140({id:h._id})" ng-class="{'activeLink': h.isMatch}">{{h.hashTags}}
                             <!-- <span>{{isMatch}}</span> -->
                         </div>
@@ -26,7 +27,7 @@
             <div class="masonry-king">
                 <div masonry>
                     <div class="masonry-brick" ng-repeat="t in getOneHashTag">
-                        <a href="https://twitter.com/{{t.user.screen_name}}/status/{{t.id_str}}" target="_blank">
+                                              <a href="https://twitter.com/{{t.user.screen_name}}/status/{{t.id_str}}" target="_blank">
                             <div class="tweet-holder">
                                 <div class="tweet-img" ng-if="t.entities.media[0].media_url && t.entities.media[0].type=='photo'">
                                     <img ng-src="{{t.entities.media[0].media_url}}">

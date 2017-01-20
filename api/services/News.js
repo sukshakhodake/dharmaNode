@@ -133,7 +133,7 @@ var models = {
                             $ne: data._id
                         }
 
-                    }).limit(3).exec(function(err, data3) {
+                    }).exec(function(err, data3) {
                         if (err) {
                             console.log(err);
                             callback(err, null);

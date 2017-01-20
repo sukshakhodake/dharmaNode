@@ -8,6 +8,12 @@
         "isSort": "",
         "tableRef": "hashTags",
         "type": "String"
+    },
+    {
+        "name": "Order",
+        "isSort": "",
+        "tableRef": "order",
+        "type": "String"
     }],
     "action": [{
         "name": "edit",
