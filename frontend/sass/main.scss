@@ -851,6 +851,11 @@ a {
                     border-radius: 100%;
                     text-align: center;
                     line-height: 35px;
+                    @include transition(all ease 300ms);
+                    &:hover{
+                      background: $brand-primary;
+                      color: #fff;
+                    }
                 }
             }
         }

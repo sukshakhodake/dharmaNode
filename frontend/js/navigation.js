@@ -37,7 +37,7 @@ var navigationservice = angular.module('navigationservice', [])
         }, {
             name: "Dharma World",
             classis: "active",
-            anchor: "",
+            anchor: "dharma-world",
             class: "fa fa-angle-down",
 
             subnav: [{
@@ -45,21 +45,29 @@ var navigationservice = angular.module('navigationservice', [])
                 classis: "active",
                 anchor: "dharma140",
                 isId: "yes",
-            }, {
-                name: "Dharma & You",
-                classis: "active",
-                anchor: "dharma-you",
-                isId: "no",
-            }, {
+            },
+
+            // {
+            //     name: "Dharma & You",
+            //     classis: "active",
+            //     anchor: "dharma-you",
+            //     isId: "no",
+            // },
+
+            {
                 name: "Fancorner",
                 classis: "active",
                 anchor: "",
-            }, {
-                name: "Dharma Insta",
-                classis: "active",
-                anchor: "dharma-insta",
-                isId: "no",
-            }, {
+            },
+
+            //  {
+            //     name: "Dharma Insta",
+            //     classis: "active",
+            //     anchor: "dharma-insta",
+            //     isId: "no",
+            // },
+
+            {
                 name: "Fan Corner",
                 classis: "active",
                 anchor: "fan-landing",
