@@ -13,7 +13,11 @@ var schema = new Schema({
     type:String,
     default : ''
   },
-  user: ["String"]
+  user: ["String"],
+  order: {
+        type: Number,
+        default: ""
+    },
 });
 module.exports = mongoose.model('Dharma140', schema);
 
