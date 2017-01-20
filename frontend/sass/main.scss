@@ -842,6 +842,9 @@ a {
             padding: 0 5px;
 
             a {
+                  display: block;
+                  position: relative;
+                  min-height: 18px;
                 i {
                     font-size: 20px;
                     background: #424242;
@@ -854,8 +857,21 @@ a {
                     @include transition(all ease 300ms);
                     &:hover{
                       background: $brand-primary;
-                      color: #fff;
                     }
+                }
+                &:hover{
+                  .hover-daily{
+                    display: block;
+                  }
+                  .daily-image{
+                    display: none;
+                  }
+                }
+                .hover-daily{
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  display: none;
                 }
             }
         }
