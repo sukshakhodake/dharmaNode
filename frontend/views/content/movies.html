@@ -220,7 +220,7 @@
                         </a>
                         <div class="pointerarrow">
                           <a ng-if="item.status==false" class="pointerarrow">
-                            <div class="img-pads ">
+                            <div class="img-pads " class="pointerarrow">
                               <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
                             </div>
                             <div class="movie-names ">
@@ -295,16 +295,19 @@
                                 </h4>
                             </div>
                         </a>
-                        <a ng-if="item.status==false">
-                            <div class="img-pads ">
-                                <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
-                            </div>
-                            <div class="movie-names ">
-                                <h4 class="text-up color-grey ">{{item.name |shorten : 20}}
-                                    <br>({{item.year}})
-                                </h4>
-                            </div>
-                        </a>
+                        <div class="pointerarrow">
+                          <a ng-if="item.status==false" class="pointerarrow">
+                              <div class="img-pads ">
+                                  <img ng-src="{{item.smallImage|uploadpath}} " alt="Dharma Productions " class="img-responsive ">
+                              </div>
+                              <div class="movie-names ">
+                                  <h4 class="text-up color-grey ">{{item.name |shorten : 20}}
+                                      <br>({{item.year}})
+                                  </h4>
+                              </div>
+                          </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
