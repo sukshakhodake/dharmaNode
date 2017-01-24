@@ -4,7 +4,7 @@
             <h1 class="super-big font-hammersmith">Dharma@140</h1>
             <p class="descriptive">The best of the Twitterverse -  from Producers, Directors, Stars and the entire Production Unit find
                 <br>
-                out what’s trending in the Dharma World.</p>
+                out what’s trending in the Social.</p>
         </div>
         <div class="dharma140">
             <div class="relative">
@@ -16,7 +16,7 @@
                 </button>
                 <ul class="handlers">
                     <li ng-repeat="h in getAllTwitterTag | orderBy:'order' ">
-                        
+
                         <div class="hashtagged font-hammersmith" ng-click="selectOneHashTag(h._id);" ui-sref="dharma140({id:h._id})" ng-class="{'activeLink': h.isMatch}">{{h.hashTags}}
                             <!-- <span>{{isMatch}}</span> -->
                         </div>
