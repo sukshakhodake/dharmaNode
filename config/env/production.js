@@ -26,7 +26,7 @@ module.exports = {
      ***************************************************************************/
 
     port: 85,
-       realHost: "http://dharma.tingdom.in",
+       realHost: "http://dharma-production.com",
 
 
 
