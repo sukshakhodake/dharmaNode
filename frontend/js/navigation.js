@@ -30,12 +30,12 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         {
-            name: "Dharma TV",
+            name: "Videos",
             classis: "active",
             anchor: "dharma-tv",
             subnav: []
         }, {
-            name: "Dharma World",
+            name: "Social",
             classis: "active",
             anchor: "dharma-world",
             class: "fa fa-angle-down",

@@ -1381,7 +1381,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('DharmaWorldCtrl', function($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("dharma-world");
-        $scope.menutitle = NavigationService.makeactive("Dharma World");
+        $scope.menutitle = NavigationService.makeactive("Social");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         NavigationService.getAllTwitter(function(data) {
@@ -1802,7 +1802,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('DharmaTvCtrl', function($scope, TemplateService, NavigationService, $stateParams, $filter, $state) {
         $scope.template = TemplateService.changecontent("dharma-tv");
-        $scope.menutitle = NavigationService.makeactive("Dharma Tv");
+        $scope.menutitle = NavigationService.makeactive("Videos");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(2);

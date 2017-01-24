@@ -35,7 +35,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'AwardsCtrl'
         })
         .state('dharma-tv', {
-            url: "/dharma-tv/",
+            url: "/videos/",
             templateUrl: "frontend/views/template.html",
             controller: 'DharmaTvCtrl'
         })
@@ -90,7 +90,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         //     controller: 'TvInsideCtrl'
         // })
         .state('dharma-world', {
-            url: "/dharma-world",
+            url: "/social",
             templateUrl: "frontend/views/template.html",
             controller: 'DharmaWorldCtrl'
         })

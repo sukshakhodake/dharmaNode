@@ -489,7 +489,11 @@ a {
     left: 50%;
     @include transform(translate(-50%,-50%));
 }
-
+.dharma-word{
+  img{
+    margin: 0 auto;
+  }
+}
 .slider-nav {
     .flex-direction-nav a.flex-next:before {
         content: '';
@@ -3378,7 +3382,7 @@ button.navbar-toggle.collapsed {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    @include transform(translate(-50%,-50%));
 }
 
 .cl-hv {
