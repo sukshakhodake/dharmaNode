@@ -1655,6 +1655,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var i = 0;
 
         function callMe() {
+          $scope.filter.pagenumber = 1;
             // $scope.news10 = [];
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
                 if (newI == i) {
