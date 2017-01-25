@@ -856,7 +856,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.goToMovie($stateParams.id,$scope.currentMovie);
 
     })
-    .controller('MovieInsideCtrl', function($scope, TemplateService, NavigationService, $uibModal, $stateParams, $filter, $window, $timeout, $state) {
+    .controller('MovieInsideCtrl', function($scope, TemplateService, NavigationService, $uibModal, $stateParams, $filter, $window, $timeout, $state,$location) {
         $scope.template = TemplateService.changecontent("movie-inside");
         $scope.menutitle = NavigationService.makeactive("Movie Inside");
         TemplateService.title = $scope.menutitle;
@@ -868,7 +868,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.getAllvideo = false;
         $scope.isSubCast = false;
-        $scope.myUrl = window.location.href;
+        $scope.myUrl = $location.absUrl();
+        // $scope.myUrl = window.location.href;
         NavigationService.newGetOneMovie($stateParams.id, function(data) {
 
 
@@ -1654,6 +1655,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var i = 0;
 
         function callMe() {
+          $scope.filter.pagenumber = 1;
             // $scope.news10 = [];
             NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
                 if (newI == i) {
