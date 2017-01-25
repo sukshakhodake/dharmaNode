@@ -20,7 +20,7 @@ module.exports = {
     // models: {
     //   connection: 'someMongodbServer'
     // }
-    port: 80,
+    port: 1337,
     realHost: "http://dharma-production.com"
 
 // realHost:"http://wohlig.io",
