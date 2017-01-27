@@ -344,6 +344,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     });
                 }
 
+
+$scope.exportSubscribe = function (data) {
+            // console.log("else");
+
+
+            window.open("http://localhost:1337" + '/api/Subscribe/generateExcel', '_newtab');
+            window.close();
+        
+
+    };
                 $scope.getAwardByMovie=function(movieid){
                     //
                     $scope.pagination._id=movieid;

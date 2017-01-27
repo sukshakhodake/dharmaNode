@@ -8,10 +8,18 @@
                 </md-option>
             </md-select>
         </md-input-container>
+
+        
         <div class="search-input" ng-if="!json.showSearch">
             <input ng-model="search" type="text">
-            <md-button class="md-raised md-primary" ng-click="searchClick(search);">Go</md-button>
+            <md-button  class="md-raised md-primary" ng-click="searchClick(search);">Go</md-button>
+        <md-button aria-label="Expand" ng-click="exportSubscribe(action,result)"  ng-repeat="action in json.button2">
+       <!--<ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>-->
+       <md-button class="md-raised">{{action.text}}</md-button>
+     </md-button>
+      
         </div>
+        
         <!-- <md-autocomplete
               md-search-text="searchForm.name"
               md-items="item in ctrl.querySearch(searchForm.name)"

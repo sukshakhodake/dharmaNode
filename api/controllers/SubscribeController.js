@@ -22,6 +22,11 @@ module.exports = {
       });
     }
   },
+
+  generateExcel: function (req, res) {
+    Subscribe.generateExcel(res);
+  },
+
   findLimited: function (req, res) {
     if (req.body) {
       if (req.body.pagenumber && req.body.pagenumber !== "" && req.body.pagesize && req.body.pagesize !== "") {
