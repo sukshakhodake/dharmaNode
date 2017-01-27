@@ -349,7 +349,7 @@ $scope.exportSubscribe = function (data) {
             // console.log("else");
 
 
-            window.open("http://localhost:1337" + '/api/Subscribe/generateExcel', '_newtab');
+            window.open("http://dharma-production.com" + '/api/Subscribe/generateExcel', '_newtab');
             window.close();
         
 
