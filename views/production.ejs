@@ -11,6 +11,7 @@
     <meta name="theme-color" content="#f37021">
         <%= ((typeof title) == "undefined") ? "Dharma Productions" : title  %>
     </title>
+    <link rel="shortcut icon" href="frontend/img/favicon.png" />
 
     <!-- SEO -->
     <meta name="author" content="Dharma Productions" />
@@ -21,7 +22,7 @@
     <meta property="og:site_name" content="Dharma Productions">
     <meta property="og:title" content="<%= ((typeof title) == "undefined") ? "Dharma Productions " : title  %>" />
     <meta property="og:description" content="<%= ((typeof description) == "undefined") ? "Dharma Productions " : description  %>" />
-    <meta property="og:image" content="<%= ((typeof image) == "undefined") ? "Dharma Productions " : image  %>" />
+    <meta name="twitter:image" content="img/tw-banner.jpg"/>
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= ((typeof url) == "undefined") ? "Dharma Productions " : url  %>" />
 
@@ -30,7 +31,7 @@
     <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@DharmaMovies" />
   <meta name="twitter:title" content="<%= ((typeof title) == "undefined") ? "Dharma Productions " : title  %>" />
-  <meta name="twitter:image" content="<%= ((typeof image) == "undefined") ? "Dharma Productions " : image  %>" />
+  <meta name="twitter:image" content="frontend/img/tw-banner.jpg"/>
   <meta name="twitter:image:alt" content="<%= ((typeof description) == "undefined") ? "Dharma Productions " : description  %>" />
   <meta name="twitter:description" content="<%= ((typeof description) == "undefined") ? "Dharma Productions " : description  %>" />
 

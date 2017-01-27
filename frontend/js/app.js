@@ -187,6 +187,7 @@ firstapp.filter('uploadpath2', function () {
         if (input) {
             if (input.indexOf('https://') == -1) {
                 return "http://dharmaimages.tingdom.in/api/" + "download/" + input;
+                // return  "http://dharma-production.com/api/" + "download/" + input;
 
             } else {
                 return input;

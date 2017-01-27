@@ -14,7 +14,7 @@ module.exports = {
       Global.response(err, data, res);
     }
     if (req.body) {
-      User.getAll(req.body, res.callback);
+      Subscribe.getAll(req.body, res.callback);
     } else {
       res.json({
         value: false,
