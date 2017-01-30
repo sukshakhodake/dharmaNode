@@ -2464,9 +2464,11 @@ var models = {
                     }, {
                         $project: {
                             _id: 0,
-                            related: {
-                                $slice: ["$related", skip, data.pagesize]
-                            }
+                            // related: {
+                            //     $slice: ["$related", skip, data.pagesize]
+                            // }
+
+                            related:"$related"
                         }
                     }]).exec(function (err, found) {
                         console.log(found);

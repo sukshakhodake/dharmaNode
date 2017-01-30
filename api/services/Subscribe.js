@@ -163,6 +163,22 @@ var models = {
 
         });
     }
+,
+
+    deleteSubscribe: function (data, callback) {
+        Subscribe.findOneAndRemove  ({
+            _id:data._id
+        }).exec(function (err, found) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (found && found.length > 0) {
+                callback(null, found);
+            } else {
+                callback(null, []);
+            }
+        });
+    },
 
 };
 

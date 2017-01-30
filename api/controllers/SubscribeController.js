@@ -23,6 +23,17 @@ module.exports = {
     }
   },
 
+  deleteSubscribe: function (req, res) {
+ if (req.body) {
+      Subscribe.deleteSubscribe(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+
   generateExcel: function (req, res) {
     Subscribe.generateExcel(res);
   },
