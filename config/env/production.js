@@ -29,7 +29,7 @@ module.exports = {
        realHost: "http://dharma-production.com",
 
 
-// realHost:"http://localhost:1337",
+// realHost:"http://localhost:1337",   
     /***************************************************************************
      * Set the log level in production environment to "silent"                 *
      ***************************************************************************/
