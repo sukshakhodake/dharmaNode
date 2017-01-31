@@ -57,7 +57,7 @@
         "action": "uploadcsv"
     }],
     "apiCall": {
-        "url": "movie/findRelated2",
+        "url": "movie/findRelated",
         "params": "_id"
     },
     "createButtonState": "page({jsonName:'createRelated'})",
