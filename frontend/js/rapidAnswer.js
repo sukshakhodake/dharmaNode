@@ -7,198 +7,199 @@ var rapidAnswer = angular.module('rapidAnswer', [])
     var questions = [{
         id: 1,
         quesNo: "Q1",
-        question: "Which was Ranbir Kapoor's first movie with Dharma Productions?",
+        question: "What is Badri's full name ?",
         model: "quest1",
         options: [{
             "id": "radio1",
-            "name": "Ae Dil Hai Mushkil"
+            "name": "Badri Behl"
 
         }, {
             "id": "radio2",
-            "name": "Wake Up Sid",
-              answer: true
+            "name": "Badrivedh Kumar"
+             
         }, {
             "id": "radio3",
-            "name": "Yeh Jawaani Hai Deewani"
+            "name": "Badrinath Tiwari"
         }, {
             "id": "radio4",
-            "name": "I Hate Luv Story's "
+            "name": " Badrinath Bansal ",
+             answer: true
         }]
     }, {
         id: 2,
         quesNo: "Q2",
-        question: "What was Ranbir's screen name in the movie Wake Up Sid?",
+        question: "What pattern does Badri's tie have?",
         model: "quest2",
         options: [{
             "id": "radio1",
-            "name": "Siddharth Mehra",
-            answer: true
+            "name": "Polka dots"
         }, {
             "id": "radio2",
-            "name": "Siddharth Malhotra"
+            "name": "Checks",
+            answer: true
         }, {
             "id": "radio3",
-            "name": "Siddharth Dewan"
+            "name": "Horizontal stripes"
         }, {
             "id": "radio4",
-            "name": "Siddharth Sinha"
+            "name": "Vertical stripes"
         }]
     }, {
         id: 3,
         quesNo: "Q3",
-        question: "Who played Ranbir's father in the movie Yeh Jawaani Hai Deewani?",
+        question: "What is Badri's suit color?",
         model: "quest3",
         options: [{
             "id": "radio1",
-            "name": "Rishi Kapoor"
+            "name": "Black"
         }, {
             "id": "radio2",
-            "name": "Anupam Kher"
+            "name": "Blue"
         }, {
             "id": "radio3",
-            "name": "Farooq Sheikh",
+            "name": "Brown",
             answer: true
         }, {
             "id": "radio4",
-            "name": "Javed Sheikh"
+            "name": "White"
         }]
     }, {
         id: 4,
         quesNo: "Q4",
-        question: "Complete the line...'Balam Pichkari Jo Tune Mujhe Maari........'",
+        question: "The two actresses who are standing beside Badri?",
         model: "quest4",
         options: [{
             "id": "radio1",
-            "name": "To Seedhi Saadhi Larki Deewani Ho Gayi"
+            "name": "Kareena Kapoor & Sonam Kapoor"
         }, {
             "id": "radio2",
-            "name": "To Bholi Bhaali Ladki Sharaabi Ho Gayi"
+            "name": "Kareena Kapoor & Alia Bhatt"
         }, {
             "id": "radio3",
-            "name": "To Bhabhi Meri Bilkul Deewani Ho Gayi"
+            "name": "Kareena Kapoor & Deepika Padukone",
+            answer: true
         }, {
             "id": "radio4",
-            "name": "To Seedhi Saadhi Chhori Sharaabi Ho Gayi",
-            answer: true
+            "name": "Kareena Kapoor & Karishma Kapoor"
         }]
     }, {
         id: 5,
         quesNo: "Q5",
-        question: " Which destination does Alizeh take Ayan to after his heart-break with Lisa?",
+        question: " In the end, which shoe does Badri throw at the camera?",
         model: "quest5",
         options: [{
             "id": "radio1",
-            "name": "Vienna"
+            "name": "He doesn't throw a shoe"
         }, {
             "id": "radio2",
-            "name": "London"
+            "name": "Right shoe"
 
         }, {
             "id": "radio3",
-            "name": "New York"
+            "name": "Left shoe",
+              answer: true
         }, {
             "id": "radio4",
-            "name": "Paris",
-              answer: true
+            "name": "Shoe lying around him"
         }]
     }, {
         id: 6,
         quesNo: "Q6",
-        question: "Complete this famous dialogue from the movie Yeh Jawaani Hai Deewani ; Tum samajhte kyun nahi Bunny..agar mein tumhare saath do minute aur rahi..........'",
+        question: "Which superstar's name is mentioned in the teaser?",
         model: "quest6",
         options: [{
             "id": "radio1",
-            "name": "To meri train miss ho jaayegi"
+            "name": "Aamir Khan"
         }, {
             "id": "radio2",
-            "name": "To mein fir se ro padungi"
+            "name": "Salman Khan"
         }, {
             "id": "radio3",
-            "name": "To mujhe tumse pyaar ho jaayega...phir se",
+            "name": "Shah Rukh Khan",
               answer: true
         }, {
             "id": "radio4",
-            "name": "To mein tumse fir kabhi nahi mil paungi"
+            "name": "Hrithik Roshan"
 
         }]
     }, {
         id: 7,
         quesNo: "Q7",
-        question: "Who plays Ranbir's mother in the movie Wake Up Sid?",
+        question: "When did #BadriKaTeaser release?",
         model: "quest7",
         options: [{
             "id": "radio1",
-            "name": "Ratna Pathak"
+            "name": "28th Jan"
         }, {
             "id": "radio2",
-            "name": "Dolly Ahluwalia"
+            "name": "29th Jan"
 
         }, {
             "id": "radio3",
-            "name": "Supriya Pathak",
+            "name": "30th Jan",
               answer: true
         }, {
             "id": "radio4",
-            "name": "Tanvi Azmi"
+            "name": "31th Jan"
         }]
     }, {
         id: 8,
         quesNo: "Q8",
-        question: "Where does Sid work as an intern in Wake Up Sid?",
+        question: "Which festival is the movie slated to release on?",
         model: "quest8",
         options: [{
             "id": "radio1",
-            "name": "Mumbai Magic"
+            "name": "Diwali"
         }, {
             "id": "radio2",
-            "name": "Mumbai Beat",
-            answer: true
+            "name": "Eid"
         }, {
             "id": "radio3",
-            "name": "Bombay Beat"
+            "name": "Holi",
+            answer: true
         }, {
             "id": "radio4",
-            "name": "Mumbai Treat"
+            "name": "Christmas"
         }]
     }, {
         id: 9,
         quesNo: "Q9",
-        question: "Who was Ranbir’s neighbour in Wake Up Sid?",
+        question: "On the day of the teaser launch, what was Badri watching at night?",
         model: "quest9",
         options: [{
             "id": "radio1",
-            "name": "Rakhi Sawant"
+            "name": "#BadriKaTeaser"
         }, {
             "id": "radio2",
-            "name": "Kashmira Shah",
-            answer: true
+            "name": "#RoyalWedding"
         }, {
             "id": "radio3",
-            "name": "Shefali Zariwala"
+            "name": "#RoyalRumble",
+            answer: true
 
         }, {
-            "id": "Shefali Shah",
+            "id": "#HumptySharmaKiDulhania",
             "name": "daman"
         }]
     }, {
         id: 10,
         quesNo: "Q10",
-        question: "Who is the lyric writer of Ae Dil Hai Mushkil?",
+        question: "What is Badri's Dulhania's name?",
         model: "quest10",
         options: [{
             "id": "radio1",
-            "name": "Javed Akhtar"
+            "name": "Will get to know on 2nd February!"
 
         }, {
             "id": "radio2",
-            "name": "Niranjan Iyengar"
+            "name": "Will get to know on 2nd February!"
         }, {
             "id": "radio3",
-            "name": "Amitabh Bhattacharya",
+            "name": "Will get to know on 2nd February!",
               answer: true
         }, {
             "id": "radio4",
-            "name": "Gulzar"
+            "name": "Will get to know on 2nd February!"
         }]
     }];
 var answered;

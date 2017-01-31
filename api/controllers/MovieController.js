@@ -77,7 +77,23 @@ module.exports = {
             });
         }
     },
-
+findLimited2: function(req, res) {
+        if (req.body) {
+            if (req.body.pagenumber && req.body.pagenumber !== "" && req.body.pagesize && req.body.pagesize !== "") {
+                Movie.findLimited2(req.body, res.callback);
+            } else {
+                res.json({
+                    value: false,
+                    data: "Please provide parameters"
+                });
+            }
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
 
     // cast
 
@@ -1131,6 +1147,30 @@ module.exports = {
             });
         }
     },
+
+ findRelated2: function(req, res) {
+        if (req.body.pagenumber && req.body.pagesize) {
+            Movie.getAllRelated2(req.body, function(err, respo) {
+                if (err) {
+                    res.json({
+                        value: false,
+                        data: err
+                    });
+                } else {
+                    res.json({
+                        value: true,
+                        data: respo
+                    });
+                }
+            });
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid call"
+            });
+        }
+    },
+
     findOneRelated: function(req, res) {
         if (req.body) {
             Movie.getOneRelated(req.body, res.callback);

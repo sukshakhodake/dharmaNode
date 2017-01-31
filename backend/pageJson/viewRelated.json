@@ -7,7 +7,7 @@
     "fields": [{
             "name": "Related Movie",
             "isSort": "",
-            "tableRef": "relatedMovie.name"
+            "tableRef": "name"
         }, {
             "name": "Order",
             "isSort": "",
@@ -21,7 +21,7 @@
         "color": "#f37021",
         "action": "redirect",
         "jsonPage": "editRelated",
-        "fieldsToSend": ["_id"],
+        "fieldsToSend": ["relatedId"],
         "callFindOne": "movie/findOneRelated"
     }, {
         "name": "delete",
@@ -57,7 +57,7 @@
         "action": "uploadcsv"
     }],
     "apiCall": {
-        "url": "movie/findRelated",
+        "url": "movie/findRelated2",
         "params": "_id"
     },
     "createButtonState": "page({jsonName:'createRelated'})",
