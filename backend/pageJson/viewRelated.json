@@ -12,7 +12,7 @@
             "name": "Order",
             "isSort": "",
             "tableRef": "order"
-        }
+        }   
 
     ],
     "action": [{
@@ -21,7 +21,7 @@
         "color": "#f37021",
         "action": "redirect",
         "jsonPage": "editRelated",
-        "fieldsToSend": ["relatedId"],
+        "fieldsToSend": ["_id"],
         "callFindOne": "movie/findOneRelated"
     }, {
         "name": "delete",
