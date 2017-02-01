@@ -496,7 +496,7 @@
     }
 }
 @media (max-width: $screen-xs-max) {
-    .btn-in{    display: inline-block !important;    margin-bottom: 12px;}
+    .btn-in{    display: inline-block !important;    margin-bottom: 12px !important;}
   .bg-synopsis {
       background: none !important;
   }
