@@ -709,7 +709,9 @@ var models = {
                             //     },
                             //     skip: 5
                             // }
-options: { limit: 5 }
+                            options: {
+                                limit: 5
+                            }
                         })
                         .exec(function (err, data2) {
                             if (err) {
@@ -2496,15 +2498,15 @@ options: { limit: 5 }
                             count: 1
                         }
                     }]).exec(function (err, result) {
-                        console.log("result",result);
+                        console.log("result", result);
                         if (result && result[0]) {
                             newreturns.total = result[0].count;
                             newreturns.totalpages = Math.ceil(result[0].count / data.pagesize);
-                            console.log("newreturns",newreturns);
+                            console.log("newreturns", newreturns);
                             callback(null, newreturns);
                         } else if (err) {
                             console.log(err);
-                            callback(null,[]);
+                            callback(null, []);
                         } else {
                             callback(null, []);
                         }
@@ -2527,7 +2529,7 @@ options: { limit: 5 }
                                 as: 'related.relatedMovie'
                             }
                         },
-                         {
+                        {
                             $unwind: "$related.relatedMovie"
                         },
                         // {
@@ -2539,9 +2541,14 @@ options: { limit: 5 }
                         //     }
                         // },
                         {
+                        $skip:skip
+                        },{
+                                $limit:data.pagesize
+                        },
+                        {
                             $project: {
                                 _id: 1,
-   
+
                                 relatedId: "$related._id",
                                 // related: {
                                 //     $slice: ["$related", skip, data.pagesize]
@@ -2559,17 +2566,17 @@ options: { limit: 5 }
                             // Movie.populate(newreturns.data, {
                             //     path: "relatedMovie"
                             // }, function (err, data3) {
-                                callback(null, found);
+                            callback(null, found);
                             // });
 
 
 
                         } else if (err) {
                             console.log(err);
-                            callback(null,[]);
+                            callback(null, []);
                         } else {
 
-                            callback(null,[]);
+                            callback(null, []);
                         }
                     });
                 }
@@ -2580,15 +2587,15 @@ options: { limit: 5 }
                     callback(err, null);
                 } else if (data4) {
                     var data5 = {};
-                    var relatedMovie =  {};
+                    var relatedMovie = {};
                     var dd = {};
-data5.data = data4[1];
-                //   data5.data=  dd;
-                  
-                //     dd.relatedMovie = relatedMovie;
-                //     relatedMovie.related =data4[1];
+                    data5.data = data4[1];
+                    //   data5.data=  dd;
 
-                    
+                    //     dd.relatedMovie = relatedMovie;
+                    //     relatedMovie.related =data4[1];
+
+
                     data5.total = data4[0].total;
                     data5.totalpages = data4[0].totalpages;
                     callback(null, data5);
@@ -2725,7 +2732,7 @@ data5.data = data4[1];
     getOneRelated: function (data, callback) {
         // aggregate query
         Movie.aggregate([{
-            $unwind: "$related" 
+            $unwind: "$related"
         }, {
             $match: {
                 "related._id": objectid(data._id)
