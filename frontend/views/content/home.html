@@ -57,7 +57,8 @@
     <div class="home-slider dh-relative width-auto mo-bl-tp">
         <flex-slider flex-slide="s in getAllSlides track by $index" slideshowSpeed=3000 animation=slide>
             <li auto-heightfixed>
-                <img ng-src="{{s.mobileImage|uploadpath}}" alt="Dharma Productions" ui-sref="movie-inside" class="img-responsive" auto-height onloading="true">
+                <img ng-src="{{s.mobileImage|uploadpath}}" alt="Dharma Productions" ng-if="s.status == false"  class="img-responsive" auto-height onloading="true">
+                <img ng-src="{{s.mobileImage|uploadpath}}"  ng-if="s.status == true"  ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" ui-sref="movie-inside" class="img-responsive" auto-height onloading="true">
             </li>
         </flex-slider>
         <div class="movie-tab text-center dh-absulate dh-list second">
