@@ -3208,12 +3208,11 @@ button.navbar-toggle.collapsed {
         // display: block;
     }
 }
-
+.btn-in{    display: inline-block !important;}
 .dh-btn-min {
     text-align: center;
     margin: 30px auto 0;
-    width: 20%;
-
+    
     .btn {
         max-width: 215px;
     }
