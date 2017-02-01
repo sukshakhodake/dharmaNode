@@ -2542,7 +2542,7 @@ options: { limit: 5 }
                             $project: {
                                 _id: 1,
    
-                                relatedId: "$related.relatedMovie._id",
+                                relatedId: "$related._id",
                                 // related: {
                                 //     $slice: ["$related", skip, data.pagesize]
                                 // }

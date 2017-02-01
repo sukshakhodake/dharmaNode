@@ -3,7 +3,7 @@
     "desciption": "",
     "pageType": "view",
     "sendIdWithCreate": true,
-      "urlFields": ["relatedId"],
+      "urlFields": ["_id"],
     "fields": [{
             "name": "Related Movie",
             "isSort": "",
@@ -33,7 +33,7 @@
         "api": "movie/deleteRelated",
         "fieldsToSend": [{
             "name": "_id",
-            "value": "_id"
+            "value": "relatedId"
         }]
     }],
     "button": [{
@@ -108,6 +108,6 @@
         "action": "sidemenuRedirect",
         "jsonPage": "viewRelated",
         "fieldsToSend": [1],
-        "callFindOne": "movie/findRelated"
+        "callFindOne": "movie/findRelated2"
     }]
 }
