@@ -671,6 +671,72 @@ var models = {
     },
 
 
+
+    findLimited2: function (data, callback) {
+        var newreturns = {};
+        newreturns.data = [];
+        var check = new RegExp(data.search, "i");
+        data.pagenumber = parseInt(data.pagenumber);
+        data.pagesize = parseInt(data.pagesize);
+        async.parallel([
+                function (callback) {
+                    Movie.findOne({
+                        _id: data._id
+                    }).exec(function (err, number) {
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                            if (number) {
+                                newreturns.total = number.related.length;
+                            }
+                            newreturns.totalpages = Math.ceil(number.related.length / data.pagesize);
+                            callback(null, newreturns);
+                        }
+                    });
+                },
+                function (callback) {
+                    Movie.findOne({
+                            _id: data._id
+                        }).select('name related')
+                        .populate({
+                            path: 'related.relatedMovie',
+                            select: 'upcomingSmall recentSmall smallImage name year urlName status',
+                            // select: 'name -_id ',
+                            // options: {
+                            //     sort: {
+                            //         name: -1
+                            //     },
+                            //     skip: 5
+                            // }
+                            options: {
+                                limit: 5
+                            }
+                        })
+                        .exec(function (err, data2) {
+                            if (err) {
+                                console.log(err);
+                                callback(err, null);
+                            } else {
+                                console.log("aaaa", data2);
+                                newreturns.data = data2;
+                                callback(null, newreturns);
+                            }
+                        });
+                }
+            ],
+            function (err, data4) {
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else if (data4) {
+                    callback(null, newreturns);
+                } else {
+                    callback(null, newreturns);
+                }
+            });
+    },
+
     //SIDEMENU CAST
 
     saveCast: function (data, callback) {
@@ -2405,6 +2471,140 @@ var models = {
         }
     },
 
+    getAllRelated2: function (data, callback) {
+        var newreturns = {};
+        newreturns.data = [];
+        var check = new RegExp(data.search, "i");
+        data.pagenumber = parseInt(data.pagenumber);
+        data.pagesize = parseInt(data.pagesize);
+        var skip = parseInt(data.pagesize * (data.pagenumber - 1));
+        async.parallel([
+                function (callback) {
+                    Movie.aggregate([{
+                        $match: {
+                            _id: objectid(data._id)
+                        }
+                    }, {
+                        $unwind: "$related"
+                    }, {
+                        $group: {
+                            _id: null,
+                            count: {
+                                $sum: 1
+                            }
+                        }
+                    }, {
+                        $project: {
+                            count: 1
+                        }
+                    }]).exec(function (err, result) {
+                        console.log("result", result);
+                        if (result && result[0]) {
+                            newreturns.total = result[0].count;
+                            newreturns.totalpages = Math.ceil(result[0].count / data.pagesize);
+                            console.log("newreturns", newreturns);
+                            callback(null, newreturns);
+                        } else if (err) {
+                            console.log(err);
+                            callback(null, []);
+                        } else {
+                            callback(null, []);
+                        }
+                    });
+                },
+                function (callback) {
+                    Movie.aggregate([{
+                            $match: {
+                                _id: objectid(data._id)
+                            }
+                        },
+                        {
+                            $unwind: "$related"
+                        },
+                        {
+                            $lookup: {
+                                from: 'movies',
+                                localField: 'related.relatedMovie',
+                                foreignField: '_id',
+                                as: 'related.relatedMovie'
+                            }
+                        },
+                        {
+                            $unwind: "$related.relatedMovie"
+                        },
+                        // {
+                        //     $group: {
+                        //         _id: "_id",
+                        //         name: {
+                        //             $push: "$related.relatedMovie.name"
+                        //         }
+                        //     }
+                        // },
+                        {
+                        $skip:skip
+                        },{
+                                $limit:data.pagesize
+                        },
+                        {
+                            $project: {
+                                _id: 1,
+
+                                relatedId: "$related._id",
+                                // related: {
+                                //     $slice: ["$related", skip, data.pagesize]
+                                // }
+                                name: "$related.relatedMovie.name",
+                                order: "$related.relatedMovie.order",
+                                status: "$related.relatedMovie.status"
+                            }
+                        }
+                    ]).exec(function (err, found) {
+                        console.log('data1 ', found);
+                        if (found && found.length > 0) {
+                            newreturns.data = found[0].related;
+
+                            // Movie.populate(newreturns.data, {
+                            //     path: "relatedMovie"
+                            // }, function (err, data3) {
+                            callback(null, found);
+                            // });
+
+
+
+                        } else if (err) {
+                            console.log(err);
+                            callback(null, []);
+                        } else {
+
+                            callback(null, []);
+                        }
+                    });
+                }
+            ],
+            function (err, data4) {
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else if (data4) {
+                    var data5 = {};
+                    var relatedMovie = {};
+                    var dd = {};
+                    data5.data = data4[1];
+                    //   data5.data=  dd;
+
+                    //     dd.relatedMovie = relatedMovie;
+                    //     relatedMovie.related =data4[1];
+
+
+                    data5.total = data4[0].total;
+                    data5.totalpages = data4[0].totalpages;
+                    callback(null, data5);
+                } else {
+                    callback(null, newreturns);
+                }
+            });
+    },
+
     getAllRelated: function (data, callback) {
         var newreturns = {};
         newreturns.data = [];
@@ -2464,9 +2664,11 @@ var models = {
                     }, {
                         $project: {
                             _id: 0,
-                            related: {
-                                $slice: ["$related", skip, data.pagesize]
-                            }
+                            // related: {
+                            //     $slice: ["$related", skip, data.pagesize]
+                            // }
+
+                            related: "$related"
                         }
                     }]).exec(function (err, found) {
                         console.log(found);
@@ -2503,6 +2705,8 @@ var models = {
                 }
             });
     },
+
+
 
 
     deleteRelated: function (data, callback) {

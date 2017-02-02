@@ -17,6 +17,7 @@ var moment = require('moment');
 var MaxImageSize = 1600;
 var request = require("request");
 var requrl = "http://localhost:80/";
+var json2xls = require('json2xls');
 // var requrl = "http://localhost:90/"; ///////////////////////////////////////////////////change kar
 var gfs = Grid(mongoose.connections[0].db, mongoose);
 gfs.mongo = mongoose.mongo;
@@ -292,138 +293,176 @@ var models = {
             readstream.pipe(res);
         }
         //error handling, e.g. file does not exist
-    }
-,
-readUploaded2: function (filename, width, height, style, res) {
-    res.set({
-      'Cache-Control': 'public, max-age=31557600',
-      'Expires': new Date(Date.now() + 345600000).toUTCString()
-    });
-    var readstream = gfs.createReadStream({
-      filename: filename
-    });
-    readstream.on('error', function (err) {
-      res.json({
-        value: false,
-        error: err
-      });
-    });
+    },
 
-    function writer2(filename, gridFSFilename, metaValue) {
-      var writestream2 = gfs.createWriteStream({
-        filename: gridFSFilename,
-        metadata: metaValue
-      });
-      writestream2.on('finish', function () {
-        fs.unlink(filename);
-      });
-      fs.createReadStream(filename).pipe(res);
-      fs.createReadStream(filename).pipe(writestream2);
-    }
-
-    function read2(filename2) {
-      var readstream2 = gfs.createReadStream({
-        filename: filename2
-      });
-      readstream2.on('error', function (err) {
-        res.json({
-          value: false,
-          error: err
-        });
-      });
-      readstream2.pipe(res);
-    }
-    var onlyName = filename.split(".")[0];
-    var extension = filename.split(".").pop();
-    if ((extension == "jpg" || extension == "png" || extension == "gif") && ((width && width > 0) || (height && height > 0))) {
-      //attempt to get same size image and serve
-      var newName = onlyName;
-      if (width > 0) {
-        newName += "-" + width;
-      } else {
-        newName += "-" + 0;
-      }
-      if (height) {
-        newName += "-" + height;
-      } else {
-        newName += "-" + 0;
-      }
-      if (style && (style == "fill" || style == "cover")) {
-        newName += "-" + style;
-      } else {
-        newName += "-" + 0;
-      }
-      var newNameExtire = newName + "." + extension;
-      gfs.exist({
-        filename: newNameExtire
-      }, function (err, found) {
-        if (err) {
-          res.json({
-            value: false,
-            error: err
-          });
-        }
-        if (found) {
-          read2(newNameExtire);
-        } else {
-          var imageStream = fs.createWriteStream('./.tmp/uploads/' + filename);
-          readstream.pipe(imageStream);
-          imageStream.on("finish", function () {
-            lwip.open('./.tmp/uploads/' + filename, function (err, image) {
-              ImageWidth = image.width();
-              ImageHeight = image.height();
-              var newWidth = 0;
-              var newHeight = 0;
-              var pRatio = width / height;
-              var iRatio = ImageWidth / ImageHeight;
-              if (width && height) {
-                newWidth = width;
-                newHeight = height;
-                switch (style) {
-                  case "fill":
-                    if (pRatio > iRatio) {
-                      newHeight = height;
-                      newWidth = height * (ImageWidth / ImageHeight);
-                    } else {
-                      newWidth = width;
-                      newHeight = width / (ImageWidth / ImageHeight);
-                    }
-                    break;
-                  case "cover":
-                    if (pRatio < iRatio) {
-                      newHeight = height;
-                      newWidth = height * (ImageWidth / ImageHeight);
-                    } else {
-                      newWidth = width;
-                      newHeight = width / (ImageWidth / ImageHeight);
-                    }
-                    break;
+    generateExcel: function (name, found, res) {
+        name = _.kebabCase(name);
+        var excelData = [];
+        _.each(found, function (singleData) {
+            var singleExcel = {};
+            _.each(singleData, function (n, key) {
+                if (key != "__v" && key != "createdAt" && key != "updatedAt") {
+                    // singleExcel[_.capitalize(key)] = n;
+                    // console.log("in excel", n);
+                    singleExcel[key] = n;
                 }
-              } else if (width) {
-                newWidth = width;
-                newHeight = width / (ImageWidth / ImageHeight);
-              } else if (height) {
-                newWidth = height * (ImageWidth / ImageHeight);
-                newHeight = height;
-              }
-              image.resize(parseInt(newWidth), parseInt(newHeight), function (err, image2) {
-                image2.writeFile('./.tmp/uploads/' + filename, function (err) {
-                  writer2('./.tmp/uploads/' + filename, newNameExtire, {
-                    width: newWidth,
-                    height: newHeight
-                  });
-                });
-              });
             });
-          });
+            excelData.push(singleExcel);
+        });
+        var xls = json2xls(excelData);
+        var folder = "././.tmp/";
+        var path = name + "-" + moment().format("MMM-DD-YYYY-hh-mm-ss-a") + ".xlsx";
+        var finalPath = folder + path;
+        fs.writeFile(finalPath, xls, 'binary', function (err) {
+            if (err) {
+                res.callback(err, null);
+            } else {
+                fs.readFile(finalPath, function (err, excel) {
+                    if (err) {
+                        res.callback(err, null);
+                    } else {
+                        res.set('Content-Type', "application/octet-stream");
+                        res.set('Content-Disposition', "attachment;filename=" + path);
+                        res.send(excel);
+                        fs.unlink(finalPath);
+                    }
+                });
+            }
+        });
+
+    },
+
+
+    readUploaded2: function (filename, width, height, style, res) {
+        res.set({
+            'Cache-Control': 'public, max-age=31557600',
+            'Expires': new Date(Date.now() + 345600000).toUTCString()
+        });
+        var readstream = gfs.createReadStream({
+            filename: filename
+        });
+        readstream.on('error', function (err) {
+            res.json({
+                value: false,
+                error: err
+            });
+        });
+
+        function writer2(filename, gridFSFilename, metaValue) {
+            var writestream2 = gfs.createWriteStream({
+                filename: gridFSFilename,
+                metadata: metaValue
+            });
+            writestream2.on('finish', function () {
+                fs.unlink(filename);
+            });
+            fs.createReadStream(filename).pipe(res);
+            fs.createReadStream(filename).pipe(writestream2);
         }
-      });
-      //else create a resized image and serve
-    } else {
-      readstream.pipe(res);
-    }
-    //error handling, e.g. file does not exist
-  },
+
+        function read2(filename2) {
+            var readstream2 = gfs.createReadStream({
+                filename: filename2
+            });
+            readstream2.on('error', function (err) {
+                res.json({
+                    value: false,
+                    error: err
+                });
+            });
+            readstream2.pipe(res);
+        }
+        var onlyName = filename.split(".")[0];
+        var extension = filename.split(".").pop();
+        if ((extension == "jpg" || extension == "png" || extension == "gif") && ((width && width > 0) || (height && height > 0))) {
+            //attempt to get same size image and serve
+            var newName = onlyName;
+            if (width > 0) {
+                newName += "-" + width;
+            } else {
+                newName += "-" + 0;
+            }
+            if (height) {
+                newName += "-" + height;
+            } else {
+                newName += "-" + 0;
+            }
+            if (style && (style == "fill" || style == "cover")) {
+                newName += "-" + style;
+            } else {
+                newName += "-" + 0;
+            }
+            var newNameExtire = newName + "." + extension;
+            gfs.exist({
+                filename: newNameExtire
+            }, function (err, found) {
+                if (err) {
+                    res.json({
+                        value: false,
+                        error: err
+                    });
+                }
+                if (found) {
+                    read2(newNameExtire);
+                } else {
+                    var imageStream = fs.createWriteStream('./.tmp/uploads/' + filename);
+                    readstream.pipe(imageStream);
+                    imageStream.on("finish", function () {
+                        lwip.open('./.tmp/uploads/' + filename, function (err, image) {
+                            ImageWidth = image.width();
+                            ImageHeight = image.height();
+                            var newWidth = 0;
+                            var newHeight = 0;
+                            var pRatio = width / height;
+                            var iRatio = ImageWidth / ImageHeight;
+                            if (width && height) {
+                                newWidth = width;
+                                newHeight = height;
+                                switch (style) {
+                                    case "fill":
+                                        if (pRatio > iRatio) {
+                                            newHeight = height;
+                                            newWidth = height * (ImageWidth / ImageHeight);
+                                        } else {
+                                            newWidth = width;
+                                            newHeight = width / (ImageWidth / ImageHeight);
+                                        }
+                                        break;
+                                    case "cover":
+                                        if (pRatio < iRatio) {
+                                            newHeight = height;
+                                            newWidth = height * (ImageWidth / ImageHeight);
+                                        } else {
+                                            newWidth = width;
+                                            newHeight = width / (ImageWidth / ImageHeight);
+                                        }
+                                        break;
+                                }
+                            } else if (width) {
+                                newWidth = width;
+                                newHeight = width / (ImageWidth / ImageHeight);
+                            } else if (height) {
+                                newWidth = height * (ImageWidth / ImageHeight);
+                                newHeight = height;
+                            }
+                            image.resize(parseInt(newWidth), parseInt(newHeight), function (err, image2) {
+                                image2.writeFile('./.tmp/uploads/' + filename, function (err) {
+                                    writer2('./.tmp/uploads/' + filename, newNameExtire, {
+                                        width: newWidth,
+                                        height: newHeight
+                                    });
+                                });
+                            });
+                        });
+                    });
+                }
+            });
+            //else create a resized image and serve
+        } else {
+            readstream.pipe(res);
+        }
+        //error handling, e.g. file does not exist
+    },
 
 
 };

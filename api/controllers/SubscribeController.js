@@ -14,7 +14,7 @@ module.exports = {
       Global.response(err, data, res);
     }
     if (req.body) {
-      User.getAll(req.body, res.callback);
+      Subscribe.getAll(req.body, res.callback);
     } else {
       res.json({
         value: false,
@@ -22,6 +22,22 @@ module.exports = {
       });
     }
   },
+
+  deleteSubscribe: function (req, res) {
+ if (req.body) {
+      Subscribe.deleteSubscribe(req.body, res.callback);
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid call"
+      });
+    }
+  },
+
+  generateExcel: function (req, res) {
+    Subscribe.generateExcel(res);
+  },
+
   findLimited: function (req, res) {
     if (req.body) {
       if (req.body.pagenumber && req.body.pagenumber !== "" && req.body.pagesize && req.body.pagesize !== "") {

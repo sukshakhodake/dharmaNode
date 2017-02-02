@@ -1,5 +1,5 @@
 
-<!-- for desktop -->
+<!-- for desktop ------>
 <section scrolldown class="hidden-xs hidden-ipad">
     <div class="home-slider dh-relative ">
         <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
@@ -57,7 +57,8 @@
     <div class="home-slider dh-relative width-auto mo-bl-tp">
         <flex-slider flex-slide="s in getAllSlides track by $index" slideshowSpeed=3000 animation=slide>
             <li auto-heightfixed>
-                <img ng-src="{{s.mobileImage|uploadpath}}" alt="Dharma Productions" ui-sref="movie-inside" class="img-responsive" auto-height onloading="true">
+                <img ng-src="{{s.mobileImage|uploadpath}}" alt="Dharma Productions" ng-if="s.status == false"  class="img-responsive" auto-height onloading="true">
+                <img ng-src="{{s.mobileImage|uploadpath}}"  ng-if="s.status == true"  ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" ui-sref="movie-inside" class="img-responsive" auto-height onloading="true">
             </li>
         </flex-slider>
         <div class="movie-tab text-center dh-absulate dh-list second">
@@ -118,8 +119,11 @@
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider nav-hide-mob ch-nav">
                     <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animation-loop="true" move="1" slideshow-Speed="2000">
                         <li>
-                            <a ui-sref="movie-inside({id:item._id})">
-                                <div class="img-pads">
+                            <a>
+                                <div class="img-pads" ng-if="item.status==true">
+                                    <img  ui-sref="movie-inside({id:item._id})" ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
+                                </div>
+                                 <div class="img-pads" ng-if="item.status==false">
                                     <img ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                                 </div>
                                 <div class="movie-names">

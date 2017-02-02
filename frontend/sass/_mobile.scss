@@ -124,9 +124,7 @@
     .mt-sm-40 {
         margin-top: 40px;
     }
-    .dh-btn-min {
-        width: 30%;
-    }
+  
     .ans-opt ul li label {
         font-size: 1.4em;
     }
@@ -498,6 +496,7 @@
     }
 }
 @media (max-width: $screen-xs-max) {
+    .btn-in{    display: inline-block !important;    margin-bottom: 12px !important;}
   .bg-synopsis {
       background: none !important;
   }
