@@ -66,7 +66,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "Sapno mein toh already _______ chad gaya?",
+            question: "Sapno mein toh already _______ chad gaya",
             model: "quest4",
             options: [{
                 "id": "radio1",
@@ -133,7 +133,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "What compliment does Vaidehi give to Badri ?",
+            question: "What compliment does Vaidehi give to Badri?",
             model: "quest7",
             options: [{
                 "id": "radio1",
@@ -154,7 +154,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 8,
             quesNo: "Q8",
-            question: " Complete the sentence Tujhko bana kar ke le jayenge ........ ki dulhania. Complete the lyrics",
+            question: " Complete the sentence: Tujhko bana kar ke le jayenge ........ ki dulhania. Complete the lyrics",
             model: "quest8",
             options: [{
                 "id": "radio1",
@@ -201,14 +201,14 @@ var rapidAnswer = angular.module('rapidAnswer', [])
 
             }, {
                 "id": "radio2",
-                "name": "10th March , 2017",
+                "name": "10th March, 2017",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "10th March , 2018"
+                "name": "10th March, 2018"
             }, {
                 "id": "radio4",
-                "name": "10th March , 2030"
+                "name": "10th March, 2030"
             }]
         }];
         var answered;
