@@ -44,30 +44,39 @@ var models = {
     saveData: function (data, callback) {
         var form = this(data);
         if (data.email) {
-            this.findOne({
-                email: data.email
-            }, data, function (err, data2) {
+            // this.findOne({
+            //     email: data.email
+            // }, data, function (err, data2) {
+            //     if (err) {
+            //         callback(err, null);
+            //     } else {
+            //         console.log(data2);
+            //         if (data2 == null) {
+            //             form.save(function (err, data2) {
+            //                 if (err) {
+            //                     callback(err, null);
+            //                 } else {
+            //                     callback(null, data2);
+            //                 }
+            //             });
+            //         } else {
+            //             callback(null, {
+            //                 message: "already exist"
+            //             });
+            //         }
+
+
+            //     }
+            // });
+
+            form.save(function (err, data) {
                 if (err) {
                     callback(err, null);
                 } else {
-                    console.log(data2);
-                    if (data2 == null) {
-                        form.save(function (err, data2) {
-                            if (err) {
-                                callback(err, null);
-                            } else {
-                                callback(null, data2);
-                            }
-                        });
-                    } else {
-                        callback(null, {
-                            message: "already exist"
-                        });
-                    }
-
-
+                    callback(null, data);
                 }
             });
+
         } else {
             //booking.timestamp = new Date();
             form.save(function (err, data2) {
@@ -177,8 +186,8 @@ var models = {
             _.each(data, function (n) {
                 var obj = {};
                 obj.No = count;
-                obj.First_Name =n.firstName;
-                obj.Last_Name =n.lastName;
+                obj.First_Name = n.firstName;
+                obj.Last_Name = n.lastName;
                 obj.Email = n.email;
                 obj.Mobile = n.Mobile;
 
