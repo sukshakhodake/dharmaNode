@@ -7,202 +7,208 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "What is Badri's full name ?",
+            question: "Which legendary retro voice do you hear at the beginning of the trailer?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Badri Behl"
+                "name": "Dilip Kumar"
 
             }, {
                 "id": "radio2",
-                "name": "Badrivedh Kumar"
+                "name": "Ameen Sayani",
+                answer: true
 
             }, {
                 "id": "radio3",
-                "name": "Badrinath Tiwari"
+                "name": "Amitabh Bachchan"
             }, {
                 "id": "radio4",
-                "name": " Badrinath Bansal ",
-                answer: true
+                "name": "Rajesh Khanna "
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "What pattern does Badri's tie have?",
+            question: "Bahut _____ Harkat Kiye Ho ",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Polka dots"
+                "name": "Badiya"
             }, {
                 "id": "radio2",
-                "name": "Checks",
-                answer: true
+                "name": "Bekar"
             }, {
                 "id": "radio3",
-                "name": "Horizontal stripes"
+                "name": "Ghatiya",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Vertical stripes"
+                "name": "Acha"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "What is Badri's suit color?",
+            question: "Which retro super-hit song do you hear in the trailer?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Black"
-            }, {
-                "id": "radio2",
-                "name": "Blue"
-            }, {
-                "id": "radio3",
-                "name": "Brown",
+                "name": "Tamma Tamma",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Laila"
+            }, {
+                "id": "radio3",
+                "name": "Humma Humma"
+            }, {
                 "id": "radio4",
-                "name": "White"
+                "name": "Jumma Chumma"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "The two actresses who are standing beside Badri?",
+            question: "Sapno mein toh already _______ chad gaya?",
             model: "quest4",
             options: [{
                 "id": "radio1",
-                "name": "Kareena Kapoor & Sonam Kapoor"
+                "name": "Aeroplane - Sheroplane"
+
             }, {
                 "id": "radio2",
-                "name": "Kareena Kapoor & Alia Bhatt"
+                "name": "Seedi - Weedi"
+
+
             }, {
                 "id": "radio3",
-                "name": "Kareena Kapoor & Deepika Padukone",
-                answer: true
+                "name": "Gaadi - Shaadi"
+
             }, {
                 "id": "radio4",
-                "name": "Kareena Kapoor & Karishma Kapoor"
+                "name": "Ghodi - Wodi",
+
+                answer: true
+
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: " In the end, which shoe does Badri throw at the camera?",
+            question: "What was the first film of the franchise called?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "He doesn't throw a shoe"
+                "name": "Shaunty Ki Dulhania"
             }, {
                 "id": "radio2",
-                "name": "Right shoe"
+
+                "name": "Humpty Sharma Ki Dulhania ",
+                answer: true
 
             }, {
                 "id": "radio3",
-                "name": "Left shoe",
-                answer: true
+                "name": "Poplu Ki Dulhania"
             }, {
                 "id": "radio4",
-                "name": "Shoe lying around him"
+                "name": "Bunty Sharma Ki Dulhania"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: "Which superstar's name is mentioned in the teaser?",
+            question: "What is more important for Vaidehi than love?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Aamir Khan"
+                "name": "Money"
+
             }, {
                 "id": "radio2",
-                "name": "Salman Khan"
+                "name": " Family"
             }, {
                 "id": "radio3",
-                "name": "Shah Rukh Khan",
-                answer: true
+                "name": "Career"
             }, {
                 "id": "radio4",
-                "name": "Hrithik Roshan"
+                "name": "Respect",
+                answer: true
 
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "When did #BadriKaTeaser release?",
+            question: "What compliment does Vaidehi give to Badri ?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "28th Jan"
+                "name": "Hot"
+
             }, {
                 "id": "radio2",
-                "name": "29th Jan"
+                "name": "Smart",
+                answer: true
 
             }, {
                 "id": "radio3",
-                "name": "30th Jan",
-                answer: true
+                "name": "Handsome "
             }, {
                 "id": "radio4",
-                "name": "31th Jan"
+                "name": "Cute"
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: "Which festival is the movie slated to release on?",
+            question: " Complete the sentence Tujhko bana kar ke le jayenge ........ ki dulhania. Complete the lyrics",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Diwali"
-            }, {
-                "id": "radio2",
-                "name": "Eid"
-            }, {
-                "id": "radio3",
-                "name": "Holi",
+                "name": "Badri",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Dilwale"
+            }, {
+                "id": "radio3",
+                "name": "Humpty"
+            }, {
                 "id": "radio4",
-                "name": "Christmas"
+                "name": "Humari"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "On the day of the teaser launch, what was Badri watching at night?",
+            question: "What is the formula of simple interest ?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "#BadriKaTeaser"
+                "name": "P*R*T /100",
+                answer: true
             }, {
                 "id": "radio2",
-                "name": "#RoyalWedding"
+                "name": "P+1+100"
             }, {
                 "id": "radio3",
-                "name": "#RoyalRumble",
-                answer: true
+                "name": "PTM*100"
 
             }, {
                 "id": "radio4",
-                "name": "#HumptySharmaKiDulhania"
+                "name": "P*R*T*100"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "What is Badri's Dulhania's name?",
+            question: "When is Badrinath Ki Dulhania releasing?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "Will get to know on 2nd February!",
-                answer: true
+                "name": "10th March, 2015"
 
             }, {
                 "id": "radio2",
-                "name": "Will get to know on 2nd February!",
+                "name": "10th March , 2017",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Will get to know on 2nd February!",
-                answer: true
+                "name": "10th March , 2018"
             }, {
                 "id": "radio4",
-                "name": "Will get to know on 2nd February!",
-                answer: true
+                "name": "10th March , 2030"
             }]
         }];
         var answered;
