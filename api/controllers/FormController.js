@@ -50,5 +50,8 @@ module.exports = {
             });
         }
     },
+      generateExcel: function (req, res) {
+    Form.generateExcel(res);
+  }
 
 };

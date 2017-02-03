@@ -143,31 +143,32 @@ var models = {
         var Model = this;
 
         var aggText = [];
-          var count =1;
-        Model.find().sort({_id:-1}).exec(function (err, data) {
+        var count = 1;
+        Model.find().sort({
+            _id: -1
+        }).exec(function (err, data) {
             var excelData = [];
-  
-                
+
+
             _.each(data, function (n) {
                 var obj = {};
-                obj.No= count;
+                obj.No = count;
                 obj.Email = n.email;
 
-                        var date = moment(n.timestamp).format('MM/DD/YYYY');
+                var date = moment(n.timestamp).format('MM/DD/YYYY');
                 obj.Date = date;
                 count++;
                 excelData.push(obj);
-                
+
             });
             Config.generateExcel("Subscribe", excelData, res);
 
         });
-    }
-,
+    },
 
     deleteSubscribe: function (data, callback) {
-        Subscribe.findOneAndRemove  ({
-            _id:data._id
+        Subscribe.findOneAndRemove({
+            _id: data._id
         }).exec(function (err, found) {
             if (err) {
                 console.log(err);

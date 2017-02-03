@@ -22,7 +22,7 @@
             "value": "_id"
         }]
     }],
-    "button2": [{
+    "buttonExportSubscribe": [{
        "name": "excelexport",
        "icon": "print",
        "color": "blue",

@@ -59,6 +59,16 @@
         "url": "",
         "size": "941 x 1024"
     }, {
+        "name": "Image For iPad Pro",
+        "type": "image",
+        "tableRef": "ipadProImage",
+        "model": "ipadProImage",
+        "placeholder": "Enter Ipad Pro Image",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "size": "1366 X 1024"
+    }, {
         "name": "Order",
         "type": "text",
         "tableRef": "order",

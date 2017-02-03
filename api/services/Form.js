@@ -161,6 +161,35 @@ var models = {
                 }
             });
     },
+    generateExcel: function (res) {
+        var Model = this;
+
+        var aggText = [];
+        var count = 1;
+        Model.find().sort({
+            _id: -1
+        }).exec(function (err, data) {
+            var excelData = [];
+
+
+            _.each(data, function (n) {
+                var obj = {};
+                obj.No = count;
+                obj.First_Name =n.firstName;
+                obj.Last_Name =n.lastName;
+                obj.Email = n.email;
+                obj.Mobile = n.Mobile;
+
+                var date = moment(n.timestamp).format('MM/DD/YYYY');
+                obj.Date = date;
+                count++;
+                excelData.push(obj);
+
+            });
+            Config.generateExcel("Contacts", excelData, res);
+
+        });
+    },
 
 };
 

@@ -42,16 +42,13 @@
             "value": "_id"
         }]
     }],
-    "button": [{
+    "buttonExportForm": [{
         "name": "excelexport",
         "icon": "print",
-        "color": "#f37021",
-        "action": "excelexport"
-    }, {
-        "name": "uploadcsv",
-        "icon": "delete",
-        "color": "red",
-        "action": "uploadcsv"
+        "color": "blue",
+        "action": "excel",
+        "text": "export",
+        "api": "Form/generateExcel"
     }],
     "filter": [{
         "name": "category",
