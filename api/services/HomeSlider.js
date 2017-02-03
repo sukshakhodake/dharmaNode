@@ -25,6 +25,11 @@ var schema = new Schema({
         default: ""
     },
 
+    ipadAirImage: {
+        type: String,
+        default: ""
+    },
+
     order: {
         type: String,
         default: ""
