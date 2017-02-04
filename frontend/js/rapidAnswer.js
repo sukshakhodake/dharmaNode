@@ -28,7 +28,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "Bahut _____ Harkat Kiye Ho ",
+            question: '"Bahut _____ harkat kiye ho", says Alia',
             model: "quest2",
             options: [{
                 "id": "radio1",
