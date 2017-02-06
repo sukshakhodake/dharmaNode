@@ -124,7 +124,7 @@
     .mt-sm-40 {
         margin-top: 40px;
     }
-  
+
     .ans-opt ul li label {
         font-size: 1.4em;
     }
@@ -1561,6 +1561,17 @@ top: 4px;
 @media (min-device-width: 768px) and (max-device-width: 775px) {
 .visible-ipad{
   display: block;
+}
+.hidden-ipad{
+  display: none!important;
+}
+}
+@media (min-device-width: 1536px) and (max-device-width: 2048px) {
+.visible-ipad-air{
+  display: block;
+}
+.visible-ipad{
+  display: none!important;
 }
 .hidden-ipad{
   display: none!important;

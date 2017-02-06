@@ -52,6 +52,54 @@
 
     </div>
 </section>
+<!-- for IPADAir -->
+<section scrolldown class="visible-ipad-air">
+    <div class="home-slider dh-relative ">
+        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
+            <li auto-heightfixed>
+              <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+              <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" auto-heightfixed noloading="true">
+
+          </li>
+        </flex-slider>
+        <div class="movie-tab text-center dh-absulate dh-list second">
+
+            <ul class="padding0 margin0 up-tab">
+                <li class="mr2 {{classp}} font-hammersmith" ng-click="tabchanges('upcoming',1); scrollDown()">
+                    <h1 class="margin0">UPCOMING</h1>
+                </li>
+                <li class="{{classv}} font-hammersmith" ng-click="tabchanges('released',2);  scrollDown()">
+                    <h1 class="margin0">RELEASED</h1>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+<!-- for IPADMini -->
+<!-- <section scrolldown class="visible-ipad">
+    <div class="home-slider dh-relative ">
+        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
+            <li auto-heightfixed>
+              <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+              <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" auto-heightfixed noloading="true">
+
+          </li>
+        </flex-slider>
+        <div class="movie-tab text-center dh-absulate dh-list second">
+
+            <ul class="padding0 margin0 up-tab">
+                <li class="mr2 {{classp}} font-hammersmith" ng-click="tabchanges('upcoming',1); scrollDown()">
+                    <h1 class="margin0">UPCOMING</h1>
+                </li>
+                <li class="{{classv}} font-hammersmith" ng-click="tabchanges('released',2);  scrollDown()">
+                    <h1 class="margin0">RELEASED</h1>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section> -->
 <!-- //for mobile -->
 <section scrolldown class="hidden-sm hidden-lg hidden-md visible-xs margin-top-minus hidden-ipad">
     <div class="home-slider dh-relative width-auto mo-bl-tp">
