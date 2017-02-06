@@ -15,6 +15,6 @@ module.exports = function (data, options) {
         image: env.realHost + "/api/download/" + data.image,
         url: env.realHost + req.path,
     };
-    print(obj);
+    console.log(obj);
     res.view(sails.config.environment, obj);
 };
