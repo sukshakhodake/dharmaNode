@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="Dharma Productions">
     <meta property="og:title" content="<%= ((typeof title) == "undefined")content="img/tw-banner.jpg" ? "Dharma Productions " : title  %>" />
     <meta property="og:description" content="Dharma Productions is a leading Indian Film Production and Distribution company. Owned by Karan Johar, the company was founded by his father Late Shri Yash Johar in 1976." />
-    <meta property="og:image"  content="https://storage.googleapis.com/twit-banner/tw-banner.jpg" />
+    <meta property="og:image"  content="<%= ((typeof image) == "undefined") ? "https://storage.googleapis.com/twit-banner/tw-banner.jpg" : image  %>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= ((typeof url) == "undefined") ? "Dharma Productions " : url  %>" />
 
