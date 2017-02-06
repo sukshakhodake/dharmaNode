@@ -1,11 +1,11 @@
-module.exports = function(data, options) {
+module.exports = function (data, options) {
     var req = this.req;
     var res = this.res;
     var sails = req._sails;
     if (!data) {
         data = {};
     }
-    var env = require("../../config/env/"+sails.config.environment+".js");
+    var env = require("../../config/env/" + sails.config.environment + ".js");
     var obj = {
         jsFiles: jsFiles,
         title: data.title,
@@ -15,5 +15,6 @@ module.exports = function(data, options) {
         image: env.realHost + "/api/download/" + data.image,
         url: env.realHost + req.path,
     };
+    print(obj);
     res.view(sails.config.environment, obj);
 };
