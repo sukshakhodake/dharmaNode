@@ -49,6 +49,15 @@
         "validation": ["required", "trim", "unique"],
         "url": "",
         "model": "mobile"
+    }, {
+        "name": "Score",
+        "type": "text",
+        "tableRef": "score",
+        "placeholder": "Enter Score",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "score"
     }],
     "action": [{
         "name": "submit",

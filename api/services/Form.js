@@ -22,6 +22,10 @@ var schema = new Schema({
     timestamp: {
         type: Date,
         default: Date.now
+    },
+    score: {
+      type: String,
+      default: ""
     }
 
 });
@@ -41,53 +45,85 @@ var models = {
     //     }
     //   });
     // },
+
+    // ===============before change ===============
+    // saveData: function (data, callback) {
+    //     var form = this(data);
+    //     if (data.email) {
+    //         // this.findOne({
+    //         //     email: data.email
+    //         // }, data, function (err, data2) {
+    //         //     if (err) {
+    //         //         callback(err, null);
+    //         //     } else {
+    //         //         console.log(data2);
+    //         //         if (data2 == null) {
+    //         //             form.save(function (err, data2) {
+    //         //                 if (err) {
+    //         //                     callback(err, null);
+    //         //                 } else {
+    //         //                     callback(null, data2);
+    //         //                 }
+    //         //             });
+    //         //         } else {
+    //         //             callback(null, {
+    //         //                 message: "already exist"
+    //         //             });
+    //         //         }
+    //
+    //
+    //         //     }
+    //         // });
+    //
+    //         form.save(function (err, data) {
+    //             if (err) {
+    //                 callback(err, null);
+    //             } else {
+    //                 callback(null, data);
+    //             }
+    //         });
+    //
+    //     } else {
+    //         //booking.timestamp = new Date();
+    //         form.save(function (err, data2) {
+    //             if (err) {
+    //                 callback(err, null);
+    //             } else {
+    //                 callback(null, data2);
+    //             }
+    //         });
+    //     }
+    //
+    // },
+    // ============end savedata before change ==================
     saveData: function (data, callback) {
         var form = this(data);
-        if (data.email) {
-            // this.findOne({
-            //     email: data.email
-            // }, data, function (err, data2) {
-            //     if (err) {
-            //         callback(err, null);
-            //     } else {
-            //         console.log(data2);
-            //         if (data2 == null) {
-            //             form.save(function (err, data2) {
-            //                 if (err) {
-            //                     callback(err, null);
-            //                 } else {
-            //                     callback(null, data2);
-            //                 }
-            //             });
-            //         } else {
-            //             callback(null, {
-            //                 message: "already exist"
-            //             });
-            //         }
-
-
-            //     }
-            // });
-
-            form.save(function (err, data) {
+        // movie.timestamp = new Date();
+        if (data._id) {
+            this.findOneAndUpdate({
+                _id: data._id
+            }, data).exec(function (err, updated) {
                 if (err) {
+                    console.log(err);
                     callback(err, null);
+                } else if (updated) {
+                    callback(null, updated);
                 } else {
-                    callback(null, data);
+                    callback(null, {});
                 }
             });
-
         } else {
-            //booking.timestamp = new Date();
-            form.save(function (err, data2) {
+            // movie.timestamp = new Date();
+            form.save(function (err, created) {
                 if (err) {
                     callback(err, null);
+                } else if (created) {
+                    callback(null, created);
                 } else {
-                    callback(null, data2);
+                    callback(null, {});
                 }
             });
         }
-
     },
     getAll: function (data, callback) {
         this.find({}).exec(function (err, found) {

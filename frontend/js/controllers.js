@@ -438,7 +438,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, $timeout) {
+.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, $timeout,$rootScope) {
     $scope.template = TemplateService.changecontent("fan-corner");
     $scope.menutitle = NavigationService.makeactive("Fan Corner");
     TemplateService.title = $scope.menutitle;
@@ -462,14 +462,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'dharma-fan-modal',
         })
     };
-
+$rootScope.fetchFormEmail = "";
     $scope.validEmail = false;
     $scope.formData = {};
     $scope.submitForm = function(formData) {
+
+
         NavigationService.submitFormData(formData, function(data) {
             if (data.data.message === "already exist") {
                 $scope.validEmail = true;
             } else {
+                $rootScope.fetchFormEmail = data._id;
+                  console.log('$rootScope.fetchFormEmail inside fancorner',$rootScope.fetchFormEmail);
                 modalInstance2.close();
                 $state.go('fan-corner-play', {
                     id: 1
@@ -597,7 +601,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('FanCornerScoreCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, RapidAnswer, $timeout) {
+.controller('FanCornerScoreCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, RapidAnswer, $timeout,$rootScope) {
     $scope.template = TemplateService.changecontent("fan-corner");
     $scope.menutitle = NavigationService.makeactive("Fan Corner");
     TemplateService.title = $scope.menutitle;
@@ -611,6 +615,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'fan-modal',
         });
     };
+
+    // $rootScope.fetchFormEmail
+  $scope.updateScore = {};
+  $scope.updateScore.score = $stateParams.id;
+  $scope.updateScore.id = $rootScope.fetchFormEmail;
+
+    console.log('$rootScope.fetchFormEmail inside scorectrl',$rootScope.fetchFormEmail);
+    NavigationService.submitFormData($scope.updateScore, function(data) {
+    console.log('dATTTTTTTTTTTTTTA,',data);
+    });
     $scope.showTimerCount = 0;
     $scope.firstUI = false;
     $scope.showScore = true;
