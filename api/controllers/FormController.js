@@ -9,6 +9,16 @@ module.exports = {
             });
         }
     },
+    getOneFormUpdate: function(req, res) {
+        if (req.body) {
+            Form.getOneFormUpdate(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
     getAll: function (req, res) {
         function callback(err, data) {
             Global.response(err, data, res);

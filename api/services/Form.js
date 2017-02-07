@@ -45,85 +45,53 @@ var models = {
     //     }
     //   });
     // },
-
-    // ===============before change ===============
-    // saveData: function (data, callback) {
-    //     var form = this(data);
-    //     if (data.email) {
-    //         // this.findOne({
-    //         //     email: data.email
-    //         // }, data, function (err, data2) {
-    //         //     if (err) {
-    //         //         callback(err, null);
-    //         //     } else {
-    //         //         console.log(data2);
-    //         //         if (data2 == null) {
-    //         //             form.save(function (err, data2) {
-    //         //                 if (err) {
-    //         //                     callback(err, null);
-    //         //                 } else {
-    //         //                     callback(null, data2);
-    //         //                 }
-    //         //             });
-    //         //         } else {
-    //         //             callback(null, {
-    //         //                 message: "already exist"
-    //         //             });
-    //         //         }
-    //
-    //
-    //         //     }
-    //         // });
-    //
-    //         form.save(function (err, data) {
-    //             if (err) {
-    //                 callback(err, null);
-    //             } else {
-    //                 callback(null, data);
-    //             }
-    //         });
-    //
-    //     } else {
-    //         //booking.timestamp = new Date();
-    //         form.save(function (err, data2) {
-    //             if (err) {
-    //                 callback(err, null);
-    //             } else {
-    //                 callback(null, data2);
-    //             }
-    //         });
-    //     }
-    //
-    // },
-    // ============end savedata before change ==================
     saveData: function (data, callback) {
         var form = this(data);
-        // movie.timestamp = new Date();
-        if (data._id) {
-            this.findOneAndUpdate({
-                _id: data._id
-            }, data).exec(function (err, updated) {
+        if (data.email) {
+            // this.findOne({
+            //     email: data.email
+            // }, data, function (err, data2) {
+            //     if (err) {
+            //         callback(err, null);
+            //     } else {
+            //         console.log(data2);
+            //         if (data2 == null) {
+            //             form.save(function (err, data2) {
+            //                 if (err) {
+            //                     callback(err, null);
+            //                 } else {
+            //                     callback(null, data2);
+            //                 }
+            //             });
+            //         } else {
+            //             callback(null, {
+            //                 message: "already exist"
+            //             });
+            //         }
+
+
+            //     }
+            // });
+
+            form.save(function (err, data) {
                 if (err) {
-                    console.log(err);
                     callback(err, null);
-                } else if (updated) {
-                    callback(null, updated);
                 } else {
-                    callback(null, {});
+                    callback(null, data);
                 }
             });
+
         } else {
-            // movie.timestamp = new Date();
-            form.save(function (err, created) {
+            //booking.timestamp = new Date();
+            form.save(function (err, data2) {
                 if (err) {
                     callback(err, null);
-                } else if (created) {
-                    callback(null, created);
                 } else {
-                    callback(null, {});
+                    callback(null, data2);
                 }
             });
         }
+
     },
     getAll: function (data, callback) {
         this.find({}).exec(function (err, found) {
@@ -150,6 +118,22 @@ var models = {
                 callback(null, {});
             }
         });
+    },
+    getOneFormUpdate: function (data, callback) {
+      if (data._id) {
+          this.findOneAndUpdate({
+              _id: data._id
+          }, data).exec(function (err, updated) {
+              if (err) {
+                  console.log(err);
+                  callback(err, null);
+              } else if (updated) {
+                  callback(null, updated);
+              } else {
+                  callback(null, {});
+              }
+          });
+      }
     },
     findLimited: function (data, callback) {
         var newreturns = {};

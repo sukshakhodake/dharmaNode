@@ -143,6 +143,12 @@ var navigationservice = angular.module('navigationservice', [])
         callback(data);
       });
         },
+        submitFormDataScore: function (formData, callback) {
+            $http.post(adminurl + 'Form/getOneFormUpdate', formData).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
+        },
         getDharmatvOne: function (id, callback) {
             $http.post(adminurl + 'Dharmatv/getOne', {
                 _id: id

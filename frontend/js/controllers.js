@@ -622,7 +622,7 @@ $rootScope.fetchFormEmail = "";
   $scope.updateScore.id = $rootScope.fetchFormEmail;
 
     console.log('$rootScope.fetchFormEmail inside scorectrl',$rootScope.fetchFormEmail);
-    NavigationService.submitFormData($scope.updateScore, function(data) {
+    NavigationService.submitFormDataScore($scope.updateScore, function(data) {
     console.log('dATTTTTTTTTTTTTTA,',data);
     });
     $scope.showTimerCount = 0;
