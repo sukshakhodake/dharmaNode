@@ -1566,7 +1566,7 @@ top: 4px;
   display: none!important;
 }
 }
-@media (min-device-width: 1536px) and (max-device-width: 2048px) {
+@media (min-device-width: 1535px) and (max-device-width: 2048px) {
 .visible-ipad-air{
   display: block;
 }
@@ -1577,3 +1577,16 @@ top: 4px;
   display: none!important;
 }
 }
+
+@media (min-device-width: 1365px) and (max-device-width: 1536px) {
+.visible-ipad-pro{
+  display: block;
+}
+.visible-ipad{
+  display: none!important;
+}
+.hidden-ipad{
+  display: none!important;
+}
+}
+
