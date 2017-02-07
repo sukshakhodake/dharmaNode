@@ -70,17 +70,17 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'DictionaryCtrl'
         })
         .state('dharma-tvsearch', {
-            url: "/dharma-tv/:search",
+            url: "/videos/:search",
             templateUrl: "frontend/views/template.html",
             controller: 'DharmaTvCtrl'
         })
         .state('tv-inside', {
-            url: "/tv/:id",
+            url: "/videos/:id",
             templateUrl: "frontend/views/template.html",
             controller: 'TvInsideCtrl'
         })
         .state('tv-insideSearch', {
-            url: "/tv/:id/:search",
+            url: "/videos/:id/:search",
             templateUrl: "frontend/views/template.html",
             controller: 'TvInsideCtrl'
         })
