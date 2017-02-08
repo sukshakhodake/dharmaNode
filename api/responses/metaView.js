@@ -5,8 +5,10 @@ module.exports = function (data, options) {
     if (!data) {
         data = {};
     }
-    console.log('reqqqqqqqqqqqqqqqqqqqqqqqqq',req);
+    console.log('reqqqqqqqqqqqqqqqqqqqqqqq',req);
     console.log('dattttttttttttttttttta',data);
+    console.log('reqqqqqqqqqqqqqqqqqqqqqqqqqppppppppppppppppppppp',req.path);
+    
     var env = require("../../config/env/" + sails.config.environment + ".js");
     var obj = {
         jsFiles: jsFiles,
