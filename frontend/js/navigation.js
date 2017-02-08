@@ -144,6 +144,7 @@ var navigationservice = angular.module('navigationservice', [])
       });
         },
         submitFormDataScore: function (formData, callback) {
+          console.log('submitFormDataScore',formData);
             $http.post(adminurl + 'Form/getOneFormUpdate', formData).then(function(data) {
         data = data.data;
         callback(data);

@@ -469,10 +469,11 @@ $rootScope.fetchFormEmail = "";
 
 
         NavigationService.submitFormData(formData, function(data) {
+          console.log('submitFormDataFancorner',data);
             if (data.data.message === "already exist") {
                 $scope.validEmail = true;
             } else {
-                $rootScope.fetchFormEmail = data._id;
+                $rootScope.fetchFormEmail = data.data._id;
                   console.log('$rootScope.fetchFormEmail inside fancorner',$rootScope.fetchFormEmail);
                 modalInstance2.close();
                 $state.go('fan-corner-play', {
@@ -619,7 +620,7 @@ $rootScope.fetchFormEmail = "";
     // $rootScope.fetchFormEmail
   $scope.updateScore = {};
   $scope.updateScore.score = $stateParams.id;
-  $scope.updateScore.id = $rootScope.fetchFormEmail;
+  $scope.updateScore._id = $rootScope.fetchFormEmail;
 
     console.log('$rootScope.fetchFormEmail inside scorectrl',$rootScope.fetchFormEmail);
     NavigationService.submitFormDataScore($scope.updateScore, function(data) {
