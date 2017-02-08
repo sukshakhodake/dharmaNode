@@ -38,10 +38,6 @@ module.exports = {
         }
     },
     fanCorner: function(req, res) {
-      console.log('inside fanccccccccccorner');
-      console.log(req);
-      console.log('inside fanccccccccccornerressssssssssssss');
-      console.log(res);
         if (req.params && req.params[0]) {
             var score = req.params[0].split("/");
             res.metaView({
