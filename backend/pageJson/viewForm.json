@@ -15,9 +15,9 @@
             "isSort": "",
             "tableRef": "email"
         }, {
-            "name": "Mobile",
+            "name": "Score",
             "isSort": "",
-            "tableRef": "mobile"
+            "tableRef": "score"
         }
 
     ],
