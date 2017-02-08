@@ -445,7 +445,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var modalInstance2 = {};
     // --------------------- to check state -------------------
-$rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+$rootScope.$on('$locationChangeStart', function(e, toState, toParams, fromState, fromParams) {
     console.log('sssssssssssssss');
     console.log('e',e);
     console.log('toState',toState);
@@ -462,7 +462,7 @@ $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fr
     //     $state.go('tool.suggestions');
     // };
 });
-$scope.$on('$stateChangeStart', function(event, toState, fromState) {
+$rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
     console.log('event',event);
     console.log('toState',toState);
     // console.log('toParams',toParams);
@@ -548,6 +548,10 @@ $rootScope.fetchFormEmail = "";
         });
     };
     $rootScope.$on('$locationChangeStart', function(event, newUrl, oldUrl) {
+         console.log('event',event);
+    console.log('newUrl',newUrl);
+    // console.log('toParams',toParams);
+    console.log('oldUrl',oldUrl);
         $scope.oldddUrl = oldUrl;
         if ($scope.myUrll != newUrl || window.location.href == "http://localhost:1337/fan-corner") {
             $scope.oldddUrl = $scope.oldddUrl;
@@ -653,7 +657,7 @@ $rootScope.fetchFormEmail = "";
         });
     };
 // --------------------- to check state -------------------
-$rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+$rootScope.$on('$locationChangeStart', function(e, toState, toParams, fromState, fromParams) {
     console.log('e',e);
     console.log('toState',toState);
     console.log('toParams',toParams);
@@ -669,7 +673,7 @@ $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fr
     //     $state.go('tool.suggestions');
     // };
 });
-$scope.$on('$stateChangeStart', function(event, toState, fromState) {
+$rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
     console.log('event',event);
     console.log('toState',toState);
     // console.log('toParams',toParams);
