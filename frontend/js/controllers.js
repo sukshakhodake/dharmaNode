@@ -907,7 +907,7 @@ $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fr
 
 
             $scope.myid = $stateParams.id;
-            console.log('myiddddddddddddd',myid);
+            console.log('myiddddddddddddd',$scope.myid);
             $scope.moviefindOne = data.data.movie;
             $scope.moviefindOne.backgroundImage = $filter('uploadpath')($scope.moviefindOne.backgroundImage);
             $scope.moviefindOne.cutImage2 = $filter('uploadpath')($scope.moviefindOne.cutImage2);
