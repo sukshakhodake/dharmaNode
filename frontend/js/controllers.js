@@ -444,6 +444,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var modalInstance2 = {};
+    // --------------------- to check state -------------------
+$rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+    console.log('sssssssssssssss';)
+    console.log('e',e);
+    console.log('toState',toState);
+    console.log('toParams',toParams);
+    console.log('fromState',fromState);
+     console.log('fromParams',fromParams);
+    // if (toState.module === 'private' && !$cookies.Session) {
+    //     // If logged out and transitioning to a logged in page:
+    //     e.preventDefault();
+    //     $state.go('public.login');
+    // } else if (toState.module === 'public' && $cookies.Session) {
+    //     // If logged in and transitioning to a logged out page:
+    //     e.preventDefault();
+    //     $state.go('tool.suggestions');
+    // };
+});
+$scope.$on('$stateChangeStart', function(event, toState, fromState) {
+    console.log('event',event);
+    console.log('toState',toState);
+    // console.log('toParams',toParams);
+    console.log('fromState',fromState);
+    //  console.log('fromParams',fromParams);
+    // if (toState.module === 'private' && !$cookies.Session) {
+    //     // If logged out and transitioning to a logged in page:
+    //     e.preventDefault();
+    //     $state.go('public.login');
+    // } else if (toState.module === 'public' && $cookies.Session) {
+    //     // If logged in and transitioning to a logged out page:
+    //     e.preventDefault();
+    //     $state.go('tool.suggestions');
+    // };
+});
+// ---------------end of check state ---------------
+
     $scope.openModal = function() {
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
