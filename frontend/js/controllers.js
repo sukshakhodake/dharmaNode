@@ -446,7 +446,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var modalInstance2 = {};
     // --------------------- to check state -------------------
 $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
-    console.log('sssssssssssssss';)
+    console.log('sssssssssssssss');
     console.log('e',e);
     console.log('toState',toState);
     console.log('toParams',toParams);
