@@ -657,23 +657,21 @@ $rootScope.fetchFormEmail = "";
         });
     };
 // --------------------- to check state -------------------
-$rootScope.$on('$locationChangeStart', function(e, toState, toParams, fromState, fromParams) {
-    console.log('e',e);
-    console.log('toState',toState);
-    console.log('toParams',toParams);
-    console.log('fromState',fromState);
-     console.log('fromParams',fromParams);
-    // if (toState.module === 'private' && !$cookies.Session) {
-    //     // If logged out and transitioning to a logged in page:
-    //     e.preventDefault();
-    //     $state.go('public.login');
-    // } else if (toState.module === 'public' && $cookies.Session) {
-    //     // If logged in and transitioning to a logged out page:
-    //     e.preventDefault();
-    //     $state.go('tool.suggestions');
-    // };
-});
+
 $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
+      if (fromState.indexOf('http://dharma-production.com/fan-corner-play') == -1) {
+                console.log('in ifffff 111');
+          
+              $state.go('fan-corner');
+
+            }else{
+                console.log('in elseee 111');
+            }
+    // if(fromState == "http://dharma-production.com/fan-corner-play/10"){
+
+    // }else{
+
+    // }
     console.log('event',event);
     console.log('toState',toState);
     // console.log('toParams',toParams);
