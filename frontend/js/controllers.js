@@ -694,6 +694,13 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
   $scope.updateScore._id = $rootScope.fetchFormEmail;
 
     console.log('$rootScope.fetchFormEmail inside scorectrl',$rootScope.fetchFormEmail);
+    if($rootScope.fetchFormEmail == undefined || $rootScope.fetchFormEmail == 'undefined' ||$rootScope.fetchFormEmail == ''){
+        console.log('iffffff');
+        $state.go('fan-corner');
+    }else{
+        console.log('iffffffeeeeeeeeeeee');
+        
+    }
     NavigationService.submitFormDataScore($scope.updateScore, function(data) {
     console.log('dATTTTTTTTTTTTTTA,',data);
     });
