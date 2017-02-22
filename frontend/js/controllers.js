@@ -544,20 +544,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
-            //  console.log('event',event);
-            console.log('newUrl', newUrl);
-            // console.log('toParams',toParams);
-            console.log('oldUrl', oldUrl);
             $scope.oldddUrl = oldUrl;
-            console.log('scope.myUrll', " == ", $scope.myUrll, $scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner");
-            if ($scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner") {
-                console.log('if play');
-                $scope.oldddUrl = $scope.oldddUrl;
-            } else {
-                console.log('else alert');
-                var answer = alert("You cannot view your previous answer");
-                event.preventDefault();
-            }
+            console.log('if play');
+            $scope.oldddUrl = $scope.oldddUrl;
         });
         $scope.firstUI = false;
 
@@ -662,7 +651,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (fromState.indexOf('http://dharma-production.com/fan-corner-play') == -1) {
                 console.log('in ifffff 111');
 
-                $state.go('fan-corner');
+                // $state.go('fan-corner');
 
             } else {
                 console.log('in elseee 111');
