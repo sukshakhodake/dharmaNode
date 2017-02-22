@@ -7,208 +7,205 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "Which legendary retro voice do you hear at the beginning of the trailer?",
+            question: "Which superstar's name is taken in the teaser?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Dilip Kumar"
+                "name": "Aamir Khan"
 
             }, {
                 "id": "radio2",
-                "name": "Ameen Sayani",
-                answer: true
+                "name": "Salman Khan"
 
             }, {
                 "id": "radio3",
-                "name": "Amitabh Bachchan"
+                "name": "Shahrukh Khan",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Rajesh Khanna "
+                "name": "Sanjay Dutt"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: '"Bahut _____ harkat kiye ho", says Alia',
+            question: "Which city is Badri from?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Badiya"
+                "name": "Lucknow"
             }, {
                 "id": "radio2",
-                "name": "Bekar"
+                "name": "Jaipur"
             }, {
                 "id": "radio3",
-                "name": "Ghatiya",
-                answer: true
+                "name": "Kota"
             }, {
                 "id": "radio4",
-                "name": "Acha"
+                "name": "Jhansi",
+                answer: true
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "Which retro super-hit song do you hear in the trailer?",
+            question: " What is more important than love for Vaidehi?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Tamma Tamma",
-                answer: true
+                "name": "Career"
             }, {
                 "id": "radio2",
-                "name": "Laila"
+                "name": "Respect",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Humma Humma"
+                "name": "Family"
             }, {
                 "id": "radio4",
-                "name": "Jumma Chumma"
+                "name": "Freedom"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "Sapno mein toh already _______ chad gaya",
+            question: "On the day of the teaser launch, what was Badri watching at night?",
             model: "quest4",
             options: [{
                 "id": "radio1",
-                "name": "Aeroplane - Sheroplane"
+                "name": "#BadriKaTeaser"
 
             }, {
                 "id": "radio2",
-                "name": "Seedi - Weedi"
+                "name": "#RoyalWedding"
 
 
             }, {
                 "id": "radio3",
-                "name": "Gaadi - Shaadi"
+                "name": " #RoyalRumble",
+                answer: true
 
             }, {
                 "id": "radio4",
-                "name": "Ghodi - Wodi",
-
-                answer: true
+                "name": "#HumptySharmaKiDulhania"
 
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "What was the first film of the franchise called?",
+            question: "Who has sung Humsafar?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Shaunty Ki Dulhania"
+                "name": "Amaal Malik"
             }, {
                 "id": "radio2",
 
-                "name": "Humpty Sharma Ki Dulhania ",
-                answer: true
+                "name": "Arijit Singh"
 
             }, {
                 "id": "radio3",
-                "name": "Poplu Ki Dulhania"
+                "name": "Akhil Sachdeva",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Bunty Sharma Ki Dulhania"
+                "name": "Tanishk Bagchi "
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: "What is more important for Vaidehi than love?",
+            question: " ___ bajaati hui Naagin?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Money"
-
+                "name": "Jean"
             }, {
                 "id": "radio2",
-                "name": " Family"
+                "name": "Been",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Career"
+                "name": "Trumpet"
             }, {
                 "id": "radio4",
-                "name": "Respect",
-                answer: true
+                "name": "Basuri"
 
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "What compliment does Vaidehi give to Badri?",
+            question: "Complete the lyrics - ___ bana kar le jaayenge, Badri ki Dulhania!",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Hot"
+                "name": "Dulhania"
 
             }, {
                 "id": "radio2",
-                "name": "Smart",
+                "name": "Rani",
                 answer: true
 
             }, {
                 "id": "radio3",
-                "name": "Handsome "
+                "name": "Vaidehi "
             }, {
                 "id": "radio4",
-                "name": "Cute"
+                "name": "Dulha"
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: " Complete the sentence: Tujhko bana kar ke le jayenge ........ ki dulhania. Complete the lyrics",
+            question: 'Complete the dialogue - "____ se tumhaara door ka lena dena nahi hai!"',
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Badri",
-                answer: true
+                "name": "Izzat"
             }, {
                 "id": "radio2",
-                "name": "Dilwale"
+                "name": "Pyaar"
             }, {
                 "id": "radio3",
-                "name": "Humpty"
+                "name": "Maryaada",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Humari"
+                "name": "Faayda"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "What is the formula of simple interest ?",
+            question: " Which foreign destination have they shot in?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "P*R*T /100",
-                answer: true
+                "name": "Malaysia"
             }, {
                 "id": "radio2",
-                "name": "P+1+100"
+                "name": "Singapore",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "PTM*100"
+                "name": "New York"
 
             }, {
                 "id": "radio4",
-                "name": "P*R*T*100"
+                "name": "L.A"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "When is Badrinath Ki Dulhania releasing?",
+            question: "Which festival is Badrinath Ki Dulhania slated to release?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "10th March, 2015"
-
+                "name": "Diwali"
             }, {
                 "id": "radio2",
-                "name": "10th March, 2017",
+                "name": "Holi",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "10th March, 2018"
+                "name": "Eid"
             }, {
                 "id": "radio4",
-                "name": "10th March, 2030"
+                "name": "Christmas"
             }]
         }];
         var answered;
