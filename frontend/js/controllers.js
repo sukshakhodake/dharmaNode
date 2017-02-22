@@ -7,339 +7,339 @@ var context;
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'wu.masonry', 'ksSwiper', 'imageupload', 'ui.select', 'infinite-scroll', 'rapidAnswer'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("home");
-    $scope.menutitle = NavigationService.makeactive("Home");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    TemplateService.removeLoaderOn(5);
-
-    $scope.openModals = function() {
-        $scope.modalInstanceABC = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/movie-subscribe.html',
-            // controller: 'HomeCtrl',
-            size: 'sm',
-            windowClass: 'subscribe-movie',
-            scope: $scope
-        });
-    };
-    $scope.openModal = function() {
-        // $scope.modalInstanceABC.close();
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/subscribe.html',
-            controller: 'HomeCtrl',
-            size: 'lg',
-            windowClass: 'subscribe-modal',
-        });
-    };
-
-    // popNot = $.jStorage.get('popNot');
-    $scope.subscribe = {};
-    $scope.subscribe.email = "";
-    $scope.checkEmail = false;
-    $scope.subscribeSuccess = false;
-    $scope.subscribe10 = function(email, form) {
-        //console.log(email);
-        if (email && email !== '' && form.$valid) {
-            NavigationService.subScribe(email, function(data) {
-                if (data.data.message == 'already exist') {
-                    // if ($scope.subscribe.email) {
-                    $scope.checkEmail = true;
-                    // $scope.subscribeSuccess = false;
-                    $timeout(function() {
-                        $scope.checkEmail = false;
-                    }, 2000);
-
-                    // }
-                } else {
-                    //console.log('yes success');
-                    // $uibModalInstanceABC.dismiss('cancel');
-                    $scope.openModal();
-                    $scope.modalInstanceABC.close();
-                    $scope.checkEmail = false;
-
-                    // $scope.subscribeSuccess = true;
-
-                }
-                $scope.subscribe.email = "";
-
-
-            });
-        }
-    };
-
-
-    $scope.$on('$viewContentLoaded', function() {
-        if (!$.jStorage.get('FirstTime')) {
-            $.jStorage.set('FirstTime', {
-                value: true
-            });
-            $scope.openModals();
-        }
-    });
-
-
-    $scope.mySlides = [
-        'frontend/img/banners/slide1.jpg',
-        'frontend/img/banners/slide1.jpg'
-    ];
-    $scope.mySlide = [
-        'frontend/img/banners/mob-slider.jpg',
-        'frontend/img/banners/mob-slider.jpg'
-    ];
-    $scope.getAllSlidess = [
-        'frontend/img/tp.jpg',
-        'frontend/img/tp.jpg'
-    ];
-    NavigationService.getAllUpcomingMovies(function(data) {
-        $scope.AllUpcomingMovies = _.orderBy(data.data, function(n) {
-            var date2 = moment("01-" + n.month + "-" + n.year, "D-M-YYYY");
-            return (date2.unix());
-        });
-
-        TemplateService.removeLoader();
-    });
-    NavigationService.getAllRecentMovies(function(data) {
-        $scope.AllRecentMovies = data.data;
-
-        TemplateService.removeLoader();
-    });
-    NavigationService.getAllSlides(function(data) {
-        $scope.getAllSlides = data.data;
-
-        TemplateService.removeLoader();
-    });
-    NavigationService.getDharmaTvSlides(function(data) {
-        $scope.getDharmaTvSlides = data.data[0];
-
-        TemplateService.removeLoader();
-    });
-    NavigationService.getAllUpcomingMoviesHome(function(data) {
-        $scope.getAllUpcomingMovies = data.data;
-        $scope.getAllUpcomingMovies = $filter('limitTo')($scope.getAllUpcomingMovies, 20);
-
-        TemplateService.removeLoader();
-    });
-
-
-
-    $scope.movie = [{
-        img: "frontend/img/movie/m1.jpg",
-        name: "Ae Dil hai mushkil"
-    }, {
-        img: "frontend/img/movie/m2.jpg",
-        name: "BAAR BAAR DEKHO"
-    }, {
-        img: "frontend/img/movie/m3.jpg",
-        name: "BADRINATH KI DULHANIYA"
-    }, {
-        img: "frontend/img/movie/m4.jpg",
-        name: "RAM LAKHAN"
-    }, {
-        img: "frontend/img/movie/m5.jpg",
-        name: "ok jaanu"
-    }];
-    $scope.video = [{
-        img: "frontend/img/video/v1.jpg",
-        name: "Director S.S. Rajamouli tells us why Katappa killed Bahubali"
-
-    }, {
-        img: "frontend/img/video/v2.jpg",
-        name: "Kapoor & Sons | The Funny One: Fawad Khan"
-
-    }, {
-        img: "frontend/img/video/v3.jpg",
-        name: "Arjun fights with his Bai? | Movie Review | Kapoor & Sons | Sidharth..."
-
-    }, {
-        img: "frontend/img/video/v4.jpg",
-        name: "Kapoor & Sons | Rahul Meets Tia | Dialogue Promo | Fawad Khan..."
-
-    }, {
-        img: "frontend/img/video/v1.jpg",
-        name: "Director S.S. Rajamouli tells us why Katappa killed Bahubali"
-
-    }, {
-        img: "frontend/img/video/v2.jpg",
-        name: "Kapoor & Sons | The Funny One: Fawad Khan"
-
-    }, {
-        img: "frontend/img/video/v3.jpg",
-        name: "Arjun fights with his Bai? | Movie Review | Kapoor & Sons | Sidharth..."
-
-    }, {
-        img: "frontend/img/video/v4.jpg",
-        name: "Kapoor & Sons | Rahul Meets Tia | Dialogue Promo | Fawad Khan..."
-
-    }];
-    $scope.news = [{
-        img: "frontend/img/news/n1.jpg",
-        name: "Kapoor & Sons out now!",
-        date: "28 Mar 2016",
-        desc: "The story that will tug at your heartstrings, tickle your funny bone and leave you wanting to love your family evermore."
-
-    }, {
-        img: "frontend/img/news/n2.jpg",
-        name: "Bahubali bags The Best Film Of 2015 National Award",
-        date: "28 Mar 2016",
-        desc: "Baahubali wins National Award for the best film in 2015! Congratulations to the team. We are proud partners! "
-
-    }, {
-        img: "frontend/img/news/n3.jpg",
-        name: "Baahubali added to the Top 10 World TV premiere list!",
-        date: "16 Nov 2015",
-        desc: "Baahubali storms television ratings as TAM reports add it to the Top 10 World TV premiere list! Huge congratulations to the team."
-
-    }, {
-        img: "frontend/img/news/n4.jpg",
-        name: "Shaandaar Out In Cinemas",
-        date: "21 Oct 2015",
-        desc: "Shaandaar starring Shahid Kapoor and Alia Bhatt hits the screens today. The movie is directed by Vikas Bahl and co produced by Fox Star Studios and Phantom films. "
-
-    }, {
-        img: "frontend/img/news/n5.jpg",
-        name: "Shaandaar's title track out now!",
-        date: "16 Sep 2015",
-        desc: "Shaandaar's title track 'Shaam Shaandaar' sung by Amit Trivedi was released today. The song is a grand celebration featuring Shahid Kapoor and Alia Bhatt."
-
-    }, {
-        img: "frontend/img/news/n6.jpg",
-        name: "35 Years Of Dharma",
-        date: "08 Oct 2015",
-        desc: "Heart-warming storylines, Stellar megastar casts, Record box-office collections...A legacy that paved way into the hearts of the audience completes celebrates 35 glorious years today."
-
-    }];
-    NavigationService.getNews(function(data) {
-        $scope.News = data.data;
-
-        $scope.limitedNews = $filter('limitTo')($scope.News, 10);
-
-        _.each($scope.limitedNews, function(value) {
-            value.date = new Date(value.date);
-        });
-
-    });
-
-    $scope.subscribe = {};
-    $scope.subscribe.email = "";
-    $scope.checkEmail = false;
-    $scope.subscribeEmail = false;
-    $scope.subscribe = function(email, form) {
-        if (email && email !== '' && form.$valid) {
-            NavigationService.subScribe(email, function(data) {
-                if (data.data.message == 'already exist') {
-                    // if ($scope.subscribe.email) {
-                    $scope.checkEmail = true;
-                    // $scope.subscribeEmail = false;
-                    $timeout(function() {
-                        $scope.checkEmail = false;
-                    }, 2000);
-
-                    // }
-                } else {
-                    $scope.openModal();
-                    $scope.checkEmail = false;
-                    // $scope.subscribeEmail = true;
-                    // $timeout(function() {
-                    //     $scope.subscribeEmail = false;
-                    // }, 2000);
-
-
-                }
-                $scope.subscribe.email = "";
-            });
-        }
-    };
-
-
-    $scope.tabs = 'upcoming';
-    $scope.classp = 'active-tab';
-    $scope.classv = '';
-
-
-    $scope.tabchanges = function(tabs, a) {
-
-        $scope.tabs = tabs;
-        if (a == 1) {
-
-            $scope.classp = "active-tab";
-            $scope.classv = '';
-
-        } else {
-
-            $scope.classp = '';
-            $scope.classv = "active-tab";
-        }
-    };
-
-
-})
-
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
-    $scope.template = TemplateService;
-    if ($.jStorage.get("allMovieName")) {
-        $scope.allMovieName = $.jStorage.get("allMovieName");
-    } else {
-        NavigationService.getAllMovieName(function(data) {
-            $.jStorage.setTTL("allMovieName", data.data, 3600000);
-            $scope.allMovieName = data.data;
-            //console.log('$scope.allMovieName', $scope.allMovieName);
-            $scope.allMovieName10 = _.groupBy($scope.allMovieName, "status");
-            $scope.allMovieName10 = $scope.allMovieName10.true;
-
-            //console.log('$scope.allMovieName10', $scope.allMovieName10.true);
-
-        });
-    }
-    NavigationService.getAllTwitter(function(data) {
-        // $scope.getAllTwitterTag = data.data;
-        $scope.getFirstId = data.data[0]._id;
-
-    });
-
-    $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-        $(window).scrollTop(0);
-    });
-    $scope.showSub = function(menu) {
-
-        menu.show = !menu.show;
+    .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $filter, $uibModal) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("home");
+        $scope.menutitle = NavigationService.makeactive("Home");
+        TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    };
-    $scope.headerSearch = false;
-    $scope.crossdisplay = true;
-    $scope.getHeaderSearch = function() {
-        $scope.headerSearch = true;
-    };
-    $scope.closeCross = function() {
-        $scope.headerSearch = false;
-    };
-    $scope.DoSearch = function(search, id) {
-        $state.go('movie-inside', {
-            id: id
+        TemplateService.removeLoaderOn(5);
+
+        $scope.openModals = function () {
+            $scope.modalInstanceABC = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'frontend/views/modal/movie-subscribe.html',
+                // controller: 'HomeCtrl',
+                size: 'sm',
+                windowClass: 'subscribe-movie',
+                scope: $scope
+            });
+        };
+        $scope.openModal = function () {
+            // $scope.modalInstanceABC.close();
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'frontend/views/modal/subscribe.html',
+                controller: 'HomeCtrl',
+                size: 'lg',
+                windowClass: 'subscribe-modal',
+            });
+        };
+
+        // popNot = $.jStorage.get('popNot');
+        $scope.subscribe = {};
+        $scope.subscribe.email = "";
+        $scope.checkEmail = false;
+        $scope.subscribeSuccess = false;
+        $scope.subscribe10 = function (email, form) {
+            //console.log(email);
+            if (email && email !== '' && form.$valid) {
+                NavigationService.subScribe(email, function (data) {
+                    if (data.data.message == 'already exist') {
+                        // if ($scope.subscribe.email) {
+                        $scope.checkEmail = true;
+                        // $scope.subscribeSuccess = false;
+                        $timeout(function () {
+                            $scope.checkEmail = false;
+                        }, 2000);
+
+                        // }
+                    } else {
+                        //console.log('yes success');
+                        // $uibModalInstanceABC.dismiss('cancel');
+                        $scope.openModal();
+                        $scope.modalInstanceABC.close();
+                        $scope.checkEmail = false;
+
+                        // $scope.subscribeSuccess = true;
+
+                    }
+                    $scope.subscribe.email = "";
+
+
+                });
+            }
+        };
+
+
+        $scope.$on('$viewContentLoaded', function () {
+            if (!$.jStorage.get('FirstTime')) {
+                $.jStorage.set('FirstTime', {
+                    value: true
+                });
+                $scope.openModals();
+            }
         });
-    };
 
 
-})
+        $scope.mySlides = [
+            'frontend/img/banners/slide1.jpg',
+            'frontend/img/banners/slide1.jpg'
+        ];
+        $scope.mySlide = [
+            'frontend/img/banners/mob-slider.jpg',
+            'frontend/img/banners/mob-slider.jpg'
+        ];
+        $scope.getAllSlidess = [
+            'frontend/img/tp.jpg',
+            'frontend/img/tp.jpg'
+        ];
+        NavigationService.getAllUpcomingMovies(function (data) {
+            $scope.AllUpcomingMovies = _.orderBy(data.data, function (n) {
+                var date2 = moment("01-" + n.month + "-" + n.year, "D-M-YYYY");
+                return (date2.unix());
+            });
 
-.controller('OverviewCtrl', function($scope, TemplateService, NavigationService) {
+            TemplateService.removeLoader();
+        });
+        NavigationService.getAllRecentMovies(function (data) {
+            $scope.AllRecentMovies = data.data;
+
+            TemplateService.removeLoader();
+        });
+        NavigationService.getAllSlides(function (data) {
+            $scope.getAllSlides = data.data;
+
+            TemplateService.removeLoader();
+        });
+        NavigationService.getDharmaTvSlides(function (data) {
+            $scope.getDharmaTvSlides = data.data[0];
+
+            TemplateService.removeLoader();
+        });
+        NavigationService.getAllUpcomingMoviesHome(function (data) {
+            $scope.getAllUpcomingMovies = data.data;
+            $scope.getAllUpcomingMovies = $filter('limitTo')($scope.getAllUpcomingMovies, 20);
+
+            TemplateService.removeLoader();
+        });
+
+
+
+        $scope.movie = [{
+            img: "frontend/img/movie/m1.jpg",
+            name: "Ae Dil hai mushkil"
+        }, {
+            img: "frontend/img/movie/m2.jpg",
+            name: "BAAR BAAR DEKHO"
+        }, {
+            img: "frontend/img/movie/m3.jpg",
+            name: "BADRINATH KI DULHANIYA"
+        }, {
+            img: "frontend/img/movie/m4.jpg",
+            name: "RAM LAKHAN"
+        }, {
+            img: "frontend/img/movie/m5.jpg",
+            name: "ok jaanu"
+        }];
+        $scope.video = [{
+            img: "frontend/img/video/v1.jpg",
+            name: "Director S.S. Rajamouli tells us why Katappa killed Bahubali"
+
+        }, {
+            img: "frontend/img/video/v2.jpg",
+            name: "Kapoor & Sons | The Funny One: Fawad Khan"
+
+        }, {
+            img: "frontend/img/video/v3.jpg",
+            name: "Arjun fights with his Bai? | Movie Review | Kapoor & Sons | Sidharth..."
+
+        }, {
+            img: "frontend/img/video/v4.jpg",
+            name: "Kapoor & Sons | Rahul Meets Tia | Dialogue Promo | Fawad Khan..."
+
+        }, {
+            img: "frontend/img/video/v1.jpg",
+            name: "Director S.S. Rajamouli tells us why Katappa killed Bahubali"
+
+        }, {
+            img: "frontend/img/video/v2.jpg",
+            name: "Kapoor & Sons | The Funny One: Fawad Khan"
+
+        }, {
+            img: "frontend/img/video/v3.jpg",
+            name: "Arjun fights with his Bai? | Movie Review | Kapoor & Sons | Sidharth..."
+
+        }, {
+            img: "frontend/img/video/v4.jpg",
+            name: "Kapoor & Sons | Rahul Meets Tia | Dialogue Promo | Fawad Khan..."
+
+        }];
+        $scope.news = [{
+            img: "frontend/img/news/n1.jpg",
+            name: "Kapoor & Sons out now!",
+            date: "28 Mar 2016",
+            desc: "The story that will tug at your heartstrings, tickle your funny bone and leave you wanting to love your family evermore."
+
+        }, {
+            img: "frontend/img/news/n2.jpg",
+            name: "Bahubali bags The Best Film Of 2015 National Award",
+            date: "28 Mar 2016",
+            desc: "Baahubali wins National Award for the best film in 2015! Congratulations to the team. We are proud partners! "
+
+        }, {
+            img: "frontend/img/news/n3.jpg",
+            name: "Baahubali added to the Top 10 World TV premiere list!",
+            date: "16 Nov 2015",
+            desc: "Baahubali storms television ratings as TAM reports add it to the Top 10 World TV premiere list! Huge congratulations to the team."
+
+        }, {
+            img: "frontend/img/news/n4.jpg",
+            name: "Shaandaar Out In Cinemas",
+            date: "21 Oct 2015",
+            desc: "Shaandaar starring Shahid Kapoor and Alia Bhatt hits the screens today. The movie is directed by Vikas Bahl and co produced by Fox Star Studios and Phantom films. "
+
+        }, {
+            img: "frontend/img/news/n5.jpg",
+            name: "Shaandaar's title track out now!",
+            date: "16 Sep 2015",
+            desc: "Shaandaar's title track 'Shaam Shaandaar' sung by Amit Trivedi was released today. The song is a grand celebration featuring Shahid Kapoor and Alia Bhatt."
+
+        }, {
+            img: "frontend/img/news/n6.jpg",
+            name: "35 Years Of Dharma",
+            date: "08 Oct 2015",
+            desc: "Heart-warming storylines, Stellar megastar casts, Record box-office collections...A legacy that paved way into the hearts of the audience completes celebrates 35 glorious years today."
+
+        }];
+        NavigationService.getNews(function (data) {
+            $scope.News = data.data;
+
+            $scope.limitedNews = $filter('limitTo')($scope.News, 10);
+
+            _.each($scope.limitedNews, function (value) {
+                value.date = new Date(value.date);
+            });
+
+        });
+
+        $scope.subscribe = {};
+        $scope.subscribe.email = "";
+        $scope.checkEmail = false;
+        $scope.subscribeEmail = false;
+        $scope.subscribe = function (email, form) {
+            if (email && email !== '' && form.$valid) {
+                NavigationService.subScribe(email, function (data) {
+                    if (data.data.message == 'already exist') {
+                        // if ($scope.subscribe.email) {
+                        $scope.checkEmail = true;
+                        // $scope.subscribeEmail = false;
+                        $timeout(function () {
+                            $scope.checkEmail = false;
+                        }, 2000);
+
+                        // }
+                    } else {
+                        $scope.openModal();
+                        $scope.checkEmail = false;
+                        // $scope.subscribeEmail = true;
+                        // $timeout(function() {
+                        //     $scope.subscribeEmail = false;
+                        // }, 2000);
+
+
+                    }
+                    $scope.subscribe.email = "";
+                });
+            }
+        };
+
+
+        $scope.tabs = 'upcoming';
+        $scope.classp = 'active-tab';
+        $scope.classv = '';
+
+
+        $scope.tabchanges = function (tabs, a) {
+
+            $scope.tabs = tabs;
+            if (a == 1) {
+
+                $scope.classp = "active-tab";
+                $scope.classv = '';
+
+            } else {
+
+                $scope.classp = '';
+                $scope.classv = "active-tab";
+            }
+        };
+
+
+    })
+
+    .controller('headerctrl', function ($scope, TemplateService, NavigationService, $state) {
+        $scope.template = TemplateService;
+        if ($.jStorage.get("allMovieName")) {
+            $scope.allMovieName = $.jStorage.get("allMovieName");
+        } else {
+            NavigationService.getAllMovieName(function (data) {
+                $.jStorage.setTTL("allMovieName", data.data, 3600000);
+                $scope.allMovieName = data.data;
+                //console.log('$scope.allMovieName', $scope.allMovieName);
+                $scope.allMovieName10 = _.groupBy($scope.allMovieName, "status");
+                $scope.allMovieName10 = $scope.allMovieName10.true;
+
+                //console.log('$scope.allMovieName10', $scope.allMovieName10.true);
+
+            });
+        }
+        NavigationService.getAllTwitter(function (data) {
+            // $scope.getAllTwitterTag = data.data;
+            $scope.getFirstId = data.data[0]._id;
+
+        });
+
+        $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+            $(window).scrollTop(0);
+        });
+        $scope.showSub = function (menu) {
+
+            menu.show = !menu.show;
+            $scope.navigation = NavigationService.getnav();
+        };
+        $scope.headerSearch = false;
+        $scope.crossdisplay = true;
+        $scope.getHeaderSearch = function () {
+            $scope.headerSearch = true;
+        };
+        $scope.closeCross = function () {
+            $scope.headerSearch = false;
+        };
+        $scope.DoSearch = function (search, id) {
+            $state.go('movie-inside', {
+                id: id
+            });
+        };
+
+
+    })
+
+    .controller('OverviewCtrl', function ($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("overview");
         $scope.menutitle = NavigationService.makeactive("Overview");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('FanLandingCtrl', function($scope, TemplateService, NavigationService) {
+    .controller('FanLandingCtrl', function ($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("fan-landing");
         $scope.menutitle = NavigationService.makeactive("Fan Landing");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('ComingSoonCtrl', function($scope, TemplateService, NavigationService) {
+    .controller('ComingSoonCtrl', function ($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("coming-soon");
         $scope.template.header = "";
         $scope.template.footer = "";
@@ -348,7 +348,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('DictionaryCtrl', function($scope, TemplateService, NavigationService) {
+    .controller('DictionaryCtrl', function ($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("dictionary");
         $scope.menutitle = NavigationService.makeactive("Dictionary");
         TemplateService.title = $scope.menutitle;
@@ -410,7 +410,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.filter.pagenumber = 1;
         $scope.filter.pagesize = 500;
         var i = 0;
-        NavigationService.getDictionary($scope.filter, ++i, function(data, newI) {
+        NavigationService.getDictionary($scope.filter, ++i, function (data, newI) {
             //console.log('inside api');
             if (newI == i) {
                 $scope.myDictionary = data.data.data;
@@ -422,7 +422,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-    .controller('PrivacyPolicyCtrl', function($scope, TemplateService, NavigationService) {
+    .controller('PrivacyPolicyCtrl', function ($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("privacy-policy");
         $scope.menutitle = NavigationService.makeactive("Privacy Policy");
         TemplateService.title = $scope.menutitle;
@@ -430,325 +430,318 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('AwardsCtrl', function($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.changecontent("awards");
-    $scope.menutitle = NavigationService.makeactive("Awards");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+    .controller('AwardsCtrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("awards");
+        $scope.menutitle = NavigationService.makeactive("Awards");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
+    })
 
-.controller('FanCornerCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, $timeout,$rootScope) {
-    $scope.template = TemplateService.changecontent("fan-corner");
-    $scope.menutitle = NavigationService.makeactive("Fan Corner");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    var modalInstance2 = {};
-    // console.log('sssssssssssssss');
-    // --------------------- to check state -------------------
-$rootScope.$on('$locationChangeStart', function(e, toState, toParams, fromState, fromParams) {
-    
-    // console.log('e',e);
-    // console.log('toState',toState);
-    // console.log('toParams',toParams);
-    // console.log('fromState',fromState);
-     console.log('fromParams',fromParams);
-    // if (toState.module === 'private' && !$cookies.Session) {
-    //     // If logged out and transitioning to a logged in page:
-    //     e.preventDefault();
-    //     $state.go('public.login');
-    // } else if (toState.module === 'public' && $cookies.Session) {
-    //     // If logged in and transitioning to a logged out page:
-    //     e.preventDefault();
-    //     $state.go('tool.suggestions');
-    // };
-});
-$rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
-    // console.log('event',event);
-    // console.log('toState',toState);
-    // console.log('toParams',toParams);
-    // console.log('fromState',fromState);
-    //  console.log('fromParams',fromParams);
-    // if (toState.module === 'private' && !$cookies.Session) {
-    //     // If logged out and transitioning to a logged in page:
-    //     e.preventDefault();
-    //     $state.go('public.login');
-    // } else if (toState.module === 'public' && $cookies.Session) {
-    //     // If logged in and transitioning to a logged out page:
-    //     e.preventDefault();
-    //     $state.go('tool.suggestions');
-    // };
-});
-// ---------------end of check state ---------------
+    .controller('FanCornerCtrl', function ($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, $timeout, $rootScope) {
+        $scope.template = TemplateService.changecontent("fan-corner");
+        $scope.menutitle = NavigationService.makeactive("Fan Corner");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        var modalInstance2 = {};
+        // console.log('sssssssssssssss');
+        // --------------------- to check state -------------------
+        $rootScope.$on('$locationChangeStart', function (e, toState, toParams, fromState, fromParams) {
 
-    $scope.openModal = function() {
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/share.html',
-            controller: 'FanCornerCtrl',
-            size: 'lg',
-            windowClass: 'fan-modal',
+            // console.log('e',e);
+            // console.log('toState',toState);
+            // console.log('toParams',toParams);
+            // console.log('fromState',fromState);
+            console.log('fromParams', fromParams);
+            // if (toState.module === 'private' && !$cookies.Session) {
+            //     // If logged out and transitioning to a logged in page:
+            //     e.preventDefault();
+            //     $state.go('public.login');
+            // } else if (toState.module === 'public' && $cookies.Session) {
+            //     // If logged in and transitioning to a logged out page:
+            //     e.preventDefault();
+            //     $state.go('tool.suggestions');
+            // };
         });
-    };
-    $scope.openModals = function() {
-        modalInstance2 = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/fan-popup.html',
-            scope: $scope,
-            size: 'sm',
-            windowClass: 'dharma-fan-modal',
-        })
-    };
-$rootScope.fetchFormEmail = "";
-    $scope.validEmail = false;
-    $scope.formData = {};
-    $scope.submitForm = function(formData) {
+        $rootScope.$on('$locationChangeStart', function (event, toState, fromState) {
+            // console.log('event',event);
+            // console.log('toState',toState);
+            // console.log('toParams',toParams);
+            // console.log('fromState',fromState);
+            //  console.log('fromParams',fromParams);
+            // if (toState.module === 'private' && !$cookies.Session) {
+            //     // If logged out and transitioning to a logged in page:
+            //     e.preventDefault();
+            //     $state.go('public.login');
+            // } else if (toState.module === 'public' && $cookies.Session) {
+            //     // If logged in and transitioning to a logged out page:
+            //     e.preventDefault();
+            //     $state.go('tool.suggestions');
+            // };
+        });
+        // ---------------end of check state ---------------
 
-
-        NavigationService.submitFormData(formData, function(data) {
-          console.log('submitFormDataFancorner',data);
-            if (data.data.message === "already exist") {
-                console.log('IFFFpART')
-                $scope.validEmail = true;
-            } else {
+        $scope.openModal = function () {
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'frontend/views/modal/share.html',
+                controller: 'FanCornerCtrl',
+                size: 'lg',
+                windowClass: 'fan-modal',
+            });
+        };
+        $scope.openModals = function () {
+            modalInstance2 = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'frontend/views/modal/fan-popup.html',
+                scope: $scope,
+                size: 'sm',
+                windowClass: 'dharma-fan-modal',
+            })
+        };
+        $rootScope.fetchFormEmail = "";
+        $scope.validEmail = false;
+        $scope.formData = {};
+        $scope.submitForm = function (formData) {
+            NavigationService.submitFormData(formData, function (data) {
+                console.log('submitFormDataFancorner', data);
                 console.log('elseeeepART');
                 $rootScope.fetchFormEmail = data.data._id;
-                  console.log('$rootScope.fetchFormEmail inside fancorner',$rootScope.fetchFormEmail);
+                console.log('$rootScope.fetchFormEmail inside fancorner', $rootScope.fetchFormEmail);
                 modalInstance2.close();
                 $state.go('fan-corner-play', {
                     id: 1
                 });
+            });
+        }
+
+        $scope.firstUI = true;
+
+        // $scope.showSecondUI = function() {
+        //     $state.go('fan-corner-play', {
+        //         id: 1
+        //     });
+        // };
+
+        $scope.myUrl = window.location.href;
+        console.log('$scope.myUrl fan-cornerctrl', $scope.myUrl);
+
+
+    })
+
+    .controller('FanCornerPlayCtrl', function ($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, RapidAnswer, $timeout, $rootScope) {
+        $scope.template = TemplateService.changecontent("fan-corner");
+        $scope.menutitle = NavigationService.makeactive("Fan Corner");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.openModal = function () {
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'frontend/views/modal/share.html',
+                controller: 'FanCornerCtrl',
+                size: 'lg',
+                windowClass: 'fan-modal',
+            });
+        };
+        $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
+            //  console.log('event',event);
+            console.log('newUrl', newUrl);
+            // console.log('toParams',toParams);
+            console.log('oldUrl', oldUrl);
+            $scope.oldddUrl = oldUrl;
+            console.log('scope.myUrll', " == ", $scope.myUrll, $scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner");
+            if ($scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner") {
+                console.log('if play');
+                $scope.oldddUrl = $scope.oldddUrl;
+            } else {
+                console.log('else alert');
+                var answer = alert("You cannot view your previous answer");
+                event.preventDefault();
             }
         });
-    }
+        $scope.firstUI = false;
 
-    $scope.firstUI = true;
-
-    // $scope.showSecondUI = function() {
-    //     $state.go('fan-corner-play', {
-    //         id: 1
-    //     });
-    // };
-
-    $scope.myUrl = window.location.href;
-    console.log('$scope.myUrl fan-cornerctrl', $scope.myUrl);
-
-
-})
-
-.controller('FanCornerPlayCtrl', function($scope, TemplateService, NavigationService, $uibModal, $state, $stateParams, $interval, RapidAnswer, $timeout, $rootScope) {
-    $scope.template = TemplateService.changecontent("fan-corner");
-    $scope.menutitle = NavigationService.makeactive("Fan Corner");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.openModal = function() {
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/share.html',
-            controller: 'FanCornerCtrl',
-            size: 'lg',
-            windowClass: 'fan-modal',
-        });
-    };
-    $rootScope.$on('$locationChangeStart', function(event, newUrl, oldUrl) {
-        //  console.log('event',event);
-    console.log('newUrl',newUrl);
-    // console.log('toParams',toParams);
-    console.log('oldUrl',oldUrl);
-        $scope.oldddUrl = oldUrl;
-          console.log('scope.myUrll', " == ", $scope.myUrll , $scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner");
-        if ($scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner") {
-            console.log('if play');
-            $scope.oldddUrl = $scope.oldddUrl;
-        } else {
-            console.log('else alert');
-            var answer = alert("You cannot view your previous answer");
-            event.preventDefault();
-        }
-    });
-    $scope.firstUI = false;
-
-    $scope.currentquestion = RapidAnswer.getQuestion($stateParams.id);
-    // $scope.myUrll = '';
-    $scope.selectAnswer = function(s) {
-        $scope.mDisable = false;
-        _.each($scope.currentquestion.options, function(option) {
-            option.selected = undefined;
-        });
-        s.selected = true;
-    };
-    $scope.mDisable = true;
-    $scope.nextQuestion = function() {
-        $scope.myUrll = window.location.href;
-        console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
-        RapidAnswer.saveAnswer($scope.currentquestion);
-        //console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
-        if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
-
-            $interval.cancel(counter);
-            $state.go('fan-corner-score', {
-                id: RapidAnswer.getScore()
+        $scope.currentquestion = RapidAnswer.getQuestion($stateParams.id);
+        // $scope.myUrll = '';
+        $scope.selectAnswer = function (s) {
+            $scope.mDisable = false;
+            _.each($scope.currentquestion.options, function (option) {
+                option.selected = undefined;
             });
-        } else {
-            $interval.cancel(counter);
-            $scope.myState = window.location.href;
-            // //console.log('$scope.myState ', $scope.myState);
-            $state.go('fan-corner-play', {
-                id: parseInt($stateParams.id) + 1
+            s.selected = true;
+        };
+        $scope.mDisable = true;
+        $scope.nextQuestion = function () {
+            $scope.myUrll = window.location.href;
+            console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
+            RapidAnswer.saveAnswer($scope.currentquestion);
+            //console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
+            if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
+
+                $interval.cancel(counter);
+                $state.go('fan-corner-score', {
+                    id: RapidAnswer.getScore()
+                });
+            } else {
+                $interval.cancel(counter);
+                $scope.myState = window.location.href;
+                // //console.log('$scope.myState ', $scope.myState);
+                $state.go('fan-corner-play', {
+                    id: parseInt($stateParams.id) + 1
+                });
+            }
+        };
+        $scope.skipQuestion = function () {
+            _.each($scope.currentquestion.options, function (option) {
+                option.selected = undefined;
             });
-        }
-    };
-    $scope.skipQuestion = function() {
-        _.each($scope.currentquestion.options, function(option) {
-            option.selected = undefined;
-        });
-        $scope.nextQuestion();
-    };
-    $scope.showTimerCount = $.jStorage.get("rapidTimer");
-    $timeout(function() {
-        makeArc();
-    }, 100);
+            $scope.nextQuestion();
+        };
+        $scope.showTimerCount = $.jStorage.get("rapidTimer");
+        $timeout(function () {
+            makeArc();
+        }, 100);
 
-    var counter = $interval(function() {
-        $scope.showTimerCount = RapidAnswer.changeTimerRapid();
-        makeArc();
-        if ($scope.showTimerCount == 0) {
-            $interval.cancel(counter);
-            $state.go('fan-corner-score', {
-                id: RapidAnswer.getScore()
+        var counter = $interval(function () {
+            $scope.showTimerCount = RapidAnswer.changeTimerRapid();
+            makeArc();
+            if ($scope.showTimerCount == 0) {
+                $interval.cancel(counter);
+                $state.go('fan-corner-score', {
+                    id: RapidAnswer.getScore()
+                });
+
+            }
+        }, 1000);
+
+        function makeArc() {
+            var totalTime = RapidAnswer.getTotalTime();
+            currentTime = parseInt($.jStorage.get("rapidTimer"));
+            var can = $('#canvas1').get(0);
+            context = can.getContext('2d');
+
+            var percentage = currentTime / totalTime; // no specific length
+            var degrees = percentage * 360.0;
+            var radians = degrees * (Math.PI / 180);
+
+            var x = 38;
+            var y = 37;
+            var r = 35;
+            var s = 0; //1.5 * Math.PI;
+            context.clearRect(0, 0, 80, 80);
+            context.strokeStyle = '#f37021';
+            context.beginPath();
+            context.lineWidth = 4;
+            context.arc(x, y, r, s, radians, false);
+            //context.closePath();
+            context.stroke();
+        }
+
+        $scope.myUrl = window.location.href;
+        // //console.log('$scope.myUrl playctrl', $scope.myUrl);
+
+    })
+
+    .controller('FanCornerScoreCtrl', function ($scope, $rootScope, TemplateService, NavigationService, $uibModal, $state, $stateParams, RapidAnswer, $timeout, $rootScope) {
+        $scope.template = TemplateService.changecontent("fan-corner");
+        $scope.menutitle = NavigationService.makeactive("Fan Corner");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.openModal = function () {
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'frontend/views/modal/share.html',
+                controller: 'FanCornerCtrl',
+                size: 'lg',
+                windowClass: 'fan-modal',
             });
+        };
+        // --------------------- to check state -------------------
 
-        }
-    }, 1000);
-
-    function makeArc() {
-        var totalTime = RapidAnswer.getTotalTime();
-        currentTime = parseInt($.jStorage.get("rapidTimer"));
-        var can = $('#canvas1').get(0);
-        context = can.getContext('2d');
-
-        var percentage = currentTime / totalTime; // no specific length
-        var degrees = percentage * 360.0;
-        var radians = degrees * (Math.PI / 180);
-
-        var x = 38;
-        var y = 37;
-        var r = 35;
-        var s = 0; //1.5 * Math.PI;
-        context.clearRect(0, 0, 80, 80);
-        context.strokeStyle = '#f37021';
-        context.beginPath();
-        context.lineWidth = 4;
-        context.arc(x, y, r, s, radians, false);
-        //context.closePath();
-        context.stroke();
-    }
-
-    $scope.myUrl = window.location.href;
-    // //console.log('$scope.myUrl playctrl', $scope.myUrl);
-
-})
-
-.controller('FanCornerScoreCtrl', function($scope,$rootScope, TemplateService, NavigationService, $uibModal, $state, $stateParams, RapidAnswer, $timeout,$rootScope) {
-    $scope.template = TemplateService.changecontent("fan-corner");
-    $scope.menutitle = NavigationService.makeactive("Fan Corner");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.openModal = function() {
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'frontend/views/modal/share.html',
-            controller: 'FanCornerCtrl',
-            size: 'lg',
-            windowClass: 'fan-modal',
-        });
-    };
-// --------------------- to check state -------------------
-
-$rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
-      if (fromState.indexOf('http://dharma-production.com/fan-corner-play') == -1) {
+        $rootScope.$on('$locationChangeStart', function (event, toState, fromState) {
+            if (fromState.indexOf('http://dharma-production.com/fan-corner-play') == -1) {
                 console.log('in ifffff 111');
-          
-              $state.go('fan-corner');
 
-            }else{
+                $state.go('fan-corner');
+
+            } else {
                 console.log('in elseee 111');
             }
-    // if(fromState == "http://dharma-production.com/fan-corner-play/10"){
+            // if(fromState == "http://dharma-production.com/fan-corner-play/10"){
 
-    // }else{
+            // }else{
 
-    // }
-    // console.log('event',event);
-    // console.log('toState',toState);
-    // console.log('toParams',toParams);
-    // console.log('fromState',fromState);
-    //  console.log('fromParams',fromParams);
-    // if (toState.module === 'private' && !$cookies.Session) {
-    //     // If logged out and transitioning to a logged in page:
-    //     e.preventDefault();
-    //     $state.go('public.login');
-    // } else if (toState.module === 'public' && $cookies.Session) {
-    //     // If logged in and transitioning to a logged out page:
-    //     e.preventDefault();
-    //     $state.go('tool.suggestions');
-    // };
-});
-// ---------------end of check state ---------------
-    // $rootScope.fetchFormEmail
-  $scope.updateScore = {};
-  $scope.updateScore.score = $stateParams.id;
-  $scope.updateScore._id = $rootScope.fetchFormEmail;
+            // }
+            // console.log('event',event);
+            // console.log('toState',toState);
+            // console.log('toParams',toParams);
+            // console.log('fromState',fromState);
+            //  console.log('fromParams',fromParams);
+            // if (toState.module === 'private' && !$cookies.Session) {
+            //     // If logged out and transitioning to a logged in page:
+            //     e.preventDefault();
+            //     $state.go('public.login');
+            // } else if (toState.module === 'public' && $cookies.Session) {
+            //     // If logged in and transitioning to a logged out page:
+            //     e.preventDefault();
+            //     $state.go('tool.suggestions');
+            // };
+        });
+        // ---------------end of check state ---------------
+        // $rootScope.fetchFormEmail
+        $scope.updateScore = {};
+        $scope.updateScore.score = $stateParams.id;
+        $scope.updateScore._id = $rootScope.fetchFormEmail;
 
-    console.log('$rootScope.fetchFormEmail inside scorectrl',$rootScope.fetchFormEmail);
-    if($rootScope.fetchFormEmail == undefined || $rootScope.fetchFormEmail == 'undefined' ||$rootScope.fetchFormEmail == ''){
-        console.log('iffffff');
-        $state.go('fan-corner');
-    }else{
-        console.log('iffffffeeeeeeeeeeee');
-        
-    }
-    NavigationService.submitFormDataScore($scope.updateScore, function(data) {
-    console.log('dATTTTTTTTTTTTTTA,',data);
-    });
-    $scope.showTimerCount = 0;
-    $scope.firstUI = false;
-    $scope.showScore = true;
+        console.log('$rootScope.fetchFormEmail inside scorectrl', $rootScope.fetchFormEmail);
+        if ($rootScope.fetchFormEmail == undefined || $rootScope.fetchFormEmail == 'undefined' || $rootScope.fetchFormEmail == '') {
+            console.log('iffffff');
+            $state.go('fan-corner');
+        } else {
+            console.log('iffffffeeeeeeeeeeee');
 
-    $scope.count = $stateParams.id;
+        }
+        NavigationService.submitFormDataScore($scope.updateScore, function (data) {
+            console.log('dATTTTTTTTTTTTTTA,', data);
+        });
+        $scope.showTimerCount = 0;
+        $scope.firstUI = false;
+        $scope.showScore = true;
 
-    $scope.myUrl = window.location.href;
-    //console.log('$scope.myUrl scorectrl', $scope.myUrl);
+        $scope.count = $stateParams.id;
 
-})
+        $scope.myUrl = window.location.href;
+        //console.log('$scope.myUrl scorectrl', $scope.myUrl);
+
+    })
 
 
-.controller('DisclaimerCtrl', function($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.changecontent("disclaimer");
-    $scope.menutitle = NavigationService.makeactive("Disclaimer");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+    .controller('DisclaimerCtrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("disclaimer");
+        $scope.menutitle = NavigationService.makeactive("Disclaimer");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
+    })
 
-.controller('DharmaJourneyCtrl', function($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.changecontent("dharma-journey");
-    $scope.menutitle = NavigationService.makeactive("Dharma Journey");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+    .controller('DharmaJourneyCtrl', function ($scope, TemplateService, NavigationService) {
+        $scope.template = TemplateService.changecontent("dharma-journey");
+        $scope.menutitle = NavigationService.makeactive("Dharma Journey");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-    NavigationService.getJourney(function(data) {
-        $scope.journeys = data;
-    });
+        NavigationService.getJourney(function (data) {
+            $scope.journeys = data;
+        });
 
-})
+    })
 
-.controller('MapCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('MapCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
 
         var directionsService = {};
         var directionsDisplay = {};
 
-        initMap = function() {
+        initMap = function () {
 
             var mapTheme = [{
                 "featureType": "administrative",
@@ -852,7 +845,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         if (google && google.maps) {
             initMap();
         } else {
-            $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAc75yahObocBDF_deZ7T6_rUkS8LS4t00&callback=initMap", function(data, textStatus, jqxhr) {
+            $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAc75yahObocBDF_deZ7T6_rUkS8LS4t00&callback=initMap", function (data, textStatus, jqxhr) {
 
             });
         }
@@ -862,16 +855,16 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
 
     })
-    .controller('TvInsideCtrl', function($scope, TemplateService, NavigationService, $stateParams, $state) {
+    .controller('TvInsideCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $state) {
         $scope.template = TemplateService.changecontent("tv-inside");
         $scope.menutitle = NavigationService.makeactive("TV Inside");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(3);
 
-        $scope.getDharmaTV = function() {
-            NavigationService.getAllDharmatv10(function(data) {
-                var data2 = _.filter(data.data, function(video) {
+        $scope.getDharmaTV = function () {
+            NavigationService.getAllDharmatv10(function (data) {
+                var data2 = _.filter(data.data, function (video) {
                     if (video.movie && video.movie._id) {
                         return video.movie._id == $stateParams.id;
                     }
@@ -890,9 +883,9 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         $scope.seeMore = false;
         $scope.seeLess = false;
         var movieNameArray = [];
-        $scope.seeLessMovieName = function() {
+        $scope.seeLessMovieName = function () {
             // console.log('dddddddddddddddddddd');
-            NavigationService.getAllMovieName(function(data) {
+            NavigationService.getAllMovieName(function (data) {
                 $scope.allMovieName = data.data;
                 console.log('$scope.allMovieName', $scope.allMovieName);
                 movieNameArray = _.cloneDeep($scope.allMovieName);
@@ -900,7 +893,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
                 // $scope.allMovieName = _.slice($scope.allMovieName, [0], [10]);
                 $scope.seeMore = true;
                 if ($stateParams.id) {
-                    $scope.currentMovie = _.find($scope.allMovieName, function(key) {
+                    $scope.currentMovie = _.find($scope.allMovieName, function (key) {
                         // console.log(key);
                         // $scope.goMovie=false;
                         return key._id == $stateParams.id;
@@ -916,19 +909,19 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             });
         };
         $scope.seeLessMovieName();
-        $scope.seeMoreMovieName = function() {
+        $scope.seeMoreMovieName = function () {
             $scope.seeMore = false;
             $scope.seeLess = true;
             // $scope.allMovieName = {}
             $scope.allMovieName = movieNameArray;
         };
 
-        NavigationService.getAllTags(function(data) {
+        NavigationService.getAllTags(function (data) {
             $scope.getAllTags = data.data;
             TemplateService.removeLoader();
         });
 
-        $scope.goToMovie = function(id, name) {
+        $scope.goToMovie = function (id, name) {
             // $scope.goMovie = true;
             // $scope.currentMovie = name;
             $state.go('tv-inside', {
@@ -944,7 +937,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         if ($stateParams.search) {
             $scope.searchdata.search = $stateParams.search;
         }
-        $scope.viewSearch = function() {
+        $scope.viewSearch = function () {
             $scope.searchdata.search = "";
             // $scope.getsearch = false;
         };
@@ -956,7 +949,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         // $scope.goToMovie($stateParams.id,$scope.currentMovie);
 
     })
-    .controller('MovieInsideCtrl', function($scope, TemplateService, NavigationService, $uibModal, $stateParams, $filter, $window, $timeout, $state,$location) {
+    .controller('MovieInsideCtrl', function ($scope, TemplateService, NavigationService, $uibModal, $stateParams, $filter, $window, $timeout, $state, $location) {
         $scope.template = TemplateService.changecontent("movie-inside");
         $scope.menutitle = NavigationService.makeactive("Movie Inside");
         TemplateService.title = $scope.menutitle;
@@ -970,12 +963,12 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         $scope.isSubCast = false;
         $scope.myUrl = $location.absUrl();
         // $scope.myUrl = window.location.href;
-        NavigationService.newGetOneMovie($stateParams.id, function(data) {
+        NavigationService.newGetOneMovie($stateParams.id, function (data) {
 
 
 
             $scope.myid = $stateParams.id;
-            console.log('myiddddddddddddd',$scope.myid);
+            console.log('myiddddddddddddd', $scope.myid);
             $scope.moviefindOne = data.data.movie;
             $scope.moviefindOne.backgroundImage = $filter('uploadpath')($scope.moviefindOne.backgroundImage);
             $scope.moviefindOne.cutImage2 = $filter('uploadpath')($scope.moviefindOne.cutImage2);
@@ -986,7 +979,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             $scope.getOneMovie = data.data;
             // TemplateService.removeLoader();
             $scope.movieCast = data.data.movie.cast;
-            _.each($scope.movieCast, function(n) {
+            _.each($scope.movieCast, function (n) {
                 if (n.type == 'Sub-cast') {
                     $scope.isSubCast = true;
                 }
@@ -1023,7 +1016,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
 
             $scope.movieNews = data.data.news;
-            _.each($scope.movieNews, function(n) {
+            _.each($scope.movieNews, function (n) {
                 n.date = new Date(n.date);
 
             });
@@ -1031,7 +1024,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         });
 
         $scope.subCast = false;
-        $scope.viewAllCast = function() {
+        $scope.viewAllCast = function () {
             $scope.subCast = !$scope.subCast;
             if ($scope.subCast) {
                 $scope.viewCastText = "HIDE";
@@ -1108,7 +1101,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         }];
         // }, 1000);
 
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             if ($(this).scrollTop() > 500) {
                 $('.back-to-top ').fadeIn();
             } else {
@@ -1117,7 +1110,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         });
 
 
-        $scope.open = function(size) {
+        $scope.open = function (size) {
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
@@ -1125,7 +1118,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
                 controller: 'MovieInsideCtrl',
                 size: size,
                 resolve: {
-                    items: function() {
+                    items: function () {
                         return $scope.items;
                     }
                 }
@@ -1133,7 +1126,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
         };
 
-        $scope.toggleAnimation = function() {
+        $scope.toggleAnimation = function () {
             $scope.animationsEnabled = !$scope.animationsEnabled;
         };
 
@@ -1166,7 +1159,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         $scope.classv = '';
 
 
-        $scope.tabchanges = function(tabs, a) {
+        $scope.tabchanges = function (tabs, a) {
 
             $scope.tabs = tabs;
             if (a == 2) {
@@ -1194,7 +1187,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
 
 
-        $scope.tabchange = function(tab, a, id) {
+        $scope.tabchange = function (tab, a, id) {
 
 
             $scope.tab = tab;
@@ -1281,21 +1274,21 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
                 $scope.classh = 'active-list';
             }
         };
-        $scope.tabchangeMob = function(selected, id) {
+        $scope.tabchangeMob = function (selected, id) {
 
             $scope.tab = selected;
             $scope.tabid = id;
-            _.each($scope.tabing, function(key) {
+            _.each($scope.tabing, function (key) {
                 key.activemob = false;
             });
             $scope.tabing[id].activemob = true;
         };
         $scope.tabchangeMob($scope.tabing[0].tab, 0);
-        $scope.tabchangeByURl = function(text) {
-            var id = _.find($scope.tabing, function(key) {
+        $scope.tabchangeByURl = function (text) {
+            var id = _.find($scope.tabing, function (key) {
                 return key.tab == text;
             }).id;
-            var tabindex = _.find($scope.tabing, function(key) {
+            var tabindex = _.find($scope.tabing, function (key) {
                 return key.tab == text;
             }).index;
             $scope.tabchange(text, id);
@@ -1428,10 +1421,10 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             desc: "SS Rajamouli's Bahubali: The Beginning (also spelt as Baahubali), starring Prabhas and Rana Daggubati, has won the Best Feature Film at the 63rd National Film Award (NFA). "
 
         }]
-        $scope.$on('$viewContentLoaded', function(event) {
-            $timeout(function() {
+        $scope.$on('$viewContentLoaded', function (event) {
+            $timeout(function () {
 
-                ! function(d, s, id) {
+                ! function (d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0],
                         p = /^http:/.test(d.location) ? 'http' : 'https';
                     if (!d.getElementById(id)) {
@@ -1442,7 +1435,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
                     }
                 }(document, "script", "twitter-wjs");
 
-                (function(d, s, id) {
+                (function (d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0];
                     if (d.getElementById(id)) return;
                     js = d.createElement(s);
@@ -1474,25 +1467,25 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         }];
 
     })
-    .controller('ContactUsCtrl', function($scope, TemplateService, NavigationService) {
+    .controller('ContactUsCtrl', function ($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("contact-us");
         $scope.menutitle = NavigationService.makeactive("Contact Us");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('DharmaWorldCtrl', function($scope, TemplateService, NavigationService) {
+    .controller('DharmaWorldCtrl', function ($scope, TemplateService, NavigationService) {
         $scope.template = TemplateService.changecontent("dharma-world");
         $scope.menutitle = NavigationService.makeactive("Social");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        NavigationService.getAllTwitter(function(data) {
+        NavigationService.getAllTwitter(function (data) {
             $scope.getAllTwitterTag = data.data;
             $scope.getFirstId = data.data[0]._id;
 
         });
     })
-    .controller('NewsEventsCtrl', function($scope, TemplateService, NavigationService, $state, $filter) {
+    .controller('NewsEventsCtrl', function ($scope, TemplateService, NavigationService, $state, $filter) {
         $scope.template = TemplateService.changecontent("news-events");
         $scope.menutitle = NavigationService.makeactive("News Events");
         TemplateService.title = $scope.menutitle;
@@ -1520,15 +1513,18 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         $scope.goMonth = false;
         var AllNews = [];
         var i = 0;
-        $scope.should = {scroll:true};
+        $scope.should = {
+            scroll: true
+        };
+
         function callMe() {
 
             //console.log('in call me');
             // $scope.news10 = [];
-            NavigationService.getNewsHomeSearch($scope.filter, ++i,function(data, newI,pageno) {
+            NavigationService.getNewsHomeSearch($scope.filter, ++i, function (data, newI, pageno) {
                 if (newI == i) {
-                  $scope.filter.pagenumber = pageno+1;
-                  $scope.should.scroll = false;
+                    $scope.filter.pagenumber = pageno + 1;
+                    $scope.should.scroll = false;
                     $scope.myTotal = data.data.total;
                     if ($scope.filter.search.length === 0) {
                         $scope.crossdisplay = false;
@@ -1544,7 +1540,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
                     if (data.value) {
                         if (data.data.data.length > 0) {
                             $scope.noNewsFound = false;
-                            _.each(data.data.data, function(n) {
+                            _.each(data.data.data, function (n) {
                                 n.date = new Date(n.date);
                                 $scope.news10.push(n);
                                 console.log('$scope.news10', $scope.news10);
@@ -1567,7 +1563,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         }
         // $scope.searchdata='';
         callMe();
-        $scope.doSearch = function() {
+        $scope.doSearch = function () {
             $scope.filter.pagenumber = 1;
             $scope.crossdisplay = true;
             $scope.news10 = [];
@@ -1575,7 +1571,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
         };
 
-        $scope.closeCross = function() {
+        $scope.closeCross = function () {
             // $state.reload();
             $scope.news10 = [];
             $scope.crossdisplay = false;
@@ -1585,14 +1581,14 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             callMe();
         };
 
-        $scope.getNewsYear = function(year) {
+        $scope.getNewsYear = function (year) {
             $scope.getYear = year;
             $scope.goYear = true;
 
             $scope.filter.year = year;
             // callMe();
         };
-        $scope.getNewsMonth = function(month) {
+        $scope.getNewsMonth = function (month) {
             $scope.getMonth = month;
             $scope.goMonth = true;
 
@@ -1601,7 +1597,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
 
         $scope.shouldScroll = false;
-        $scope.loadMore = function() {
+        $scope.loadMore = function () {
             if (lastpage >= $scope.filter.pagenumber) {
                 $scope.should.scroll = true;
                 callMe();
@@ -1611,18 +1607,18 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
 
 
-        NavigationService.getAllMovieName(function(data) {
+        NavigationService.getAllMovieName(function (data) {
             $scope.allMovieName = data.data;
 
         });
 
-        NavigationService.getMonthYear(function(data) {
+        NavigationService.getMonthYear(function (data) {
             $scope.monthYear = data.data;
             $scope.month = data.data.month;
 
 
             $scope.month = $scope.month.sort();
-            $scope.month = $scope.month.sort(function(a, b) {
+            $scope.month = $scope.month.sort(function (a, b) {
                 return b - a;
             });
             $scope.month = $scope.month.reverse();
@@ -1688,7 +1684,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
         }];
     })
-    .controller('NewsDetailCtrl', function($scope, TemplateService, NavigationService, $uibModal, $stateParams, $filter, $window, $timeout, $state) {
+    .controller('NewsDetailCtrl', function ($scope, TemplateService, NavigationService, $uibModal, $stateParams, $filter, $window, $timeout, $state) {
         $scope.template = TemplateService.changecontent("news-detail");
         $scope.menutitle = NavigationService.makeactive("News Detail");
         TemplateService.title = $scope.menutitle;
@@ -1699,7 +1695,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         $scope.getSearchNews = false;
 
         function newsDetail() {
-            NavigationService.getOneNews($stateParams.id, function(data) {
+            NavigationService.getOneNews($stateParams.id, function (data) {
                 $scope.getOneNews = data.data.data;
 
                 $scope.getOneRelated = data.data.related;
@@ -1756,9 +1752,9 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         var i = 0;
 
         function callMe() {
-          $scope.filter.pagenumber = 1;
+            $scope.filter.pagenumber = 1;
             // $scope.news10 = [];
-            NavigationService.getNewsHomeSearch($scope.filter, ++i, function(data, newI) {
+            NavigationService.getNewsHomeSearch($scope.filter, ++i, function (data, newI) {
                 if (newI == i) {
                     $scope.myTotal = data.data.total;
                     if ($scope.filter.search.length === 0) {
@@ -1774,7 +1770,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
                     if (data.value) {
                         if (data.data.data.length > 0) {
                             $scope.noNewsFound = false;
-                            _.each(data.data.data, function(n) {
+                            _.each(data.data.data, function (n) {
                                 n.date = new Date(n.date);
                                 $scope.news10.push(n);
                                 // AllNews = $scope.news10;
@@ -1800,7 +1796,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         // };
         $scope.movie = {};
         // $scope.crossdisplay = false;
-        $scope.closeCross = function() {
+        $scope.closeCross = function () {
             // $state.reload();
             $scope.getSearchNews = false;
             $scope.noNewsFound = false;
@@ -1822,20 +1818,20 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         //
         //     callMe();
         // }
-        $scope.getNews10 = function(name) {
+        $scope.getNews10 = function (name) {
             // $scope.crossdisplay = true;
             $scope.filter.search = name;
 
             callMe();
         };
-        $scope.getNewsYear = function(year) {
+        $scope.getNewsYear = function (year) {
             $scope.getYear = year;
             $scope.goYear = true;
 
             $scope.filter.year = year;
             // callMe();
         };
-        $scope.getNewsMonth = function(month) {
+        $scope.getNewsMonth = function (month) {
             $scope.getMonth = month;
             $scope.goMonth = true;
 
@@ -1843,14 +1839,14 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             // callMe();
         };
 
-        $scope.goSearch = function(month, year) {
+        $scope.goSearch = function (month, year) {
             $scope.getSearchNews = true;
 
             $scope.filter.month = month;
             $scope.filter.year = year;
             callMe();
         };
-        $scope.loadMore = function() {
+        $scope.loadMore = function () {
             if (lastpage > $scope.filter.pagenumber) {
 
                 ++$scope.filter.pagenumber;
@@ -1861,18 +1857,18 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         };
 
 
-        NavigationService.getMonthYear(function(data) {
+        NavigationService.getMonthYear(function (data) {
             $scope.monthYear = data.data;
             $scope.month = data.data.month;
             $scope.month = $scope.month.sort();
-            $scope.month = $scope.month.sort(function(a, b) {
+            $scope.month = $scope.month.sort(function (a, b) {
                 return b - a;
             });
             $scope.month = $scope.month.reverse();
         });
 
 
-        $scope.doSearch = function() {
+        $scope.doSearch = function () {
 
             if ($scope.filter.search.length === 0 && !$scope.filter.month && !$scope.filter.year) {
 
@@ -1888,7 +1884,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             }
 
         };
-        $scope.ViewMore = function(myTotal) {
+        $scope.ViewMore = function (myTotal) {
 
             if ($scope.filter.pagesize < myTotal) {
                 $scope.forViewMore = true;
@@ -1903,7 +1899,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         };
 
     })
-    .controller('DharmaTvCtrl', function($scope, TemplateService, NavigationService, $stateParams, $filter, $state) {
+    .controller('DharmaTvCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $filter, $state) {
         $scope.template = TemplateService.changecontent("dharma-tv");
         $scope.menutitle = NavigationService.makeactive("Videos");
         TemplateService.title = $scope.menutitle;
@@ -1914,16 +1910,16 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             'frontend/img/video-play.jpg'
         ];
         $scope.mysearch = {};
-        $scope.viewAll = function() {
+        $scope.viewAll = function () {
             $scope.AllDharmatv = array;
 
         };
 
-        NavigationService.getAllDharmaTvSlider(function(data) {
+        NavigationService.getAllDharmaTvSlider(function (data) {
             $scope.getAllDharmaTvSlider = data.data;
             TemplateService.removeLoader();
         });
-        $scope.viewSearch = function() {
+        $scope.viewSearch = function () {
             // $scope.searchdata.search = "";
             // $scope.callAll();
             if ($stateParams.search) {
@@ -1939,8 +1935,8 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         $scope.getsearch = false;
         var array = [];
         var Allvideos = [];
-        $scope.callAll = function() {
-            NavigationService.getAllDharmatv10(function(data) {
+        $scope.callAll = function () {
+            NavigationService.getAllDharmatv10(function (data) {
                 Allvideos = data.data;
                 if ($stateParams.search || $stateParams.search === "") {
                     $scope.searchdata.search = $stateParams.search;
@@ -1955,7 +1951,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         // if($stateParams.search){
         //   $scope.searchdata.search=$stateParams.search;
         $scope.noMovieFound = false;
-        $scope.doSearch = function() {
+        $scope.doSearch = function () {
             var data1 = $filter('filter')(Allvideos, {
                 title: $scope.searchdata.search
             });
@@ -2032,7 +2028,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         }];
 
     })
-    .controller('DharmaInstaCtrl', function($scope, TemplateService, NavigationService, $stateParams, $filter, $timeout) {
+    .controller('DharmaInstaCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $filter, $timeout) {
         $scope.template = TemplateService.changecontent("dharma-insta");
         $scope.menutitle = NavigationService.makeactive("Dharma Insta");
         TemplateService.title = $scope.menutitle;
@@ -2043,13 +2039,13 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         $scope.postFilter.pagenumber = 1;
         $scope.postFilter.pagesize = 18;
 
-        NavigationService.getAllPosts($scope.postFilter, function(data) {
+        NavigationService.getAllPosts($scope.postFilter, function (data) {
             $scope.myPosts = data.data.data;
 
             TemplateService.removeLoader();
         });
 
-        NavigationService.getAllConfig(function(data) {
+        NavigationService.getAllConfig(function (data) {
             $scope.getInstaConfig = data.data;
 
             TemplateService.removeLoader();
@@ -2105,7 +2101,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             img: 'https://pbs.twimg.com/media/CnUafNAWYAAgbrU.jpg:large'
         }];
     })
-    .controller('Dharma140Ctrl', function($scope, TemplateService, NavigationService, $stateParams, $filter, $timeout) {
+    .controller('Dharma140Ctrl', function ($scope, TemplateService, NavigationService, $stateParams, $filter, $timeout) {
         $scope.template = TemplateService.changecontent("dharma140");
         $scope.menutitle = NavigationService.makeactive("Dharma@140");
         TemplateService.title = $scope.menutitle;
@@ -2114,7 +2110,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         if (!$stateParams.id) {
             //console.log($stateParams.id);
             //console.log('here11111111111111');
-            NavigationService.getAllTwitter(function(data) {
+            NavigationService.getAllTwitter(function (data) {
                 $scope.getFirstId = data.data[0]._id;
                 $stateParams.id = $scope.getFirstId;
                 // $scope.getAllTwitterTag = data.data;
@@ -2125,7 +2121,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
             });
         }
-        NavigationService.getAllTwitter(function(data) {
+        NavigationService.getAllTwitter(function (data) {
             $scope.getAllTwitterTag = data.data;
 
             $scope.selectOneHashTag($stateParams.id);
@@ -2134,9 +2130,9 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         });
         $scope.isMatch = false;
         // $scope.getClass = "";
-        $scope.selectOneHashTag = function(id) {
+        $scope.selectOneHashTag = function (id) {
 
-            _.each($scope.getAllTwitterTag, function(key) {
+            _.each($scope.getAllTwitterTag, function (key) {
                 if (key._id == id) {
                     key.isMatch = true;
 
@@ -2146,9 +2142,9 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
                 }
             });
 
-            NavigationService.getOneHashTag(id, function(data) {
+            NavigationService.getOneHashTag(id, function (data) {
                 $scope.getOneHashTag = data.data.statuses;
-                _.each($scope.getOneHashTag, function(key) {
+                _.each($scope.getOneHashTag, function (key) {
 
                     key.created_at = new Date(key.created_at);
 
@@ -2221,14 +2217,14 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             img: ''
         }];
     })
-    .controller('DharmaYouCtrl', function($scope, TemplateService, NavigationService, $uibModal) {
+    .controller('DharmaYouCtrl', function ($scope, TemplateService, NavigationService, $uibModal) {
         $scope.template = TemplateService.changecontent("dharma-you");
         $scope.menutitle = NavigationService.makeactive("Dharma & You");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         // TemplateService.removeLoaderOn(1);
 
-        NavigationService.dharmaYouAll(function(data) {
+        NavigationService.dharmaYouAll(function (data) {
             $scope.dharmaPosts = data.data;
 
             $scope.enableData = _.groupBy($scope.dharmaPosts, "status");
@@ -2256,7 +2252,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             quest: 'Why was Kal Ho Na Ho shot in New York and not London?',
             answer: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting'
         }];
-        $scope.openModal = function() {
+        $scope.openModal = function () {
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'frontend/views/modal/dharma-you.html',
@@ -2266,20 +2262,20 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             });
         };
 
-        $scope.submitForm = function(data) {
+        $scope.submitForm = function (data) {
 
         };
         $scope.questionSubmit = false;
         $scope.formData = {};
-        $scope.saveYou = function(formData) {
-            NavigationService.youSave($scope.formData, function(data) {
+        $scope.saveYou = function (formData) {
+            NavigationService.youSave($scope.formData, function (data) {
                 if (data.value === true) {
                     $scope.questionSubmit = true;
                 }
             });
         };
     })
-    .controller('MoviesCtrl', function($scope, TemplateService, NavigationService, $stateParams, $filter, $timeout, $state) {
+    .controller('MoviesCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $filter, $timeout, $state) {
         $scope.template = TemplateService.changecontent("movies");
         $scope.menutitle = NavigationService.makeactive("Movies");
         TemplateService.title = $scope.menutitle;
@@ -2346,7 +2342,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         }
         var array = [];
         var allMovies = [];
-        NavigationService.getMovieDetails(function(data) {
+        NavigationService.getMovieDetails(function (data) {
             populateData(data.data);
             allMovies = data.data;
             TemplateService.removeLoader();
@@ -2371,7 +2367,7 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
                 $scope.movieList.Past = _.chunk($scope.movieList.Past, 5);
             }
             $scope.showRecent = false;
-            $timeout(function() {
+            $timeout(function () {
                 $scope.showRecent = true;
             }, 100);
         }
@@ -2383,14 +2379,14 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
         // }
         $scope.viewAll = false;
 
-        $scope.showViewAll = function() {
+        $scope.showViewAll = function () {
             $scope.viewAll = true;
         };
         $scope.nodata = false;
         $scope.getsearch = false;
         $scope.searchdata.search = [];
         // $scope.mySearchFor=false;
-        $scope.DoSearch = function(search, id) {
+        $scope.DoSearch = function (search, id) {
             $state.go('movie-inside', {
                 id: id
             });
@@ -2404,11 +2400,11 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
             populateData(data);
         };
 
-        $scope.viewSearch = function(moviename) {
+        $scope.viewSearch = function (moviename) {
 
             $scope.moviename = '';
             $scope.mySearchFor = '';
-            NavigationService.getMovieDetails(function(data) {
+            NavigationService.getMovieDetails(function (data) {
                 populateData(data.data);
                 allMovies = data.data;
                 TemplateService.removeLoader();
@@ -2464,33 +2460,33 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
 
 
 
-        NavigationService.getAllMovieName(function(data) {
+        NavigationService.getAllMovieName(function (data) {
             $scope.allMovieName = data.data;
             $scope.allMovieName = _.groupBy($scope.allMovieName, "status");
             $scope.allMovieName = $scope.allMovieName.true;
         });
     })
 
-.controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
+    .controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
 
-    $scope.changeLanguage = function() {
+        $scope.changeLanguage = function () {
 
-        if (!$.jStorage.get("language")) {
-            $translate.use("hi");
-            $.jStorage.set("language", "hi");
-        } else {
-            if ($.jStorage.get("language") == "en") {
+            if (!$.jStorage.get("language")) {
                 $translate.use("hi");
                 $.jStorage.set("language", "hi");
             } else {
-                $translate.use("en");
-                $.jStorage.set("language", "en");
+                if ($.jStorage.get("language") == "en") {
+                    $translate.use("hi");
+                    $.jStorage.set("language", "hi");
+                } else {
+                    $translate.use("en");
+                    $.jStorage.set("language", "en");
+                }
             }
-        }
-        //  $rootScope.$apply();
-    };
+            //  $rootScope.$apply();
+        };
 
 
-})
+    })
 
 ;
