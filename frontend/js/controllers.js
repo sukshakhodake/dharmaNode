@@ -14,7 +14,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         TemplateService.removeLoaderOn(5);
-
+console.log('for change');
         $scope.openModals = function () {
             $scope.modalInstanceABC = $uibModal.open({
                 animation: $scope.animationsEnabled,
