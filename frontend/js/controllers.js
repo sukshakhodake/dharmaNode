@@ -553,7 +553,7 @@ $rootScope.fetchFormEmail = "";
     // console.log('toParams',toParams);
     console.log('oldUrl',oldUrl);
         $scope.oldddUrl = oldUrl;
-        if ($scope.myUrll != newUrl || window.location.href == "http://localhost:1337/fan-corner") {
+        if ($scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner") {
             $scope.oldddUrl = $scope.oldddUrl;
         } else {
             var answer = alert("You cannot view your previous answer");
