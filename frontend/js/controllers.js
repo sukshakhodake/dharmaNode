@@ -444,13 +444,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var modalInstance2 = {};
+    // console.log('sssssssssssssss');
     // --------------------- to check state -------------------
 $rootScope.$on('$locationChangeStart', function(e, toState, toParams, fromState, fromParams) {
-    console.log('sssssssssssssss');
-    console.log('e',e);
-    console.log('toState',toState);
-    console.log('toParams',toParams);
-    console.log('fromState',fromState);
+    
+    // console.log('e',e);
+    // console.log('toState',toState);
+    // console.log('toParams',toParams);
+    // console.log('fromState',fromState);
      console.log('fromParams',fromParams);
     // if (toState.module === 'private' && !$cookies.Session) {
     //     // If logged out and transitioning to a logged in page:
@@ -463,10 +464,10 @@ $rootScope.$on('$locationChangeStart', function(e, toState, toParams, fromState,
     // };
 });
 $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
-    console.log('event',event);
-    console.log('toState',toState);
+    // console.log('event',event);
+    // console.log('toState',toState);
     // console.log('toParams',toParams);
-    console.log('fromState',fromState);
+    // console.log('fromState',fromState);
     //  console.log('fromParams',fromParams);
     // if (toState.module === 'private' && !$cookies.Session) {
     //     // If logged out and transitioning to a logged in page:
@@ -507,8 +508,10 @@ $rootScope.fetchFormEmail = "";
         NavigationService.submitFormData(formData, function(data) {
           console.log('submitFormDataFancorner',data);
             if (data.data.message === "already exist") {
+                console.log('IFFFpART')
                 $scope.validEmail = true;
             } else {
+                console.log('elseeeepART');
                 $rootScope.fetchFormEmail = data.data._id;
                   console.log('$rootScope.fetchFormEmail inside fancorner',$rootScope.fetchFormEmail);
                 modalInstance2.close();
@@ -528,7 +531,7 @@ $rootScope.fetchFormEmail = "";
     // };
 
     $scope.myUrl = window.location.href;
-    //console.log('$scope.myUrl fan-cornerctrl', $scope.myUrl);
+    console.log('$scope.myUrl fan-cornerctrl', $scope.myUrl);
 
 
 })
@@ -548,14 +551,17 @@ $rootScope.fetchFormEmail = "";
         });
     };
     $rootScope.$on('$locationChangeStart', function(event, newUrl, oldUrl) {
-         console.log('event',event);
+        //  console.log('event',event);
     console.log('newUrl',newUrl);
     // console.log('toParams',toParams);
     console.log('oldUrl',oldUrl);
         $scope.oldddUrl = oldUrl;
+          console.log('scope.myUrll', " == ", $scope.myUrll , $scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner");
         if ($scope.myUrll != newUrl || window.location.href == "http://dharma-production.com/fan-corner") {
+            console.log('if play');
             $scope.oldddUrl = $scope.oldddUrl;
         } else {
+            console.log('else alert');
             var answer = alert("You cannot view your previous answer");
             event.preventDefault();
         }
@@ -574,6 +580,7 @@ $rootScope.fetchFormEmail = "";
     $scope.mDisable = true;
     $scope.nextQuestion = function() {
         $scope.myUrll = window.location.href;
+        console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
         RapidAnswer.saveAnswer($scope.currentquestion);
         //console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
         if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
@@ -672,10 +679,10 @@ $rootScope.$on('$locationChangeStart', function(event, toState, fromState) {
     // }else{
 
     // }
-    console.log('event',event);
-    console.log('toState',toState);
+    // console.log('event',event);
+    // console.log('toState',toState);
     // console.log('toParams',toParams);
-    console.log('fromState',fromState);
+    // console.log('fromState',fromState);
     //  console.log('fromParams',fromParams);
     // if (toState.module === 'private' && !$cookies.Session) {
     //     // If logged out and transitioning to a logged in page:
