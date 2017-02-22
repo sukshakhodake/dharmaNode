@@ -111,7 +111,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 6,
             quesNo: "Q6",
-            question: " ___ bajaati hui Naagin?",
+            question: "Complete the lyrics - ___ bajaati hui Naagin?",
             model: "quest6",
             options: [{
                 "id": "radio1",
@@ -191,7 +191,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "Which festival is Badrinath Ki Dulhania slated to release?",
+            question: "Which festival is Badrinath Ki Dulhania slated to release on?",
             model: "quest10",
             options: [{
                 "id": "radio1",
