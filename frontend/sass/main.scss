@@ -171,6 +171,11 @@ a {
 
 .navbar {
     margin-bottom: 0;
+    @include transition(all 300ms ease);
+}
+
+.nav-up {
+    @include transform(translateY(-100%));
 }
 
 .row-flex {
