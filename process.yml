@@ -1,6 +1,6 @@
 apps:
   - script: "app.js"
     name: "Dharma Production"
-    watch: true,
-    "ignore_watch" : ["node_modules", "backup","bower_components"],
+    watch: true
+    "ignore_watch" : ["node_modules", "backup","bower_components"]
     args: "--port 85"
