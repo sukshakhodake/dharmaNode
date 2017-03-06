@@ -26,7 +26,7 @@ module.exports = {
      ***************************************************************************/
 
     port: 85,
-    realHost: "http://dharma-production.com",
+    realHost: "https://dharma-production.com",
 
 
     // realHost:"http://localhost:1337",   

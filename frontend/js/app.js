@@ -186,8 +186,7 @@ firstapp.filter('uploadpath2', function () {
 
         if (input) {
             if (input.indexOf('https://') == -1) {
-                return "http://dharmaimages.tingdom.in/api/" + "download/" + input;
-                // return  "http://dharma-production.com/api/" + "download/" + input;
+                return "https://www.dharma-production.com/api/" + "download/" + input;
 
             } else {
                 return input;
@@ -517,7 +516,7 @@ firstapp.directive('fancyboxBox', function ($document) {
 firstapp.filter('youtubethumb', function () {
     return function (input, onlyid) {
         if (input) {
-            return "http://img.youtube.com/vi/" + input + "/hqdefault.jpg";
+            return "https://img.youtube.com/vi/" + input + "/hqdefault.jpg";
         }
     };
 });
