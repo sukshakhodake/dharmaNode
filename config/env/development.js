@@ -21,7 +21,5 @@ module.exports = {
     //   connection: 'someMongodbServer'
     // }
     port: 1337,
-    realHost: "http://dharma-production.com"
-
-// realHost:"http://localhost:1337",
+    realHost: "https://dharma-production.com"
 };
