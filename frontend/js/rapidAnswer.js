@@ -7,205 +7,204 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "Which superstar's name is taken in the teaser?",
+            question: "The dream girl Shanaya in Student of the year was wearing a ____ colored dress at the dance competition!",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Aamir Khan"
+                "name": "Blue"
 
             }, {
                 "id": "radio2",
-                "name": "Salman Khan"
+                "name": "Pink"
 
             }, {
                 "id": "radio3",
-                "name": "Shahrukh Khan",
+                "name": "Red",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Sanjay Dutt"
+                "name": "Black"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "Which city is Badri from?",
+            question: "Where does Ananya live in the movie, 2 States?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Lucknow"
+                "name": "Chandigarh"
             }, {
                 "id": "radio2",
-                "name": "Jaipur"
+                "name": "Chennai",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Kota"
+                "name": "Bangalore"
             }, {
                 "id": "radio4",
-                "name": "Jhansi",
-                answer: true
+                "name": "Mumbai"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: " What is more important than love for Vaidehi?",
+            question: "Kaavya's ultimate dream in Humpty Sharma Ki Dulhania was?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Career"
+                "name": "To get married"
             }, {
                 "id": "radio2",
-                "name": "Respect",
-                answer: true
+                "name": "To get her sister married again"
             }, {
                 "id": "radio3",
-                "name": "Family"
+                "name": "Kareena's designer lehenga",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Freedom"
+                "name": "She didn't have any ultimate dream"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "On the day of the teaser launch, what was Badri watching at night?",
+            question: " What was Tia trying to sell to Rahul in Kapoor & Sons?",
             model: "quest4",
             options: [{
                 "id": "radio1",
-                "name": "#BadriKaTeaser"
+                "name": "Her house",
+                answer: true
 
             }, {
                 "id": "radio2",
-                "name": "#RoyalWedding"
+                "name": "Her car"
 
 
             }, {
                 "id": "radio3",
-                "name": " #RoyalRumble",
-                answer: true
+                "name": "A restaurant"
 
             }, {
                 "id": "radio4",
-                "name": "#HumptySharmaKiDulhania"
+                "name": "Nothing"
 
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "Who has sung Humsafar?",
+            question: " What was Alia Bhatt's name in Shaandaar?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Amaal Malik"
+                "name": "Aloo"
             }, {
                 "id": "radio2",
 
-                "name": "Arijit Singh"
+                "name": "Aila"
 
             }, {
                 "id": "radio3",
-                "name": "Akhil Sachdeva",
+                "name": "Alia",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Tanishk Bagchi "
+                "name": "Alie"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: "Complete the lyrics - ___ bajaati hui Naagin?",
+            question: "What is Kaira's profession in Dear Zindagi?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Jean"
+                "name": "Director"
             }, {
                 "id": "radio2",
-                "name": "Been",
+                "name": "Cinematographer",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Trumpet"
+                "name": "Editor"
             }, {
                 "id": "radio4",
-                "name": "Basuri"
+                "name": "Actor"
 
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "Complete the lyrics - ___ bana kar le jaayenge, Badri ki Dulhania!",
+            question: "Which song has Alia recreated in her voice from Badrinath Ki Dulhania?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Dulhania"
+                "name": "Samjhawan"
 
             }, {
                 "id": "radio2",
-                "name": "Rani",
-                answer: true
+                "name": "Roke na ruke naina"
 
             }, {
                 "id": "radio3",
-                "name": "Vaidehi "
+                "name": "Humsafar",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Dulha"
+                "name": "Tamma Tamma Again"
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: 'Complete the dialogue - "____ se tumhaara door ka lena dena nahi hai!"',
+            question: 'How old was Alia when she did Student of the year?"',
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Izzat"
+                "name": "17"
             }, {
                 "id": "radio2",
-                "name": "Pyaar"
-            }, {
-                "id": "radio3",
-                "name": "Maryaada",
+                "name": "18",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "19"
+            }, {
                 "id": "radio4",
-                "name": "Faayda"
+                "name": "20"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: " Which foreign destination have they shot in?",
+            question: "Which animal does she have as a pet?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Malaysia"
+                "name": "Dog"
             }, {
                 "id": "radio2",
-                "name": "Singapore",
-                answer: true
+                "name": "Fish"
             }, {
                 "id": "radio3",
-                "name": "New York"
-
+                "name": "Cat",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "L.A"
+                "name": "Rabbit"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "Which festival is Badrinath Ki Dulhania slated to release on?",
+            question: "What is the name of her recent movie where she is playing a girl from Kota?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "Diwali"
+                "name": "Dear Zindagi"
             }, {
                 "id": "radio2",
-                "name": "Holi",
+                "name": "Badrinath Ki Dulhania",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Eid"
+                "name": "Kapoor & Sons"
             }, {
                 "id": "radio4",
-                "name": "Christmas"
+                "name": "She has never played such a role"
             }]
         }];
         var answered;
