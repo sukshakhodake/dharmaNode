@@ -11,9 +11,12 @@
                         </div>
                         <div class="movie-trailor dh-relative">
                             <!-- <img src="frontend/img/movie-trailor.jpg" alt="Dharma Productions" class="img-responsive margin-auto width100"> -->
-                            <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{moviefindOne.theatricalTrailerUrl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" data-fancybox-type="iframe">
-                                <img ng-src="{{moviefindOne.theatricalTrailerImage|uploadpath}}" alt="Dharma Productions" class="img-responsive margin-auto width100" ng-if="(moviefindOne.theatricalTrailerImage || moviefindOne.theatricalTrailerImage != '')">
-                                <img ng-src="{{moviefindOne.theatricalTrailerUrl|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(moviefindOne.theatricalTrailerImage || moviefindOne.theatricalTrailerImage != '')">
+                            <a class="various fancybox.iframe" fancybox rel="gallery1" href="https://www.youtube.com/embed/{{moviefindOne.theatricalTrailerUrl}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                                data-fancybox-type="iframe">
+                                <img ng-src="{{moviefindOne.theatricalTrailerImage|uploadpath}}" alt="Dharma Productions" class="img-responsive margin-auto width100"
+                                    ng-if="(moviefindOne.theatricalTrailerImage || moviefindOne.theatricalTrailerImage != '')">
+                                <img ng-src="{{moviefindOne.theatricalTrailerUrl|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100"
+                                    ng-if="!(moviefindOne.theatricalTrailerImage || moviefindOne.theatricalTrailerImage != '')">
                                 <div class="dh-absulate middle">
                                     <img src="frontend/img/play-movie.png" alt="Dharma Productions">
                                 </div>
@@ -26,14 +29,22 @@
                 <!-- FOR WEBSITE -->
                 <div class="all-tabs hidden-xs">
                     <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn {{classa}}" ng-click="tabchange('synopsis',1,myid)" ng-class="{'my-disable':movieSynopsisAndNote.synopsis.length<=0}" ng-disabled="movieSynopsisAndNote.synopsis.length<=0" ui-sref="movie-inside({id:myid})">Synopsis </button>
-                        <button type="button" class="btn {{classb}}" ng-click="tabchange('cast',2,myid)" ng-class="{'my-disable': movieCast.length<=0}" ng-disabled="movieCast.length<=0" ui-sref="movie-inside({id:myid})"> CAST & CREDITS</button>
-                        <button type="button" class="btn {{classc}}" ng-click="tabchange('news',3,myid)" ng-class="{'my-disable': movieNews.length<=0}" ng-hide="movieNews.length<=0" ui-sref="movie-inside({id:myid})"> News</button>
-                        <button type="button" class="btn {{classd}}" ng-class="{'my-disable': MovieGal.length<=0}" ng-click="tabchange('gallery',4,myid)" ng-disabled="MovieGal.length<=0" ui-sref="movie-inside({id:myid})">Gallery</button>
-                        <button type="button" class="btn {{classe}}" ng-click="tabchange('scene',5,myid)" ng-class="{'my-disable': movieBehindTheScenes.length<=0}" ng-disabled="movieBehindTheScenes.length<=0" ui-sref="movie-inside({id:myid})">behind the scenes</button>
-                        <button type="button" class="btn {{classf}}" ng-click="tabchange('video',6,myid)" ng-class="{'my-disable': movieVideo10.length<=0}" ng-disabled="movieVideo10.length<=0" ui-sref="movie-inside({id:myid})"> VIDEOS </button>
-                        <button type="button" class="btn {{classg}}" ng-click="tabchange('wallpapper',7,myid)" ng-class="{'my-disable': movieWallpaper.length<=0}" ng-disabled="movieWallpaper.length<=0" ui-sref="movie-inside({id:myid})">WALLPAPERS </button>
-                        <button type="button" class="btn {{classh}}" ng-click="tabchange('awards',8,myid)" ng-class="{'my-disable': MovieAwards.length  == 0}" ng-hide="MovieAwards.length  == 0" ui-sref="movie-inside({id:myid})">
+                        <button type="button" class="btn {{classa}}" ng-click="tabchange('synopsis',1,myid)" ng-class="{'my-disable':movieSynopsisAndNote.synopsis.length<=0}"
+                            ng-disabled="movieSynopsisAndNote.synopsis.length<=0" ui-sref="movie-inside({id:myid})">Synopsis </button>
+                        <button type="button" class="btn {{classb}}" ng-click="tabchange('cast',2,myid)" ng-class="{'my-disable': movieCast.length<=0}"
+                            ng-disabled="movieCast.length<=0" ui-sref="movie-inside({id:myid})"> CAST & CREDITS</button>
+                        <button type="button" class="btn {{classc}}" ng-click="tabchange('news',3,myid)" ng-class="{'my-disable': movieNews.length<=0}"
+                            ng-hide="movieNews.length<=0" ui-sref="movie-inside({id:myid})"> News</button>
+                        <button type="button" class="btn {{classd}}" ng-class="{'my-disable': MovieGal.length<=0}" ng-click="tabchange('gallery',4,myid)"
+                            ng-disabled="MovieGal.length<=0" ui-sref="movie-inside({id:myid})">Gallery</button>
+                        <button type="button" class="btn {{classe}}" ng-click="tabchange('scene',5,myid)" ng-class="{'my-disable': movieBehindTheScenes.length<=0}"
+                            ng-disabled="movieBehindTheScenes.length<=0" ui-sref="movie-inside({id:myid})">behind the scenes</button>
+                        <button type="button" class="btn {{classf}}" ng-click="tabchange('video',6,myid)" ng-class="{'my-disable': movieVideo10.length<=0}"
+                            ng-disabled="movieVideo10.length<=0" ui-sref="movie-inside({id:myid})"> VIDEOS </button>
+                        <button type="button" class="btn {{classg}}" ng-click="tabchange('wallpapper',7,myid)" ng-class="{'my-disable': movieWallpaper.length<=0}"
+                            ng-disabled="movieWallpaper.length<=0" ui-sref="movie-inside({id:myid})">WALLPAPERS </button>
+                        <button type="button" class="btn {{classh}}" ng-click="tabchange('awards',8,myid)" ng-class="{'my-disable': MovieAwards.length  == 0}"
+                            ng-hide="MovieAwards.length  == 0" ui-sref="movie-inside({id:myid})">
                                                         AWARDS </button>
                     </div>
                 </div>
@@ -59,9 +70,11 @@
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs vs-dis">
                     <div class="all-tabs">
                         <div class="btn-group" role="group" aria-label="...">
-                            <flex-slider flex-slide="item in tabing track by $index" animation="slide" item-width="120" item-margin="10" animationloop="true" move="2">
+                            <flex-slider flex-slide="item in tabing track by $index" animation="slide" item-width="120" item-margin="10" animationloop="true"
+                                move="2">
                                 <li class="text-center mobileMovieTabs">
-                                    <button type="button" class="btn {{item.class}}" ng-click="tabchangeMob(item.tab,$index)" ng-class="{'my-disable': {{item.ngclass}},'active-list':item.activemob}" ng-disabled="{{item.ngdisabled}}" ui-sref="movie-inside({id:myid})" ng-hide="{{item.nghide}}">{{item.name}}</button>
+                                    <button type="button" class="btn {{item.class}}" ng-click="tabchangeMob(item.tab,$index)" ng-class="{'my-disable': {{item.ngclass}},'active-list':item.activemob}"
+                                        ng-disabled="{{item.ngdisabled}}" ui-sref="movie-inside({id:myid})" ng-hide="{{item.nghide}}">{{item.name}}</button>
                                 </li>
                                 <!-- <li class="text-center mobileMovieTabs">
                                     <button type="button" class="btn {{item.class}}" ng-click="tabchangeMob(item.tab,$index)" ng-class="{'my-disable': {{item.ngclass}},'active-list':item.activemob}" ng-disabled="{{item.ngdisabled}}" ui-sref="movie-insideTab({id:myid,tab:item.tab})" ng-hide="{{item.nghide}}">{{item.name}}</button>
@@ -336,7 +349,7 @@
                                 <div class="row">
                                     <div class="col-md-4 pad5 col-sm-4 col-xs-12" ng-repeat="item in movieVideo track by $index">
                                         <div class="video-play-box dh-relative">
-                                            <a class="fancybox.iframe fancybox-thumb" fancybox rel="fancybox-thumb" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                                            <a class="fancybox.iframe fancybox-thumb" fancybox rel="fancybox-thumb" href="https://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
                                                 <div class="img-animates">
                                                     <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100 img-hv" ng-if="(item.thumbnail || item.thumbnail != '')">
                                                     <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100 img-hv" ng-if="!(item.thumbnail || item.thumbnail != '')">
@@ -373,7 +386,7 @@
                         </div>
                         <div class="text-center mt30">
                             <div class="btn-outline">
-                                
+
                                 <button type="button" name="button" class="btn-primary-outline font-hammersmith btn-enter" ui-sref="tv-insideSearch({id:myid,search:myid})">VIEW MORE</button>
                                 <!--<button type="button" name="button" class="btn-primary-outline font-hammersmith btn-enter" ui-sref="tv-inside({id:myid})">VIEW MORE</button>-->
                                 <!-- <button type="button" name="button" class="btn-primary-outline font-hammersmith btn-enter" ng-click="moreVideo();">VIEW MORE</button> -->
@@ -394,7 +407,8 @@
                             <div class="row">
                                 <div class="col-md-11 col-sm-10 col-xs-12">
                                     <div class="row">
-                                        <div class="col-md-4 pad5 col-sm-6 col-xs-12" ng-repeat="item in movieWallpaper track by $index" ng-if="item.type=='Desktop'" ng-show="item.image || item.image!= ''">
+                                        <div class="col-md-4 pad5 col-sm-6 col-xs-12" ng-repeat="item in movieWallpaper track by $index" ng-if="item.type=='Desktop'"
+                                            ng-show="item.image || item.image!= ''">
                                             <div class="all-wall">
                                                 <div class="desktop dh-relative">
                                                     <img ng-src="{{item.image|uploadpath:400}}" alt="Dharma productions" class="img-responsive width100">
@@ -576,7 +590,8 @@
                 </div>
                 <!-- when image should be more than 5 then folloe this ui -->
                 <div class="mobs-slider nav-cl" ng-if="MovieRelated.length>5">
-                    <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1" slideshow-Speed="2000">
+                    <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true"
+                        move="1" slideshow-Speed="2000">
                         <li>
                             <a ng-if="item.status==true" ui-sref="movie-inside({id:item.urlName})">
                                 <div class="img-pads">
@@ -598,7 +613,8 @@
             </div>
             <!-- for mobile ui -->
             <div class="mobs-slider hidden-lg hidden-md hidden-sm nav-cl">
-                <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true" move="1">
+                <flex-slider flex-slide="item in MovieRelated track by $index" animation="slide" item-width="215" item-margin="20" animationloop="true"
+                    move="1">
                     <li>
                         <a>
                             <div class="img-pads" ui-sref="movie-inside({id:item.urlName})">

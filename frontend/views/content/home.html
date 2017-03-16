@@ -1,14 +1,14 @@
-
 <!-- for desktop ------>
 <section scrolldown class="hidden-xs hidden-ipad">
     <div class="home-slider dh-relative ">
-        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
+        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider" animation="slide" animation-loop="true">
             <li auto-heightfixed>
-              <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+                <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
                 <!-- <div  style="background:url('{{s.image|uploadpath}}');background-position:center center;background-size:cover;background-repeat:no-repeat;height:100%;"  ng-if="s.status == false"  noloading="true"></div> -->
-                      <!-- <div  style="background:url('{{s.image|uploadpath}}');background-position:center center;background-size:cover;background-repeat:no-repeat;height:100%;"  ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})"  noloading="true"></div> -->
-            <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" auto-heightfixed noloading="true">
-          </li>
+                <!-- <div  style="background:url('{{s.image|uploadpath}}');background-position:center center;background-size:cover;background-repeat:no-repeat;height:100%;"  ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})"  noloading="true"></div> -->
+                <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions"
+                    auto-heightfixed noloading="true">
+            </li>
         </flex-slider>
         <div class="movie-tab text-center dh-absulate dh-list second">
             <!-- <div class="btn-group" role="group" aria-label="...">
@@ -31,12 +31,13 @@
 <!-- for IPAD -->
 <section scrolldown class="visible-ipad">
     <div class="home-slider dh-relative ">
-        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
+        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider" animation="slide" animation-loop="true">
             <li auto-heightfixed>
-              <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
-              <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" auto-heightfixed noloading="true">
+                <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+                <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions"
+                    auto-heightfixed noloading="true">
 
-          </li>
+            </li>
         </flex-slider>
         <div class="movie-tab text-center dh-absulate dh-list second">
 
@@ -55,12 +56,13 @@
 <!-- for IPADAir -->
 <section scrolldown class="visible-ipad-air">
     <div class="home-slider dh-relative ">
-        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
+        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider" animation="slide" animation-loop="true">
             <li auto-heightfixed>
-              <img ng-src="{{s.ipadAirImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
-              <img ng-src="{{s.ipadAirImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" auto-heightfixed noloading="true">
+                <img ng-src="{{s.ipadAirImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+                <img ng-src="{{s.ipadAirImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions"
+                    auto-heightfixed noloading="true">
 
-          </li>
+            </li>
         </flex-slider>
         <div class="movie-tab text-center dh-absulate dh-list second">
 
@@ -79,12 +81,13 @@
 <!-- for ipadProImage -->
 <section scrolldown class="visible-ipad-pro">
     <div class="home-slider dh-relative ">
-        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider"  animation="slide"  animation-loop="true">
+        <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider" animation="slide" animation-loop="true">
             <li auto-heightfixed>
-              <img ng-src="{{s.ipadProImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
-              <img ng-src="{{s.ipadProImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" auto-heightfixed noloading="true">
+                <img ng-src="{{s.ipadProImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+                <img ng-src="{{s.ipadProImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions"
+                    auto-heightfixed noloading="true">
 
-          </li>
+            </li>
         </flex-slider>
         <div class="movie-tab text-center dh-absulate dh-list second">
 
@@ -105,8 +108,10 @@
     <div class="home-slider dh-relative width-auto mo-bl-tp">
         <flex-slider flex-slide="s in getAllSlides track by $index" slideshowSpeed=3000 animation=slide>
             <li auto-heightfixed>
-                <img ng-src="{{s.mobileImage|uploadpath}}" alt="Dharma Productions" ng-if="s.status == false"  class="img-responsive" auto-height onloading="true">
-                <img ng-src="{{s.mobileImage|uploadpath}}"  ng-if="s.status == true"  ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions" ui-sref="movie-inside" class="img-responsive" auto-height onloading="true">
+                <img ng-src="{{s.mobileImage|uploadpath}}" alt="Dharma Productions" ng-if="s.status == false" class="img-responsive" auto-height
+                    onloading="true">
+                <img ng-src="{{s.mobileImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions"
+                    ui-sref="movie-inside" class="img-responsive" auto-height onloading="true">
             </li>
         </flex-slider>
         <div class="movie-tab text-center dh-absulate dh-list second">
@@ -159,19 +164,20 @@
                         </div>
                         <div class="movie-names">
                             <h4 class="text-up color-grey">{{item.name|shorten : 20}}
-                              <br>({{item.releaseDate | date:'dd MMM yyyy' }})</h4>
+                                <br>({{item.releaseDate | date:'dd MMM yyyy' }})</h4>
                         </div>
                     </div>
                 </div>
                 <!-- mobile -->
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider nav-hide-mob ch-nav">
-                    <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animation-loop="true" move="1" slideshow-Speed="2000">
+                    <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animation-loop="true"
+                        move="1" slideshow-Speed="2000">
                         <li>
                             <a>
                                 <div class="img-pads" ng-if="item.status==true">
-                                    <img  ui-sref="movie-inside({id:item._id})" ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
+                                    <img ui-sref="movie-inside({id:item._id})" ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                                 </div>
-                                 <div class="img-pads" ng-if="item.status==false">
+                                <div class="img-pads" ng-if="item.status==false">
                                     <img ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                                 </div>
                                 <div class="movie-names">
@@ -210,7 +216,8 @@
                 </div>
                 <!-- mobile -->
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs ch-nav">
-                    <flex-slider flex-slide="item in AllRecentMovies track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true" move="1">
+                    <flex-slider flex-slide="item in AllRecentMovies track by $index" animation="slide" item-width="207" item-margin="20" animationloop="true"
+                        move="1">
                         <li>
                             <a ng-if="item.status == true" ui-sref="movie-inside({id:item._id})">
                                 <div class="img-pads">
@@ -256,10 +263,12 @@
             <div class="row">
                 <div class="video-play text-shadow">
 
-                    <a class="various fancybox.iframe" fancybox rel="gallery5" href="http://www.youtube.com/embed/{{getDharmaTvSlides.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"  data-fancybox-type="iframe">
+                    <a class="various fancybox.iframe" fancybox rel="gallery5" href="https://www.youtube.com/embed/{{getDharmaTvSlides.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                        data-fancybox-type="iframe">
 
 
-                        <img ng-src="{{getDharmaTvSlides.image|uploadpath}}" alt="Dharma Productions" ng-if="(getDharmaTvSlides.image || getDharmaTvSlides.image != '')" class="img-responsive width100">
+                        <img ng-src="{{getDharmaTvSlides.image|uploadpath}}" alt="Dharma Productions" ng-if="(getDharmaTvSlides.image || getDharmaTvSlides.image != '')"
+                            class="img-responsive width100">
                         <img ng-src="{{getDharmaTvSlides.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(getDharmaTvSlides.image || getDharmaTvSlides.image != '')">
 
                         <div class="play-btn text-center dh-absulate middle">
@@ -277,15 +286,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="video-slider slider-nav mt30 min-tp-nm nav-cn-hide">
-                            <flex-slider flex-slide="item in getAllUpcomingMovies track by $index" animation="slide" item-width="300" item-margin="0" animationloop="true" move="1" slideshowSpeed=1000>
+                            <flex-slider flex-slide="item in getAllUpcomingMovies track by $index" animation="slide" item-width="300" item-margin="0"
+                                animationloop="true" move="1" slideshowSpeed=1000>
                                 <li>
-                                   <a class="various fancybox.iframe" fancybox rel="gallery1" href="http://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="movies" data-fancybox-type="iframe">
+                                    <a class="various fancybox.iframe" fancybox rel="gallery1" href="https://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                                        rel="movies" data-fancybox-type="iframe">
                                         <div class="video-box">
                                             <div class="video-slide-img">
-  <div class="img-animate">
-                                                <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
-                                                <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
-                                              </div>
+                                                <div class="img-animate">
+                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
+                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                </div>
                                             </div>
                                             <div class="video-names mt10">
                                                 <span class="color-white">{{item.title}}</span>
@@ -320,7 +331,7 @@
                         </div>
                         <div class="sub-text display-inline mt20">
                             <h3 class="font-hammersmith color-primary text-up margin0">SUBSCribe NOW
-                </h3>
+                            </h3>
                             <h3 class="font-hammersmith color-primary text-up margin0">for MORE UPDATES</h3>
                         </div>
                     </div>
@@ -369,19 +380,19 @@
                             </div>
                             <div class="video-date">
                                 <span class="color-black f12">{{item.date |date:'d MMM y'}}</span>
-                            </div>
-                            <div class="video-desc">
-                                <!-- <div class="color-black" ng-bind-html="item.text|cut:true:100"></div> -->
+                                </div>
+                                <div class="video-desc">
+                                    <!-- <div class="color-black" ng-bind-html="item.text|cut:true:100"></div> -->
 
-                            </div>
+                                </div>
                         </div>
-                    </a>
-                </li>
-                <li ng-if="News.length > 10 && $index == 9">
-                    <a ui-sref="news-events"><img src="frontend/img/more.jpg" alt=""></a>
-                </li>
-            </flex-slider>
-            <!-- <flex-slider flex-slide="item in news track by $index" animation="slide" item-width="300" item-margin="60" animationloop="true" move="1">
+                        </a>
+                        </li>
+                        <li ng-if="News.length > 10 && $index == 9">
+                            <a ui-sref="news-events"><img src="frontend/img/more.jpg" alt=""></a>
+                        </li>
+                        </flex-slider>
+                        <!-- <flex-slider flex-slide="item in news track by $index" animation="slide" item-width="300" item-margin="60" animationloop="true" move="1">
     <li>
         <a href="">
             <div class="video-box ">
@@ -401,55 +412,14 @@
         </a>
     </li>
 </flex-slider> -->
-        </div>
-    </div>
-</section>
-<section class="hidden-xs">
-    <div class="dhrarma-world dh-relative">
-        <img src="frontend/img/news-bg.jpg" alt="" class="img-responsive ">
-
-        <div class="container dh-absulate middle">
-            <div class="row">
-                <div class="col-md-offset-1 col-md-10 text-center">
-                    <div class="dharma-world-text text-center">
-                        <div class="text-center">
-                            <img src="frontend/img/dharma-img.png" alt="Dharma Productions" class="img-responsive margin-auto">
-
-                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-offset-2 col-md-8">
-                    <div class="pad-inner text-center">
-                      <p class="color-white margin0">For those whose dharma is Dharma, welcome home.</p>
-                      <p class="color-white">Entertainment | Interaction | and much more; we bring to you the best of the Dharma Family.</p>
+    </section>
+    <section class="hidden-xs">
+        <div class="dhrarma-world dh-relative">
+            <img src="frontend/img/news-bg.jpg" alt="" class="img-responsive ">
 
-                        <div class="btn-view-enter mt20 text-center mob-marg0">
-                            <a ui-sref="dharma-world" class="btn-1 font-hammersmith btn color-primary text-center">
-                                <svg>
-                                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                </svg>
-                                ENTER
-                            </a>
-                            <!-- <button type="button" name="button" class="btn-primary-outline font-hammersmith btn-enter"></button> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top-right dh-absulate">
-            <img src="frontend/img/top-right.png" alt="">
-        </div>
-        <div class="bottom-left dh-absulate">
-            <img src="frontend/img/bottom-left.png" alt="">
-        </div>
-    </div>
-</section>
-<section class="hidden-lg hidden-md hidden-sm visible-xs">
-    <div class="dhrarma-world dh-relative">
-        <div class="bg-inner ">
-            <div class="container">
+            <div class="container dh-absulate middle">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-10 text-center">
                         <div class="dharma-world-text text-center">
@@ -463,11 +433,11 @@
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8">
                         <div class="pad-inner text-center">
-                          <p class="color-white margin0">For those whose dharma is Dharma, welcome home.</p>
-                          <p class="color-white">Entertainment | Interaction | and much more; we bring to you the best of the Dharma Family.</p>
+                            <p class="color-white margin0">For those whose dharma is Dharma, welcome home.</p>
+                            <p class="color-white">Entertainment | Interaction | and much more; we bring to you the best of the Dharma Family.</p>
 
                             <div class="btn-view-enter mt20 text-center mob-marg0">
-                                <a href="" class="btn-1 font-hammersmith btn color-primary text-center">
+                                <a ui-sref="dharma-world" class="btn-1 font-hammersmith btn color-primary text-center">
                                     <svg>
                                         <rect x="0" y="0" fill="none" width="100%" height="100%" />
                                     </svg>
@@ -479,33 +449,74 @@
                     </div>
                 </div>
             </div>
-
+            <div class="top-right dh-absulate">
+                <img src="frontend/img/top-right.png" alt="">
+            </div>
+            <div class="bottom-left dh-absulate">
+                <img src="frontend/img/bottom-left.png" alt="">
+            </div>
         </div>
-    </div>
-</section>
-<section>
-    <div class="dharma-title-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-offset-2 col-md-6">
-                    <div class="title">
-                        <h1 class="color-primary font-hammersmith f90 line45">LET’S TALK</h1>
+    </section>
+    <section class="hidden-lg hidden-md hidden-sm visible-xs">
+        <div class="dhrarma-world dh-relative">
+            <div class="bg-inner ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-10 text-center">
+                            <div class="dharma-world-text text-center">
+                                <div class="text-center">
+                                    <img src="frontend/img/dharma-img.png" alt="Dharma Productions" class="img-responsive margin-auto">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="pad-inner text-center">
+                                <p class="color-white margin0">For those whose dharma is Dharma, welcome home.</p>
+                                <p class="color-white">Entertainment | Interaction | and much more; we bring to you the best of the Dharma Family.</p>
+
+                                <div class="btn-view-enter mt20 text-center mob-marg0">
+                                    <a href="" class="btn-1 font-hammersmith btn color-primary text-center">
+                                        <svg>
+                                            <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                        </svg>
+                                        ENTER
+                                    </a>
+                                    <!-- <button type="button" name="button" class="btn-primary-outline font-hammersmith btn-enter"></button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="dharma-title-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-6">
+                        <div class="title">
+                            <h1 class="color-primary font-hammersmith f90 line45">LET’S TALK</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="maps dh-relative" ng-controller="MapCtrl">
-            <div style="height:100%; width:100%;">
-                <div id="map" class="map" style="height:500px;"></div>
+            <div class="maps dh-relative" ng-controller="MapCtrl">
+                <div style="height:100%; width:100%;">
+                    <div id="map" class="map" style="height:500px;"></div>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="">
+            <div class="container">
+                <div class="row">
+                    <div class="">
 
-                    <div class="know dh-relative">
-                        <div class="solid-btn mt30 dh-relative">
-                            <!-- <div class="btn-view-more ">
+                        <div class="know dh-relative">
+                            <div class="solid-btn mt30 dh-relative">
+                                <!-- <div class="btn-view-more ">
                 <a ui-sref="contact-us" class="btn-1 font-hammersmith btn color-primary pull-right">
                     <svg>
                         <rect x="0" y="0" fill="none" width="100%" height="100%"/>
@@ -514,99 +525,99 @@
                 </a>
             </div> -->
 
-                        </div>
-                        <div class=" dh-absulate add-show">
-                            <h4>
-                Dharma Productions Pvt. Ltd.</h4>
-
-                            <div class="mt15">
-                                <p>201 & 202, 2nd Floor, Supreme Chambers,</p>
-                                <p>Off Veera Desai Road, 17/18 Shah Industrial Estate,</p>
-                                <p>Andheri (W), Mumbai- 400053, India</p>
-
                             </div>
+                            <div class=" dh-absulate add-show">
+                                <h4>
+                                    Dharma Productions Pvt. Ltd.</h4>
+
+                                <div class="mt15">
+                                    <p>201 & 202, 2nd Floor, Supreme Chambers,</p>
+                                    <p>Off Veera Desai Road, 17/18 Shah Industrial Estate,</p>
+                                    <p>Andheri (W), Mumbai- 400053, India</p>
+
+                                </div>
 
                                 <!-- <span class="mt30">Tel No : <a href="tel:02261790100" class="cl-hv">+91 22 61790100</a></span> -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="home-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="contact-info text-center">
+                        <div class="info-icon display-inline">
+                            <img src="frontend/img/info.png" alt="Dharma Productions">
+                        </div>
+                        <div class="info-text display-inline">
+                            <h2 class="color-primary font-karla font-bold">INFO</h2>
+                        </div>
+                        <div class="descp">
+                            <p>For info related queries email us
+                                <br> on
+                                <a href="mailto:info@dharma-production.com">info@dharma-production.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="contact-info text-center">
+                        <div class="info-icon display-inline">
+                            <img src="frontend/img/creativity.png" alt="" alt="Dharma Productions">
+                        </div>
+                        <div class="info-text display-inline">
+                            <h2 class="color-primary font-karla font-bold">CREATIVE</h2>
+                        </div>
+                        <div class="descp">
+                            <p>For creative related queries email us
+                                <br> on
+                                <a href="mailto:creative@dharma-production.com">creative@dharma-production.com</a>
+                            </p>
                         </div>
                     </div>
                 </div>
 
             </div>
-
-        </div>
-    </div>
-</section>
-<section class="home-contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <div class="contact-info text-center">
-                    <div class="info-icon display-inline">
-                        <img src="frontend/img/info.png" alt="Dharma Productions">
-                    </div>
-                    <div class="info-text display-inline">
-                        <h2 class="color-primary font-karla font-bold">INFO</h2>
-                    </div>
-                    <div class="descp">
-                        <p>For info related queries email us
-                            <br> on
-                            <a href="mailto:info@dharma-production.com">info@dharma-production.com</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="contact-info text-center">
-                    <div class="info-icon display-inline">
-                        <img src="frontend/img/creativity.png" alt="" alt="Dharma Productions">
-                    </div>
-                    <div class="info-text display-inline">
-                        <h2 class="color-primary font-karla font-bold">CREATIVE</h2>
-                    </div>
-                    <div class="descp">
-                        <p>For creative related queries email us
-                            <br> on
-                            <a href="mailto:creative@dharma-production.com">creative@dharma-production.com</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="row mt20">
-            <div class="col-md-6 col-sm-12">
-                <div class="contact-info text-center">
-                    <div class="info-icon display-inline">
-                        <img src="frontend/img/marketing.png" alt="" alt="Dharma Productions">
-                    </div>
-                    <div class="info-text display-inline">
-                        <h2 class="color-primary font-karla font-bold">MARKETING</h2>
-                    </div>
-                    <div class="descp">
-                        <p>For marketing related queries email us
-                            <br> on
-                            <a href="mailto:marketing@dharma-production.com">
+            <div class="row mt20">
+                <div class="col-md-6 col-sm-12">
+                    <div class="contact-info text-center">
+                        <div class="info-icon display-inline">
+                            <img src="frontend/img/marketing.png" alt="" alt="Dharma Productions">
+                        </div>
+                        <div class="info-text display-inline">
+                            <h2 class="color-primary font-karla font-bold">MARKETING</h2>
+                        </div>
+                        <div class="descp">
+                            <p>For marketing related queries email us
+                                <br> on
+                                <a href="mailto:marketing@dharma-production.com">
                             marketing@dharma-production.com</a>
-                        </p>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-                <div class="contact-info text-center">
-                    <div class="info-icon display-inline">
-                        <img src="frontend/img/syndication.png" alt="" alt="Dharma Productions">
-                    </div>
-                    <div class="info-text display-inline">
-                        <h2 class="color-primary font-karla font-bold">SYNDICATION</h2>
-                    </div>
-                    <div class="descp">
-                        <p>For syndication related queries email us
-                            <br>on
-                            <a href="mailto:syndication@dharma-production.com">syndication@dharma-production.com</a>
-                        </p>
+                <div class="col-md-6 col-xs-12">
+                    <div class="contact-info text-center">
+                        <div class="info-icon display-inline">
+                            <img src="frontend/img/syndication.png" alt="" alt="Dharma Productions">
+                        </div>
+                        <div class="info-text display-inline">
+                            <h2 class="color-primary font-karla font-bold">SYNDICATION</h2>
+                        </div>
+                        <div class="descp">
+                            <p>For syndication related queries email us
+                                <br>on
+                                <a href="mailto:syndication@dharma-production.com">syndication@dharma-production.com</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
