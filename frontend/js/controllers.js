@@ -99,7 +99,13 @@ console.log('for change');
                 var date2 = moment("01-" + n.month + "-" + n.year, "D-M-YYYY");
                 return (date2.unix());
             });
+_.each($scope.AllUpcomingMovies,function(n){
+    var a = new Date(n.releaseDate);
+    if(a.getFullYear() >=2050){
+        n.releaseDate = '';
 
+    }
+})
             TemplateService.removeLoader();
         });
         NavigationService.getAllRecentMovies(function (data) {
