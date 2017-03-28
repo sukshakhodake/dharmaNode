@@ -138,6 +138,25 @@
         <div class="tab-active">
 
             <div class="upcoming mobile-row" ng-if="tabs=='upcoming'">
+                                <!-- mobile -->
+                <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider nav-hide-mob ch-nav">
+                    <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animation-loop="true"
+                        move="1" slideshow-Speed="2000">
+                        <li>
+                            <a>
+                                <div class="img-pads" ng-if="item.status==true">
+                                    <img ui-sref="movie-inside({id:item._id})" ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
+                                </div>
+                                <div class="img-pads" ng-if="item.status==false">
+                                    <img ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
+                                </div>
+                                <div class="movie-names">
+                                    <h4 class="text-up color-grey">{{item.name|shorten : 20}} <br><span ng-if="item.year!>2050">({{item.month|getMonthAlpha}} {{item.year}})</span></h4>
+                                </div>
+                            </a>
+                        </li>
+                    </flex-slider>
+                </div>
                 <!-- desktop  -->
                 <!-- <div class="row-flex text-center hidden-xs">
                   {{AllUpcomingMovies}}
@@ -167,25 +186,6 @@
                                 <br><span ng-if="item.releaseDate !=''"> ({{item.releaseDate | date:'dd MMM yyyy' }})</span></h4>
                         </div>
                     </div>
-                </div>
-                <!-- mobile -->
-                <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider nav-hide-mob ch-nav">
-                    <flex-slider flex-slide="item in AllUpcomingMovies | orderBy : '-releaseDate'" animation="slide" item-width="207" item-margin="20" animation-loop="true"
-                        move="1" slideshow-Speed="2000">
-                        <li>
-                            <a>
-                                <div class="img-pads" ng-if="item.status==true">
-                                    <img ui-sref="movie-inside({id:item._id})" ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
-                                </div>
-                                <div class="img-pads" ng-if="item.status==false">
-                                    <img ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
-                                </div>
-                                <div class="movie-names">
-                                    <h4 class="text-up color-grey">{{item.name|shorten : 20}} <br><span ng-if="item.year!>2050">({{item.month|getMonthAlpha}} {{item.year}})</span></h4>
-                                </div>
-                            </a>
-                        </li>
-                    </flex-slider>
                 </div>
                 <div class="dh-relative" ng-if="AllUpcomingMovies.length>0">
                     <div class="btn-view-more mt15 ">

@@ -1161,9 +1161,9 @@ _.each($scope.AllUpcomingMovies,function(n){
 
                 $scope.classp = "active-list";
                 $scope.classv = '';
-
+ $(window).trigger( 'resize' );
             } else {
-
+ $(window).trigger( 'resize' );
                 $scope.classp = '';
                 $scope.classv = "active-list";
             }
