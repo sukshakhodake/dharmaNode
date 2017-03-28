@@ -151,7 +151,7 @@
                                     <img ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                                 </div>
                                 <div class="movie-names">
-                                    <h4 class="text-up color-grey">{{item.name|shorten : 20}} <br><span ng-if="item.year!>2050">({{item.month|getMonthAlpha}} {{item.year}})</span></h4>
+                                    <h4 class="text-up color-grey">{{item.name|shorten : 20}} <br><span ng-if="!item.year>2050">({{item.month|getMonthAlpha}} {{item.year}})</span></h4>
                                 </div>
                             </a>
                         </li>
@@ -174,7 +174,7 @@
                     </div>
                 </div> -->
                 <div class="row-flex text-center hidden-xs">
-                    <div class="col-flex" ng-repeat="item in AllUpcomingMovies | orderBy : '-releaseDate'">
+                    <div class="col-flex" ng-repeat="item in AllUpcomingMovies track by $index">
                         <div ng-if="item.status==true" class="img-pads" ui-sref="movie-inside({id:item._id})">
                             <img ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                         </div>
