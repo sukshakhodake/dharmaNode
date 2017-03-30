@@ -2968,12 +2968,16 @@ button.navbar-toggle.collapsed {
     border-radius: 20px;
 }
 
-.subscribe-movie .modal-content {
+.subscribe-movie{
+    background: rgba(0, 0, 0, 0.45);
+     .modal-content {
     border: 2px solid #f37021;
     padding: 35px 25px;
     border-radius: 20px;
     background: url("../img/pop-up.jpg")no-repeat;
     background-size: cover;
+    background-position: center center;
+}
 }
 
 .subscribe-movie {
