@@ -970,6 +970,22 @@
       display: none;
     }
   }
+  .subscribe-movie{
+.term-cond .term-cont-cont {
+    padding-right: 0;
+}
+.term-cond .img-right {
+display: none;
+}
+
+    .logos-popup-right img {
+    height: 20px;
+}
+
+.logos-popup-left img {
+    height: 20px;
+}
+  } 
 }
 @media (max-width:480px) {
   .ch-nav{

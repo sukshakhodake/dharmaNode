@@ -2972,11 +2972,42 @@ button.navbar-toggle.collapsed {
     background: rgba(0, 0, 0, 0.45);
      .modal-content {
     border: 2px solid #f37021;
-    padding: 35px 25px;
     border-radius: 20px;
+
+}
+.modal-content-inside{
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    padding: 35px 25px 15px;
     background: url("../img/pop-up.jpg")no-repeat;
     background-size: cover;
     background-position: center center;
+}
+.term-cond {
+    padding: 10px 25px;
+    .term-cont-cont {
+    padding-right: 200px;
+}
+
+.img-right {
+    position: absolute;
+    bottom: 0;
+    right: 9px;
+    width: 190px;
+    img {
+    width: 100%;
+}
+}
+}
+.logos-popup{
+    margin-top:20px;
+    .logos-popup-right img {
+    height: 25px;
+}
+
+.logos-popup-left img {
+    height: 25px;
+}
 }
 }
 
@@ -2987,11 +3018,11 @@ button.navbar-toggle.collapsed {
 }
 
 .pad-box-pop {
-    padding-top: 160px;
+    padding-top: 150px;
 }
 
 .h43 {
-    height: 43px;
+    height: 47px;
 }
 
 .go-sb {
