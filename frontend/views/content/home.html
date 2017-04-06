@@ -139,7 +139,7 @@
             <div class="upcoming mobile-row" ng-if="tabs=='upcoming'">
                                 <!-- mobile -->
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider nav-hide-mob ch-nav">
-                    <flex-slider flex-slide="item in AllUpcomingMovies | orderBy:'-releaseDate' track by $index" animation="slide" item-width="207" item-margin="20" animation-loop="true"
+                    <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animation-loop="true"
                         move="1" slideshow-Speed="2000">
                         <li>
                             <a>
@@ -173,7 +173,7 @@
                     </div>
                 </div> -->
                 <div class="row-flex text-center hidden-xs">
-                    <div class="col-flex" ng-repeat="item in AllUpcomingMovies | orderBy:'-releaseDate' track by $index">
+                    <div class="col-flex" ng-repeat="item in AllUpcomingMovies track by $index">
                         <div ng-if="item.status==true" class="img-pads" ui-sref="movie-inside({id:item._id})">
                             <img ng-src="{{item.upcomingSmall|uploadpath}}" alt="Dharma Productions" class="img-responsive">
                         </div>
