@@ -7,204 +7,200 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "The dream girl Shanaya in Student of the year was wearing a ____ colored dress at the dance competition!",
+            question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Blue"
-
+                "name": "Cut out of Manadakini",
+                answer: true
             }, {
                 "id": "radio2",
-                "name": "Pink"
+                "name": "Cut out of Zeenat Aman"
 
             }, {
                 "id": "radio3",
-                "name": "Red",
-                answer: true
+                "name": "Cut out of Sridevi"
             }, {
                 "id": "radio4",
-                "name": "Black"
+                "name": "Cut out of Nargis"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "Where does Ananya live in the movie, 2 States?",
+            question: "What was the Kapoor family's pet dog's name?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Chandigarh"
+                "name": "Tuffy"
             }, {
                 "id": "radio2",
-                "name": "Chennai",
-                answer: true
+                "name": "Gafar"
             }, {
                 "id": "radio3",
-                "name": "Bangalore"
+                "name": "Geishu",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Mumbai"
+                "name": "Tommy"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "Kaavya's ultimate dream in Humpty Sharma Ki Dulhania was?",
+            question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "To get married"
+                "name": "Musician"
             }, {
                 "id": "radio2",
-                "name": "To get her sister married again"
+                "name": "Bar Tender"
             }, {
                 "id": "radio3",
-                "name": "Kareena's designer lehenga",
+                "name": "Writer",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "She didn't have any ultimate dream"
+                "name": "News Reporter"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: " What was Tia trying to sell to Rahul in Kapoor & Sons?",
+            question: "What was the name of Tia’s house helper in the movie?",
             model: "quest4",
             options: [{
                 "id": "radio1",
-                "name": "Her house",
-                answer: true
+                "name": "Brijesh"
 
             }, {
                 "id": "radio2",
-                "name": "Her car"
-
+                "name": "Kishore",
+                answer: true
 
             }, {
                 "id": "radio3",
-                "name": "A restaurant"
+                "name": "Ganesh"
 
             }, {
                 "id": "radio4",
-                "name": "Nothing"
+                "name": "Sonu"
 
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: " What was Alia Bhatt's name in Shaandaar?",
+            question: "Where did Arjun and Tia go for a date?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Aloo"
+                "name": "Restaurant"
             }, {
                 "id": "radio2",
 
-                "name": "Aila"
+                "name": "Cemetery",
+                answer: true
 
             }, {
                 "id": "radio3",
-                "name": "Alia",
-                answer: true
+                "name": "Temple"
             }, {
                 "id": "radio4",
-                "name": "Alie"
+                "name": "Food Festival"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: "What is Kaira's profession in Dear Zindagi?",
+            question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Director"
+                "name": "Electrician"
             }, {
                 "id": "radio2",
-                "name": "Cinematographer",
-                answer: true
+                "name": "Gardener"
             }, {
                 "id": "radio3",
-                "name": "Editor"
+                "name": "Cobbler"
             }, {
                 "id": "radio4",
-                "name": "Actor"
-
+                "name": "Plumber",
+                answer: true
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "Which song has Alia recreated in her voice from Badrinath Ki Dulhania?",
+            question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Samjhawan"
+                "name": "Ajay"
 
             }, {
                 "id": "radio2",
-                "name": "Roke na ruke naina"
-
-            }, {
-                "id": "radio3",
-                "name": "Humsafar",
+                "name": "Harsh",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "Aman"
+            }, {
                 "id": "radio4",
-                "name": "Tamma Tamma Again"
+                "name": "Not mentioned in the movie"
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: 'How old was Alia when she did Student of the year?"',
+            question: 'What was the wildest thing Rahul had done in his life?"',
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "17"
+                "name": "Quit a well paying job"
             }, {
                 "id": "radio2",
-                "name": "18",
+                "name": "Got a tattoo",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "19"
+                "name": "Drove across the country"
             }, {
                 "id": "radio4",
-                "name": "20"
+                "name": "Kiss at the top of a Ferris wheel"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "Which animal does she have as a pet?",
+            question: "Which song was played in the house party hosted by Tia?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Dog"
+                "name": "Let’s Nacho"
             }, {
                 "id": "radio2",
-                "name": "Fish"
+                "name": "Buddhu Sa Mann"
             }, {
                 "id": "radio3",
-                "name": "Cat",
-                answer: true
+                "name": "Bolna"
             }, {
                 "id": "radio4",
-                "name": "Rabbit"
+                "name": "Kar Gayi Chull",
+                answer: true
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "What is the name of her recent movie where she is playing a girl from Kota?",
+            question: "Kapoor & Sons since ___?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "Dear Zindagi"
+                "name": "1928"
             }, {
                 "id": "radio2",
-                "name": "Badrinath Ki Dulhania",
-                answer: true
+                "name": "1924"
             }, {
                 "id": "radio3",
-                "name": "Kapoor & Sons"
+                "name": "1921",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "She has never played such a role"
+                "name": "1920"
             }]
         }];
         var answered;
