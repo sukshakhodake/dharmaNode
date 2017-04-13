@@ -1,4 +1,6 @@
 var request = require('request');
+var mongoose = require('mongoose');
+global["fs"] = require('fs');
 module.exports = {
 
   save: function(req, res) {
