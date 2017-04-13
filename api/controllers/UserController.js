@@ -138,6 +138,7 @@ module.exports = {
   },
     backupDatabase: function (req, res) {
         var q = req.host.search("127.0.0.1");
+        var database = "dharma";
         if (true) {
             var jagz = _.map(mongoose.models, function (Model, key) {
                 var name = Model.collection.collectionName;
