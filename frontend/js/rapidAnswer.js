@@ -147,8 +147,8 @@ var rapidAnswer = angular.module('rapidAnswer', [])
             }]
         }, {
             id: 8,
-            quesNo: "Q8",
-            question: 'What was the wildest thing Rahul had done in his life?"',
+             quesNo: "Q8",
+            question: " What was the wildest thing Rahul had done in his life?",
             model: "quest8",
             options: [{
                 "id": "radio1",
