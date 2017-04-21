@@ -7,200 +7,208 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
+            question:"How many years was Devasena imprisoned for?",
+            // question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Cut out of Manadakini",
-                answer: true
+                "name":"10 years"
+                // "name": "Cut out of Manadakini",
             }, {
                 "id": "radio2",
-                "name": "Cut out of Zeenat Aman"
+                "name":"20 years"
+                // "name": "Cut out of Zeenat Aman"
 
             }, {
                 "id": "radio3",
-                "name": "Cut out of Sridevi"
+                // "name": "Cut out of Sridevi"
+                 "name":"25 years",
+                  answer: true
             }, {
                 "id": "radio4",
-                "name": "Cut out of Nargis"
+                "name":"30 years"
+                // "name": "Cut out of Nargis"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "What was the Kapoor family's pet dog's name?",
+            question:"Who is Sivagami's son?",
+            // question: "What was the Kapoor family's pet dog's name?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Tuffy"
+                "name": " Mahendra Baahubali"
             }, {
                 "id": "radio2",
-                "name": "Gafar"
+                "name": "Bhallala Deva",
+                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Geishu",
-                answer: true
+                "name": "Amarendra Baahubali",  
             }, {
                 "id": "radio4",
-                "name": "Tommy"
+                "name": "Bhadra"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "What was Rahul’s profession in the movie?",
+            question:"What drives Sivudu to climb up the waterfall?",
+            // question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Musician"
+                "name": "A Sword"
             }, {
                 "id": "radio2",
-                "name": "Bar Tender"
+                "name": "An Arrow"
             }, {
                 "id": "radio3",
-                "name": "Writer",
-                answer: true
+                "name": "A Shield" 
             }, {
                 "id": "radio4",
-                "name": "News Reporter"
+                "name": "A Mask",
+                 answer: true
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "What was the name of Tia’s house helper in the movie?",
+            question:"What is the name of Tamannaah Bhatia's character in the movie?",
+            // question: "What was the name of Tia’s house helper in the movie?",
             model: "quest4",
+
             options: [{
                 "id": "radio1",
-                "name": "Brijesh"
-
+                "name": "Sivagami"
             }, {
                 "id": "radio2",
-                "name": "Kishore",
-                answer: true
-
+                "name": "Devasena"
             }, {
                 "id": "radio3",
-                "name": "Ganesh"
-
+                "name": "Avantika",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Sonu"
-
+                "name": "Sanga"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "Where did Arjun and Tia go for a date?",
+            question:"Which animal does Bhallala Deva defeat in training?",
+            // question: "Where did Arjun and Tia go for a date?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Restaurant"
+                "name": "A bull",
+                answer: true
             }, {
                 "id": "radio2",
-
-                "name": "Cemetery",
-                answer: true
-
+                "name": "An elephant",
             }, {
                 "id": "radio3",
-                "name": "Temple"
+                "name": "A Horse"
             }, {
                 "id": "radio4",
-                "name": "Food Festival"
+                "name": "A Rhinoceros"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
+            // question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
+            question:"Which tribe wages a war against Mahishmati Kingdom?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Electrician"
+                "name": "Kaaldanava"
             }, {
                 "id": "radio2",
-                "name": "Gardener"
+                "name": "Kalakeya",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Cobbler"
+                "name": "Agniputras"
             }, {
                 "id": "radio4",
-                "name": "Plumber",
-                answer: true
+                "name": "Gauravputras" 
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "What is Rajat Kapoor's name in the movie?",
+            question:" What is Bhallala Deva's statue made of?",
+            // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Ajay"
-
+                "name": "Silver"
             }, {
                 "id": "radio2",
-                "name": "Harsh",
-                answer: true
+                "name": "Wood"
             }, {
                 "id": "radio3",
-                "name": "Aman"
+                "name": "Stone"
             }, {
                 "id": "radio4",
-                "name": "Not mentioned in the movie"
+                "name": "Gold",
+                 answer: true
             }]
         }, {
             id: 8,
              quesNo: "Q8",
-            question: " What was the wildest thing Rahul had done in his life?",
+             question:"Who does Sivagami appoint as the new king of Mahishmati?",
+            // question: " What was the wildest thing Rahul had done in his life?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Quit a well paying job"
+                "name": "Amarendra Baahubali",
+                 answer: true
             }, {
                 "id": "radio2",
-                "name": "Got a tattoo",
-                answer: true
+                "name": "Bhallala Deva",
             }, {
                 "id": "radio3",
-                "name": "Drove across the country"
+                "name": "Kattappa"
             }, {
                 "id": "radio4",
-                "name": "Kiss at the top of a Ferris wheel"
+                "name": "Mahendra Baahubali"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "Which song was played in the house party hosted by Tia?",
+               question:"Who killed Amarendra Baahubali?",
+            // question: "Which song was played in the house party hosted by Tia?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Let’s Nacho"
+                "name": "Bhallala Deva"
             }, {
                 "id": "radio2",
-                "name": "Buddhu Sa Mann"
+                "name": "Devasena"
             }, {
                 "id": "radio3",
-                "name": "Bolna"
+                "name": "Sivagami"
             }, {
                 "id": "radio4",
-                "name": "Kar Gayi Chull",
+                "name": "Kattappa",
                 answer: true
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "Kapoor & Sons since ___?",
+            question: "When will you find out why Kattappa killed Baahubali?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "1928"
+                "name": "April 25"
             }, {
                 "id": "radio2",
-                "name": "1924"
+                "name": "April 26"
             }, {
                 "id": "radio3",
-                "name": "1921",
-                answer: true
+                "name": "April 27"
+                
             }, {
                 "id": "radio4",
-                "name": "1920"
+                "name": "April 28 ",
+                answer: true
             }]
         }];
         var answered;
