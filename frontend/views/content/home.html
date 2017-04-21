@@ -341,11 +341,12 @@
                             <img src="frontend/img/subscribe.png" alt="Dharma Productions" class="img-responsive">
                         </div>
                         <div class="sub-text display-inline mt20">
-                            <h3 class="font-hammersmith color-primary text-up margin0">Buy tickets for Baahubali 1 &amp;
+                            <h3 class="font-hammersmith color-primary text-up margin0">Stay updated with all things
+
                             </h3>
-                            <h3 class="font-hammersmith color-primary text-up margin0">get assured weekend tickets
+                            <h3 class="font-hammersmith color-primary text-up margin0">#BAAhubali2 subscribe now!
                             </h3>
-                            <h3 class="font-hammersmith color-primary text-up margin0">for Baahubali 2</h3>
+                            <!--<h3 class="font-hammersmith color-primary text-up margin0">for Baahubali 2</h3>-->
                         </div>
                     </div>
 
@@ -353,10 +354,10 @@
                         <div class="sub-input mt20 sub-text">
                             <form name="subForm" ng-submit="subscribe(subscribe.email,subForm);">
                                 <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Subscribe to stay updated with the offer" ng-model="subscribe.email" required>
+                                    <input type="email" class="form-control" placeholder="Enter your email-id" ng-model="subscribe.email" required>
 
                                     <span class="input-group-btn go-btn">
-                                      <button class="color-primary font-hammersmith" type="submit">Go</button>
+                                      <button class="color-primary font-hammersmith" type="submit">GO</button>
                                 <div ng-messages="subForm.email.$error" ng-messages-include="error-messages"></div>
                                 <!-- <h4 class="category-color" ng-if="subscribeEmail">Thankyou For Subscribing</h4> -->
 
@@ -634,3 +635,4 @@
             </div>
         </div>
     </section>
+<!--<button ng-click="subs();">click</button>-->

@@ -2982,10 +2982,15 @@ button.navbar-toggle.collapsed {
 .modal-content-inside{
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
-    padding: 35px 25px 15px;
-    background: url("../img/pop-up.jpg")no-repeat;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    padding: 50px 25px 40px;
+    background: url("../img/pop-up.jpg") no-repeat;
     background-size: cover;
     background-position: center center;
+    h4{
+        font-size: 26px;
+    }
 }
 .term-cond {
     padding: 10px 25px;

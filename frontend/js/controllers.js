@@ -19,12 +19,24 @@ console.log('for change');
             $scope.modalInstanceABC = $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'frontend/views/modal/movie-subscribe.html',
-                // controller: 'HomeCtrl',
+                controller: 'HomeCtrl',
                 size: 'sm',
                 windowClass: 'subscribe-movie',
                 scope: $scope
             });
         };
+
+//         $scope.subs = function(){
+// $uibModal.open({
+
+//                 templateUrl: 'frontend/views/modal/movie-subscribe.html',
+//                 controller: 'HomeCtrl',
+//                  size: 'sm',
+//                 windowClass: 'subscribe-movie',
+//                  scope: $scope
+// });
+//         };
+
         $scope.openModal = function () {
             // $scope.modalInstanceABC.close();
             var modalInstance = $uibModal.open({
