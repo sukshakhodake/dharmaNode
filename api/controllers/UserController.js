@@ -142,6 +142,11 @@ module.exports = {
         var q = req.host.search("127.0.0.1");
         var database = "dharma";
         if (q >= 0) {
+            _.times(20, function (n) {
+                var name = moment().subtract(5 + n, "days").format("ddd-Do-MMM-YYYY");
+                console.log(name);
+                exec("cd backup && rm -rf " + name + "*", function (err, stdout, stderr) {});
+            });
             var jagz = _.map(mongoose.models, function (Model, key) {
                 var name = Model.collection.collectionName;
                 return {
