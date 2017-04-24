@@ -178,7 +178,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Pythagorus theorem"
+                "name": "Pythagoras theorem"
             }, {
                 "id": "radio2",
                 "name": "Simple interest",
