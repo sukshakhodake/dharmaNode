@@ -7,208 +7,207 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question:"How many years was Devasena imprisoned for?",
+            question:"What was Varun Dhawan's name in Student of the Year?",
             // question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name":"10 years"
+                "name":"Rahul Nanda"
                 // "name": "Cut out of Manadakini",
             }, {
                 "id": "radio2",
-                "name":"20 years"
+                "name":"Rohan Nanda",
+                  answer: true
                 // "name": "Cut out of Zeenat Aman"
 
             }, {
                 "id": "radio3",
                 // "name": "Cut out of Sridevi"
-                 "name":"25 years",
-                  answer: true
+                 "name":"Rohit Nanda"
             }, {
                 "id": "radio4",
-                "name":"30 years"
+                "name":"Raj Nanda"
                 // "name": "Cut out of Nargis"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question:"Who is Sivagami's son?",
+            question:"The educational qualification of the charming Badrinath is -",
             // question: "What was the Kapoor family's pet dog's name?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": " Mahendra Baahubali"
+                "name": "B.A"
             }, {
                 "id": "radio2",
-                "name": "Bhallala Deva",
-                 answer: true
+                "name": "12th pass"
             }, {
                 "id": "radio3",
-                "name": "Amarendra Baahubali",  
+                "name": "10th pass",
+                 answer: true  
             }, {
                 "id": "radio4",
-                "name": "Bhadra"
+                "name": "M.A"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question:"What drives Sivudu to climb up the waterfall?",
+            question:"Varun Dhawan has earned a degree in-",
             // question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "A Sword"
+                "name": "Business Management", 
+                answer: true
             }, {
                 "id": "radio2",
-                "name": "An Arrow"
+                "name": "Culinary Arts"
             }, {
                 "id": "radio3",
-                "name": "A Shield" 
+                "name": "Hotel Management" 
             }, {
                 "id": "radio4",
-                "name": "A Mask",
-                 answer: true
+                "name": "Computer Science",
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question:"What is the name of Tamannaah Bhatia's character in the movie?",
+            question:"What is Humpty Sharma's real name?",
             // question: "What was the name of Tia’s house helper in the movie?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Sivagami"
+                "name": "Raj Sharma"
             }, {
                 "id": "radio2",
-                "name": "Devasena"
+                "name": "Varun Sharma"
             }, {
                 "id": "radio3",
-                "name": "Avantika",
-                answer: true
+                "name": "Vijay Sharma"
             }, {
                 "id": "radio4",
-                "name": "Sanga"
+                "name": "Rakesh Sharma",
+                answer: true
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question:"Which animal does Bhallala Deva defeat in training?",
+            question:"How old was Varun when he did 'Student of the Year'?",
             // question: "Where did Arjun and Tia go for a date?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "A bull",
-                answer: true
+                "name": "20 years",
             }, {
                 "id": "radio2",
-                "name": "An elephant",
+                "name": "25 years",
+                 answer: true
             }, {
                 "id": "radio3",
-                "name": "A Horse"
+                "name": "27 years"
             }, {
                 "id": "radio4",
-                "name": "A Rhinoceros"
+                "name": "18 years"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
             // question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
-            question:"Which tribe wages a war against Mahishmati Kingdom?",
+            question:"Varun has worked as an assistant director for which Dharma movie?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Kaaldanava"
+                "name": "Dostana"
             }, {
                 "id": "radio2",
-                "name": "Kalakeya",
-                answer: true
+                "name": "Wake Up Sid"
             }, {
                 "id": "radio3",
-                "name": "Agniputras"
+                "name": "Kabhi Alvida Naa Kehna"
             }, {
                 "id": "radio4",
-                "name": "Gauravputras" 
+                "name": "My Name Is Khan",
+                answer: true 
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question:" What is Bhallala Deva's statue made of?",
+            question:"Who does Varun pick as his partner for the dance competition in SOTY?",
             // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Silver"
+                "name": "Tanya",
+                 answer: true
             }, {
                 "id": "radio2",
-                "name": "Wood"
+                "name": "Shruti"
             }, {
                 "id": "radio3",
-                "name": "Stone"
+                "name": "Shanaya"
             }, {
                 "id": "radio4",
-                "name": "Gold",
-                 answer: true
+                "name": "Kavya"
             }]
         }, {
             id: 8,
              quesNo: "Q8",
-             question:"Who does Sivagami appoint as the new king of Mahishmati?",
+             question:"In Student of the Year, Varun Dhawan becomes a popular-",
             // question: " What was the wildest thing Rahul had done in his life?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Amarendra Baahubali",
+                "name": "Rockstar",
                  answer: true
             }, {
                 "id": "radio2",
-                "name": "Bhallala Deva",
+                "name": "Businessman",
             }, {
                 "id": "radio3",
-                "name": "Kattappa"
+                "name": "Actor"
             }, {
                 "id": "radio4",
-                "name": "Mahendra Baahubali"
+                "name": "Footballer"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-               question:"Who killed Amarendra Baahubali?",
+               question:"Which formula did Badri learn and come back to tell Vaidehi?",
             // question: "Which song was played in the house party hosted by Tia?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Bhallala Deva"
+                "name": "Pythagorus theorem"
             }, {
                 "id": "radio2",
-                "name": "Devasena"
+                "name": "Simple interest",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Sivagami"
+                "name": "Compound interest"
             }, {
                 "id": "radio4",
-                "name": "Kattappa",
-                answer: true
+                "name": "Laws of motion"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "When will you find out why Kattappa killed Baahubali?",
+            question: "Varun Dhawan is a big fan of the WWE superstar-",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "April 25"
+                "name": "The Undertaker"
             }, {
                 "id": "radio2",
-                "name": "April 26"
+                "name": "Big Show"
             }, {
                 "id": "radio3",
-                "name": "April 27"
-                
+                "name": "The Rock",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "April 28 ",
-                answer: true
+                "name": "Kane"
             }]
         }];
         var answered;
