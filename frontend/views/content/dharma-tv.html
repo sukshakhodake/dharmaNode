@@ -73,12 +73,12 @@
                                                     <div class="img-animated">
                                                         <div class="img-inside-box em-box hover-sec">
 
-                                                            <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail || item.thumbnail != ''">
+                                                            <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail && item.thumbnail != ''">
 
-                                                            <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                            <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail && item.thumbnail != '')">
                                                             <!-- <a>
-                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
-                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail && item.thumbnail != '')">
+                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail && item.thumbnail != '')">
                                                 </a> -->
 
                                                         </div>
@@ -100,12 +100,12 @@
                                                         <div class="img-animated">
                                                             <div class="img-inside-box em-box hover-sec">
 
-                                                                <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail || item.thumbnail != ''">
+                                                                <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail && item.thumbnail != ''">
 
-                                                                <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                                <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail && item.thumbnail != '')">
                                                                 <!-- <a>
-                                                        <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
-                                                        <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                        <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail && item.thumbnail != '')">
+                                                        <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail && item.thumbnail != '')">
                                                     </a> -->
 
                                                             </div>
@@ -127,12 +127,12 @@
                                                                 rel="movies" data-fancybox-type="iframe">
                                                                 <div class="img-inside-box em-box">
 
-                                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail || item.thumbnail != ''">
+                                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail && item.thumbnail != ''">
 
-                                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail && item.thumbnail != '')">
                                                                     <!-- <a>
-                                                            <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
-                                                            <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                            <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail && item.thumbnail != '')">
+                                                            <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail && item.thumbnail != '')">
                                                         </a> -->
                                                                 </div>
                                                                 <div class="video-names mt10">
@@ -182,8 +182,8 @@
                                     <div class="tv-box" ng-if="item.videos.length > 0">
                                         <a class="various fancybox.iframe" fancybox rel="gallery3" href="https://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                             rel="movies" data-fancybox-type="iframe">
-                                            <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="(item.thumbnail || item.thumbnail != '')">
-                                            <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                            <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="(item.thumbnail && item.thumbnail != '')">
+                                            <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail && item.thumbnail != '')">
 
                                         </a>
                                     </div>

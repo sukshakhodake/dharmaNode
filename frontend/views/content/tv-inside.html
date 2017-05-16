@@ -45,9 +45,9 @@
                                             <div class="img-animated">
                                                 <div class="img-inside-box em-box hover-sec">
 
-                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail || item.thumbnail != ''">
+                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" class="img-responsive width100" ng-if="item.thumbnail && item.thumbnail != ''">
 
-                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail && item.thumbnail != '')">
 
                                                     <!-- <img ng-src="{{item.url | youtubethumb:false}}" alt="Dharma Productions" class="img-responsive"> -->
                                                     <!-- <i class="fa fa-play"></i> -->
