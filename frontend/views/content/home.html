@@ -3,14 +3,14 @@
     <div class="home-slider dh-relative ">
         <flex-slider flex-slide="s in getAllSlides track by $index" slider-id="slider" animation="slide" animation-loop="true">
             <li auto-heightfixed>
-                 <div ng-if="s.url==''">
-                 <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
-                <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions"
-                    auto-heightfixed noloading="true">
-                 </div>
-            <a href="{{s.url}}" ng-if="!(s.url=='')" target="_blank">
-                <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
-            </a>
+                <div ng-if="s.url==''">
+                    <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+                    <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions"
+                        auto-heightfixed noloading="true">
+                </div>
+                <a href="{{s.url}}" ng-if="!(s.url=='')" target="_blank">
+                    <img ng-src="{{s.image|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+                </a>
                 <!-- <div  style="background:url('{{s.image|uploadpath}}');background-position:center center;background-size:cover;background-repeat:no-repeat;height:100%;"  ng-if="s.status == false"  noloading="true"></div> -->
                 <!-- <div  style="background:url('{{s.image|uploadpath}}');background-position:center center;background-size:cover;background-repeat:no-repeat;height:100%;"  ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})"  noloading="true"></div> -->
             </li>
@@ -42,10 +42,10 @@
                 <div ng-if="s.url==''">
                     <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
                     <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == true" ui-sref="movie-inside({id:s.movie.urlName})" alt="Dharma Productions"
-                    auto-heightfixed noloading="true">
+                        auto-heightfixed noloading="true">
                 </div>
                 <a href="{{s.url}}" ng-if="!(s.url=='')" target="_blank">
-                <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
+                    <img ng-src="{{s.ipadImage|uploadpath}}" ng-if="s.status == false" alt="Dharma Productions" auto-heightfixed noloading="true">
                 </a>
 
             </li>
@@ -148,7 +148,7 @@
         <div class="tab-active">
 
             <div class="upcoming mobile-row" ng-if="tabs=='upcoming'">
-                                <!-- mobile -->
+                <!-- mobile -->
                 <div class="mob-slider hidden-md hidden-sm hidden-lg visible-xs mobs-slider nav-hide-mob ch-nav">
                     <flex-slider flex-slide="item in AllUpcomingMovies track by $index" animation="slide" item-width="207" item-margin="20" animation-loop="true"
                         move="1" slideshow-Speed="2000">
@@ -296,16 +296,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="video-slider slider-nav mt30 min-tp-nm nav-cn-hide">
-                            <flex-slider flex-slide="item in getAllUpcomingMovies | orderBy : '-releaseDate' track by $index" animation="slide" item-width="300" item-margin="0"
-                                animationloop="true" move="1" slideshowSpeed=1000>
+                            <flex-slider flex-slide="item in getAllUpcomingMovies | orderBy : '-releaseDate' track by $index" animation="slide" item-width="300"
+                                item-margin="0" animationloop="true" move="1" slideshowSpeed=1000>
                                 <li>
+
                                     <a class="various fancybox.iframe" fancybox rel="gallery1" href="https://www.youtube.com/embed/{{item.url}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                         rel="movies" data-fancybox-type="iframe">
                                         <div class="video-box">
                                             <div class="video-slide-img">
                                                 <div class="img-animate">
-                                                    <img ng-src="{{item.thumbnail|uploadpath}}" alt="Dharma Productions" ng-if="(item.thumbnail || item.thumbnail != '')">
-                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100" ng-if="!(item.thumbnail || item.thumbnail != '')">
+                                                    <img ng-src="{{item.url|youtubethumb}}" alt="Dharma Productions" class="img-responsive width100">
                                                 </div>
                                             </div>
                                             <div class="video-names mt10">
@@ -316,7 +316,7 @@
 
                                 </li>
                             </flex-slider>
-                            
+
                             <div class="text-center btn-view-all mt40">
                                 <a ui-sref="dharma-tv" class="btn-1 font-hammersmith btn color-primary">
                                     <svg>
@@ -635,4 +635,4 @@
             </div>
         </div>
     </section>
-<!--<button ng-click="subs();">click</button>-->
+    <!--<button ng-click="subs();">click</button>-->
