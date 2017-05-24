@@ -7,207 +7,207 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question:"What was Varun Dhawan's name in Student of the Year?",
+            question:"How many films has Karan Johar directed for Dharma productions?",
             // question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name":"Rahul Nanda"
+                "name":"5"
                 // "name": "Cut out of Manadakini",
             }, {
                 "id": "radio2",
-                "name":"Rohan Nanda",
+                "name":"6",
                   answer: true
                 // "name": "Cut out of Zeenat Aman"
 
             }, {
                 "id": "radio3",
                 // "name": "Cut out of Sridevi"
-                 "name":"Rohit Nanda"
+                 "name":"7"
             }, {
                 "id": "radio4",
-                "name":"Raj Nanda"
+                "name":"9"
                 // "name": "Cut out of Nargis"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question:"The educational qualification of the charming Badrinath is -",
+            question:"Which among the following songs is from a Karan Johar film?",
             // question: "What was the Kapoor family's pet dog's name?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "B.A"
+                "name": "Bholi Si Soorat"
             }, {
                 "id": "radio2",
-                "name": "12th pass"
+                "name": "Bole Chudiyan",
+                 answer: true
             }, {
                 "id": "radio3",
-                "name": "10th pass",
-                 answer: true  
+                "name": "Ik Pal Ka Jeena"  
             }, {
                 "id": "radio4",
-                "name": "M.A"
+                "name": "Tu Jaane Na"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question:"Varun Dhawan has earned a degree in-",
+            question:"Which Karan Johar film has won a national award?",
             // question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Business Management", 
-                answer: true
+                "name": "Kabhi Alvida Naa Kehna"
             }, {
                 "id": "radio2",
-                "name": "Culinary Arts"
+                "name": "My Name Is Khan"
             }, {
                 "id": "radio3",
-                "name": "Hotel Management" 
+                "name": "Kuch Kuch Hota Hai", 
+                answer: true 
             }, {
                 "id": "radio4",
-                "name": "Computer Science",
+                "name": "Kabhi Khushi Kabhie Gham",
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question:"What is Humpty Sharma's real name?",
+            question:"How many seasons of 'Koffee with Karan' have been broadcasted till date?",
             // question: "What was the name of Tia’s house helper in the movie?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Raj Sharma"
+                "name": "7"
             }, {
                 "id": "radio2",
-                "name": "Varun Sharma"
+                "name": "4"
             }, {
                 "id": "radio3",
-                "name": "Vijay Sharma"
+                "name": "8"
             }, {
                 "id": "radio4",
-                "name": "Rakesh Sharma",
+                "name": "5",
                 answer: true
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question:"How old was Varun when he did 'Student of the Year'?",
+            question:"How many films that Karan Johar has directed have titles starting with the letter 'K'?",
             // question: "Where did Arjun and Tia go for a date?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "20 years",
+                "name": "5",
             }, {
                 "id": "radio2",
-                "name": "25 years",
-                 answer: true
+                "name": "4"
             }, {
                 "id": "radio3",
-                "name": "27 years"
+                "name": "3",
+                 answer: true
             }, {
                 "id": "radio4",
-                "name": "18 years"
+                "name": "5"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
             // question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
-            question:"Varun has worked as an assistant director for which Dharma movie?",
+            question:"The title of the short film directed by Karan Johar for 'Bombay Talkies' is?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Dostana"
+                "name": "Ajeeb Dastaan Hai Yeh",
+                answer: true 
             }, {
                 "id": "radio2",
-                "name": "Wake Up Sid"
+                "name": "Star"
             }, {
                 "id": "radio3",
-                "name": "Kabhi Alvida Naa Kehna"
+                "name": "Sheila Ki Jawaani"
             }, {
                 "id": "radio4",
-                "name": "My Name Is Khan",
-                answer: true 
+                "name": "Murabba"
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question:"Who does Varun pick as his partner for the dance competition in SOTY?",
+            question:"Which is Karan Johar's debut film as an actor?",
             // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Tanya",
-                 answer: true
+                "name": "Dil Toh Pagal Hai"
             }, {
                 "id": "radio2",
-                "name": "Shruti"
+                "name": "Duplicate"
             }, {
                 "id": "radio3",
-                "name": "Shanaya"
+                "name": "Dilwale Dulhania Le Jayenge",
+                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Kavya"
+                "name": "Bombay Velvet"
             }]
         }, {
             id: 8,
              quesNo: "Q8",
-             question:"In Student of the Year, Varun Dhawan becomes a popular-",
+             question:"On how many reality shows has Karan Johar appeared as a judge?",
             // question: " What was the wildest thing Rahul had done in his life?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Rockstar",
+                "name": " 3",
                  answer: true
             }, {
                 "id": "radio2",
-                "name": "Businessman",
+                "name": "1",
             }, {
                 "id": "radio3",
-                "name": "Actor"
+                "name": "2"
             }, {
                 "id": "radio4",
-                "name": "Footballer"
+                "name": "4"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-               question:"Which formula did Badri learn and come back to tell Vaidehi?",
+               question:"Which was the latest film directed by Karan Johar?",
             // question: "Which song was played in the house party hosted by Tia?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Pythagoras theorem"
-            }, {
-                "id": "radio2",
-                "name": "Simple interest",
+                "name": "Ae Dil Hai Mushkil",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Student of the Year"
+            }, {
                 "id": "radio3",
-                "name": "Compound interest"
+                "name": "My Name Is Khan"
             }, {
                 "id": "radio4",
-                "name": "Laws of motion"
+                "name": "Kapoor & Sons"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "Varun Dhawan is a big fan of the WWE superstar-",
+            question: "What is the title of Karan Johar's recently released autobiography?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "The Undertaker"
+                "name": "Surprised by joy"
             }, {
                 "id": "radio2",
-                "name": "Big Show"
+                "name": "The Story of My Life"
             }, {
                 "id": "radio3",
-                "name": "The Rock",
+                "name": "An Unsuitable Boy",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Kane"
+                "name": "Life as I see it"
             }]
         }];
         var answered;
