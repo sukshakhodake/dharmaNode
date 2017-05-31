@@ -3242,7 +3242,8 @@ button.navbar-toggle.collapsed {
 .top-bannerss {
     background: url(../img/1942x1139.jpg)no-repeat;
     background-size: cover;
-    position: relative;
+    height: calc(100vh - 90px);
+    // position: relative;
 }
 
 .pd-all {
