@@ -133,7 +133,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 7,
             quesNo: "Q7",
-            question:"To which place place do Avi, Aditi, Bunny and Naina travel for a brief holiday in the first half of the film?",
+            question:"To which place do Avi, Aditi, Bunny and Naina travel for a brief holiday in the first half of the film?",
             // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
