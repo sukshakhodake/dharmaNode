@@ -7,128 +7,128 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question:"What is the profession of Vijay's father in Agneepath?",
+            question:"What are Humpty's bestfriend's names?",
             // question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name":"Policeman"
+                "name":"Gabru and Bablu"
                 // "name": "Cut out of Manadakini",
             }, {
                 "id": "radio2",
-                "name":"School teacher",
-                  answer: true
+                "name":"Shonta and Lallu"
                 // "name": "Cut out of Zeenat Aman"
 
             }, {
                 "id": "radio3",
                 // "name": "Cut out of Sridevi"
-                 "name":"Doctor"
+                 "name":"Shonty and Paplu",
+                  answer: true
             }, {
                 "id": "radio4",
-                "name":"Businessman"
+                "name":"Paplu and Lallu"
                 // "name": "Cut out of Nargis"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question:"Which Dharma father says the following dialogue - 'Keh diya na, bas keh diya'?",
+            question:"What is Kavya's one ultimate dream?",
             // question: "What was the Kapoor family's pet dog's name?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Harsh Kapoor"
+                "name": "To work in Singapore"
             }, {
                 "id": "radio2",
-                "name": "Dinanath Chauhan"
+                "name": "To get married in Delhi"
             }, {
                 "id": "radio3",
-                "name": "Yashvardhan Raichand",
+                "name": "To wear a designer lehenga for her wedding",
                  answer: true 
             }, {
                 "id": "radio4",
-                "name": "Bipin Arora"
+                "name": "To get married to a rich man"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question:"What is the real name of 'Sexy Sam' in Kabhi Alvida Naa Kehna?",
+            question:"Complete the dialogue - 'Bandhe perfect nahi hote, ____ perfect hote hain'",
             // question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Sameer Singh"
+                "name": "Shaadi"
             }, {
                 "id": "radio2",
-                "name": "Samarjit Singh"
+                "name": "Rishte", 
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Sameer Talwar"
+                "name": "Kapde"
             }, {
                 "id": "radio4",
-                "name": "Samarjit Talwar", 
-                answer: true
+                "name": "Haalat"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question:"Which of the following actors has never played the role of a father in a Dharma movie?",
+            question:"Which song did Alia recreate for this movie?",
             // question: "What was the name of Tia’s house helper in the movie?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Shah Rukh Khan"
+                "name": "Daingad Daingad"
             }, {
                 "id": "radio2",
-                "name": "Arjun Rampal"
+                "name": "Saturday Saturday"
             }, {
                 "id": "radio3",
-                "name": "Varun Dhawan",
-                answer: true
+                "name": "Humsafar"
             }, {
                 "id": "radio4",
-                "name": "Anupam Kher"
+                "name": "Samjhawan",
+                answer: true
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question:"In 'Shaandaar', Pankaj Kapur plays the father of?",
+            question:"Who is the director of Humpty Sharma Ki Dulhania?",
             // question: "Where did Arjun and Tia go for a date?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Alia Bhatt",
-                 answer: true
+                "name": "Punit Malhotra"
             }, {
                 "id": "radio2",
-                "name": "Shahid Kapoor"
+                "name": "Karan Johar"
             }, {
                 "id": "radio3",
-                "name": "Shibani Dandekar"
+                "name": "Shakun Batra"
             }, {
                 "id": "radio4",
-                "name": "Sanjay Kapoor"
+                "name": "Shashank Khaitan",
+                 answer: true
             }]
         }, {
             id: 6,
             quesNo: "Q6",
             // question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
-            question:"What does Ananya's father learn from Krish in 2 States?",
+            question:"What role does Kavya play in the hotel sting operation scene for her friend?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Driving a car"
+                "name": "Journalist"
             }, {
                 "id": "radio2",
-                "name": "Making a Powerpoint presentation",
-                answer: true 
+                "name": "Doctor"
             }, {
                 "id": "radio3",
-                "name": "Cooking food"
+                "name": "Hotel receptionist",
+                answer: true 
             }, {
                 "id": "radio4",
-                "name": "Playing tennis"
+                "name": "Teacher"
             }]
         }, {
             id: 7,
@@ -138,76 +138,76 @@ var rapidAnswer = angular.module('rapidAnswer', [])
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Kuch Kuch Hota Hai"
+                "name": "Beer drinking",
+                 answer: true
             }, {
                 "id": "radio2",
-                "name": "Kabhi Alvida Naa Kehna"
+                "name": "Arm wrestling"
             }, {
                 "id": "radio3",
-                "name": "Kabhi Khushi Kabhie Gham"
+                "name": "Thumb fight"
             }, {
                 "id": "radio4",
-                "name": "Kal Ho Naa Ho",
-                 answer: true
+                "name": "Running"
             }]
         }, {
             id: 8,
              quesNo: "Q8",
-             question:"In Humpty Sharma Ki Dulhania, what does Humpty dream of buying his father?",
+             question:"Complete the lines of Humpty's poem: My daddy cry if I fail, then I hit you and _____________?",
             // question: " What was the wildest thing Rahul had done in his life?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "A house"
+                "name": "dance again"
             }, {
                 "id": "radio2",
-                "name": "A boat",
+                "name": "stand straight",
             }, {
                 "id": "radio3",
-                "name": "A car",
+                "name": "go to jail",
                  answer: true
             }, {
                 "id": "radio4",
-                "name": "A bike"
+                "name": "hit you again"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-               question:"Who plays the role of Harsh Kapoor in Kapoor & Sons?",
+               question:"Who is Kavya arranged to get married to?",
             // question: "Which song was played in the house party hosted by Tia?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Rishi Kapoor"
+                "name": "Humpty"
             }, {
                 "id": "radio2",
-                "name": "Rajat Kapoor",
-                answer: true
+                "name": "Kabir"
             }, {
                 "id": "radio3",
-                "name": "Sidharth Malhotra"
+                "name": "Angad",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Fawad Khan"
+                "name": "Raj"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "How many Dharma movies has Amitabh Bachchan played the role of a father?",
+            question: "When did Humpty Sharma Ki Dulhania release?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "2",
-                answer: true
+                "name": "11th July 2016"
             }, {
                 "id": "radio2",
-                "name": "3"
+                "name": "11th July 2015"
             }, {
                 "id": "radio3",
-                "name": "4"
+                "name": "11th July 2014",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "5"
+                "name": "11th July 2013"
             }]
         }];
         var answered;
