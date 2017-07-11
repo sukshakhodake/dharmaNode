@@ -133,7 +133,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 7,
             quesNo: "Q7",
-            question:"In which of the following films does Shah Rukh Khan not play the role of a father?",
+            question:"Which competition does Kavya beat Humpty in?",
             // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
