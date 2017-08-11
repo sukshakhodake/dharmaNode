@@ -87,7 +87,7 @@ var navigationservice = angular.module('navigationservice', [])
         , {
             name: "2.0",
             classis: "active",
-            link: "https://dharma-production.com/2.0/index.html",
+            link: "https://dharma-production.com/2.0",
             subnav: []
         }
     ];
