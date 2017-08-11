@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Dharma</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="tools/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="tools/fonts/font-awesome/css/font-awesome.min.css">
+    <link href="tools/css/bootstrap.min.css" rel="stylesheet">
+    <link href="tools/css/style.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     
+    <script src="tools/js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="tools/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+  </head>
+  <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        
+      });
+    } // End if
+  });
+});
+</script>
+  <body>
+<script type="text/javascript">
+  $(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 100) {
+        $(".nav-down").addClass("nav-up");
+    } else {
+        $(".nav-down").removeClass("nav-up");
+    }
+});
+</script>
+    <header>
+      <div class="bottom_header">
+      <nav class="navbar navbar-default navbar-fixed-top hidden-xs hidden-sm nav-down desktop">
+        <div class="container-fluid mob-pad0">
+          <div class="row">
+            <div class="head-bg dh-relative">
+              <div class="row">
+                 <div class="col-md-4 col-sm-4">
+                  <div class="collapse navbar-collapse text-center navbar-responsive-collapse" id="nav-collapse1">
+                   <div class="template menu ">
+                      <ul class="nav navbar-nav mt18 custom-menu ">
+                         <li>
+                            <a class="text-up color-white font-hammersmith ng-binding ng-scope" href="https://dharma-production.com/" target="_blank">dharma-production.com</a>
+                          </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 text-center col-sm-4">
+                  <div class="logo">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a class="" href="index.html"><img src="tools/images/Dharma-2.0-Logo.png" alt="Dharma Productions" class="img-responsive logo-img doneLoading"></a>
+                    </div>
+                  </div>
+                </div>
+            <div class="col-md-4 col-sm-4 hidden-xs main-pad0 text-center">
+              <div class="head-social dh-list  mt15 m24-mob fl-main">
+                <ul class="padding0 margin0">
+                  <li>
+                    <a href="https://www.facebook.com/DharmaTwoPointO/" target="_blank"><img src="tools/images/fb.png" class="black"> <img src="tools/images/fb-blue.png" class="white"></a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/DharmaTwoPointO" target="_blank"><img src="tools/images/twitter.png" class="black"><img src="tools/images/twitter-blue.png" class="white"></a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/dharma2pointo/?hl=en" target="_blank"><img src="tools/images/insta.png" class="black"><img src="tools/images/insta-blue.png" class="white"></a>
+                  </li>
+                  <li>
+                    <a href="https://www.youtube.com/c/dharmamovies" target="_blank"><img src="tools/images/youtube.png" class="black"><img src="tools/images/youtube-blue.png" class="white"></a>
+                  </li> 
+                </ul>
+              </div>
+              </div>
+              </div>
+            </div>
+            <div class="head-curve">
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar navbar-default navbar-fixed-top visible-xs visible-sm ">
+        <div class="container-fluid mob-pad0">
+          <div class="row">
+            <div class="head-bg dh-relative">
+              <div class="row">
+                <div class="col-md-2 text-center col-sm-12">
+                  <div class="logo">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a class="" href="index.html"><img src="tools/images/Dharma-2.0-Logo.png" alt="Dharma Productions" class="img-responsive logo-img doneLoading"></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="collapse navbar-collapse text-center navbar-responsive-collapse" id="nav-collapse">
+                   <div class="template menu ">
+                      <ul class="nav navbar-nav mt18 custom-menu ">
+                         <li>
+                           <a class="text-up color-white font-hammersmith ng-binding ng-scope" href="#main-sect" data-toggle="collapse" data-target=".navbar-collapse.in">Intro</a>
+                          </li><li >
+                          <a  class="text-up color-white font-hammersmith ng-binding ng-scope" href="#videos" data-toggle="collapse" data-target=".navbar-collapse.in">Videos</a>
+                          </li><li >
+                           <a class="text-up color-white font-hammersmith ng-binding ng-scope" href="#directors" data-toggle="collapse" data-target=".navbar-collapse.in">Directors</a>
+                          </li><li >
+                           <a  class="text-up color-white font-hammersmith ng-binding ng-scope" href="#contact" data-toggle="collapse" data-target=".navbar-collapse.in">Contact Us</a>
+                          </li>
+                          <li class="hidden-md hidden-lg">
+                            <div class="head-social dh-list pull-right mt15">
+                              <ul class="padding0 main-m-marg">
+                                <li>
+                                  <a href="https://www.facebook.com/DharmaTwoPointO/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                  <a href="https://twitter.com/DharmaTwoPointO" target="_blank"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                  <a href="https://www.instagram.com/dharma2pointo/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                  <a href="https://www.youtube.com/c/dharmamovies" target="_blank"><i class="fa fa-youtube"></i></a>
+                                </li>
+                                <!-- <li>
+                                  <a href=""><button type="button" name="button" class="my-main-btn"><img src="img/search-light.png" alt="" class=""></button></a>
+                                </li> -->
+                              </ul>
+                              <p class="dharmaprod"><a href="https://dharma-production.com/">dharma-production.com</a></p>
+                            </div>
+                          </li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="head-curve">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header >
+    <section class="home"  >
+      <div class="container-fluid">
+        <div class="row">
+             <div class="banner">
+              <!-- <img src="tools/images/Homepage.png" class="img-responsive"> -->
+              <div class="banner-text">
+               <a href="#main-sect"><img src="tools/images/scroll.png">
+               <p>SCROLL DOWN</p></a>
+              </div>
+              <div class="mobileview">
+                 <a href="#main-sect"></a>
+               </div>
+             </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="main-sect">
+        <div class="row">
+          <div class="intro-text" >
+          <body data-spy="scroll" data-target=".scrollspy">
+          <div class="sidebar">
+            <div class=" scrollspy">
+        <ul id="nav1" class="nav affix leftbar" data-spy="affix" >
+          <li class="active"><a rel="nofollow" href="#main-sect">INTRO</a></li>
+          <li class="orange"><a rel="nofollow" href="#videos">VIDEOS</a> </li>
+          <li class="orange"><a rel="nofollow" href="#directors">DIRECTORS</a></li>
+          <li class="orange last"><a rel="nofollow" href="#contact">CONTACT US</a></li>
+        </ul>
+      </div>
+</div>
+      <script type="text/javascript">
+       $('#nav1').affix({
+      offset: {
+        top: $('.banner').height()
+      }
+});
+      </script>
+          <div class="content" id="intro">
+            <p>Dharma 2.0, as the edgy name suggests, is a young and zippy venture by Dharma Productions. With this move, the country’s most prolific movie production house enters the world of ad film production and the dynamic world of digital. Having occupied a distinct place in Bollywood history and in the hearts of millions of fans with large scale dramas to mega star blockbusters to quirky and coming-of-age stories, Dharma Productions has made versatility one of its key USPs by staying relevant with the changing times. The birth of Dharma 2.0 is in line with this very versatility, as the new venture will not only produce ad films for television, but will also execute creative and clutter breaking solutions across digital space.  </p>
+            <p>Helmed by the very proficient Punit Malhotra, Dharma 2.0 intends to bring the same level of aesthetic quality and signature professionalism of the movie production business. Comprising some of the sharpest minds and creative professionals in India today alongside Karan Johar, Dharma 2.0 is an impeccable value-add for any brand. Bolstered by an extremely talented in-house creative team (a rarity when to comes to ad production houses in India), Dharma 2.0 holds a competitive edge over other established players in its space. However, the company functions on an adaptive model, making it open to collaborating with external creative partners for executing ad films and other creative solutions for its diverse set of clients. </p>
+            <p>Apart from Punit Malhotra and Karan Johar, the talented roster of Dharma 2.0 includes modern day storytellers and directors like Ayan Mukherjee, Abhishek Varman, Sonam Nair, Karan Malhotra, Shakun Batra, Shashank Khaitan, and Tarun Mansukhani. These dynamic individuals have proved to be the flag bearers of new age Indian cinema with their work, directing and producing films like Dostana, 2 States, Yeh Jawani Hai Deewani, Kapoor & Sons, and so on. It is only natural then that the fresh energy and young vibes that these blockbuster films gave out is expected to rub off on the work produced by Dharma 2.0. </p>
+            <p>Dharma 2.0 is committed to striking a chord with the enthusiastic Indian youth. The objective is to turn an idea into a masterpiece on-screen, in order to resonate with their target audiences. The warmth and creativity pouring out of Dharma’s films are what make their bond with their fans and partners equally indelible. Dharma 2.0 has already begun treading on a similar path.</p>
+          </div>
+        <script type="text/javascript">$(document).ready(function () {
+              $('.video:lt(4)').show();
+              $('.less').hide();
+              var items =  9;
+              var shown =  4;
+              $('.more').click(function () {
+                  $('.less').show();
+                  shown = $('.video:visible').size()+6 ;
+                  if(shown< items) {$('.video:lt('+shown+')').show(300);}
+                  else {$('.video:lt('+items+')').show(300);
+                       $('.more').hide();
+                       }
+              });
+              $('.less').click(function () {
+                  $('.video').not(':lt(4)').hide(300);
+                  $('.more').show();
+                  $('.less').hide();
+              });
+              });</script>
+
+          <div class="video-bg">
+          <div class="content" id="videos">
+           
+              <h2>VIDEOS</h2>
+                <div class="col-md-12 blogBox ">
+                    <a href="https://youtu.be/zq39nr_-j-Y" rel="prettyPhoto"><img src="tools/images/01D'DecorTVC.jpg" alt=""></a>
+                    <p class=" position"> D'Decor TVC | Shahrukh Khan & Gauri Khan | Punit Malhotra | A Dharma 2.0 Production</p>
+                  </div>
+                <div class="lower videos">
+                  <div class="col-md-3 video blogBox moreBox">
+                   <a href="https://youtu.be/dYJi9pSt_fM" rel="prettyPhoto"><img src="tools/images/02BluestoneAlia-Bhatt-A-Dharma-2.0-Production.jpg" alt=""></a>
+                   <p class="line-clampn line-clamp-1"> Bluestone | Alia-Bhatt | A Dharma 2.0 Production</p>
+                  </div>
+                  <div class="col-md-3 video blogBox moreBox ">
+                  <a href="https://www.youtube.com/watch?v=Jh1UPc01_Kk&t=6s" rel="prettyPhoto"><img src="tools/images/03ShakunBatra-Sayyes,forever.jpg" alt=""></a>
+                  <p class="line-clampn line-clamp-1">Say yes, forever - Nirav Modi Jewels | Sidharth Malhotra | Priyanka Chopra | Shakun Batra</p>
+                  </div>
+                  <div class="col-md-3 video blogBox moreBox">
+                    <a href="https://www.youtube.com/watch?v=zHT8V12Ti-U" rel="prettyPhoto"><img src="tools/images/PunitMalhotra-RelianceDigitalDishaPataniPunitMalhotraADharma2.0Production.jpg" alt=""></a>
+                    <p class="line-clampn line-clamp-1">Reliance Digital | Disha Patani | Punit Malhotra | A Dharma 2.0 Production</p>
+                  </div>
+                  <div class="col-md-3 video blogBox moreBox">
+                    <a href="https://youtu.be/-HLvEgVStWA" rel="prettyPhoto"><img src="tools/images/PunitMalhotra-JIOTrialOfferShah RukhKhanPunitMalhotraADharma2.0Production.jpg" alt=""></a>
+                    <p class="line-clampn line-clamp-1">JIO Trial Offer | Shah Rukh Khan | Punit Malhotra | A Dharma 2.0 Production</p>
+                  </div>
+                  <div class="col-md-3 video blogBox moreBox">
+                    <a href="https://youtu.be/TvpzJSQqt-I" rel="prettyPhoto"><img src="tools/images/Punit-MalhotraCollegeCollege(English)AdarPoonawallaCleanCityInitiativePunitMalhotraADharma2.0Production.jpg" alt=""></a>
+                    <p class="line-clampn line-clamp-1">College  (English) |  Adar Poonawalla Clean City Initiative | Punit Malhotra | A Dharma 2.0 Production</p>
+                  </div>
+                  <div class="col-md-3 video blogBox moreBox">
+                   <a href="https://youtu.be/2C0fPPOgnBY" rel="prettyPhoto"><img src="tools/images/Shakun-Batra-JIODigitalLifeShakunBatraADharma2.0Production.jpg" alt=""></a>
+                   <p class="line-clamp line-clamp-1">JIO Digital Life | Shakun Batra | A Dharma 2.0 Production</p>
+                  </div>
+                </div>
+                 <div class="viewall">
+                  <div class="more" id="loadMore"> <a href="#/" class="btn btn-1"><svg> <rect x="0" y="0" fill="none" width="100%" height="100%"></rect> </svg> VIEW ALL</a></div>
+                  <div class="less" id="loadMore"> <a href="#/" class="btn btn-1"><svg> <rect x="0" y="0" fill="none" width="100%" height="100%"></rect> </svg> VIEW LESS</a></div>
+                  </div>
+            
+              <script type="text/javascript" charset="utf-8">
+                $(document).ready(function(){
+                    $("a[rel^='prettyPhoto']").prettyPhoto();
+                  });
+              </script>
+            
+          </div>
+           <div class="content" id="directors">
+             <h2>DIRECTORS</h2>
+            <script type="text/javascript">
+               jQuery(function ($) {
+    $('.carousel').carousel();
+    var caption = $('div.item:nth-child(1) .carousel-caption');
+    $('.new-caption-area').html(caption.html());
+    caption.css('display', 'none');
+
+    $(".carousel").on('slide.bs.carousel', function (evt) {
+        var caption = $('div.item:nth-child(' + ($(evt.relatedTarget).index() + 1) + ') .carousel-caption');
+        $('.new-caption-area').html(caption.html());
+        caption.css('display', 'none');
+    });
+});
+             </script> 
+        
+     <div class="bs-example">
+    <div id="carousel-example-captions" class="carousel slide col-md-4" data-ride="carousel">
+      
+      <div class="carousel-inner">
+        <div class="item active">
+          <img  alt="900x500" src="tools/images/Karan-Johar.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/Z_PODraXg4E" rel="prettyPhoto"><img src="tools/images/Thumbnail-Karan-Johar.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">Ae Dil Hai Mushkil | Trailer | Karan Johar | Aishwarya Rai Bachchan | Ranbir Kapoor | Anushka Sharma</p>
+          </div>
+          <div class="carousel-caption">
+            <h3>KARAN JOHAR</h3>
+            <p>Karan Johar made his directorial debut at age 25 with a path breaking love story ‘Kuch Kuch Hota Hai’. The film remains a landmark in Indian cinema for the appreciation it received, both critically and commercially, in India as well as the world.
+Following this, over the last 15 years, he has directed and written critically and commercially acclaimed blockbusters like Kabhie Khushi Kabhi Gham, Kabhi Alvida Na Kehna and My Name is Khan.</p>
+            <p>The multi-faceted Karan wears many caps with ease. Besides being an acclaimed director and one of the most influential men in the industry today, Karan is also a television personality, a talk show host, a costume designer and the latest feather in his cap is that of being an actor. His talk show Koffee With Karan has the distinction of being the most watched English talk show on Indian television.</p>
+            <p>In addition to personal success and accomplishment, Karan Johar has also been a mentor to many successful directors in
+India. Directors have flourished under his guidance and support as a producer, releasing both commercial blockbusters as well as critical indie successes.</p>
+            <p>The name Karan Johar is synonymous with prestige, elegance,
+versatility and success. He is amongst a prolific group of Indian film-makers who have brought about a fresh and modern outlook to Indian commercial cinema and has contributed greatly to the transformation of Hindi cinema from his very first film.</p>
+              
+          </div>
+        </div>
+        <div class="item">
+          <img  alt="900x500" src="tools/images/Ayan-Mukherjee.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/Rbp2XUSeUNE" rel="prettyPhoto"><img src="tools/images/Thumbnail-Ayan-Mukherji.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">Yeh Jawaani Hai Deewani - Official Trailer | Ranbir Kapoor, Deepika Padukone</p>
+          </div>
+          <div class="carousel-caption">
+            <h3>AYAN MUKHERJEE</h3>
+            <p>Of the story-writers in the country that can get inside the mind of the urban youth, can anyone do it as well as Ayan Mukerji? His characters are real, relatable, funny and aspirational. After all, who didn’t see a version of themselves in Sid or Bunny or even Naina... From quirk to emotion, Ayan has shown it all, and everything he touches is sure to be an extraordinary, fun ride.</p>
+           
+          </div>
+        </div>
+        <div class="item">
+          <img  alt="900x500" src="tools/images/Director-Picture.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/CGyAaR2aWcA" rel="prettyPhoto"><img src="tools/images/Thumbnail-Abhishek-Verman.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">2 States - Official Trailer - Arjun Kapoor, Alia Bhatt </p>
+          </div>
+          <div class="carousel-caption">
+            <h3>ABHISHEK VARMAN </h3>
+            <p>2 States is the complete Indian film - romance, humour, drama, emotion... anything you could ask for, and more, Abhishek Varman delivers. His touch is light, his ideas fresh and the canvas upon which his story unfolds is simply stunning. With the mind of a director and eye of a connoisseur, Abhishek Varman is one of the best talents in Dharma today.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img  alt="900x500" src="tools/images/Director-Picture.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/2BggaM_bC_w" rel="prettyPhoto"><img src="tools/images/Thumbnail-Karan-Malhotra.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">Agneepath - OFFICIAL Trailer 2</p>
+          </div>
+          <div class="carousel-caption">
+            <h3>KARAN MALHOTRA</h3>
+            <p>Amidst the fierce intensity of his movies, lie emotional stories of family... whether that is of father and son or two warring brothers. Karan Malhotra from his first film has shown a well seasoned mastery in handling family stories, that bring out the heart wrenching emotion.</p>
+          </div>
+        </div>
+
+
+        <div class="item">
+          <img  alt="900x500" src="tools/images/Punit-Malhotra.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/cg-t4Wsa6LU" rel="prettyPhoto"><img src="tools/images/Thumbnail-Punit-Malhotra.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">Gori Tere Pyaar Mein - Official Trailer | Imran Khan, Kareena Kapoor</p>
+          </div>
+          <div class="carousel-caption">
+            <h3>PUNIT MALHOTRA</h3>
+            <p>Slick and glossy visuals and cool, urban characters... Punit Malhotra knows how to make things look sleek, appealing and edgy... but within that, we find characters and stories that are relatable and intelligent. Beneath the gloss lies a wry sense of humour that satirises, observes and reveals truths about a generation he is well familiar with. The combination of candy floss and depth he possesses is an asset for any creative mind</p>
+          </div>
+        </div>
+        <div class="item">
+          <img  alt="900x500" src="tools/images/Shakun-Batra.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/s7YYt9_KfsM" rel="prettyPhoto"><img src="tools/images/Thumbnail-Shakun-Batra.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">Kapoor & Sons | Official Trailer | Sidharth Malhotra, Alia Bhatt, Fawad Khan</p>
+          </div>
+          <div class="carousel-caption">
+            <h3>SHAKUN BATRA </h3>
+            <p>Subtle emotion is a lost art, but not if you are Shakun Batra. Eclectic characters and unusual situations form the core of his movies, but within the unusualness, one finds emotion to hold on to. His writing is sweet, fun, funny and his movies, a treat for the heart and the mind.</p>
+          </div>
+        </div>
+        <div class="item">
+          <img  alt="900x500" src="tools/images/Shashank-Khaitan.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/hWMWEhOjmFs" rel="prettyPhoto"><img src="tools/images/Thumbnail-Shashank-Khaitan.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">Humpty Sharma Ki Dulhania - Official Trailer | Varun Dhawan, Alia Bhatt </p>
+          </div>
+          <div class="carousel-caption">
+            <h3>SHASHANK KHAITAN </h3>
+            <p>Few directors in the country have a pulse on the secondary city audience as well as Shashank Khaitan. With his unforgettable dialogues and the perfect blend of urban and country he brings to his work, he is sure to bring full on entertainment to any project he is involved in!</p>
+          </div>
+        </div>
+        <div class="item">
+          <img  alt="900x500" src="tools/images/Sonam-Nair.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/N-G-XGG7xno" rel="prettyPhoto"><img src="tools/images/Thumbnail-Sonam-Nair.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">Gippi - Official Trailer </p>
+          </div>
+          <div class="carousel-caption">
+            <h3>SONAM NAIR</h3>
+            <p>Sonam Nair knows how to speak teenage girl... and if you’ve been a teenage girl (or even around one), you know that’s no mean feat. Her stories are not so much about moral lessons or teaching moments but simple reflections of life’s weirdest and loveliest moments. Combined with a killer sense of humour and hilarious dialogues, she can make any journey, a fun one.</p>
+          </div>
+        </div>
+        
+        <script type='text/javascript'>
+    jQuery(document).ready(function($) {
+
+        $("#clickme").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 1200);
+        });
+    });
+    </script>
+        <div class="item">
+          <img  alt="900x500" src="tools/images/Director-Picture.jpg">
+          <div class="col-md-12 trailer">
+            <h3>TRAILER</h3>
+            <a href="https://youtu.be/gcEE4F-9qP8" rel="prettyPhoto"><img src="tools/images/Thumbnail-Tarun-Mansukhani.jpg" alt=""></a>
+            <p class="line-clampn line-clamp-1n charcount">Dostana - Trailer </p>
+          </div>
+          <div class="carousel-caption">
+            <h3>TARUN MANSUKHANI </h3>
+            <p>Dostana is a hallmark in the archives of urban cinema. Comedy intertwined with romance with glossy visuals and sexy characters... Tarun Mansukhani knows how to make things look appealing!</p>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#carousel-example-captions" data-slide="prev"  onclick="keepLocation(window.pageYOffset);">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-captions" data-slide="next"  onclick="keepLocation(window.pageYOffset);">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+  <script language="JavaScript" type="text/javascript">
+$(".carousel-control").click(function( evt ) {
+
+   evt.preventDefault();       // prevents browser's default anchor behavior
+
+   // Other code here....
+           // HIDE ALL     .page
+   $("."+ this.id ).show();      // SHOW RELATED .(id)
+});
+</script>
+<div class="new-caption-area col-md-8"></div>
+
+           </div>
+           <div class="content" id="contact">
+              <div class="container">
+                <div class="row">
+                  <h2>CONTACT US</h2>
+                  <p class="contact">We look forward to working with you soon.</p>
+                    <div class="contact-info">
+                      <div class="col-md-3 line">
+                        <h3>punit malhotra</h3>
+                        <p><a href="mailto:punit@dharma-production.com"> punit@dharma-production.com</a></p>
+                      </div>
+                      <div class="col-md-3 line">
+                      <h3>garima vohra</h3>
+                      <p><a href="mailto:garima@dharma-production.com"> garima@dharma-production.com</a></p>
+                      </div>
+                      <div class="col-md-3">
+                      <h3> Varun Shah</h3>
+                      <p><a href="mailto:varun@dharma-production.com"> varun@dharma-production.com</a></p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            
+           </div>
+          </div>
+          </body>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <script src="tools/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+  <footer>
+  <div ng-include="template.footer" class="template footer ng-scope">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 phone-text-center">
+                <div class="footer-data dh-list mobile-center">
+                  <ul class="padding0 margin0">
+                    <li class="pointer" ui-sref="privacy-policy"> <a href="https://dharma-production.com/privacy-policy">Privacy Policy </a></li>
+                    <li class="pointer" ui-sref="disclaimer" ><a href="https://dharma-production.com/disclaimer">Disclaimer</a></li>
+                  </ul>
+                </div>
+                <div class="footer-social dh-list mt15 mobile-center pd10">
+                  <ul class="padding0 margin0">
+                    <li>
+                      <a href="https://www.facebook.com/DharmaTwoPointO/" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/DharmaTwoPointO" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.instagram.com/dharma2pointo/?hl=en" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href=" https://www.youtube.com/c/dharmamovies" target="_blank">
+                        <i class="fa fa-youtube"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 phone-text-center">
+                <div class="float-right copy mt15 mobile-center pd18">
+                    <p>Copyright © 2017 Dharma Productions Pvt. Ltd.</p>
+                    <p class="float-right mobile-center">Designed by <a href="http://www.ting.in/" target="_blank">TING</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  </footer>
+  </body>
+</html>
