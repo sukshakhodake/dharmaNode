@@ -1,15 +1,15 @@
 /* ------------------------------------------------------------------------
-	Class: prettyPhoto
+	Class: Dharmavideos
 	Use: Lightbox clone for jQuery
 	Author: Stephane Caron (http://www.no-margin-for-errors.com)
 	Version: 3.1.6
 ------------------------------------------------------------------------- */
 (function($) {
-	$.prettyPhoto = {version: '3.1.6'};
+	$.Dharmavideos = {version: '3.1.6'};
 	
-	$.fn.prettyPhoto = function(pp_settings) {
+	$.fn.Dharmavideos = function(pp_settings) {
 		pp_settings = jQuery.extend({
-			hook: 'rel', /* the attribute tag to use for prettyPhoto hooks. default: 'rel'. For HTML5, use "data-rel" or similar. */
+			hook: 'rel', /* the attribute tag to use for Dharmavideos hooks. default: 'rel'. For HTML5, use "data-rel" or similar. */
 			animation_speed: 'fast', /* fast/slow/normal */
 			ajaxcallback: function() {},
 			slideshow: 5000, /* false OR interval time in ms */
@@ -23,16 +23,16 @@
 			counter_separator_label: '/', /* The separator for the gallery counter 1 "of" 2 */
 			theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
 			horizontal_padding: 20, /* The padding on each side of the picture */
-			hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+			hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over Dharmavideos */
 			wmode: 'opaque', /* Set the flash wmode attribute */
 			autoplay: true, /* Automatically start videos: True/False */
 			modal: false, /* If set to true, only the close button will close the window */
-			deeplinking: true, /* Allow prettyPhoto to update the url to enable deeplinking. */
+			deeplinking: true, /* Allow Dharmavideos to update the url to enable deeplinking. */
 			overlay_gallery: true, /* If set to true, a gallery will overlay the fullscreen image on mouse over */
 			overlay_gallery_max: 30, /* Maximum number of pictures in the overlay gallery */
-			keyboard_shortcuts: true, /* Set to false if you open forms inside prettyPhoto */
+			keyboard_shortcuts: true, /* Set to false if you open forms inside Dharmavideos */
 			changepicturecallback: function(){}, /* Called everytime an item is shown/changed */
-			callback: function(){}, /* Called when prettyPhoto is closed */
+			callback: function(){}, /* Called when Dharmavideos is closed */
 			ie6_fallback: true,
 			markup: '<div class="pp_pic_holder"> \
 						<div class="ppt">&nbsp;</div> \
@@ -93,10 +93,10 @@
 			social_tools: '<div class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div><div class="facebook"><iframe src="//www.facebook.com/plugins/like.php?locale=en_US&href={location_href}&amp;layout=button_count&amp;show_faces=true&amp;width=500&amp;action=like&amp;font&amp;colorscheme=light&amp;height=23" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:23px;" allowTransparency="true"></iframe></div>' /* html or false to disable */
 		}, pp_settings);
 		
-		// Global variables accessible only by prettyPhoto
+		// Global variables accessible only by Dharmavideos
 		var matchedObjects = this, percentBased = false, pp_dimensions, pp_open,
 		
-		// prettyPhoto container specific
+		// Dharmavideos container specific
 		pp_contentHeight, pp_contentWidth, pp_containerHeight, pp_containerWidth,
 		
 		// Window size
@@ -108,24 +108,24 @@
 		doresize = true, scroll_pos = _get_scroll();
 	
 		// Window/Keyboard events
-		$(window).unbind('resize.prettyphoto').bind('resize.prettyphoto',function(){ _center_overlay(); _resize_overlay(); });
+		$(window).unbind('resize.Dharmavideos').bind('resize.Dharmavideos',function(){ _center_overlay(); _resize_overlay(); });
 		
 		if(pp_settings.keyboard_shortcuts) {
-			$(document).unbind('keydown.prettyphoto').bind('keydown.prettyphoto',function(e){
+			$(document).unbind('keydown.Dharmavideos').bind('keydown.Dharmavideos',function(e){
 				if(typeof $pp_pic_holder != 'undefined'){
 					if($pp_pic_holder.is(':visible')){
 						switch(e.keyCode){
 							case 37:
-								$.prettyPhoto.changePage('previous');
+								$.Dharmavideos.changePage('previous');
 								e.preventDefault();
 								break;
 							case 39:
-								$.prettyPhoto.changePage('next');
+								$.Dharmavideos.changePage('next');
 								e.preventDefault();
 								break;
 							case 27:
 								if(!settings.modal)
-								$.prettyPhoto.close();
+								$.Dharmavideos.close();
 								e.preventDefault();
 								break;
 						};
@@ -136,9 +136,9 @@
 		};
 		
 		/**
-		* Initialize prettyPhoto.
+		* Initialize Dharmavideos.
 		*/
-		$.prettyPhoto.initialize = function() {
+		$.Dharmavideos.initialize = function() {
 			
 			settings = pp_settings;
 			
@@ -162,22 +162,22 @@
 			_build_overlay(this); // Build the overlay {this} being the caller
 			
 			if(settings.allow_resize)
-				$(window).bind('scroll.prettyphoto',function(){ _center_overlay(); });
+				$(window).bind('scroll.Dharmavideos',function(){ _center_overlay(); });
 			
 			
-			$.prettyPhoto.open();
+			$.Dharmavideos.open();
 			
 			return false;
 		}
 
 
 		/**
-		* Opens the prettyPhoto modal box.
+		* Opens the Dharmavideos modal box.
 		* @param image {String,Array} Full path to the image to be open, can also be an array containing full images paths.
 		* @param title {String,Array} The title to be displayed with the picture, can also be an array containing all the titles.
 		* @param description {String,Array} The description to be displayed with the picture, can also be an array containing all the descriptions.
 		*/
-		$.prettyPhoto.open = function(event) {
+		$.Dharmavideos.open = function(event) {
 			if(typeof settings == "undefined"){ // Means it's an API call, need to manually get the settings and set the variables
 				settings = pp_settings;
 				pp_images = $.makeArray(arguments[0]);
@@ -256,7 +256,7 @@
 
 						imgPreloader.onerror = function(){
 							alert('Image cannot be loaded. Make sure the path is correct and image exist.');
-							$.prettyPhoto.close();
+							$.Dharmavideos.close();
 						};
 					
 						imgPreloader.src = pp_images[set_position];
@@ -279,7 +279,7 @@
 								movie_id = movie_id.substr(0,movie_id.indexOf('&')); // Strip anything after the &
 						}
 
-						movie = 'http://www.youtube.com/embed/'+movie_id;
+						movie = 'https://www.youtube.com/embed/'+movie_id;
 						(getParam('rel',pp_images[set_position])) ? movie+="?rel="+getParam('rel',pp_images[set_position]) : movie+="?rel=1";
 							
 						if(settings.autoplay) movie += "&autoplay=1";
@@ -351,7 +351,7 @@
 					break;
 				
 					case 'inline':
-						// to get the item height clone it, apply default width, wrap it in the prettyPhoto containers , then delete
+						// to get the item height clone it, apply default width, wrap it in the Dharmavideos containers , then delete
 						myClone = $(pp_images[set_position]).clone().append('<br clear="all" />').css({'width':settings.default_width}).wrapInner('<div id="pp_full_res"><div class="pp_inline"></div></div>').appendTo($('body')).show();
 						doresize = false; // Make sure the dimensions are not resized.
 						pp_dimensions = _fitToViewport($(myClone).width(),$(myClone).height());
@@ -374,10 +374,10 @@
 
 	
 		/**
-		* Change page in the prettyPhoto modal box
+		* Change page in the Dharmavideos modal box
 		* @param direction {String} Direction of the paging, previous or next.
 		*/
-		$.prettyPhoto.changePage = function(direction){
+		$.Dharmavideos.changePage = function(direction){
 			currentGalleryPage = 0;
 			
 			if(direction == 'previous') {
@@ -397,15 +397,15 @@
 				$('.pp_contract').removeClass('pp_contract').addClass('pp_expand');
 			}
 
-			_hideContent(function(){ $.prettyPhoto.open(); });
+			_hideContent(function(){ $.Dharmavideos.open(); });
 		};
 
 
 		/**
-		* Change gallery page in the prettyPhoto modal box
+		* Change gallery page in the Dharmavideos modal box
 		* @param direction {String} Direction of the paging, previous or next.
 		*/
-		$.prettyPhoto.changeGalleryPage = function(direction){
+		$.Dharmavideos.changeGalleryPage = function(direction){
 			if(direction=='next'){
 				currentGalleryPage ++;
 
@@ -429,15 +429,15 @@
 		/**
 		* Start the slideshow...
 		*/
-		$.prettyPhoto.startSlideshow = function(){
+		$.Dharmavideos.startSlideshow = function(){
 			if(typeof pp_slideshow == 'undefined'){
 				$pp_pic_holder.find('.pp_play').unbind('click').removeClass('pp_play').addClass('pp_pause').click(function(){
-					$.prettyPhoto.stopSlideshow();
+					$.Dharmavideos.stopSlideshow();
 					return false;
 				});
-				pp_slideshow = setInterval($.prettyPhoto.startSlideshow,settings.slideshow);
+				pp_slideshow = setInterval($.Dharmavideos.startSlideshow,settings.slideshow);
 			}else{
-				$.prettyPhoto.changePage('next');	
+				$.Dharmavideos.changePage('next');	
 			};
 		}
 
@@ -445,9 +445,9 @@
 		/**
 		* Stop the slideshow...
 		*/
-		$.prettyPhoto.stopSlideshow = function(){
+		$.Dharmavideos.stopSlideshow = function(){
 			$pp_pic_holder.find('.pp_pause').unbind('click').removeClass('pp_pause').addClass('pp_play').click(function(){
-				$.prettyPhoto.startSlideshow();
+				$.Dharmavideos.startSlideshow();
 				return false;
 			});
 			clearInterval(pp_slideshow);
@@ -456,12 +456,12 @@
 
 
 		/**
-		* Closes prettyPhoto.
+		* Closes Dharmavideos.
 		*/
-		$.prettyPhoto.close = function(){
+		$.Dharmavideos.close = function(){
 			if($pp_overlay.is(":animated")) return;
 			
-			$.prettyPhoto.stopSlideshow();
+			$.Dharmavideos.stopSlideshow();
 			
 			$pp_pic_holder.stop().find('object,embed').css('visibility','hidden');
 			
@@ -471,9 +471,9 @@
 				
 				if(settings.hideflash) $('object,embed,iframe[src*=youtube],iframe[src*=vimeo]').css('visibility','visible'); // Show the flash
 				
-				$(this).remove(); // No more need for the prettyPhoto markup
+				$(this).remove(); // No more need for the Dharmavideos markup
 				
-				$(window).unbind('scroll.prettyphoto');
+				$(window).unbind('scroll.Dharmavideos');
 				
 				clearHashtag();
 				
@@ -527,7 +527,7 @@
 					}
 				}
 				
-				if(settings.autoplay_slideshow && !pp_slideshow && !pp_open) $.prettyPhoto.startSlideshow();
+				if(settings.autoplay_slideshow && !pp_slideshow && !pp_open) $.Dharmavideos.startSlideshow();
 				
 				settings.changepicturecallback(); // Callback!
 				
@@ -735,7 +735,7 @@
 				
 				goToPage = (Math.floor(set_position/itemsPerPage) < totalPage) ? Math.floor(set_position/itemsPerPage) : totalPage;
 
-				$.prettyPhoto.changeGalleryPage(goToPage);
+				$.Dharmavideos.changeGalleryPage(goToPage);
 				
 				$pp_gallery_li.filter(':eq('+set_position+')').addClass('selected');
 			}else{
@@ -777,14 +777,14 @@
 				$pp_gallery = $('.pp_pic_holder .pp_gallery'), $pp_gallery_li = $pp_gallery.find('li'); // Set the gallery selectors
 				
 				$pp_gallery.find('.pp_arrow_next').click(function(){
-					$.prettyPhoto.changeGalleryPage('next');
-					$.prettyPhoto.stopSlideshow();
+					$.Dharmavideos.changeGalleryPage('next');
+					$.Dharmavideos.stopSlideshow();
 					return false;
 				});
 				
 				$pp_gallery.find('.pp_arrow_previous').click(function(){
-					$.prettyPhoto.changeGalleryPage('previous');
-					$.prettyPhoto.stopSlideshow();
+					$.Dharmavideos.changeGalleryPage('previous');
+					$.Dharmavideos.stopSlideshow();
 					return false;
 				});
 				
@@ -801,8 +801,8 @@
 					$(this)
 						.find('a')
 						.click(function(){
-							$.prettyPhoto.changePage(i);
-							$.prettyPhoto.stopSlideshow();
+							$.Dharmavideos.changePage(i);
+							$.Dharmavideos.stopSlideshow();
 							return false;
 						});
 				});
@@ -813,7 +813,7 @@
 			if(settings.slideshow){
 				$pp_pic_holder.find('.pp_nav').prepend('<a href="#" class="pp_play">Play</a>')
 				$pp_pic_holder.find('.pp_nav .pp_play').click(function(){
-					$.prettyPhoto.startSlideshow();
+					$.Dharmavideos.startSlideshow();
 					return false;
 				});
 			}
@@ -827,10 +827,10 @@
 					'width':$(window).width()
 					})
 				.bind('click',function(){
-					if(!settings.modal) $.prettyPhoto.close();
+					if(!settings.modal) $.Dharmavideos.close();
 				});
 
-			$('a.pp_close').bind('click',function(){ $.prettyPhoto.close(); return false; });
+			$('a.pp_close').bind('click',function(){ $.Dharmavideos.close(); return false; });
 
 
 			if(settings.allow_expand) {
@@ -844,21 +844,21 @@
 						doresize = true;
 					};
 				
-					_hideContent(function(){ $.prettyPhoto.open(); });
+					_hideContent(function(){ $.Dharmavideos.open(); });
 			
 					return false;
 				});
 			}
 		
 			$pp_pic_holder.find('.pp_previous, .pp_nav .pp_arrow_previous').bind('click',function(){
-				$.prettyPhoto.changePage('previous');
-				$.prettyPhoto.stopSlideshow();
+				$.Dharmavideos.changePage('previous');
+				$.Dharmavideos.stopSlideshow();
 				return false;
 			});
 		
 			$pp_pic_holder.find('.pp_next, .pp_nav .pp_arrow_next').bind('click',function(){
-				$.prettyPhoto.changePage('next');
-				$.prettyPhoto.stopSlideshow();
+				$.Dharmavideos.changePage('next');
+				$.Dharmavideos.stopSlideshow();
 				return false;
 			});
 			
@@ -874,17 +874,17 @@
 			hashIndex = hashIndex.substring(hashIndex.indexOf('/')+1,hashIndex.length-1);
 			hashRel = hashRel.substring(0,hashRel.indexOf('/'));
 
-			// Little timeout to make sure all the prettyPhoto initialize scripts has been run.
+			// Little timeout to make sure all the Dharmavideos initialize scripts has been run.
 			// Useful in the event the page contain several init scripts.
 			setTimeout(function(){ $("a["+pp_settings.hook+"^='"+hashRel+"']:eq("+hashIndex+")").trigger('click'); },50);
 		}
 		
-		return this.unbind('click.prettyphoto').bind('click.prettyphoto',$.prettyPhoto.initialize); // Return the jQuery object for chaining. The unbind method is used to avoid click conflict when the plugin is called more than once
+		return this.unbind('click.Dharmavideos').bind('click.Dharmavideos',$.Dharmavideos.initialize); // Return the jQuery object for chaining. The unbind method is used to avoid click conflict when the plugin is called more than once
 	};
 	
 	function getHashtag(){
 		var url = location.href;
-		hashtag = (url.indexOf('#prettyPhoto') !== -1) ? decodeURI(url.substring(url.indexOf('#prettyPhoto')+1,url.length)) : false;
+		hashtag = (url.indexOf('#Dharmavideos') !== -1) ? decodeURI(url.substring(url.indexOf('#Dharmavideos')+1,url.length)) : false;
 		if(hashtag){  hashtag = hashtag.replace(/<|>/g,''); }
 		return hashtag;
 	};
@@ -895,7 +895,7 @@
 	};
 	
 	function clearHashtag(){
-		if ( location.href.indexOf('#prettyPhoto') !== -1 ) location.hash = "prettyPhoto";
+		if ( location.href.indexOf('#Dharmavideos') !== -1 ) location.hash = "Dharmavideos";
 	}
 	
 	function getParam(name,url){
