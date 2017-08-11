@@ -16,8 +16,8 @@
   <li ng-repeat="menu in navigation" class="hidden-md hidden-lg hidden-sm dh-relative">
     <a class="text-up color-white font-hammersmith dh-relative" ui-sref="{{menu.anchor}}" ng-if="menu.anchor" ng-click="showSub(menu)">{{menu.name}}  <span><i class="{{menu.class}}" ></i></span></a>
     <a class="text-up color-white font-hammersmith dh-relative" ng-if="!menu.anchor" ng-click="showSub(menu)">{{menu.name}}  <span><i class="{{menu.class}}" ></i></span></a>
-    <a href="{{menu.link}}" ng-if="menu.link">{{menu.name}}</a>
-    <a href="{{menu.link}}" ng-if="menu.link">{{menu.name}} <i class="{{menu.class}}" ></i></a>
+    <a href="{{menu.link}}" ng-if="menu.link" class="text-up color-white font-hammersmith dh-relative">{{menu.name}}</a>
+    <!-- <a href="{{menu.link}}" ng-if="menu.link">{{menu.name}} <i class="{{menu.class}}" ></i></a> -->
     <ul ng-show="menu.show" class="list-none mob-mn padding0 ">
       <li ng-repeat="submenu in menu.subnav" class="min-f-tp">
         <a ui-sref="{{submenu.anchor}}" ng-if="submenu.anchor">{{submenu.name}}</a>
