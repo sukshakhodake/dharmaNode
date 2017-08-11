@@ -1,7 +1,7 @@
 <ul class="nav navbar-nav mt18 custom-menu" ng-controller="headerctrl">
   <li ng-repeat="menu in navigation" class="{{menu.classis}} hidden-xs">
     <a ui-sref="{{menu.anchor}}" class="text-up color-white font-hammersmith" ng-if="menu.anchor">{{menu.name}}</a>
-    <a href="{{menu.link}}" class="text-up color-white font-hammersmith" ng-if="menu.link">{{menu.name}}</a>
+    <a href="{{menu.link}}" class="text-up color-white font-hammersmith" ng-if="menu.link" target="_blank">{{menu.name}}</a>
     <!-- <a class="text-up color-white font-hammersmith" ng-if="!menu.anchor">{{menu.name}}</a> -->
     <!-- <a class="text-up color-white font-hammersmith">{{menu.name}}</a> -->
     <!-- <a href="{{menu.link}}" ng-if="menu.link">{{menu.name}}</a> -->
@@ -16,7 +16,7 @@
   <li ng-repeat="menu in navigation" class="hidden-md hidden-lg hidden-sm dh-relative">
     <a class="text-up color-white font-hammersmith dh-relative" ui-sref="{{menu.anchor}}" ng-if="menu.anchor" ng-click="showSub(menu)">{{menu.name}}  <span><i class="{{menu.class}}" ></i></span></a>
     <!-- <a class="text-up color-white font-hammersmith dh-relative" ng-if="!menu.anchor" ng-click="showSub(menu)">{{menu.name}}  <span><i class="{{menu.class}}" ></i></span></a> -->
-    <a href="{{menu.link}}" ng-if="menu.link" class="text-up color-white font-hammersmith dh-relative">{{menu.name}}</a>
+    <a href="{{menu.link}}" ng-if="menu.link" class="text-up color-white font-hammersmith dh-relative" target="_blank">{{menu.name}}</a>
     <!-- <a href="{{menu.link}}" ng-if="menu.link">{{menu.name}} <i class="{{menu.class}}" ></i></a> -->
     <ul ng-show="menu.show" class="list-none mob-mn padding0 ">
       <li ng-repeat="submenu in menu.subnav" class="min-f-tp">
