@@ -7,207 +7,207 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question:"What are Humpty's bestfriend's names?",
+            question:"Kareena was popularly called as ___ in Kabhi Khushi Kabhie Gham?",
             // question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name":"Gabru and Bablu"
+                "name":"Nickey"
                 // "name": "Cut out of Manadakini",
             }, {
                 "id": "radio2",
-                "name":"Shonta and Lallu"
+                "name":"Poo",
+                answer: true
                 // "name": "Cut out of Zeenat Aman"
 
             }, {
                 "id": "radio3",
                 // "name": "Cut out of Sridevi"
-                 "name":"Shonty and Paplu",
-                  answer: true
+                 "name":"Soniya",
             }, {
                 "id": "radio4",
-                "name":"Paplu and Lallu"
+                "name":"Mona"
                 // "name": "Cut out of Nargis"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question:"What is Kavya's one ultimate dream?",
+            question:"Who does Avantika fall in love with, in Kurbaan?",
             // question: "What was the Kapoor family's pet dog's name?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "To work in Singapore"
+                "name": "Rahul"
             }, {
                 "id": "radio2",
-                "name": "To get married in Delhi"
+                "name": "Ehsaan",
+                answer: true 
             }, {
                 "id": "radio3",
-                "name": "To wear a designer lehenga for her wedding",
-                 answer: true 
+                "name": "Rohit"
             }, {
                 "id": "radio4",
-                "name": "To get married to a rich man"
+                "name": "Siddharth"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question:"Complete the dialogue - 'Bandhe perfect nahi hote, ____ perfect hote hain'",
+            question:"In Gori Tere Pyar Main, Kareena was on hunger strike against which social evil?'",
             // question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Shaadi"
-            }, {
-                "id": "radio2",
-                "name": "Rishte", 
+                "name": "Anti Corruption", 
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Farmer's movement"
+            }, {
                 "id": "radio3",
-                "name": "Kapde"
+                "name": "Drug abuse"
             }, {
                 "id": "radio4",
-                "name": "Haalat"
+                "name": "Prisoner's movement"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question:"Which song did Alia recreate for this movie?",
+            question:"What was Kareena's profession in We Are Family?",
             // question: "What was the name of Tia’s house helper in the movie?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Daingad Daingad"
+                "name": "Photographer"
             }, {
                 "id": "radio2",
-                "name": "Saturday Saturday"
+                "name": "Fashion Designer",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Humsafar"
+                "name": "Teacher"
             }, {
                 "id": "radio4",
-                "name": "Samjhawan",
-                answer: true
+                "name": "Musician"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question:"Who is the director of Humpty Sharma Ki Dulhania?",
+            question:"What was Poo's law of fashion?",
             // question: "Where did Arjun and Tia go for a date?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Punit Malhotra"
+                "name": "Green makes you look thin"
             }, {
                 "id": "radio2",
-                "name": "Karan Johar"
+                "name": "White makes you look thin"
             }, {
                 "id": "radio3",
-                "name": "Shakun Batra"
+                "name": "Black makes you look thin",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Shashank Khaitan",
-                 answer: true
+                "name": "Red makes you look thin"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
             // question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
-            question:"What role does Kavya play in the hotel sting operation scene for her friend?",
+            question:"What was Riana trying to sell to Rahul in Ek Main Aur Ekk Tu?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Journalist"
+                "name": "Car"
             }, {
                 "id": "radio2",
-                "name": "Doctor"
-            }, {
-                "id": "radio3",
-                "name": "Hotel receptionist",
+                "name": "Scooter",
                 answer: true 
             }, {
+                "id": "radio3",
+                "name": "House"
+            }, {
                 "id": "radio4",
-                "name": "Teacher"
+                "name": "Furniture"
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question:"Which competition does Kavya beat Humpty in?",
+            question:"Which pet did Kareena make Imran to adopt in Gori Tere Pyar Main?",
             // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Beer drinking",
-                 answer: true
+                "name": "Dog"
             }, {
                 "id": "radio2",
-                "name": "Arm wrestling"
+                "name": "Cat"
             }, {
                 "id": "radio3",
-                "name": "Thumb fight"
+                "name": "Bird"
             }, {
                 "id": "radio4",
-                "name": "Running"
+                "name": "Crab",
+                answer: true
             }]
         }, {
             id: 8,
              quesNo: "Q8",
-             question:"Complete the lines of Humpty's poem: My daddy cry if I fail, then I hit you and _____________?",
+             question:"What is Kareena's pet name in real life?",
             // question: " What was the wildest thing Rahul had done in his life?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "dance again"
+                "name": "Lolo"
             }, {
                 "id": "radio2",
-                "name": "stand straight",
+                "name": "Coco",
             }, {
                 "id": "radio3",
-                "name": "go to jail",
-                 answer: true
+                "name": "Babe"
             }, {
                 "id": "radio4",
-                "name": "hit you again"
+                "name": "Bebo",
+                answer: true
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-               question:"Who is Kavya arranged to get married to?",
+               question:"What was Poo's morning song to get ready?",
             // question: "Which song was played in the house party hosted by Tia?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Humpty"
+                "name": "Mama Mia"
             }, {
                 "id": "radio2",
-                "name": "Kabir"
-            }, {
-                "id": "radio3",
-                "name": "Angad",
+                "name": "It's raining men, hallelujah",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "Dancing queen"
+            }, {
                 "id": "radio4",
-                "name": "Raj"
+                "name": "Singing in the rain"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "When did Humpty Sharma Ki Dulhania release?",
+            question: "What number did Hrithik Roshan's character give Poo on a scale of 1 to 10?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "11th July 2016"
+                "name": "1"
             }, {
                 "id": "radio2",
-                "name": "11th July 2015"
+                "name": "2"
             }, {
                 "id": "radio3",
-                "name": "11th July 2014",
+                "name": "3",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "11th July 2013"
+                "name": "5"
             }]
         }];
         var answered;
