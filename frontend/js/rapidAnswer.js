@@ -52,7 +52,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 3,
             quesNo: "Q3",
-            question:"In Gori Tere Pyar Main, Kareena was on hunger strike against which social evil?'",
+            question:"In Gori Tere Pyaar Main, Kareena was on hunger strike against which social evil?'",
             // question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
@@ -133,7 +133,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 7,
             quesNo: "Q7",
-            question:"Which pet did Kareena make Imran to adopt in Gori Tere Pyar Main?",
+            question:"Which pet did Kareena make Imran to adopt in Gori Tere Pyaar Main?",
             // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
