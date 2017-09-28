@@ -93,7 +93,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 5,
             quesNo: "Q5",
-            question:"What was Poo's law of fashion?",
+            question:"Where was Bunny trekking to when he met Naina on the way?",
             // question: "Where did Arjun and Tia go for a date?",
             model: "quest5",
             options: [{
@@ -138,7 +138,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Jollywood Bollywood",
+                "name": "Jollygood Bollywood",
                 answer: true
             }, {
                 "id": "radio2",
