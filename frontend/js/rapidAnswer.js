@@ -7,88 +7,88 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question:"Kareena was popularly called as ___ in Kabhi Khushi Kabhie Gham?",
+            question:"What was Ranbir Kapoor’s name in Ae Dil Hai Mushkil?",
             // question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name":"Nickey"
+                "name":"Ayan",
+                answer: true
                 // "name": "Cut out of Manadakini",
             }, {
                 "id": "radio2",
-                "name":"Poo",
-                answer: true
+                "name":"Rahul"
                 // "name": "Cut out of Zeenat Aman"
 
             }, {
                 "id": "radio3",
                 // "name": "Cut out of Sridevi"
-                 "name":"Soniya",
+                 "name":"Kabir",
             }, {
                 "id": "radio4",
-                "name":"Mona"
+                "name":"Sidharth"
                 // "name": "Cut out of Nargis"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question:"Who does Avantika fall in love with, in Kurbaan?",
+            question:"Which city was Bunny ideally off to after Aditi's wedding in Yeh Jawaani Hai Deewani?",
             // question: "What was the Kapoor family's pet dog's name?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Rahul"
+                "name": "New York"
             }, {
                 "id": "radio2",
-                "name": "Ehsaan",
-                answer: true 
+                "name": "Melbourne"
             }, {
                 "id": "radio3",
-                "name": "Rohit"
+                "name": "Paris",
+                answer: true 
             }, {
                 "id": "radio4",
-                "name": "Siddharth"
+                "name": "Berlin"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question:"In Gori Tere Pyaar Main, Kareena was on hunger strike against which social evil?'",
+            question:"How many friends did Sid have in his group in Wake Up Sid?",
             // question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Anti Corruption", 
-                answer: true
+                "name": "4"
             }, {
                 "id": "radio2",
-                "name": "Farmer's movement"
+                "name": "6"
             }, {
                 "id": "radio3",
-                "name": "Drug abuse"
+                "name": "3", 
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Prisoner's movement"
+                "name": "5"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question:"What was Kareena's profession in We Are Family?",
+            question:"Where did Ayan meet Saba in Ae Dil Hai Mushkil?",
             // question: "What was the name of Tia’s house helper in the movie?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Photographer"
+                "name": "Parking lot"
             }, {
                 "id": "radio2",
-                "name": "Fashion Designer",
+                "name": "Airport",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Teacher"
+                "name": "Hotel"
             }, {
                 "id": "radio4",
-                "name": "Musician"
+                "name": "Wedding"
             }]
         }, {
             id: 5,
@@ -98,116 +98,116 @@ var rapidAnswer = angular.module('rapidAnswer', [])
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Green makes you look thin"
-            }, {
-                "id": "radio2",
-                "name": "White makes you look thin"
-            }, {
-                "id": "radio3",
-                "name": "Black makes you look thin",
+                "name": "Bhoota Parvat",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Khipshi Pass"
+            }, {
+                "id": "radio3",
+                "name": "Nathu La Pass"
+            }, {
                 "id": "radio4",
-                "name": "Red makes you look thin"
+                "name": "Mandar Parvat"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
             // question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
-            question:"What was Riana trying to sell to Rahul in Ek Main Aur Ekk Tu?",
+            question:"Who did Sid meet at his college farewell?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Car"
+                "name": "Rekha"
             }, {
                 "id": "radio2",
-                "name": "Scooter",
+                "name": "Aisha",
                 answer: true 
             }, {
                 "id": "radio3",
-                "name": "House"
+                "name": "Lakshmi"
             }, {
                 "id": "radio4",
-                "name": "Furniture"
+                "name": "Naina"
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question:"Which pet did Kareena make Imran to adopt in Gori Tere Pyaar Main?",
+            question:"What was Ayan's music playlist called?",
             // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Dog"
+                "name": "Jollywood Bollywood",
+                answer: true
             }, {
                 "id": "radio2",
-                "name": "Cat"
+                "name": "Ae Dil Hai Mushkil"
             }, {
                 "id": "radio3",
-                "name": "Bird"
+                "name": "Retro party"
             }, {
                 "id": "radio4",
-                "name": "Crab",
-                answer: true
+                "name": "Breakup songs"
             }]
         }, {
             id: 8,
              quesNo: "Q8",
-             question:"What is Kareena's pet name in real life?",
+             question:"What did Bunny call Naina?",
             // question: " What was the wildest thing Rahul had done in his life?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Lolo"
+                "name": "Naina"
             }, {
                 "id": "radio2",
-                "name": "Coco",
+                "name": "Babe",
             }, {
                 "id": "radio3",
-                "name": "Babe"
+                "name": "Chashmish",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Bebo",
-                answer: true
+                "name": "Nainu"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-               question:"What was Poo's morning song to get ready?",
+               question:"Name the magazine where Sid was interning in Wake Up Sid?",
             // question: "Which song was played in the house party hosted by Tia?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Mama Mia"
+                "name": "Mumbai Times"
             }, {
                 "id": "radio2",
-                "name": "It's raining men, hallelujah",
+                "name": "Mumbai Beat",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Dancing queen"
+                "name": "Mumbai Cacophony"
             }, {
                 "id": "radio4",
-                "name": "Singing in the rain"
+                "name": "None of the Above"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "What number did Hrithik Roshan's character give Poo on a scale of 1 to 10?",
+            question: "How many Dharma movies has Ranbir Kapoor been in?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "1"
-            }, {
-                "id": "radio2",
                 "name": "2"
             }, {
-                "id": "radio3",
+                "id": "radio2",
                 "name": "3",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "1"
+            }, {
                 "id": "radio4",
-                "name": "5"
+                "name": "4"
             }]
         }];
         var answered;
