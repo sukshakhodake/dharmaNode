@@ -7,204 +7,204 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question:"What was Ranbir Kapoor’s name in Ae Dil Hai Mushkil?",
+            question:"What was Amitabh Bachchan's name in Kabhi Khushi Kabhie Gham?",
             // question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name":"Ayan",
-                answer: true
+                "name":"Yoginder Raichand"
                 // "name": "Cut out of Manadakini",
             }, {
                 "id": "radio2",
-                "name":"Rahul"
+                "name":"Raghu Raichand"
                 // "name": "Cut out of Zeenat Aman"
 
             }, {
                 "id": "radio3",
                 // "name": "Cut out of Sridevi"
-                 "name":"Kabir",
+                 "name":"Yashvardhan Raichand",
+                 answer: true
             }, {
                 "id": "radio4",
-                "name":"Sidharth"
+                "name":"Vardhan Raichand"
                 // "name": "Cut out of Nargis"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question:"Which city was Bunny ideally off to after Aditi's wedding in Yeh Jawaani Hai Deewani?",
+            question:"In Kabhi Alvida Naa Kehna, Sam asks his son, Rishi to organise a party for which ocassion?",
             // question: "What was the Kapoor family's pet dog's name?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "New York"
+                "name": "His anniversary"
             }, {
                 "id": "radio2",
-                "name": "Melbourne"
-            }, {
-                "id": "radio3",
-                "name": "Paris",
+                "name": "His birthday",
                 answer: true 
             }, {
+                "id": "radio3",
+                "name": "His company's success"
+            }, {
                 "id": "radio4",
-                "name": "Berlin"
+                "name": "His wife's birthday"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question:"How many friends did Sid have in his group in Wake Up Sid?",
+            question:"In Agneepath, Amitabh Bachchan as Vijay is out to kill who to avenge his father's death?",
             // question: "What was Rahul’s profession in the movie?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "4"
+                "name": "Ganju"
             }, {
                 "id": "radio2",
-                "name": "6"
-            }, {
-                "id": "radio3",
-                "name": "3", 
+                "name": "Kancha", 
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "Kala"
+            }, {
                 "id": "radio4",
-                "name": "5"
+                "name": "Mandwa"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question:"Where did Ayan meet Saba in Ae Dil Hai Mushkil?",
+            question:"Who plays Amitabh Bachchan (Sam)'s real child in Kabhi Alvida Naa Kehna?",
             // question: "What was the name of Tia’s house helper in the movie?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Parking lot"
+                "name": "Shah Rukh Khan"
             }, {
                 "id": "radio2",
-                "name": "Airport",
+                "name": "Abhishek Bachchan",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Hotel"
+                "name": "Rani Mukerji"
             }, {
                 "id": "radio4",
-                "name": "Wedding"
+                "name": "Preity Zinta"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question:"Where was Bunny trekking to when he met Naina on the way?",
+            question:"Complete this famous dialogue - 'Keh diya na...'",
             // question: "Where did Arjun and Tia go for a date?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Bhoota Parvat",
-                answer: true
+                "name": "Toh keh diya"
             }, {
                 "id": "radio2",
-                "name": "Khipshi Pass"
+                "name": "Vaapis nahi boloonga"
             }, {
                 "id": "radio3",
-                "name": "Nathu La Pass"
+                "name": "Bas, keh diya",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Mandar Parvat"
+                "name": "None of the above"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
             // question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
-            question:"Who did Sid meet at his college farewell?",
+            question:"The original Agneepath was released in which year?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Rekha"
+                "name": "1988"
             }, {
                 "id": "radio2",
-                "name": "Aisha",
-                answer: true 
+                "name": "1989"
             }, {
                 "id": "radio3",
-                "name": "Lakshmi"
+                "name": "1990",
+                answer: true 
             }, {
                 "id": "radio4",
-                "name": "Naina"
+                "name": "1991"
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question:"What was Ayan's music playlist called?",
+            question:"In Kabhi Khushi Kabhie Gham, what does Yashvardhan Raichand disapprove of?",
             // question: "What is Rajat Kapoor's name in the movie?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Jollygood Bollywood",
-                answer: true
+                "name": "The misbehaviour in his family"
             }, {
                 "id": "radio2",
-                "name": "Ae Dil Hai Mushkil"
+                "name": "Rahul and Anjali getting married",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Retro party"
+                "name": "Rahul and Naina getting married"
             }, {
                 "id": "radio4",
-                "name": "Breakup songs"
+                "name": "Rahul being adopted"
             }]
         }, {
             id: 8,
              quesNo: "Q8",
-             question:"What did Bunny call Naina?",
+             question:"Amitabh Bachchan received a National Award for best actor for which of the following films?",
             // question: " What was the wildest thing Rahul had done in his life?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Naina"
-            }, {
-                "id": "radio2",
-                "name": "Babe",
-            }, {
-                "id": "radio3",
-                "name": "Chashmish",
+                "name": "Agneepath",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Kabhi Khushi Kabhie Gham",
+            }, {
+                "id": "radio3",
+                "name": "Kabhi Alvida Naa Kehna"
+            }, {
                 "id": "radio4",
-                "name": "Nainu"
+                "name": "None of the above"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-               question:"Name the magazine where Sid was interning in Wake Up Sid?",
+               question:"Was Amitabh Bachchan in the new Agneepath (2012)?",
             // question: "Which song was played in the house party hosted by Tia?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Mumbai Times"
+                "name": "Yes"
             }, {
                 "id": "radio2",
-                "name": "Mumbai Beat",
+                "name": "NO",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Mumbai Cacophony"
+                "name": "Yes, as a special appearance"
             }, {
                 "id": "radio4",
-                "name": "None of the Above"
+                "name": "Maybe"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "How many Dharma movies has Ranbir Kapoor been in?",
+            question: "How many movies has Amitabh Bachchan done with the Dharma family?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "2"
+                "name": "1"
             }, {
                 "id": "radio2",
-                "name": "3",
-                answer: true
+                "name": "2"
             }, {
                 "id": "radio3",
-                "name": "1"
+                "name": "3",
+                answer: true
             }, {
                 "id": "radio4",
                 "name": "4"
