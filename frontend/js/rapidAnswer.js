@@ -203,11 +203,11 @@ var rapidAnswer = angular.module('rapidAnswer', [])
                 "name": "2"
             }, {
                 "id": "radio3",
-                "name": "3",
-                answer: true
+                "name": "3"
             }, {
                 "id": "radio4",
-                "name": "4"
+                "name": "4",
+                answer: true
             }]
         }];
         var answered;
