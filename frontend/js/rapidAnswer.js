@@ -46,7 +46,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 3,
             quesNo: "Q3",
-            question: " What was Ms. Briganza teaching them when Rahul said the famous dialogue 'Pyaar dosti ha'?",
+            question: " What was Ms. Briganza teaching them when Rahul said the famous dialogue 'Pyaar dosti hai'?",
             model: "quest3",
             options: [{
                 "id": "radio1",
