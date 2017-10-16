@@ -7,207 +7,194 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question:"What was Amitabh Bachchan's name in Kabhi Khushi Kabhie Gham?",
-            // question: "What was the surprise gift given by Rahul & Arjun to Dadu on his birthday?",
+            question: "If not for cheating, who was actually winning the first ever basketball match in the movie?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name":"Yoginder Raichand"
-                // "name": "Cut out of Manadakini",
+                "name": "Rahul"
             }, {
                 "id": "radio2",
-                "name":"Raghu Raichand"
-                // "name": "Cut out of Zeenat Aman"
+                "name": "Tina"
 
             }, {
                 "id": "radio3",
-                // "name": "Cut out of Sridevi"
-                 "name":"Yashvardhan Raichand",
-                 answer: true
+                "name": "Anjali",
+                answer: true
             }, {
                 "id": "radio4",
-                "name":"Vardhan Raichand"
-                // "name": "Cut out of Nargis"
+                "name": "Kamal"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question:"In Kabhi Alvida Naa Kehna, Sam asks his son, Rishi to organise a party for which ocassion?",
-            // question: "What was the Kapoor family's pet dog's name?",
+            question: "What was written on Rahul's chain that he wore around his neck?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "His anniversary"
+                "name": "Friendship"
             }, {
                 "id": "radio2",
-                "name": "His birthday",
-                answer: true 
+                "name": "Cool",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "His company's success"
+                "name": "Pyaar"
             }, {
                 "id": "radio4",
-                "name": "His wife's birthday"
+                "name": "Anjali"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question:"In Agneepath, Amitabh Bachchan as Vijay is out to kill who to avenge his father's death?",
-            // question: "What was Rahul’s profession in the movie?",
+            question: " What was Ms. Briganza teaching them when Rahul said the famous dialogue 'Pyaar dosti ha'?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Ganju"
-            }, {
-                "id": "radio2",
-                "name": "Kancha", 
+                "name": " Romeo & Juliet",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Amar Prem"
+            }, {
                 "id": "radio3",
-                "name": "Kala"
+                "name": "Prem Katha"
             }, {
                 "id": "radio4",
-                "name": "Mandwa"
+                "name": "Laila aur Majnu"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question:"Who plays Amitabh Bachchan (Sam)'s real child in Kabhi Alvida Naa Kehna?",
-            // question: "What was the name of Tia’s house helper in the movie?",
+            question: "What was Shah Rukh Khan's full name in the movie?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Shah Rukh Khan"
-            }, {
-                "id": "radio2",
-                "name": "Abhishek Bachchan",
+                "name": "Rahul Khanna",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Rahul Kapoor"
+            }, {
                 "id": "radio3",
-                "name": "Rani Mukerji"
+                "name": "Rahul Mehra"
             }, {
                 "id": "radio4",
-                "name": "Preity Zinta"
+                "name": "Rahul Malhotra"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question:"Complete this famous dialogue - 'Keh diya na...'",
-            // question: "Where did Arjun and Tia go for a date?",
+            question: "Where did Rahul and Anjali finally meet after years?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Toh keh diya"
+                "name": "College reunion"
             }, {
                 "id": "radio2",
-                "name": "Vaapis nahi boloonga"
-            }, {
-                "id": "radio3",
-                "name": "Bas, keh diya",
+                "name": "Summer camp",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "Basketball court"
+            }, {
                 "id": "radio4",
-                "name": "None of the above"
+                "name": "At a party"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            // question: "Who was the person who witnessed the Kapoor showdown in their house while working?",
-            question:"The original Agneepath was released in which year?",
+            question: " What did Anjali give to Tina when she was leaving on the train?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "1988"
+                "name": "A red duppata",
+                answer: true
             }, {
                 "id": "radio2",
-                "name": "1989"
+                "name": "Her friendship band"
             }, {
                 "id": "radio3",
-                "name": "1990",
-                answer: true 
+                "name": "Basketball"
             }, {
                 "id": "radio4",
-                "name": "1991"
+                "name": "Nothing"
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question:"In Kabhi Khushi Kabhie Gham, what does Yashvardhan Raichand disapprove of?",
-            // question: "What is Rajat Kapoor's name in the movie?",
+            question: "Rahul and Anjali believed in wishing on a ____?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "The misbehaviour in his family"
+                "name": "Dandelion"
             }, {
                 "id": "radio2",
-                "name": "Rahul and Anjali getting married",
+                "name": "Shooting star",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Rahul and Naina getting married"
+                "name": "Miracle"
             }, {
                 "id": "radio4",
-                "name": "Rahul being adopted"
+                "name": "Nothing"
             }]
         }, {
             id: 8,
-             quesNo: "Q8",
-             question:"Amitabh Bachchan received a National Award for best actor for which of the following films?",
-            // question: " What was the wildest thing Rahul had done in his life?",
+            quesNo: "Q8",
+            question: "Which song did Tina choose when Rahul challenged her to sing in Hindi?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Agneepath",
-                answer: true
+                "name": "Chodh do aanchal"
             }, {
                 "id": "radio2",
-                "name": "Kabhi Khushi Kabhie Gham",
+                "name": "Kuch Kuch Hota Hai",
             }, {
                 "id": "radio3",
-                "name": "Kabhi Alvida Naa Kehna"
+                "name": "Om Jai Jagadish",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "None of the above"
+                "name": "She didn't sing"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-               question:"Was Amitabh Bachchan in the new Agneepath (2012)?",
-            // question: "Which song was played in the house party hosted by Tia?",
+            question: "What did Tina leave behind for her daughter's birthday every year?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Yes"
+                "name": "Stuffed toys"
             }, {
                 "id": "radio2",
-                "name": "No",
-                answer: true
+                "name": "Chocolates"
             }, {
                 "id": "radio3",
-                "name": "Yes, as a special appearance"
+                "name": "Letters",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Maybe"
+                "name": "Clothes"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "How many movies has Amitabh Bachchan done with the Dharma family?",
+            question: "What was the name of the college where Rahul, Tina & Anjali were studying?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "1"
+                "name": "St. Teresa College"
             }, {
                 "id": "radio2",
-                "name": "2"
+                "name": "St. Stephen College"
             }, {
                 "id": "radio3",
-                "name": "3"
+                "name": "St. Xavier's College",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "4",
-                answer: true
+                "name": "St. Lawrence College"
             }]
         }];
         var answered;
