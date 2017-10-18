@@ -171,7 +171,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
                 "name": "Necklace"
             }, {
                 "id": "radio3",
-                "name": "Necklace",
+                "name": "Earring",
                 answer: true
             }, {
                 "id": "radio4",
