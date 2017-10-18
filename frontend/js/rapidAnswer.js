@@ -7,194 +7,194 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "If not for cheating, who was actually winning the first ever basketball match in the movie?",
+            question: "Rohan aspired to become a ____ when he grew up.",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Rahul"
+                "name": "Business tycoon"
             }, {
                 "id": "radio2",
-                "name": "Tina"
+                "name": "Football player"
 
             }, {
                 "id": "radio3",
-                "name": "Anjali",
+                "name": "Rockstar",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Kamal"
+                "name": "Choreographer"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "What was written on Rahul's chain that he wore around his neck?",
+            question: "Who was Abhimanyu's partner in the dancing competition?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Friendship"
+                "name": "Shanaya"
             }, {
                 "id": "radio2",
-                "name": "Cool",
+                "name": "Shruti",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Pyaar"
+                "name": "Tanya"
             }, {
                 "id": "radio4",
-                "name": "Anjali"
+                "name": "Sudo"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: " What was Ms. Briganza teaching them when Rahul said the famous dialogue 'Pyaar dosti hai'?",
+            question: "Which child artist from a former Karan Johar film was a part of this film too?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": " Romeo & Juliet",
+                "name": "Sana Saeed",
                 answer: true
             }, {
                 "id": "radio2",
-                "name": "Amar Prem"
+                "name": "Alia Bhatt"
             }, {
                 "id": "radio3",
-                "name": "Prem Katha"
+                "name": "Sarah Ali Khan"
             }, {
                 "id": "radio4",
-                "name": "Laila aur Majnu"
+                "name": "Athiya Shetty"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "What was Shah Rukh Khan's full name in the movie?",
+            question: "Whose team was Shanaya in during the treasure hunt competition?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Rahul Khanna",
-                answer: true
+                "name": "Rohan"
             }, {
                 "id": "radio2",
-                "name": "Rahul Kapoor"
+                "name": "Abhimanyu",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Rahul Mehra"
+                "name": "Jeet"
             }, {
                 "id": "radio4",
-                "name": "Rahul Malhotra"
+                "name": "Shruti"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "Where did Rahul and Anjali finally meet after years?",
+            question: "Who all get eliminated after the dance competition?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "College reunion"
+                "name": "Shanaya, Dimpy, Jeet & Shruti."
             }, {
                 "id": "radio2",
-                "name": "Summer camp",
+                "name": "Sudo, Shanaya, Ritu & Tanya.",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Basketball court"
+                "name": "Shruti, Reetu, Dimpy & Sudo."
             }, {
                 "id": "radio4",
-                "name": "At a party"
+                "name": "Rohan, Jeet, Shanya & Abhimanyu."
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: " What did Anjali give to Tina when she was leaving on the train?",
+            question: " Complete the dialogue - 'Akad ki bhi ____ hoti hai'",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "A red duppata",
-                answer: true
+                "name": "Khayaal"
             }, {
                 "id": "radio2",
-                "name": "Her friendship band"
+                "name": "Sapne"
             }, {
                 "id": "radio3",
-                "name": "Basketball"
+                "name": "Aukaat",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Nothing"
+                "name": "Aukaat"
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "Rahul and Anjali believed in wishing on a ____?",
+            question: "Which iconic remake song was used in the movie to introduce Shanaya?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Dandelion"
-            }, {
-                "id": "radio2",
-                "name": "Shooting star",
+                "name": "Gulaabi Aankhein",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Roop Tere Mastana"
+            }, {
                 "id": "radio3",
-                "name": "Miracle"
+                "name": "Ek Ajnabee Haseena Se"
             }, {
                 "id": "radio4",
-                "name": "Nothing"
+                "name": "Yeh Chand sa Roshan Chehra"
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: "Which song did Tina choose when Rahul challenged her to sing in Hindi?",
+            question: "Who won the Student of The Year trophy?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Chodh do aanchal"
+                "name": "Shanaya"
             }, {
                 "id": "radio2",
-                "name": "Kuch Kuch Hota Hai",
-            }, {
-                "id": "radio3",
-                "name": "Om Jai Jagadish",
+                "name": "Rohan",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "Abhimanyu"
+            }, {
                 "id": "radio4",
-                "name": "She didn't sing"
+                "name": "Jeet"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "What did Tina leave behind for her daughter's birthday every year?",
+            question: "Abhimanyu kept Shanaya's ______ with him from the wedding.",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Stuffed toys"
+                "name": "Ring"
             }, {
                 "id": "radio2",
-                "name": "Chocolates"
+                "name": "Necklace"
             }, {
                 "id": "radio3",
-                "name": "Letters",
+                "name": "Necklace",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Clothes"
+                "name": "Hair Clip"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "What was the name of the college where Rahul, Tina & Anjali were studying?",
+            question: "How many years later did the entire gang meet at the hospital?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "St. Teresa College"
+                "name": "14 Years"
             }, {
                 "id": "radio2",
-                "name": "St. Stephen College"
+                "name": "5 Years"
             }, {
                 "id": "radio3",
-                "name": "St. Xavier's College",
-                answer: true
+                "name": "7 Years"
             }, {
                 "id": "radio4",
-                "name": "St. Lawrence College"
+                "name": "10 Years",
+                answer: true
             }]
         }];
         var answered;
