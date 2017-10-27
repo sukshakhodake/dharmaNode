@@ -7,194 +7,194 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "Rohan aspired to become a ____ when he grew up.",
+            question: "Where did Saba meet Ayan the second time?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Business tycoon"
+                "name": "Nightclub",
+                answer: true
             }, {
                 "id": "radio2",
-                "name": "Football player"
+                "name": "Airport"
 
             }, {
                 "id": "radio3",
-                "name": "Rockstar",
-                answer: true
+                "name": "Her home"
             }, {
                 "id": "radio4",
-                "name": "Choreographer"
+                "name": "An exhibition"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "Who was Abhimanyu's partner in the dancing competition?",
+            question: "What was the name of Alizeh's bollywood playlist?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Shanaya"
+                "name": "Jollygood Bollywood"
             }, {
                 "id": "radio2",
-                "name": "Shruti",
+                "name": "Cheap Thrills",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Tanya"
+                "name": "80's Romance"
             }, {
                 "id": "radio4",
-                "name": "Sudo"
+                "name": "Pyaarelal"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "Which child artist from a former Karan Johar film was a part of this film too?",
+            question: "In the movie, which hindi word was described as 'vibe' by Lisa and Ayan?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Sana Saeed",
-                answer: true
+                "name": "Vistaar"
             }, {
                 "id": "radio2",
-                "name": "Alia Bhatt"
+                "name": "Vaataavaran",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Sarah Ali Khan"
+                "name": "Vyaakhya"
             }, {
                 "id": "radio4",
-                "name": "Athiya Shetty"
+                "name": "Taakat "
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "Whose team was Shanaya in during the treasure hunt competition?",
+            question: "Whose voice was it, that was interviewing Ayan in the movie?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Rohan"
+                "name": "Richa Chadha"
             }, {
                 "id": "radio2",
-                "name": "Abhimanyu",
+                "name": "Neha Dhupia",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Jeet"
+                "name": "Parineeti Chopra"
             }, {
                 "id": "radio4",
-                "name": "Shruti"
+                "name": "Madhuri Dixit"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "Who all get eliminated after the dance competition?",
+            question: "Who directed Ae Dil Hai Mushkil?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Shanaya, Dimpy, Jeet & Shruti."
+                "name": "Ayan Mukerji"
             }, {
                 "id": "radio2",
-                "name": "Sudo, Shanaya, Ritu & Tanya.",
-                answer: true
+                "name": "Karan Malhotra"
             }, {
                 "id": "radio3",
-                "name": "Shruti, Reetu, Dimpy & Sudo."
+                "name": "Karan Johar",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Rohan, Jeet, Shanya & Abhimanyu."
+                "name": "Tarun Mansukhani"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: " Complete the dialogue - 'Akad ki bhi ____ hoti hai'",
+            question: "Complete the lyrics of the song - 'Ik baar ko _____ toh dikha de,jhoothi sahi magar _____ toh dila de'",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Khayaal"
+                "name": "Tasalli, Tajalli"
             }, {
                 "id": "radio2",
-                "name": "Sapne"
-            }, {
-                "id": "radio3",
-                "name": "Aukaat",
+                "name": "Tajjali, Tasalli",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "Tafalli, Tajalli"
+            }, {
                 "id": "radio4",
-                "name": "Aukaat"
+                "name": "Tajalii, Tajalii "
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "Which iconic remake song was used in the movie to introduce Shanaya?",
+            question: "What did Alizeh throw at Lisa when they went for a double date?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Gulaabi Aankhein",
-                answer: true
+                "name": "Water"
             }, {
                 "id": "radio2",
-                "name": "Roop Tere Mastana"
+                "name": "Used napkins"
             }, {
                 "id": "radio3",
-                "name": "Ek Ajnabee Haseena Se"
+                "name": "Plate"
             }, {
                 "id": "radio4",
-                "name": "Yeh Chand sa Roshan Chehra"
+                "name": "Red Wine",
+                answer: true
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: "Who won the Student of The Year trophy?",
+            question: "Where was Alizeh and Ali's wedding held?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Shanaya"
-            }, {
-                "id": "radio2",
-                "name": "Rohan",
+                "name": "Lucknow, India",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Lahore, Pakistan"
+            }, {
                 "id": "radio3",
-                "name": "Abhimanyu"
+                "name": "San Francisco, California"
             }, {
                 "id": "radio4",
-                "name": "Jeet"
+                "name": "Udaipur, India"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "Abhimanyu kept Shanaya's ______ with him from the wedding.",
+            question: "The dialogue 'Ek tarfaa pyaar ki taakat hi kuch aur hoti hai' was actually said by____?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Ring"
+                "name": "Ranbir Kapoor"
             }, {
                 "id": "radio2",
-                "name": "Necklace"
+                "name": " Aishwarya Rai Bachchan"
             }, {
                 "id": "radio3",
-                "name": "Earring",
-                answer: true
+                "name": "Fawad Khan"
             }, {
                 "id": "radio4",
-                "name": "Hair Clip"
+                "name": "Shah Rukh Khan",
+                answer: true
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "How many years later did the entire gang meet at the hospital?",
+            question: "Where did Alizeh and Ayan go for their 'dil tutti chutti'?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "14 Years"
+                "name": "Paris",
+                answer: true
             }, {
                 "id": "radio2",
-                "name": "5 Years"
+                "name": "New York"
             }, {
                 "id": "radio3",
-                "name": "7 Years"
+                "name": "Los Angeles"
             }, {
                 "id": "radio4",
-                "name": "10 Years",
-                answer: true
+                "name": "Dubai"
             }]
         }];
         var answered;
