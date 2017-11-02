@@ -7,194 +7,193 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "Where did Saba meet Ayan the second time?",
+            question: "Name the college where Rahul was studying in Kuch Kuch Hota Hai?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Nightclub",
-                answer: true
+                "name": "St. Teresa College"
             }, {
                 "id": "radio2",
-                "name": "Airport"
-
+                "name": "St. Stephen College"
             }, {
                 "id": "radio3",
-                "name": "Her home"
+                "name": "St. Xavier's College",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "An exhibition"
+                "name": "St. Lawrence College. "
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "What was the name of Alizeh's bollywood playlist?",
+            question: "'Baimaani ka dhanda bhi main imaandari se karta hoon' was said by Shah Rukh Khan in which movie?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Jollygood Bollywood"
+                "name": "Kuch Kuch Hota Hai"
             }, {
                 "id": "radio2",
-                "name": "Cheap Thrills",
-                answer: true
+                "name": "Kaal"
             }, {
                 "id": "radio3",
-                "name": "80's Romance"
+                "name": "Kabhi Khushi Kabhie Gham"
             }, {
                 "id": "radio4",
-                "name": "Pyaarelal"
+                "name": "Duplicate",
+                answer: true
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "In the movie, which hindi word was described as 'vibe' by Lisa and Ayan?",
+            question: "In Kabhi Khushi Kabhie Gham, what was Rahul's son's name?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Vistaar"
-            }, {
-                "id": "radio2",
-                "name": "Vaataavaran",
+                "name": "Krish",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Aman"
+            }, {
                 "id": "radio3",
-                "name": "Vyaakhya"
+                "name": "Ladoo"
             }, {
                 "id": "radio4",
-                "name": "Taakat "
+                "name": "Yash"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "Whose voice was it, that was interviewing Ayan in the movie?",
+            question: "What does Aman call Naina in the movie, Kal Ho Naa Ho?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Richa Chadha"
+                "name": "Naina o Naina"
             }, {
                 "id": "radio2",
-                "name": "Neha Dhupia",
-                answer: true
+                "name": "Khadoos"
             }, {
                 "id": "radio3",
-                "name": "Parineeti Chopra"
+                "name": "Chashmish",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Madhuri Dixit"
+                "name": "Pretty Woman"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "Who directed Ae Dil Hai Mushkil?",
+            question: "What was SRK's profession in Ae Dil Hai Mushkil?",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Ayan Mukerji"
+                "name": "Poet"
             }, {
                 "id": "radio2",
-                "name": "Karan Malhotra"
+                "name": "Singer"
             }, {
                 "id": "radio3",
-                "name": "Karan Johar",
-                answer: true
+                "name": "Sculpture artist"
             }, {
                 "id": "radio4",
-                "name": "Tarun Mansukhani"
+                "name": "Painter",
+                answer: true
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: "Complete the lyrics of the song - 'Ik baar ko _____ toh dikha de,jhoothi sahi magar _____ toh dila de'",
+            question: "Where did Dev and Maya have their first conversation in Kabhi Alvida Naa Kehna?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Tasalli, Tajalli"
-            }, {
-                "id": "radio2",
-                "name": "Tajjali, Tasalli",
+                "name": "On a bench",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "On a road"
+            }, {
                 "id": "radio3",
-                "name": "Tafalli, Tajalli"
+                "name": "At a restaurant"
             }, {
                 "id": "radio4",
-                "name": "Tajalii, Tajalii "
+                "name": "Near his house"
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "What did Alizeh throw at Lisa when they went for a double date?",
+            question: "What does Shah Rukh Khan want to say to the president in My Name Is Khan?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "Water"
+                "name": "My Name Is Khan, that's my identity."
             }, {
                 "id": "radio2",
-                "name": "Used napkins"
+                "name": "I am an Indian"
             }, {
                 "id": "radio3",
-                "name": "Plate"
+                "name": "My Name Is Khan and I am not a terrorist.",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Red Wine",
-                answer: true
+                "name": "You don't deserve power. "
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: "Where was Alizeh and Ali's wedding held?",
+            question: ".Which sport did Anjali and Rahul play in Kuch Kuch Hota Hai?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Lucknow, India",
-                answer: true
+                "name": "Cricket"
             }, {
                 "id": "radio2",
-                "name": "Lahore, Pakistan"
+                "name": "Basketball",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "San Francisco, California"
+                "name": "Football"
             }, {
                 "id": "radio4",
-                "name": "Udaipur, India"
+                "name": "Table Tennis"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "The dialogue 'Ek tarfaa pyaar ki taakat hi kuch aur hoti hai' was actually said by____?",
+            question: "What was the name of the restaurant that Aman helped Jenni to open in the movie, Kal Ho Naa Ho?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Ranbir Kapoor"
+                "name": "Cafe New York"
             }, {
                 "id": "radio2",
-                "name": " Aishwarya Rai Bachchan"
+                "name": "Punjabi Dhaba"
             }, {
                 "id": "radio3",
-                "name": "Fawad Khan"
+                "name": "Cafe New Delhi",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Shah Rukh Khan",
-                answer: true
+                "name": "Hindusthani Khana Khazana"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "Where did Alizeh and Ayan go for their 'dil tutti chutti'?",
+            question: "Where does Dr.Jehangir Khan stay in Dear Zindagi?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "Paris",
+                "name": "Goa",
                 answer: true
             }, {
                 "id": "radio2",
-                "name": "New York"
+                "name": "Mumbai"
             }, {
                 "id": "radio3",
-                "name": "Los Angeles"
+                "name": "Gokarna"
             }, {
                 "id": "radio4",
-                "name": "Dubai"
+                "name": "Andaman"
             }]
         }];
         var answered;
