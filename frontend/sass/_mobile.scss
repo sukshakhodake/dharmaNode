@@ -933,6 +933,8 @@
         .modal-dialog {
             width: auto;
             margin: 0px;
+            position: static;
+            transform: translate(0%, 0%) !important;
             .modal-content {
                 padding: 20px;
             }
@@ -1024,6 +1026,8 @@
         .modal-dialog {
             width: auto;
             margin: 0px;
+            position: static;
+            transform: translate(0%, 0%) !important;
             .modal-content {
                 padding: 20px;
             }
