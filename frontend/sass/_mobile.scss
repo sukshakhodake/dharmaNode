@@ -1117,7 +1117,8 @@
         transform: translate(-50%, -50%) !important;
     }
     .top-bannerss {
-        height: auto; // position: relative;
+        min-height: calc(100vh - 90px);
+        height: auto;
     }
     .min-m-flex {
         .row-flex {
