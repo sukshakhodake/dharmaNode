@@ -3,27 +3,29 @@
         <i class="fa fa-close"></i>
     </div>
     <div class="text-center">
-        <h2 class="color-primary font-bold f-gin">ENTER THE DETAILS</h2>
+        <h2 class="color-primary font-bold f-gin">
+            ENTER THE DETAILS
+        </h2>
     </div>
     <form name="formName" ng-submit="submitForm(formData)" class="plc-hld">
         <div class="row pop-pad">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="firstName" ng-model="formData.firstName" class="form-control" placeholder="First Name" required>
-                    <!-- <div class="error-msg" ng-show="formName.firstName.$invalid && formName.firstName.$touched">Please enter your first name</div> -->
+                    <input type="text" placeholder="First Name" class="form-control"  name="firstName" ng-model="formData.firstName"  required>
+                    <div class="error-msg" ng-show="formName.firstName.$invalid && formName.firstName.$touched">Please enter your first name</div>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="lastName" ng-model="formData.lastName" class="form-control" placeholder="Last Name" required>
-                    <!-- <div class="error-msg" ng-show="formName.lastName.$invalid && formName.lastName.$touched">Please enter your last name</div> -->
+                    <input type="text" placeholder="Last Name" class="form-control" name="lastName" ng-model="formData.lastName"  required>
+                    <div class="error-msg" ng-show="formName.lastName.$invalid && formName.lastName.$touched">Please enter your last name</div>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="email" name="email" ng-model="formData.email" class="form-control" required placeholder="Email">
-                    <!-- <div class="error-msg" ng-show="formName.email.$invalid && formName.email.$touched">Please enter your email</div> -->
-                    <!-- <div ng-if="validEmail">Email Id Already Exist.</div> -->
+                    <input type="email" placeholder="Email Id" class="form-control"  name="email" ng-model="formData.email"  required >
+                    <div class="error-msg" ng-show="formName.email.$invalid && formName.email.$touched">Please enter your email</div>
+                    <div ng-if="validEmail">Email Id Already Exist.</div>
                 </div>
             </div>
         </div>
