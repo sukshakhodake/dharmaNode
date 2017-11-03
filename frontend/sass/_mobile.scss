@@ -1,5 +1,4 @@
 @media (max-width:1200px) {
-
     .custom-menu li a {
         padding: 5px !important;
         font-size: 11px;
@@ -26,8 +25,7 @@
     }
     .cd-timeline-block {
         margin-top: 40px;
-    }
-    // .cd-timeline-img {
+    } // .cd-timeline-img {
     //     position: absolute;
     //     top: 10px;
     //     left: 10px;
@@ -40,8 +38,7 @@
     }
     .f120 {
         font-size: 100px;
-    }
-    // .cd-timeline-content p {
+    } // .cd-timeline-content p {
     //     font-size: 18px;
     // }
     .news-search {
@@ -114,17 +111,17 @@
     .dharma-journey-bg {
         padding-bottom: 25px;
     }
-    .ch-nav{
-      .flex-control-nav{
-        display: none;
-      }
+    .ch-nav {
+        .flex-control-nav {
+            display: none;
+        }
     }
 }
+
 @media (max-width: $screen-sm-max) {
     .mt-sm-40 {
         margin-top: 40px;
     }
-
     .ans-opt ul li label {
         font-size: 1.4em;
     }
@@ -200,7 +197,7 @@
         top: 50%;
         left: 50%;
         position: absolute;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
     .news-descp {
         p {
@@ -214,15 +211,13 @@
     }
     .fancybox-close {
         width: 40px;
-        height: 40px;
-        // background-position: 2px 5px;
+        height: 40px; // background-position: 2px 5px;
     }
     .fancybox-prev span {
         // background-position: -7px -28px;
     }
     .fancybox-nav span {
-        visibility: visible;
-        // height: 40px;
+        visibility: visible; // height: 40px;
         // bottom: 0px;
         // top: initial;
     }
@@ -361,8 +356,7 @@
     .dharma-movies-bg {
         background: url(../img/mobile-movies.jpg)no-repeat;
         background-size: cover;
-        padding: 120px 0 100px;
-        // background-attachment: fixed;
+        padding: 120px 0 100px; // background-attachment: fixed;
     }
     .recent-movie .video-name {
         font-size: 16px;
@@ -449,8 +443,7 @@
     .cast-credit {
         padding-top: 10px;
         padding-bottom: 60px;
-    }
-    // .img-inside-box {
+    } // .img-inside-box {
     //     height: auto;
     // }
     .m-font12 {
@@ -489,17 +482,21 @@
     .dh-btn-min .btn {
         font-size: 14px !important;
     }
-    .ch-nav{
-      .flex-control-nav{
-        display: none;
-      }
+    .ch-nav {
+        .flex-control-nav {
+            display: none;
+        }
     }
 }
+
 @media (max-width: $screen-xs-max) {
-    .btn-in{    display: inline-block !important;    margin-bottom: 12px !important;}
-  .bg-synopsis {
-      background: none !important;
-  }
+    .btn-in {
+        display: inline-block !important;
+        margin-bottom: 12px !important;
+    }
+    .bg-synopsis {
+        background: none !important;
+    }
     .w30 {
         width: 30px !important;
     }
@@ -539,8 +536,7 @@
                 font-weight: 600;
             }
         }
-    }
-    // .custom-menu {
+    } // .custom-menu {
     //     .dropdown-menu {
     //         display: block;
     //         position: static;
@@ -569,7 +565,7 @@
         top: 50%;
         left: 50%;
         position: absolute;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
     .search-movie-mar {
         margin: 0 10px;
@@ -779,8 +775,7 @@
     }
     .masonry-width .masonry-box {
         width: 190px;
-    }
-    // .img-inside-box {
+    } // .img-inside-box {
     //     height: auto;
     // }
     .img-timline-box img {
@@ -931,123 +926,118 @@
     .pad-img {
         padding: 70px 0;
     }
-    .f-gin{
-
-      font-size: 22px;
+    .f-gin {
+        font-size: 22px;
     }
-    .dharma-fan-modal{
-      .modal-dialog {
+    .dharma-fan-modal {
+        .modal-dialog {
             width: auto;
-                margin: 0px;
-          .modal-content{
+            margin: 0px;
+            .modal-content {
                 padding: 20px;
-          }
-      }
-    }
-    .visible-ipad{
-      display: none;
-    }
-    .nav-hide-mob {
-    .flex-control-nav {
-        width: 100%;
-        position: absolute;
-        bottom: -5px;
-        text-align: center;
-    }
-  }
-  .nav-cn-hide{
-    .flex-direction-nav {
-      display: none;
-}
-  }
-  .nav-cn-dot{
-    .flex-control-nav {
-        display: none !important;
-    }
-  }
-  .ch-nav{
-    .flex-control-nav{
-      display: none;
-    }
-  }
-  .subscribe-movie{
-.term-cond .term-cont-cont {
-    padding-right: 0;
-}
-.term-cond .img-right {
-display: none;
-}
-
-    .logos-popup-right img {
-    height: 20px;
-}
-
-.logos-popup-left img {
-    height: 20px;
-}
-  } 
-}
-@media (max-width:480px) {
-  .ch-nav{
-    .flex-control-nav{
-      display: none;
-    }
-  }
-  .nav-cn-dot{
-    .flex-control-nav {
-      display: none !important;
-    }
-  }
-  .nav-cn-hide{
-    .flex-direction-nav {
-      display: none;
-}
-  }
-  .nav-hide-mob {
-  .flex-control-nav {
-      width: 100%;
-      position: absolute;
-      bottom: -5px;
-      text-align: center;
-  }
-}
-  .visible-ipad{
-    display: none;
-  }
-  .subscribe-movie .modal-sm {
-      width: 296px !important;
-}
-  .cm-text{
-        margin-top: 10px;
-    h2{
-font-size: 20px;
-    }
-
-  }
-  .coming-soon-box.text-center {
-    width: 270px;
-    margin: 0 auto;
-}
-  .dharma-fan-modal{
-    .modal-dialog {
-          width: auto;
-              margin: 0px;
-        .modal-content{
-              padding: 20px;
+            }
         }
     }
-  }
-  .f-gin{
+    .visible-ipad {
+        display: none;
+    }
+    .nav-hide-mob {
+        .flex-control-nav {
+            width: 100%;
+            position: absolute;
+            bottom: -5px;
+            text-align: center;
+        }
+    }
+    .nav-cn-hide {
+        .flex-direction-nav {
+            display: none;
+        }
+    }
+    .nav-cn-dot {
+        .flex-control-nav {
+            display: none !important;
+        }
+    }
+    .ch-nav {
+        .flex-control-nav {
+            display: none;
+        }
+    }
+    .subscribe-movie {
+        .term-cond .term-cont-cont {
+            padding-right: 0;
+        }
+        .term-cond .img-right {
+            display: none;
+        }
+        .logos-popup-right img {
+            height: 20px;
+        }
+        .logos-popup-left img {
+            height: 20px;
+        }
+    }
+}
 
-    font-size: 22px;
-  }
-  .pop-pad{
+@media (max-width:480px) {
+    .ch-nav {
+        .flex-control-nav {
+            display: none;
+        }
+    }
+    .nav-cn-dot {
+        .flex-control-nav {
+            display: none !important;
+        }
+    }
+    .nav-cn-hide {
+        .flex-direction-nav {
+            display: none;
+        }
+    }
+    .nav-hide-mob {
+        .flex-control-nav {
+            width: 100%;
+            position: absolute;
+            bottom: -5px;
+            text-align: center;
+        }
+    }
+    .visible-ipad {
+        display: none;
+    }
+    .subscribe-movie .modal-sm {
+        width: 296px !important;
+    }
+    .cm-text {
+        margin-top: 10px;
+        h2 {
+            font-size: 20px;
+        }
+    }
+    .coming-soon-box.text-center {
+        width: 270px;
+        margin: 0 auto;
+    }
+    .dharma-fan-modal {
+        .modal-dialog {
+            width: auto;
+            margin: 0px;
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    }
+    .f-gin {
+        font-size: 22px;
+    }
+    .pop-pad {
         padding: 20px 0px;
-  }
-  .mt-sm-40 {
-      margin-top: 40px;
-  }
-
+    }
+    .mt-sm-40 {
+        margin-top: 40px;
+    }
     .pad-img {
         padding: 70px 0;
     }
@@ -1088,9 +1078,9 @@ font-size: 20px;
         }
     }
     .bg-transparent .ticker {
-      position: absolute;
-right: 4px;
-top: 4px;
+        position: absolute;
+        right: 4px;
+        top: 4px;
         img {
             transform: scale(0.5);
         }
@@ -1125,6 +1115,9 @@ top: 4px;
         top: 50%;
         left: 48%;
         transform: translate(-50%, -50%) !important;
+    }
+    .top-bannerss {
+        height: auto; // position: relative;
     }
     .min-m-flex {
         .row-flex {
@@ -1255,7 +1248,7 @@ top: 4px;
         top: 50%;
         left: 50%;
         position: absolute;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
     .mob-bg {
         background: url(..img/other-bg.jpg)no-repeat !important;
@@ -1423,8 +1416,7 @@ top: 4px;
         background-size: contain !important;
         background-repeat: repeat-y !important;
         background-attachment: inherit !important;
-    }
-    // .common-class .flex-control-nav {
+    } // .common-class .flex-control-nav {
     //     display: none !important;
     // }
     .dharma-movies-bg3 {
@@ -1555,7 +1547,8 @@ top: 4px;
         }
     }
 }
-@media (max-device-width : 1245px) and (min-device-width : 1168px) {
+
+@media (max-device-width: 1245px) and (min-device-width: 1168px) {
     .cd-timeline-content {
         height: 180px;
         overflow: hidden;
@@ -1570,38 +1563,40 @@ top: 4px;
             width: auto;
         }
     }
-    .visible-ipad{
-      display: none;
+    .visible-ipad {
+        display: none;
     }
 }
+
 @media (min-device-width: 768px) and (max-device-width: 775px) {
-.visible-ipad{
-  display: block;
+    .visible-ipad {
+        display: block;
+    }
+    .hidden-ipad {
+        display: none!important;
+    }
 }
-.hidden-ipad{
-  display: none!important;
-}
-}
+
 @media (min-height: 2048px) and (min-device-width: 1535px) {
-.visible-ipad-air{
-  display: block;
-}
-.visible-ipad{
-  display: none!important;
-}
-.hidden-ipad{
-  display: none!important;
-}
+    .visible-ipad-air {
+        display: block;
+    }
+    .visible-ipad {
+        display: none!important;
+    }
+    .hidden-ipad {
+        display: none!important;
+    }
 }
 
 @media (min-height: 1024px) and (min-device-width: 1365px) {
-.visible-ipad-pro{
-  display: block;
-}
-.visible-ipad{
-  display: none!important;
-}
-.hidden-ipad{
-  display: none!important;
-}
+    .visible-ipad-pro {
+        display: block;
+    }
+    .visible-ipad {
+        display: none!important;
+    }
+    .hidden-ipad {
+        display: none!important;
+    }
 }
