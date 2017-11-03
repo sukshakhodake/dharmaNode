@@ -1,38 +1,34 @@
-<div class="white-orange-bg" >
-  <div class="closure" ng-click="$dismiss()"><i class="fa fa-close"></i></div>
-  <div class="text-center" >
-    <h2 class="color-primary font-bold f-gin" >ENTER THE DETAILS</h2>
-  </div>
-    <form name="formName" ng-submit="submitForm(formData)"  class="plc-hld" >
+<div class="white-orange-bg">
+    <div class="closure" ng-click="$dismiss()">
+        <i class="fa fa-close"></i>
+    </div>
+    <div class="text-center">
+        <h2 class="color-primary font-bold f-gin">ENTER THE DETAILS</h2>
+    </div>
+    <form name="formName" ng-submit="submitForm(formData)" class="plc-hld">
         <div class="row pop-pad">
             <div class="col-md-12">
                 <div class="form-group">
-                    <!-- <label>NAME:</label> -->
-                    <input type="text" name="firstName" ng-model="formData.firstName" class="form-control"  placeholder="First Name" required>
+                    <input type="text" name="firstName" ng-model="formData.firstName" class="form-control" placeholder="First Name" required>
                     <div class="error-msg" ng-show="formName.firstName.$invalid && formName.firstName.$touched">Please enter your first name</div>
                 </div>
+            </div>
+            <div class="col-md-12">
                 <div class="form-group">
-                    <!-- <label>NAME:</label> -->
-                    <input type="text" name="lastName" ng-model="formData.lastName" class="form-control"  placeholder="Last Name" required>
+                    <input type="text" name="lastName" ng-model="formData.lastName" class="form-control" placeholder="Last Name" required>
                     <div class="error-msg" ng-show="formName.lastName.$invalid && formName.lastName.$touched">Please enter your last name</div>
                 </div>
+            </div>
+            <div class="col-md-12">
                 <div class="form-group">
-                    <!-- <label>NAME:</label> -->
                     <input type="email" name="email" ng-model="formData.email" class="form-control" required placeholder="Email">
                     <div class="error-msg" ng-show="formName.email.$invalid && formName.email.$touched">Please enter your email</div>
                     <div ng-if="validEmail">Email Id Already Exist.</div>
                 </div>
-                <!-- <div class="form-group">
-                    <input type="text" name="mobile" ng-model="formData.mobile" class="form-control" placeholder="Mobile Number" minlength="10" maxlength="10" Only-Digits>
-                </div> -->
             </div>
-
         </div>
-
         <div class="text-center">
-          <button class="btn btn-primary" type="submit" ng-disabled="formName.$invalid" >SUBMIT</button>
-          <!-- <button class="btn btn-primary" type="submit" ng-disabled="formName.$invalid" ng-click="showSecondUI();$dismiss()">SUBMIT</button> -->
-
+            <button class="btn btn-primary" type="submit" ng-disabled="formName.$invalid">SUBMIT</button>
         </div>
     </form>
     <!-- <div class="brand-primary text-upper text-center" >
