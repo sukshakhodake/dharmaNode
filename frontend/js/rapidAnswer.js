@@ -49,17 +49,17 @@ var rapidAnswer = angular.module('rapidAnswer', [])
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Sonali Bendre.",
+                "name": "Sonali Bendre",
                 answer: true
             }, {
                 "id": "radio2",
-                "name": " Mandira Bedi."
+                "name": " Mandira Bedi"
             }, {
                 "id": "radio3",
                 "name": "Tabu"
             }, {
                 "id": "radio4",
-                "name": "Simone Singh."
+                "name": "Simone Singh"
             }]
         }, {
             id: 4,
