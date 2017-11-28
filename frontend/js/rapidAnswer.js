@@ -7,72 +7,186 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "Name the college where Rahul was studying in Kuch Kuch Hota Hai?",
+            question: "'Jiyo! Khush Raho! Muskurao! Kya Pata..Kal Ho Naa Ho' - Who said this to whom in the movie?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "St. Teresa College"
+                "name": "Aman to Rohit"
             }, {
                 "id": "radio2",
-                "name": "St. Stephen College"
+                "name": "Rohit to Naina"
             }, {
                 "id": "radio3",
-                "name": "St. Xavier's College",
+                "name": "Aman to Naina",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "St. Lawrence College. "
+                "name": "Uncle Chaddha to Lajjo"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "'Baimaani ka dhanda bhi main imaandari se karta hoon' was said by Shah Rukh Khan in which movie?",
+            question: "What was the new name of the restaurant that Aman helped Jenni to reopen?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Kuch Kuch Hota Hai"
+                "name": "Cafe New York"
             }, {
                 "id": "radio2",
-                "name": "Kaal"
+                "name": "Cafe New Delhi",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Kabhi Khushi Kabhie Gham"
+                "name": "Punjabi Dhaba"
             }, {
                 "id": "radio4",
-                "name": "Duplicate",
-                answer: true
+                "name": "Hindusthani Khana Khazana"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "In Kabhi Khushi Kabhie Gham, what was Rahul's son's name?",
+            question: "______ was Aman's doctor in the movie, who he claimed to be his wife in front of Naina.",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Krish",
+                "name": "Sonali Bendre.",
                 answer: true
             }, {
                 "id": "radio2",
-                "name": "Aman"
+                "name": " Mandira Bedi."
             }, {
                 "id": "radio3",
-                "name": "Ladoo"
+                "name": "Tabu"
             }, {
                 "id": "radio4",
-                "name": "Yash"
+                "name": "Simone Singh."
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "What does Aman call Naina in the movie, Kal Ho Naa Ho?",
+            question: "__ din ladki in!",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Naina o Naina"
+                "name": "7"
             }, {
                 "id": "radio2",
+                "name": "6",
+                answer: true
+            }, {
+                "id": "radio3",
+                "name": "5"
+            }, {
+                "id": "radio4",
+                "name": "4"
+            }]
+        }, {
+            id: 5,
+            quesNo: "Q5",
+            question: "Complete the dialogue: Pyar toh bahut log karte hai, lekin mere jaisa pyar koi nahi kar sakta...",
+            model: "quest5",
+            options: [{
+                "id": "radio1",
+                "name": "Kyun ki sabko pyar ka matlab pata nahi hai "
+            }, {
+                "id": "radio2",
+                "name": "Kyun Ki sab dil dukhate hai"
+            }, {
+                "id": "radio3",
+                "name": "Kyun ki dil hona chahiye pyar karne ke liye"
+            }, {
+                "id": "radio4",
+                "name": "Kyun ki kisi ke paas tum joh nahi ho",
+                answer: true
+            }]
+        }, {
+            id: 6,
+            quesNo: "Q6",
+            question: "What classes were Rohit and Naina taking together?",
+            model: "quest6",
+            options: [{
+                "id": "radio1",
+                "name": "Fashion Designing."
+            }, {
+                "id": "radio2",
+                "name": "MBA",
+                answer: true
+            }, {
+                "id": "radio3",
+                "name": "Charted Accountancy. "
+            }, {
+                "id": "radio4",
+                "name": "Fitness Instructor "
+            }]
+        }, {
+            id: 7,
+            quesNo: "Q7",
+            question: "Where does Shah Rukh see Preity for the first time in the film?",
+            model: "quest7",
+            options: [{
+                "id": "radio1",
+                "name": "His house"
+            }, {
+                "id": "radio2",
+                "name": "Road-side"
+            }, {
+                "id": "radio3",
+                "name": "Through a window"
+            }, {
+                "id": "radio4",
+                "name": "Train station",
+                answer: true
+            }]
+        }, {
+            id: 8,
+            quesNo: "Q8",
+            question: "Where was the entire film shot?",
+            model: "quest8",
+            options: [{
+                "id": "radio1",
+                "name": "New York",
+                answer: true
+            }, {
+                "id": "radio2",
+                "name": "Chicago"
+            }, {
+                "id": "radio3",
+                "name": "Toronto"
+            }, {
+                "id": "radio4",
+                "name": "San Francisco"
+            }]
+        }, {
+            id: 9,
+            quesNo: "Q9",
+            question: "Rohit’s father owned a food chain in America. What is it called?",
+            model: "quest9",
+            options: [{
+                "id": "radio1",
+                "name": "Thepla Corner"
+            }, {
+                "id": "radio2",
+                "name": "Gujju Khana Khazaana"
+            }, {
+                "id": "radio3",
+                "name": "Dial - a- Dhokla",
+                answer: true
+            }, {
+                "id": "radio4",
+                "name": "Dial - a - Khakra"
+            }]
+        }, {
+            id: 10,
+            quesNo: "Q10",
+            question: "What does Aman call Naina in the movie, Kal Ho Naa Ho?",
+            model: "quest10",
+            options: [{
+                "id": "radio1",
                 "name": "Khadoos"
+            }, {
+                "id": "radio2",
+                "name": "Sweetu"
             }, {
                 "id": "radio3",
                 "name": "Chashmish",
@@ -80,120 +194,6 @@ var rapidAnswer = angular.module('rapidAnswer', [])
             }, {
                 "id": "radio4",
                 "name": "Pretty Woman"
-            }]
-        }, {
-            id: 5,
-            quesNo: "Q5",
-            question: "What was SRK's profession in Ae Dil Hai Mushkil?",
-            model: "quest5",
-            options: [{
-                "id": "radio1",
-                "name": "Poet"
-            }, {
-                "id": "radio2",
-                "name": "Singer"
-            }, {
-                "id": "radio3",
-                "name": "Sculpture artist"
-            }, {
-                "id": "radio4",
-                "name": "Painter",
-                answer: true
-            }]
-        }, {
-            id: 6,
-            quesNo: "Q6",
-            question: "Where did Dev and Maya have their first conversation in Kabhi Alvida Naa Kehna?",
-            model: "quest6",
-            options: [{
-                "id": "radio1",
-                "name": "On a bench",
-                answer: true
-            }, {
-                "id": "radio2",
-                "name": "On a road"
-            }, {
-                "id": "radio3",
-                "name": "At a restaurant"
-            }, {
-                "id": "radio4",
-                "name": "Near his house"
-            }]
-        }, {
-            id: 7,
-            quesNo: "Q7",
-            question: "What does Shah Rukh Khan want to say to the president in My Name Is Khan?",
-            model: "quest7",
-            options: [{
-                "id": "radio1",
-                "name": "My Name Is Khan, that's my identity."
-            }, {
-                "id": "radio2",
-                "name": "I am an Indian"
-            }, {
-                "id": "radio3",
-                "name": "My Name Is Khan and I am not a terrorist.",
-                answer: true
-            }, {
-                "id": "radio4",
-                "name": "You don't deserve power. "
-            }]
-        }, {
-            id: 8,
-            quesNo: "Q8",
-            question: ".Which sport did Anjali and Rahul play in Kuch Kuch Hota Hai?",
-            model: "quest8",
-            options: [{
-                "id": "radio1",
-                "name": "Cricket"
-            }, {
-                "id": "radio2",
-                "name": "Basketball",
-                answer: true
-            }, {
-                "id": "radio3",
-                "name": "Football"
-            }, {
-                "id": "radio4",
-                "name": "Table Tennis"
-            }]
-        }, {
-            id: 9,
-            quesNo: "Q9",
-            question: "What was the name of the restaurant that Aman helped Jenni to open in the movie, Kal Ho Naa Ho?",
-            model: "quest9",
-            options: [{
-                "id": "radio1",
-                "name": "Cafe New York"
-            }, {
-                "id": "radio2",
-                "name": "Punjabi Dhaba"
-            }, {
-                "id": "radio3",
-                "name": "Cafe New Delhi",
-                answer: true
-            }, {
-                "id": "radio4",
-                "name": "Hindusthani Khana Khazana"
-            }]
-        }, {
-            id: 10,
-            quesNo: "Q10",
-            question: "Where does Dr.Jehangir Khan stay in Dear Zindagi?",
-            model: "quest10",
-            options: [{
-                "id": "radio1",
-                "name": "Goa",
-                answer: true
-            }, {
-                "id": "radio2",
-                "name": "Mumbai"
-            }, {
-                "id": "radio3",
-                "name": "Gokarna"
-            }, {
-                "id": "radio4",
-                "name": "Andaman"
             }]
         }];
         var answered;
