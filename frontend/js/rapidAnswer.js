@@ -107,14 +107,14 @@ var rapidAnswer = angular.module('rapidAnswer', [])
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Fashion Designing."
+                "name": "Fashion Designing"
             }, {
                 "id": "radio2",
                 "name": "MBA",
                 answer: true
             }, {
                 "id": "radio3",
-                "name": "Charted Accountancy. "
+                "name": "Chartered Accountancy"
             }, {
                 "id": "radio4",
                 "name": "Fitness Instructor "
@@ -170,7 +170,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
                 "name": "Gujju Khana Khazaana"
             }, {
                 "id": "radio3",
-                "name": "Dial - a- Dhokla",
+                "name": "Dial - a - Dhokla",
                 answer: true
             }, {
                 "id": "radio4",
