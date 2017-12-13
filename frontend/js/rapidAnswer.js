@@ -7,193 +7,193 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "'Jiyo! Khush Raho! Muskurao! Kya Pata..Kal Ho Naa Ho' - Who said this to whom in the movie?",
+            question: "What does P.H.A.T stand for in the movie?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Aman to Rohit"
+                "name": "Pampered, honest and tempered"
             }, {
                 "id": "radio2",
-                "name": "Rohit to Naina"
-            }, {
-                "id": "radio3",
-                "name": "Aman to Naina",
+                "name": "Pretty, hot and tempting",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "Popular, honest and tempting"
+            }, {
                 "id": "radio4",
-                "name": "Uncle Chaddha to Lajjo"
+                "name": "Poise, humble and tempting"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "What was the new name of the restaurant that Aman helped Jenni to reopen?",
+            question: "Which name did Rohan take to stay in Rahul's house?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Cafe New York"
-            }, {
-                "id": "radio2",
-                "name": "Cafe New Delhi",
+                "name": "Yash",
                 answer: true
             }, {
+                "id": "radio2",
+                "name": "Karan"
+            }, {
                 "id": "radio3",
-                "name": "Punjabi Dhaba"
+                "name": "Ayan"
             }, {
                 "id": "radio4",
-                "name": "Hindusthani Khana Khazana"
+                "name": "Raj"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "______ was Aman's doctor in the movie, who he claimed to be his wife in front of Naina.",
+            question: "Which shop did Anjali have in Delhi?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "Sonali Bendre",
+                "name": "Halwai ki dukaan",
                 answer: true
             }, {
                 "id": "radio2",
-                "name": " Mandira Bedi"
+                "name": "Kapde ki dukaan"
             }, {
                 "id": "radio3",
-                "name": "Tabu"
+                "name": "Shoe showroom"
             }, {
                 "id": "radio4",
-                "name": "Simone Singh"
+                "name": "Kachori ki dukaan"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "__ din ladki in!",
+            question: "Who did Kajol think Shah Rukh was when she met him the first time?",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "7"
+                "name": "Ashram Miyan"
             }, {
                 "id": "radio2",
-                "name": "6",
-                answer: true
+                "name": "Ashraf Miyan"
             }, {
                 "id": "radio3",
-                "name": "5"
+                "name":"Ashfaq Miyan",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "4"
+                "name": "Asif Khan"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "Complete the dialogue: Pyar toh bahut log karte hai, lekin mere jaisa pyar koi nahi kar sakta...",
+            question: "Which famous SRK-Kajol dialogue did they recreate in this movie?,
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Kyun ki sabko pyar ka matlab pata nahi hai "
+                "name": "I don't like jokes. I don't like you.",
+                answer: true
             }, {
                 "id": "radio2",
-                "name": "Kyun Ki sab dil dukhate hai"
+                "name": "Kuch kuch hota Hai Anjali, tum nahi samjhogi."
             }, {
                 "id": "radio3",
-                "name": "Kyun ki dil hona chahiye pyar karne ke liye"
+                "name": "Bade bade deshon mein aisi choti choti baatein hoti rehti hain."
             }, {
                 "id": "radio4",
-                "name": "Kyun ki kisi ke paas tum joh nahi ho",
-                answer: true
+                "name": "Rahul is a cheater!"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: "What classes were Rohit and Naina taking together?",
+            question: "What song does Yashvardhan Raichand sing to his wife on his birthday?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Fashion Designing"
+                "name": "Tu cheez badi hai mast"
             }, {
                 "id": "radio2",
-                "name": "MBA",
-                answer: true
+                "name": "Teri Bindiya Re"
             }, {
                 "id": "radio3",
-                "name": "Chartered Accountancy"
+                "name": "Ae Kya Bolti Tu",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Fitness Instructor "
+                "name": "Aye meri Zohra Jabeen"
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "Where does Shah Rukh see Preity for the first time in the film?",
+            question: "What fashion disaster did Rohan point out when he saw Poo in her prom outfit?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "His house"
+                "name": "Messy hair"
             }, {
                 "id": "radio2",
-                "name": "Road-side"
+                "name": "Wearing mismatched shoes",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Through a window"
+                "name": "Make up"
             }, {
                 "id": "radio4",
-                "name": "Train station",
-                answer: true
+                "name": "Wearing bell bottoms"
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: "Where was the entire film shot?",
+            question: "Which actress played the role of the girl Rahul is initially supposed to get married to?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "New York",
-                answer: true
+                "name": "Juhi Chawla"
             }, {
                 "id": "radio2",
-                "name": "Chicago"
+                "name": "Rani Mukerji",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Toronto"
+                "name": "Preity Zinta"
             }, {
                 "id": "radio4",
-                "name": "San Francisco"
+                "name": "Kajol"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "Rohit’s father owned a food chain in America. What is it called?",
+            question: "Which city did Rohan go to, to hunt for Rahul and Anjali and bring them back?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "Thepla Corner"
+                "name": "New York"
             }, {
                 "id": "radio2",
-                "name": "Gujju Khana Khazaana"
+                "name": "Toronto"
             }, {
                 "id": "radio3",
-                "name": "Dial - a - Dhokla",
+                "name": "London",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Dial - a - Khakra"
+                "name": "Paris"
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "What does Aman call Naina in the movie, Kal Ho Naa Ho?",
+            question: "Complete the dialogue: Paisa toh har koi kama leta hai, ______________",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "Khadoos"
+                "name": "Lekin woh samhal ke rakhna sabke bas ki baat nahi"
             }, {
                 "id": "radio2",
-                "name": "Sweetu"
+                "name": "Har kisi ko paise ki value samjh mein nahi ati"
             }, {
                 "id": "radio3",
-                "name": "Chashmish",
-                answer: true
+                "name": "Lekin log apne aap ko kho dete hai"
             }, {
                 "id": "radio4",
-                "name": "Pretty Woman"
+                "name": "Lekin izzat kamaana sabke bas ki baat nahi",
+                answer: true
             }]
         }];
         var answered;
