@@ -84,7 +84,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "Which famous SRK-Kajol dialogue did they recreate in this movie?,
+            question: "Which famous SRK-Kajol dialogue did they recreate in this movie?",
             model: "quest5",
             options: [{
                 "id": "radio1",
