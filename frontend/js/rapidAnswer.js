@@ -45,7 +45,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
     }, {
         id: 3,
         quesNo: "Q3",
-        question: "Which shop did Anjali have in Delhi?",
+        question: "Which character did Varun Dhawan win the Best Actor award for in Zee Cine Awards?",
         model: "quest3",
         options: [{
             "id": "radio1",
