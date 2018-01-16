@@ -7,76 +7,76 @@ var rapidAnswer = angular.module('rapidAnswer', [])
     var questions = [{
         id: 1,
         quesNo: "Q1",
-        question: "What was the catch phrase that Adi & Tara believed in, in OK Jaanu?",
+        question: "Where did Arjun meet Tia for the first time in Kapoor & Sons?",
         model: "quest1",
         options: [{
             "id": "radio1",
-            "name": "Kal kar lenge"
+            "name": "In a pub"
         }, {
             "id": "radio2",
-            "name": "Kyun karna hai?"
-        }, {
-            "id": "radio3",
-            "name": "Figure out kar lenge",
+            "name": "At a house party",
             answer: true
         }, {
+            "id": "radio3",
+            "name": "In a parking lot"
+        }, {
             "id": "radio4",
-            "name": "Figure kyun karna hai?"
+            "name": "In office"
         }]
     }, {
         id: 2,
         quesNo: "Q2",
-        question: "Who told Kattapa to kill Baahubali?",
+        question: "Which year did Sidharth Malhotra start his acting career?",
         model: "quest2",
         options: [{
             "id": "radio1",
-            "name": "Avantika"
+            "name": "2010"
         }, {
             "id": "radio2",
-            "name": "Raj Mata Sivagami",
-            answer: true
+            "name": "2011"
         }, {
             "id": "radio3",
-            "name": "Devasena"
+            "name": "2012",
+            answer: true
         }, {
             "id": "radio4",
-            "name": "Bijjaladeva"
+            "name": "2013"
         }]
     }, {
         id: 3,
         quesNo: "Q3",
-        question: "Which character did Varun Dhawan win the Best Actor award for in Zee Cine Awards?",
+        question: "What was Sidharth Malhotra's character's name in Ittefaq?",
         model: "quest3",
         options: [{
             "id": "radio1",
-            "name": "Humpty"
-        }, {
-            "id": "radio2",
-            "name": "Badri",
+            "name": "Vikram",
             answer: true
         }, {
+            "id": "radio2",
+            "name": "Dev"
+        }, {
             "id": "radio3",
-            "name": "Rohan"
+            "name": "Vishal"
         }, {
             "id": "radio4",
-            "name": "None of the above"
+            "name": "Sid"
         }]
     }, {
         id: 4,
         quesNo: "Q4",
-        question: "Which A.R. Rahman song was recreated in OK Jaanu that bagged the song of the year on iTunes?",
+        question: "Who was Monty aka Sidharth’s opponent in the final match in Brothers?",
         model: "quest4",
 
         options: [{
             "id": "radio1",
-            "name": "The Humma Song",
+            "name": "His brother",
             answer: true
         }, {
             "id": "radio2",
-            "name": "Tamma Tamma Again"
+            "name": "His best friend"
         }, {
             "id": "radio3",
-            "name": "Samjhawan"
+            "name": "His father"
         }, {
             "id": "radio4",
             "name": "None of the above"
@@ -84,116 +84,116 @@ var rapidAnswer = angular.module('rapidAnswer', [])
     }, {
         id: 5,
         quesNo: "Q5",
-        question: "What was Alia's profession in the movie, Badrinath Ki Dulhania?",
+        question: "How many Dharma movies has Sidharth featured in?",
         model: "quest5",
         options: [{
             "id": "radio1",
-            "name": "Air Hostess",
+            "name": "6",
             answer: true
         }, {
             "id": "radio2",
-            "name": "Bartender"
+            "name": "5"
         }, {
             "id": "radio3",
-            "name": "Photographer"
+            "name": "4"
         }, {
             "id": "radio4",
-            "name": "Doctor"
+            "name": "7"
         }]
     }, {
         id: 6,
         quesNo: "Q6",
-        question: "Which city was OK Jaanu shot in?",
+        question: "Which Dharma movie did Sidharth work as an Assistant Director?",
         model: "quest6",
         options: [{
             "id": "radio1",
-            "name": "Mumbai",
-            answer: true
+            "name": "Wake Up Sid"
         }, {
             "id": "radio2",
-            "name": "Delhi"
+            "name": "My Name Is Khan",
+            answer: true
         }, {
             "id": "radio3",
-            "name": "Ahmedabad"
+            "name": "Dostana"
         }, {
             "id": "radio4",
-            "name": "None"
+            "name": "I Hate Luv Storys"
         }]
     }, {
         id: 7,
         quesNo: "Q7",
-        question: "Complete the dialogue: Tumhari mansik sthithi aaj thodi gadbad lag rahi hai ...",
+        question: "‘Raat Baaki, Baat Baaki’ was reprised in which Sidharth Malhotra film?",
         model: "quest7",
         options: [{
             "id": "radio1",
-            "name": "Hum kabhi nahi aayenge"
+            "name": " Hasee Toh Phasee"
         }, {
             "id": "radio2",
-            "name": "Dimag ka ilaj karao"
-        }, {
-            "id": "radio3",
-            "name": "Hum kal phir aayenge",
+            "name": "Ittefaq",
             answer: true
         }, {
+            "id": "radio3",
+            "name": "Kapoor & Sons"
+        }, {
             "id": "radio4",
-            "name": "Tumhe pagal khaane mein jaana chahiye"
+            "name": "Brothers"
         }]
     }, {
         id: 8,
         quesNo: "Q8",
-        question: "Which war was The Ghazi Attack based on?",
+        question: "What was the name of the pet Sidharth and his family had in Kapoor & Sons?",
         model: "quest8",
         options: [{
             "id": "radio1",
-            "name": "1857 war"
+            "name": "Dodo"
         }, {
             "id": "radio2",
-            "name": "1905 war"
+            "name": "Billo"
         }, {
             "id": "radio3",
-            "name": "1971 war",
+            "name": "Geishu",
             answer: true
         }, {
             "id": "radio4",
-            "name": "1947 war"
+            "name": "Bruno"
         }]
     }, {
         id: 9,
         quesNo: "Q9",
-        question: "Which song amongst these was reprised in the movie, Ittefaq?",
+        question: "In Brothers, what was the relationship between Sidharth and Jacqueline Fernandez?",
         model: "quest9",
         options: [{
             "id": "radio1",
-            "name": "Tamma Tamma"
+            "name": "Sister"
         }, {
             "id": "radio2",
-            "name": "Raat Baaki",
-            answer: true
+            "name": "Fiancé"
         }, {
             "id": "radio3",
-            "name": "Humma Humma"
+            "name": "Fitness trainer"
         }, {
             "id": "radio4",
-            "name": "Disco Dancer"
+            "name": "Sister-in-law",
+            answer: true
         }]
     }, {
         id: 10,
         quesNo: "Q10",
-        question: "The character played by Prabhas in Baahubali 2 was ____?",
+        question: "Which actress’s cut out did Arjun gift to Daadu on his birthday in the movie Kapoor & Sons?",
         model: "quest10",
         options: [{
             "id": "radio1",
-            "name": "Amarendra Baahubali"
+            "name": "Tina Munim"
         }, {
             "id": "radio2",
-            "name": "Mahendra Baahubali"
+            "name": "Zeenat Aman"
         }, {
             "id": "radio3",
-            "name": "Both",
-            answer: true
+            "name": "Helen"
         }, {
             "id": "radio4",
-            "name": "None"
+            "name": "Mandakini",
+            answer: true
         }]
     }];
     var answered;
