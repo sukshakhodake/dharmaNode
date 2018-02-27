@@ -2,4 +2,4 @@ apps:
   - script: "app.js"
     name: "Dharma Production"
     watch: false
-    args: "--prod"
+    args: "--port 85"
