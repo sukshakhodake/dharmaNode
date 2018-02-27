@@ -20,7 +20,7 @@ module.exports = function (data, options) {
     if (!data.image) {
         delete obj.image;
     }
-    console.log(sails.config.environment);
-    console.log(obj);
+    // console.log(sails.config.environment);
+    // console.log(obj);
     res.view(sails.config.environment, obj);
 };
