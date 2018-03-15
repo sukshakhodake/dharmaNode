@@ -5,16 +5,18 @@
             <div class="dharma-word m-zero pd-all">
                 <div class="container">
                     <div class="banner-title text-center lin-min-ht ">
-                        <h1 class="color-white font-hammersmith f120 margin0 text-uppercase">Rapid Fire</h1>
+                        <h1 class="color-white font-hammersmith f120 margin0 text-uppercase">Special Rapid Fire</h1>
                         <!--<h1 class="color-white font-hammersmith f120 margin0 text-uppercase" >Varun Dhawan's Birthday! special</h1>-->
                     </div>
                     <div class="hide-first" ng-show="firstUI">
                         <div class="text-center f18 color-white mob-font-10 mob-web-font-10 pt20">
                             <!--<p class="margin0">Will you make it to the end – without the hero dying?</p>-->
                             <div class="change-sc pt40">
-                                <h2 class="color-primary font-bold text-center">Sidharth Malhotra's Birthday!</h2>
+                                <h2 class="color-primary font-bold text-center">Alia Bhatt Birthday</h2>
                                 <div class="big-pl text-center mt15">
-                                    <a ng-click="openModals()"><img src="frontend/img/big-play.png" alt="Dharma Production"></a>
+                                    <a ng-click="openModals()">
+                                        <img src="frontend/img/big-play.png" alt="Dharma Production">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +33,7 @@
                                                 <canvas id="canvas1" width="80" height="80"></canvas>
                                             </div>
                                             <div class="sc-bg ps-wt">
-                                              <span class="color-primary font-bold">{{showTimerCount}}</span>
+                                                <span class="color-primary font-bold">{{showTimerCount}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -59,25 +61,25 @@
                                                 <div class="btn-n-s mt30" ng-hide="count==9">
                                                     <div class="btn-view-more mt15 " ng-if="mDisable">
                                                         <a ng-class="{disabled: mDisable}" ng-click="nextQuestion()" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                          <svg>
-                                                              <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                          </svg>
+                                                            <svg>
+                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                                            </svg>
                                                             NEXT
                                                         </a>
                                                     </div>
                                                     <div class="btn-view-more mt15 " ng-if="!mDisable">
                                                         <a ng-click="nextQuestion()" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                          <svg>
-                                                              <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                          </svg>
+                                                            <svg>
+                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                                            </svg>
                                                             NEXT
                                                         </a>
                                                     </div>
                                                     <div class="btn-view-more mt15 ">
                                                         <a ng-click="skipQuestion()" class="btn-1 font-hammersmith btn color-primary mobile-center">
-                                                          <svg>
-                                                              <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                          </svg>
+                                                            <svg>
+                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                                            </svg>
                                                             SKIP
                                                         </a>
 
@@ -91,18 +93,22 @@
                                             <div class="text-center">
                                                 <h4 class="text-center color-white">Your Dharma Fan Meter is {{count}}0%</h4>
                                                 <div class="btn-view-more dh-btn-min">
-                                                    <span><a class="btn-in btn-1 font-hammersmith btn color-primary mobile-center text-center" ng-click="openModal()">
-                                                        <svg>
-                                                            <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                        </svg>
-                                                        SHARE WITH THE WORLD
-                                                    </a></span><span>
-                                                     <a class="btn-in btn-1 font-hammersmith btn color-primary mobile-center text-center" ui-sref="fan-corner">
-                                                        <svg>
-                                                            <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                                                        </svg>
-                                                        PLAY AGAIN
-                                                    </a></span>
+                                                    <span>
+                                                        <a class="btn-in btn-1 font-hammersmith btn color-primary mobile-center text-center" ng-click="openModal()">
+                                                            <svg>
+                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                                            </svg>
+                                                            SHARE WITH THE WORLD
+                                                        </a>
+                                                    </span>
+                                                    <span>
+                                                        <a class="btn-in btn-1 font-hammersmith btn color-primary mobile-center text-center" ui-sref="fan-corner">
+                                                            <svg>
+                                                                <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                                            </svg>
+                                                            PLAY AGAIN
+                                                        </a>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>

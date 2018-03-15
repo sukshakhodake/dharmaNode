@@ -1,264 +1,264 @@
 var rapidAnswer = angular.module('rapidAnswer', [])
 
-.factory('RapidAnswer', function ($http) {
+    .factory('RapidAnswer', function ($http) {
 
 
-    var countTimer = 90;
-    var questions = [{
-        id: 1,
-        quesNo: "Q1",
-        question: "Where did Arjun meet Tia for the first time in Kapoor & Sons?",
-        model: "quest1",
-        options: [{
-            "id": "radio1",
-            "name": "In a pub"
+        var countTimer = 90;
+        var questions = [{
+            id: 1,
+            quesNo: "Q1",
+            question: "Alia Bhatt sang the unplugged version of which of the following songs?",
+            model: "quest1",
+            options: [{
+                "id": "radio1",
+                "name": "Tamma Tamma"
+            }, {
+                "id": "radio2",
+                "name": "Roke Na Roke Naina"
+            }, {
+                "id": "radio3",
+                "name": "Kar Gayi Chull"
+            }, {
+                "id": "radio4",
+                "name": "Samjhawan",
+                answer: true
+            }]
         }, {
-            "id": "radio2",
-            "name": "At a house party",
-            answer: true
+            id: 2,
+            quesNo: "Q2",
+            question: "How many Dharma Production movies has Alia been a part of?",
+            model: "quest2",
+            options: [{
+                "id": "radio1",
+                "name": "Chef"
+            }, {
+                "id": "radio2",
+                "name": "Fashion Stylist"
+            }, {
+                "id": "radio3",
+                "name": "Cinematographer",
+                answer: true
+            }, {
+                "id": "radio4",
+                "name": "Photographer"
+            }]
         }, {
-            "id": "radio3",
-            "name": "In a parking lot"
+            id: 3,
+            quesNo: "Q3",
+            question: "How many Dharma Production movies has Alia been a part of?",
+            model: "quest3",
+            options: [{
+                "id": "radio1",
+                "name": "7",
+                answer: true
+            }, {
+                "id": "radio2",
+                "name": "5"
+            }, {
+                "id": "radio3",
+                "name": "11"
+            }, {
+                "id": "radio4",
+                "name": "9"
+            }]
         }, {
-            "id": "radio4",
-            "name": "In office"
-        }]
-    }, {
-        id: 2,
-        quesNo: "Q2",
-        question: "Which year did Sidharth Malhotra start his acting career?",
-        model: "quest2",
-        options: [{
-            "id": "radio1",
-            "name": "2010"
-        }, {
-            "id": "radio2",
-            "name": "2011"
-        }, {
-            "id": "radio3",
-            "name": "2012",
-            answer: true
-        }, {
-            "id": "radio4",
-            "name": "2013"
-        }]
-    }, {
-        id: 3,
-        quesNo: "Q3",
-        question: "What was Sidharth Malhotra's character's name in Ittefaq?",
-        model: "quest3",
-        options: [{
-            "id": "radio1",
-            "name": "Vikram",
-            answer: true
-        }, {
-            "id": "radio2",
-            "name": "Dev"
-        }, {
-            "id": "radio3",
-            "name": "Vishal"
-        }, {
-            "id": "radio4",
-            "name": "Sid"
-        }]
-    }, {
-        id: 4,
-        quesNo: "Q4",
-        question: "Who was Monty aka Sidharth’s opponent in the final match in Brothers?",
-        model: "quest4",
+            id: 4,
+            quesNo: "Q4",
+            question: "She has more than one  ___ as a pet.",
+            model: "quest4",
 
-        options: [{
-            "id": "radio1",
-            "name": "His brother",
-            answer: true
+            options: [{
+                "id": "radio1",
+                "name": "Dog"
+            }, {
+                "id": "radio2",
+                "name": "Fish"
+            }, {
+                "id": "radio3",
+                "name": "Cat",
+                answer: true
+            }, {
+                "id": "radio4",
+                "name": "Rabbit"
+            }]
         }, {
-            "id": "radio2",
-            "name": "His best friend"
+            id: 5,
+            quesNo: "Q5",
+            question: "In Humpty Sharma ki Dulhania, Kavya wishes to purchase a wedding dress similar to which actress’s outfit?",
+            model: "quest5",
+            options: [{
+                "id": "radio1",
+                "name": "Deepika Padukone"
+            }, {
+                "id": "radio2",
+                "name": "Sridevi"
+            }, {
+                "id": "radio3",
+                "name": "Madhuri Dixit"
+            }, {
+                "id": "radio4",
+                "name": "Kareena Kapoor",
+                answer: true
+            }]
         }, {
-            "id": "radio3",
-            "name": "His father"
+            id: 6,
+            quesNo: "Q6",
+            question: "In which 90s movie did Alia make her debut as a child artist?",
+            model: "quest6",
+            options: [{
+                "id": "radio1",
+                "name": "Masoom"
+            }, {
+                "id": "radio2",
+                "name": "Hathi Mere Sathi"
+            }, {
+                "id": "radio3",
+                "name": "Kuch Kuch Hota Hai"
+            }, {
+                "id": "radio4",
+                "name": "Sangharsh",
+                answer: true
+            }]
         }, {
-            "id": "radio4",
-            "name": "None of the above"
-        }]
-    }, {
-        id: 5,
-        quesNo: "Q5",
-        question: "How many Dharma movies has Sidharth featured in?",
-        model: "quest5",
-        options: [{
-            "id": "radio1",
-            "name": "6",
-            answer: true
+            id: 7,
+            quesNo: "Q7",
+            question: "‘What subject does Ananya Swaminathan top the class in, before pursuing her MBA in ‘2 States’?",
+            model: "quest7",
+            options: [{
+                "id": "radio1",
+                "name": "History"
+            }, {
+                "id": "radio2",
+                "name": "Economics",
+                answer: true
+            }, {
+                "id": "radio3",
+                "name": "Literature"
+            }, {
+                "id": "radio4",
+                "name": "Psychology"
+            }]
         }, {
-            "id": "radio2",
-            "name": "5"
+            id: 8,
+            quesNo: "Q8",
+            question: "What nickname is Alia’s character referred to by her family and friends in ‘Dear Zindagi’?",
+            model: "quest8",
+            options: [{
+                "id": "radio1",
+                "name": "Cola"
+            }, {
+                "id": "radio2",
+                "name": "Kaira"
+            }, {
+                "id": "radio3",
+                "name": "Coco",
+                answer: true
+            }, {
+                "id": "radio4",
+                "name": "Chiku"
+            }]
         }, {
-            "id": "radio3",
-            "name": "4"
+            id: 9,
+            quesNo: "Q9",
+            question: "At what age did Alia star in Student of The Year?",
+            model: "quest9",
+            options: [{
+                "id": "radio1",
+                "name": "17"
+            }, {
+                "id": "radio2",
+                "name": "18",
+                answer: true
+            }, {
+                "id": "radio3",
+                "name": "19"
+            }, {
+                "id": "radio4",
+                "name": "20"
+            }]
         }, {
-            "id": "radio4",
-            "name": "7"
-        }]
-    }, {
-        id: 6,
-        quesNo: "Q6",
-        question: "Which Dharma movie did Sidharth work as an Assistant Director?",
-        model: "quest6",
-        options: [{
-            "id": "radio1",
-            "name": "Wake Up Sid"
-        }, {
-            "id": "radio2",
-            "name": "My Name Is Khan",
-            answer: true
-        }, {
-            "id": "radio3",
-            "name": "Dostana"
-        }, {
-            "id": "radio4",
-            "name": "I Hate Luv Storys"
-        }]
-    }, {
-        id: 7,
-        quesNo: "Q7",
-        question: "‘Raat Baaki, Baat Baaki’ was reprised in which Sidharth Malhotra film?",
-        model: "quest7",
-        options: [{
-            "id": "radio1",
-            "name": " Hasee Toh Phasee"
-        }, {
-            "id": "radio2",
-            "name": "Ittefaq",
-            answer: true
-        }, {
-            "id": "radio3",
-            "name": "Kapoor & Sons"
-        }, {
-            "id": "radio4",
-            "name": "Brothers"
-        }]
-    }, {
-        id: 8,
-        quesNo: "Q8",
-        question: "What was the name of the pet Sidharth and his family had in Kapoor & Sons?",
-        model: "quest8",
-        options: [{
-            "id": "radio1",
-            "name": "Dodo"
-        }, {
-            "id": "radio2",
-            "name": "Billo"
-        }, {
-            "id": "radio3",
-            "name": "Geishu",
-            answer: true
-        }, {
-            "id": "radio4",
-            "name": "Bruno"
-        }]
-    }, {
-        id: 9,
-        quesNo: "Q9",
-        question: "In Brothers, what was the relationship between Sidharth and Jacqueline Fernandez?",
-        model: "quest9",
-        options: [{
-            "id": "radio1",
-            "name": "Sister"
-        }, {
-            "id": "radio2",
-            "name": "Fiancé"
-        }, {
-            "id": "radio3",
-            "name": "Fitness trainer"
-        }, {
-            "id": "radio4",
-            "name": "Sister-in-law",
-            answer: true
-        }]
-    }, {
-        id: 10,
-        quesNo: "Q10",
-        question: "Which actress’s cut out did Arjun gift to Daadu on his birthday in the movie Kapoor & Sons?",
-        model: "quest10",
-        options: [{
-            "id": "radio1",
-            "name": "Tina Munim"
-        }, {
-            "id": "radio2",
-            "name": "Zeenat Aman"
-        }, {
-            "id": "radio3",
-            "name": "Helen"
-        }, {
-            "id": "radio4",
-            "name": "Mandakini",
-            answer: true
-        }]
-    }];
-    var answered;
+            id: 10,
+            quesNo: "Q10",
+            question: "Which movie will mark Alia's 8th venture with Dharma Productions?",
+            model: "quest10",
+            options: [{
+                "id": "radio1",
+                "name": "Brahmastra"
+            }, {
+                "id": "radio2",
+                "name": "Dhadak"
+            }, {
+                "id": "radio3",
+                "name": "Raazi",
+                answer: true
+            }, {
+                "id": "radio4",
+                "name": "Drive"
+            }]
+        }];
+        var answered;
 
-    return {
+        return {
 
-        changeTimerRapid: function () {
-            var rapidTimer = $.jStorage.get("rapidTimer");
-            var returnVal;
-            if (rapidTimer && rapidTimer != 1) {
-                returnVal = rapidTimer - 1;
-                $.jStorage.set("rapidTimer", returnVal);
-            } else if (rapidTimer != 1) {
-                returnVal = countTimer;
-                $.jStorage.set("rapidTimer", returnVal);
-            } else {
-                $.jStorage.set("rapidTimer", null);
-                returnVal = 0;
-            }
-            return returnVal;
-        },
-        getTotalTime: function () {
-            return countTimer;
-        },
-        getQuestion: function (questionNo) {
-            return questions[questionNo - 1];
-        },
-        lastAnswer: function () {
-            return questions.length;
-        },
-        saveAnswer: function (answer) {
-            var answered;
-            if ($.jStorage.get("Answered")) {
-                answered = $.jStorage.get("Answered");
-            } else {
-                answered = questions;
-            }
-            console.log(answer);
-            var index = _.findIndex(answered, function (question) {
-                return (question.id == answer.id);
-            });
-            console.log(index);
-            answered[index] = answer;
-            console.log(answered);
-            $.jStorage.set("Answered", answered);
-        },
-        getScore: function () {
-            var score;
-            var arr = [];
-            if ($.jStorage.get("Answered")) {
-                answered = $.jStorage.get("Answered");
-                arr = _.map(answered, function (n) {
-                    return n.options;
+            changeTimerRapid: function () {
+                var rapidTimer = $.jStorage.get("rapidTimer");
+                var returnVal;
+                if (rapidTimer && rapidTimer != 1) {
+                    returnVal = rapidTimer - 1;
+                    $.jStorage.set("rapidTimer", returnVal);
+                } else if (rapidTimer != 1) {
+                    returnVal = countTimer;
+                    $.jStorage.set("rapidTimer", returnVal);
+                } else {
+                    $.jStorage.set("rapidTimer", null);
+                    returnVal = 0;
+                }
+                return returnVal;
+            },
+            getTotalTime: function () {
+                return countTimer;
+            },
+            getQuestion: function (questionNo) {
+                return questions[questionNo - 1];
+            },
+            lastAnswer: function () {
+                return questions.length;
+            },
+            saveAnswer: function (answer) {
+                var answered;
+                if ($.jStorage.get("Answered")) {
+                    answered = $.jStorage.get("Answered");
+                } else {
+                    answered = questions;
+                }
+                console.log(answer);
+                var index = _.findIndex(answered, function (question) {
+                    return (question.id == answer.id);
                 });
-                arr = _.flattenDeep(arr);
-                var correctAnswer = _.filter(arr, function (n) {
-                    return (n.selected && n.answer);
-                });
-                score = correctAnswer.length;
-            } else {
-                score = 0;
+                console.log(index);
+                answered[index] = answer;
+                console.log(answered);
+                $.jStorage.set("Answered", answered);
+            },
+            getScore: function () {
+                var score;
+                var arr = [];
+                if ($.jStorage.get("Answered")) {
+                    answered = $.jStorage.get("Answered");
+                    arr = _.map(answered, function (n) {
+                        return n.options;
+                    });
+                    arr = _.flattenDeep(arr);
+                    var correctAnswer = _.filter(arr, function (n) {
+                        return (n.selected && n.answer);
+                    });
+                    score = correctAnswer.length;
+                } else {
+                    score = 0;
+                }
+                $.jStorage.flush();
+                return score;
             }
-            $.jStorage.flush();
-            return score;
-        }
 
-    };
-});
+        };
+    });
