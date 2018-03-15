@@ -122,7 +122,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "‘What subject does Ananya Swaminathan top the class in, before pursuing her MBA in ‘2 States’?",
+            question: "What subject does Ananya Swaminathan top the class in, before pursuing her MBA in ‘2 States’?",
             model: "quest7",
             options: [{
                 "id": "radio1",
