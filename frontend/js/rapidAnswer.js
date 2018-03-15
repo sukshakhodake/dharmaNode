@@ -26,7 +26,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "How many Dharma Production movies has Alia been a part of?",
+            question: "What did Alia Bhatt’s character do for a living in ‘Dear Zindagi’?",
             model: "quest2",
             options: [{
                 "id": "radio1",
