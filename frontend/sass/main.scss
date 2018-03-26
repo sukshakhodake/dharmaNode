@@ -4,10 +4,11 @@
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../../bower_components/flexslider/flexslider";
 @import "../../bower_components/font-awesome/css/font-awesome.min";
-@import "../../bower_components/fancyBox/source/jquery.fancybox";
+// @import "../../bower_components/fancyBox/source/jquery.fancybox";
+@import "../../bower_components/fancybox/dist/jquery.fancybox";
 @import "../../bower_components/swiper/dist/css/swiper.min";
 @import "../../bower_components/angular-ui-select/dist/select";
-@import "../../bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs";
+// @import "../../bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs";
 
 /* Bootstrap Variables Goes Here */
 
@@ -3344,7 +3345,29 @@ button.navbar-toggle.collapsed {
 .visible-ipad-pro {
     display: none;
 }
+// //scss for .fancybox-inner
 
+  .fancybox-thumbs > ul > li > img{
+      opacity: 1 !important;
+  }
+ .fancybox-thumbs {
+    top: auto;
+    width: auto;
+    bottom: 0;
+    left: 0;
+    right : 0;
+    height: 95px;
+    padding: 10px 10px 5px 10px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.3);
+  }
+    .fancybox-show-thumbs .fancybox-inner {
+    right: 0;
+    bottom: 95px;
+  }
+
+
+  
 @import "fancybox-override";
 @import "main2";
 @import "timeline";
