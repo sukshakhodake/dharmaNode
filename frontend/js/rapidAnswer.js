@@ -7,193 +7,193 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         var questions = [{
             id: 1,
             quesNo: "Q1",
-            question: "Alia Bhatt sang the unplugged version of which of the following songs?",
+            question: "How is Varun Dhawan related to the film, My Name Is Khan?",
             model: "quest1",
             options: [{
                 "id": "radio1",
-                "name": "Tamma Tamma"
+                "name": "He had visited the set once"
             }, {
                 "id": "radio2",
-                "name": "Roke Na Roke Naina"
+                "name": "He was the assistant director",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Kar Gayi Chull"
+                "name": "He has watched the film 42 times"
             }, {
                 "id": "radio4",
-                "name": "Samjhawan",
-                answer: true
+                "name": "He's not related to the film"
             }]
         }, {
             id: 2,
             quesNo: "Q2",
-            question: "What did Alia Bhatt’s character do for a living in ‘Dear Zindagi’?",
+            question: "In the quiz round during Student Of The Year, which place does Rohan aka Varun Dhawan get?",
             model: "quest2",
             options: [{
                 "id": "radio1",
-                "name": "Chef"
+                "name": "6th"
             }, {
                 "id": "radio2",
-                "name": "Fashion Stylist"
+                "name": "16th"
             }, {
                 "id": "radio3",
-                "name": "Cinematographer",
+                "name": "12th",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Photographer"
+                "name": "3rd"
             }]
         }, {
             id: 3,
             quesNo: "Q3",
-            question: "How many Dharma Production movies has Alia been a part of?",
+            question: "What is Varun Dhawan’s full name in Humpty Sharma Ki Dulhania?",
             model: "quest3",
             options: [{
                 "id": "radio1",
-                "name": "7",
-                answer: true
+                "name": "Rahul Sharma"
             }, {
                 "id": "radio2",
-                "name": "5"
+                "name": "Rakesh Sharma",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "11"
+                "name": "Dev Sharma"
             }, {
                 "id": "radio4",
-                "name": "9"
+                "name": "Yash Sharma"
             }]
         }, {
             id: 4,
             quesNo: "Q4",
-            question: "She has more than one  ___ as a pet.",
+            question: "What did Humpty promise to get Kavya in the movie Humpty Sharma Ki Dulhania? ",
             model: "quest4",
 
             options: [{
                 "id": "radio1",
-                "name": "Dog"
+                "name": "Car"
             }, {
                 "id": "radio2",
-                "name": "Fish"
+                "name": "Earrings"
             }, {
                 "id": "radio3",
-                "name": "Cat",
+                "name": "Designer lehenga",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Rabbit"
+                "name": "The perfect groom"
             }]
         }, {
             id: 5,
             quesNo: "Q5",
-            question: "In Humpty Sharma ki Dulhania, Kavya wishes to purchase a wedding dress similar to which actress’s outfit?",
+            question: "For Badrinath Ki Dulhania, Varun Dhawan got a similar hair style as _____",
             model: "quest5",
             options: [{
                 "id": "radio1",
-                "name": "Deepika Padukone"
+                "name": "Shahrukh Khan"
             }, {
                 "id": "radio2",
-                "name": "Sridevi"
+                "name": "M.S. Dhoni"
             }, {
                 "id": "radio3",
-                "name": "Madhuri Dixit"
+                "name": "Virat Kohli",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "Kareena Kapoor",
-                answer: true
+                "name": "Salman Khan"
             }]
         }, {
             id: 6,
             quesNo: "Q6",
-            question: "In which 90s movie did Alia make her debut as a child artist?",
+            question: "In order to marry Kayva, what is the one condition that Humpty has to fulfill, in Humpty Sharma Ki Dulhania?",
             model: "quest6",
             options: [{
                 "id": "radio1",
-                "name": "Masoom"
+                "name": "He has to get a job"
             }, {
                 "id": "radio2",
-                "name": "Hathi Mere Sathi"
+                "name": "He has to find a fault in the man Kayva is suppose to marry",
+                answer: true
             }, {
                 "id": "radio3",
-                "name": "Kuch Kuch Hota Hai"
+                "name": "He has to impress her father"
             }, {
                 "id": "radio4",
-                "name": "Sangharsh",
-                answer: true
+                "name": "He has to move to Ambala."
             }]
         }, {
             id: 7,
             quesNo: "Q7",
-            question: "What subject does Ananya Swaminathan top the class in, before pursuing her MBA in ‘2 States’?",
+            question: "In Student Of The Year, which sports-team captain was Varun Dhawan competing for?",
             model: "quest7",
             options: [{
                 "id": "radio1",
-                "name": "History"
+                "name": "Cricket"
             }, {
                 "id": "radio2",
-                "name": "Economics",
-                answer: true
+                "name": "Tennis"
             }, {
                 "id": "radio3",
-                "name": "Literature"
+                "name": "Rugby"
             }, {
                 "id": "radio4",
-                "name": "Psychology"
+                "name": "Football",
+                answer: true
             }]
         }, {
             id: 8,
             quesNo: "Q8",
-            question: "What nickname is Alia’s character referred to by her family and friends in ‘Dear Zindagi’?",
+            question: "'Tumhari mansik isthithi aaj thodi gadbad lag rahi hai, hum kal phir aayenge'Which movie is this dialogue from?",
             model: "quest8",
             options: [{
                 "id": "radio1",
-                "name": "Cola"
+                "name": "Humpty Sharma Ki Dulhania"
             }, {
                 "id": "radio2",
-                "name": "Kaira"
-            }, {
-                "id": "radio3",
-                "name": "Coco",
+                "name": "Badrinath Ki Dulhania",
                 answer: true
             }, {
+                "id": "radio3",
+                "name": "Student Of The Year"
+            }, {
                 "id": "radio4",
-                "name": "Chiku"
+                "name": "None of the above"
             }]
         }, {
             id: 9,
             quesNo: "Q9",
-            question: "At what age did Alia star in Student of The Year?",
+            question: "In Badrinath Ki Dulhania, which formula does Badri remember & recite to Vaidehi?",
             model: "quest9",
             options: [{
                 "id": "radio1",
-                "name": "17"
+                "name": "Compound interest"
             }, {
                 "id": "radio2",
-                "name": "18",
-                answer: true
+                "name": "Force"
             }, {
                 "id": "radio3",
-                "name": "19"
+                "name": "Simple interest",
+                answer: true
             }, {
                 "id": "radio4",
-                "name": "20"
+                "name": "None of the above "
             }]
         }, {
             id: 10,
             quesNo: "Q10",
-            question: "Which movie will mark Alia's 8th venture with Dharma Productions?",
+            question: "Which upcoming Dharma movie of 2019 is Varun Dhawan a part of?",
             model: "quest10",
             options: [{
                 "id": "radio1",
-                "name": "Brahmastra"
+                "name": "Kesari"
             }, {
                 "id": "radio2",
-                "name": "Dhadak"
+                "name": "Student Of The Year 2"
             }, {
                 "id": "radio3",
-                "name": "Raazi",
+                "name": "Kalank",
                 answer: true
             }, {
                 "id": "radio4",
-                "name": "Drive"
+                "name": "Rannbhoomi"
             }]
         }];
         var answered;
