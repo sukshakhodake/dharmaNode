@@ -415,6 +415,7 @@ firstapp.directive('fancybox', function ($compile, $parse) {
                 $(".various").fancybox({
                     maxWidth: 800,
                     maxHeight: 600,
+                    loop: true,
                     fitToView: false,
                     width: '70%',
                     height: '70%',
@@ -422,9 +423,14 @@ firstapp.directive('fancybox', function ($compile, $parse) {
                     closeClick: false,
                     openEffect: 'none',
                     closeEffect: 'none',
-                    padding: 0
-
+                    padding: 0,
+                    buttons: [
+                        'fullScreen',
+                        'thumbs',
+                        'close'
+                    ]
                 });
+
             }, 100);
 
         }
@@ -466,13 +472,19 @@ firstapp.directive('fancyboxThumb', function () {
             $('.fancybox-thumb').fancybox({
                 prevEffect: 'none',
                 nextEffect: 'none',
+                loop:'true',
+                arrows: 'true',
+                buttons: [
+                    'fullScreen',
+                    'thumbs',
+                    'close'
+                ],
+                thumbs: {
+                    axis: 'x'
+                },
                 helpers: {
                     title: {
                         type: 'outside'
-                    },
-                    thumbs: {
-                        width: 70,
-                        height: 70
                     }
                 }
             });
