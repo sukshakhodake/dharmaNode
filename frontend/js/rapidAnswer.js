@@ -141,7 +141,7 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         }, {
             id: 8,
             quesNo: "Q8",
-            question: "'Tumhari mansik isthithi aaj thodi gadbad lag rahi hai, hum kal phir aayenge'Which movie is this dialogue from?",
+            question: "'Tumhari mansik isthithi aaj thodi gadbad lag rahi hai, hum kal phir aayenge' Which movie is this dialogue from?",
             model: "quest8",
             options: [{
                 "id": "radio1",
